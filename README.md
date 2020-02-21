@@ -19,16 +19,16 @@ A meteo station
 
 ## Basic equipment
 
-- NodeMCU LUA ESP8266 CP2102 ESP-12E : <br /><img width="100" src="https://github.com/turbo-xav/arduino-pwa-led/blob/master/photos/nodemcu.jpg?raw=true" /><br /> https://www.amazon.fr/gp/product/B0791FJB62/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
-- BME 280 sensor : <br /><img width="100" src="https://github.com/turbo-xav/arduino-pwa-led/blob/master/photos/bme-280.jpg?raw=true" /><br />
+- NodeMCU LUA ESP8266 CP2102 ESP-12E : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/nodemcu.jpg?raw=true" /><br /> https://www.amazon.fr/gp/product/B0791FJB62/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
+- BME 280 sensor : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/bme-280.jpg?raw=true" /><br />
 https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5ee1dcd12&pf_rd_r=83K1SKTQNBKG849J7HNW
 
-- Led RGB : <br /><img width="100" src="https://github.com/turbo-xav/arduino-pwa-led/blob/master/photos/led-grb.jpg?raw=true" /><br /> https://www.amazon.fr/gp/product/B07911J8M6/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
+- Led RGB : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/led-grb.jpg?raw=true" /><br /> https://www.amazon.fr/gp/product/B07911J8M6/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
 
 ## Assembly
 - BME 280 with nodemcu :
 <br />
-<img width="100" src="https://github.com/turbo-xav/arduino-pwa-led/blob/master/photos/assembly-nodemcu-bme280.png?raw=true" /><br />
+<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/assembly-nodemcu-bme280.png?raw=true" /><br />
 
 # PWA application : ArduinoPwaLed
 
@@ -38,13 +38,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Arduino Src
 
-Ino code : https://github.com/turbo-xav/arduino-pwa-led/blob/master/arduino-src/node-mcu-meteo.ino
+Ino code : https://github.com/turbo-xav/meteo-station-domotique/blob/master/arduino-src/node-mcu-meteo.ino
 
 # Run application
 
 ## Clone repo
 
-- `git clone https://github.com/turbo-xav/arduino-pwa-led.git`
+- `git clone https://github.com/turbo-xav/meteo-station-domotique.git`
 
 ## Installation
 
