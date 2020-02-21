@@ -7,7 +7,7 @@ import { PlayLedComponent } from './play-led/play-led.component';
 import { ListDevicesComponent } from './list-devices/list-devices.component';
 import { DetailDeviceComponent } from './detail-device/detail-device.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptor } from 'src/app/core/inerceptors/tokenInterceptor';
+import { TokenInterceptor } from 'src/app/core/interceptors/tokenInterceptor';
 import { ForecastModule } from './meteo-station/forecast/forecast.module';
 import { StationModule } from './meteo-station/station/station.module';
 
