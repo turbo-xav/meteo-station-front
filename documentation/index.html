@@ -1,0 +1,167 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>meteo-station-domotique documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	      <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">meteo-station-domotique documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="arduino-pwa-led--meteo-station">Arduino Pwa Led &amp; Meteo Station</h1>
+<h2 id="purpose">Purpose</h2>
+<p>This Arduino project is performed to create an IOT application in order to control from anywhere outside the house :</p>
+<p>A simple RGB LED</p>
+<p>A meteo station</p>
+<ul>
+<li>Temperature</li>
+<li>Pressure</li>
+<li>Humidity</li>
+<li>Forecast</li>
+<li>Ephemeride</li>
+</ul>
+<h2 id="try-it-online">Try it online</h2>
+<ul>
+<li>Go <a href="https://meteo-station.projets-web.fr">Here</a></li>
+</ul>
+<h2 id="basic-equipment">Basic equipment</h2>
+<ul>
+<li><p>NodeMCU LUA ESP8266 CP2102 ESP-12E : <br /><img width="100" src="https://github.com/turbo-xav/arduino-pwa-led/blob/master/photos/nodemcu.jpg?raw=true" /><br /> <a href="https://www.amazon.fr/gp/product/B0791FJB62/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&amp;psc=1">https://www.amazon.fr/gp/product/B0791FJB62/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&amp;psc=1</a></p>
+</li>
+<li><p>BME 280 sensor : <br /><img width="100" src="https://github.com/turbo-xav/arduino-pwa-led/blob/master/photos/bme-280.jpg?raw=true" /><br />
+<a href="https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5ee1dcd12&amp;pf_rd_r=83K1SKTQNBKG849J7HNW">https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5ee1dcd12&amp;pf_rd_r=83K1SKTQNBKG849J7HNW</a></p>
+</li>
+<li><p>Led RGB : <br /><img width="100" src="https://github.com/turbo-xav/arduino-pwa-led/blob/master/photos/led-grb.jpg?raw=true" /><br /> <a href="https://www.amazon.fr/gp/product/B07911J8M6/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&amp;psc=1">https://www.amazon.fr/gp/product/B07911J8M6/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&amp;psc=1</a></p>
+</li>
+</ul>
+<h2 id="assembly">Assembly</h2>
+<ul>
+<li>BME 280 with nodemcu :<br />
+<img width="100" src="https://github.com/turbo-xav/arduino-pwa-led/blob/master/photos/assembly-nodemcu-bme280.png?raw=true" /><br />
+
+</li>
+</ul>
+<h1 id="pwa-application--arduinopwaled">PWA application : ArduinoPwaLed</h1>
+<h2 id="angular-src">Angular Src</h2>
+<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 8.3.20.</p>
+<h2 id="arduino-src">Arduino Src</h2>
+<p>Ino code : <a href="https://github.com/turbo-xav/arduino-pwa-led/blob/master/arduino-src/node-mcu-meteo.ino">https://github.com/turbo-xav/arduino-pwa-led/blob/master/arduino-src/node-mcu-meteo.ino</a></p>
+<h1 id="run-application">Run application</h1>
+<h2 id="clone-repo">Clone repo</h2>
+<ul>
+<li><code>git clone https://github.com/turbo-xav/arduino-pwa-led.git</code></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<ul>
+<li>Install nodejs ans npm : <a href="https://nodejs.org/en/">https://nodejs.org/en/</a></li>
+<li>Install libraries : <code>npm i</code></li>
+</ul>
+<h2 id="development-server">Development server</h2>
+<ul>
+<li><code>npm start</code> : for a dev server. Navigate to <code>http://localhost:8080/</code>. The app will automatically reload if you change any of the source files.</li>
+</ul>
+<h2 id="build">Build</h2>
+<ul>
+<li><code>npm run build</code> to build the project. The build artifacts will be stored in the <code>docs/</code> directory.</li>
+</ul>
+<h2 id="test-the-build">Test the build</h2>
+<ul>
+<li><code>npm run build-test</code> to build the project. The build artifacts will be stored in the <code>docs/meteo-station</code> directory.</li>
+</ul>
+<h2 id="generate-dopcumentation--serve-it">Generate Dopcumentation &amp; serve it</h2>
+<ul>
+<li><code>npm run documentation</code> to build the documentation into <code>documentation</code> directory</li>
+</ul>
+<h2 id="further-help">Further help</h2>
+<p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://github.com/angular/angular-cli/blob/master/README.md">Angular CLI README</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
