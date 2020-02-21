@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+.my-card{
+    width:80%;
+}
+
+#toast-container {
+    opacity:0.9;
+}
+
+#toast-container > div {
+    border-radius:50px;
+}
+
+table.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 350px;
+  }
+  table.table tr th,
+  table.table tr td {
+    border-right: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    padding: 5px;
+  }
+  table.table tr th:first-child,
+  table.table tr td:first-child {
+    border-left: 1px solid #bbb;
+  }
+  table.table tr th {
+    background: #eee;
+    border-top: 1px solid #bbb;
+    text-align: left;
+  }
+  
+  /* top-left border-radius */
+  table.table tr:first-child th:first-child {
+    border-top-left-radius: 6px;
+  }
+  
+  /* top-right border-radius */
+  table.table tr:first-child th:last-child {
+    border-top-right-radius: 6px;
+  }
+  
+  /* bottom-left border-radius */
+  table.table tr:last-child td:first-child {
+    border-bottom-left-radius: 6px;
+  }
+  
+  /* bottom-right border-radius */
+  table.table tr:last-child td:last-child {
+    border-bottom-right-radius: 6px;
+  }
