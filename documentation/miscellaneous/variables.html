@@ -61,25 +61,25 @@
                             <a href="#context" title="src/test.ts"><b>context</b>&nbsp;&nbsp;&nbsp;(src/.../test.ts)</a>
                         </li>
                         <li>
-                            <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
+                            <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
                         </li>
                         <li>
-                            <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                            <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
                         </li>
                         <li>
                             <a href="#reqHeader" title="src/app/core/services/device.service.ts"><b>reqHeader</b>&nbsp;&nbsp;&nbsp;(src/.../device.service.ts)</a>
                         </li>
                         <li>
-                            <a href="#reqHeader" title="src/app/core/services/meteo.service.ts"><b>reqHeader</b>&nbsp;&nbsp;&nbsp;(src/.../meteo.service.ts)</a>
-                        </li>
-                        <li>
                             <a href="#reqHeader" title="src/app/core/services/led.service.ts"><b>reqHeader</b>&nbsp;&nbsp;&nbsp;(src/.../led.service.ts)</a>
                         </li>
                         <li>
-                            <a href="#reqHeaderWithJson" title="src/app/core/services/auth.service.ts"><b>reqHeaderWithJson</b>&nbsp;&nbsp;&nbsp;(src/.../auth.service.ts)</a>
+                            <a href="#reqHeader" title="src/app/core/services/meteo.service.ts"><b>reqHeader</b>&nbsp;&nbsp;&nbsp;(src/.../meteo.service.ts)</a>
                         </li>
                         <li>
                             <a href="#reqHeaderWithJson" title="src/app/core/services/device.service.ts"><b>reqHeaderWithJson</b>&nbsp;&nbsp;&nbsp;(src/.../device.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reqHeaderWithJson" title="src/app/core/services/auth.service.ts"><b>reqHeaderWithJson</b>&nbsp;&nbsp;&nbsp;(src/.../auth.service.ts)</a>
                         </li>
                         <li>
                             <a href="#reqHeaderWithJson" title="src/app/core/services/led.service.ts"><b>reqHeaderWithJson</b>&nbsp;&nbsp;&nbsp;(src/.../led.service.ts)</a>
@@ -88,16 +88,16 @@
                             <a href="#require" title="src/test.ts"><b>require</b>&nbsp;&nbsp;&nbsp;(src/.../test.ts)</a>
                         </li>
                         <li>
-                            <a href="#rootUrl" title="src/app/core/services/auth.service.ts"><b>rootUrl</b>&nbsp;&nbsp;&nbsp;(src/.../auth.service.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#rootUrl" title="src/app/core/services/led.service.ts"><b>rootUrl</b>&nbsp;&nbsp;&nbsp;(src/.../led.service.ts)</a>
+                            <a href="#rootUrl" title="src/app/core/services/meteo.service.ts"><b>rootUrl</b>&nbsp;&nbsp;&nbsp;(src/.../meteo.service.ts)</a>
                         </li>
                         <li>
                             <a href="#rootUrl" title="src/app/core/services/device.service.ts"><b>rootUrl</b>&nbsp;&nbsp;&nbsp;(src/.../device.service.ts)</a>
                         </li>
                         <li>
-                            <a href="#rootUrl" title="src/app/core/services/meteo.service.ts"><b>rootUrl</b>&nbsp;&nbsp;&nbsp;(src/.../meteo.service.ts)</a>
+                            <a href="#rootUrl" title="src/app/core/services/auth.service.ts"><b>rootUrl</b>&nbsp;&nbsp;&nbsp;(src/.../auth.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#rootUrl" title="src/app/core/services/led.service.ts"><b>rootUrl</b>&nbsp;&nbsp;&nbsp;(src/.../led.service.ts)</a>
                         </li>
                         <li>
                             <a href="#rootUrlForecast" title="src/app/core/services/meteo.service.ts"><b>rootUrlForecast</b>&nbsp;&nbsp;&nbsp;(src/.../meteo.service.ts)</a>
@@ -155,7 +155,7 @@
             </tbody>
         </table>
 </section>
-    <h3>src/environments/environment.prod.ts</h3>
+    <h3>src/environments/environment.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
@@ -203,7 +203,7 @@
             </tbody>
         </table>
 </section>
-    <h3>src/environments/environment.ts</h3>
+    <h3>src/environments/environment.prod.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
@@ -226,7 +226,7 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  production: false,
+  production: true,
   apis: {
     thingerio: {
       url: &#x27;https://api.thinger.io&#x27;,
@@ -319,72 +319,6 @@
             </tbody>
         </table>
 </section>
-    <h3>src/app/core/services/meteo.service.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="reqHeader"></a>
-                        <span class="name">
-                            <b>
-                            reqHeader</b>
-                            <a href="#reqHeader"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new HttpHeaders({})</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="rootUrl"></a>
-                        <span class="name">
-                            <b>
-                            rootUrl</b>
-                            <a href="#rootUrl"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>environment.apis.thingerio.url + &#x27;/v2/users/turboxav/devices/&#x27; + environment.devices.meteo</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="rootUrlForecast"></a>
-                        <span class="name">
-                            <b>
-                            rootUrlForecast</b>
-                            <a href="#rootUrlForecast"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>environment.apis.forecast.url</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
     <h3>src/app/core/services/led.service.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -446,6 +380,72 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>environment.apis.thingerio.url + &#x27;/v2/users/turboxav/devices/&#x27; + environment.devices.meteo</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/core/services/meteo.service.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="reqHeader"></a>
+                        <span class="name">
+                            <b>
+                            reqHeader</b>
+                            <a href="#reqHeader"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new HttpHeaders({})</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rootUrl"></a>
+                        <span class="name">
+                            <b>
+                            rootUrl</b>
+                            <a href="#rootUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>environment.apis.thingerio.url + &#x27;/v2/users/turboxav/devices/&#x27; + environment.devices.meteo</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rootUrlForecast"></a>
+                        <span class="name">
+                            <b>
+                            rootUrlForecast</b>
+                            <a href="#rootUrlForecast"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>environment.apis.forecast.url</code>
                         </td>
                     </tr>
 

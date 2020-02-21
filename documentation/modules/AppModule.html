@@ -239,7 +239,7 @@ import { SharedModule } from &#x27;./shared/shared.module&#x27;;
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ServiceWorkerModule.register(&#x27;ngsw-worker.js&#x27;, { enabled: environment.production }),
+    ServiceWorkerModule.register(&#x27;ngsw-worker.js&#x27;, { enabled: environment.production, registrationStrategy: &#x27;registerImmediately&#x27; }),
     SharedModule,
     CoreModule
   ],
