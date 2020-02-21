@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="display-5">IOT Application</h1>
+          <h5 class="card-title">{{'various.welcome' | translate}}</h5>
+          <img class="card-img-top" src="/assets/iot.jpg" alt="Card image cap">
+          <p class="card-text">{{'various.welcome-intro'| translate}}</p>
+          <p>
+            <a [routerLink]="['/play-led']" *ngIf="isAuthenticated">
+              {{'various.play-with-led'| translate}}
+              <img src="/assets/icons/icon-led.png" />
+            </a>
+          </p>
+          <p>
+            <a [routerLink]="['/meteo-station']" *ngIf="isAuthenticated">
+              {{'various.check-meteo'| translate}}
+              <img src="/assets/icons/icon-meteo.png" />
+            </a>
+          </p>
+          <p *ngIf="!isAuthenticated">
+            <a [routerLink]="['/login']" class="btn btn-primary">{{'auth.sign-in' | translate}}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>

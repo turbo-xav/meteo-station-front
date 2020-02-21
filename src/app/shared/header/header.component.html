@@ -1,1 +1,46 @@
-<p>header works!</p>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-toggler">
+      <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation"  data-toggle="collapse" data-target="#playing" aria-controls="playing"
+      aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="playing"  data-toggle="collapse" data-target="#playing" aria-controls="playing"
+      aria-expanded="false" aria-label="Toggle navigation">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a  class="nav-link home" [routerLink]="['/home']">
+              <fa-icon [icon]="['fas', 'home']"></fa-icon>&nbsp;{{'navigation.home' | translate}}
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" [routerLink]="['/devices']" routerLinkActive="active"><img
+                src="assets/icons/icon-devices.png">&nbsp;{{'navigation.devices' | translate}}</a>
+          </li>
+          <li>
+            <a class="nav-link" [routerLink]="['/play-led']" routerLinkActive="active"><img
+                src="assets/icons/icon-led.png">&nbsp;{{'navigation.play-led' | translate}}</a>
+          </li>
+          <li>
+            <a class="nav-link" [routerLink]="['/meteo-station']" routerLinkActive="active"><img
+                src="assets/icons/icon-meteo.png">&nbsp;{{'navigation.meteo-station' | translate}}</a>
+          </li>
+        </ul>
+      </div>
+     
+      <div class="btn-group" dropdown>
+        <button id="button-basic" dropdownToggle type="button" class="btn btn-light dropdown-toggle"
+          aria-controls="dropdown-basic">
+          {{'language.choose' | translate}}<span class="caret"></span>
+        </button>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+          <li role="menuitem"><span class="dropdown-item"
+              (click)="useLanguage('en')">{{'language.en' | translate}}</span></li>
+          <li role="menuitem"><span class="dropdown-item" 
+              (click)="useLanguage('fr')">{{'language.fr' | translate}}</span></li>
+        </ul>
+      </div>
+
+      <button class="btn " (click)="logout()" *ngIf="isAuthenticated()"><img width="25" src="/assets/icons/icon-logout.jpg" alrt="log out"/></button>
+      <a *ngIf="!isAuthenticated()" [routerLink]="['/login']" class="btn btn-primary">{{'auth.sign-in' | translate}}</a>
+    </nav>
+  </header>

@@ -1,1 +1,9 @@
-<p>footer works!</p>
+<div class="card text-center">
+    <div class="card-header">
+      <button class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">{{'various.legal-mentions' | translate}}</button>
+    </div>
+    <div class="card-body" id="collapseBasic" [collapse]="isCollapsed">
+      <h5 class="card-title">Arduino Pwa</h5>
+      <p class="card-text"><strong>Version : {{version}}</strong> &copy; 2020</p>      
+    </div>    
+  </div>

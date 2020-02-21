@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5" *ngIf="isAuthenticated && !loginStep">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{'auth.already-authenticated' | translate}}</h5>
+          <hr />
+          <img src="/assets/authenticated.png" width="200" />
+          <hr />
+          <div class="alert alert-warning" role="alert">
+            {{'auth.redirected-message' | translate}} 
+            <br />
+            {{counter}} secondes
+          </div>
+        </div>
+      </div>
+      <div class="card card-signin my-5" *ngIf="!isAuthenticated">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{'auth.sign-in' | translate}}</h5>
+          <form class="form-signin" [formGroup]="registrationForm">
+            <div class="form-label-group">
+              <input type="text" class="form-control" formControlName="username" id="username" />
+              <div
+                *ngIf="registrationForm.dirty && registrationForm.get('username').invalid && registrationForm.get('username').errors.required">
+                <p class="alert alert-danger">{{'auth.login-required' | translate}}</p>
+              </div>
+              <label for="username">Login</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+                formControlName="password" />
+              <div
+                *ngIf="registrationForm.dirty && registrationForm.get('password').invalid && registrationForm.get('password').errors.required">
+                <p class="alert alert-danger">{{'auth.password-required' | translate}}</p>
+              </div>
+              <label for="inputPassword">Password</label>
+            </div>
+
+            <div class="custom-control custom-checkbox mb-3">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Remember password</label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
+              (click)="login()">{{'auth.sign-in' | translate}}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
