@@ -1,6 +1,6 @@
-<h1 class="display-5"><img src="/assets/weather.png" width="30" /> {{'meteo-station.title' | translate}} </h1>
+<h1 class="display-5"><img src="/assets/weather.png" width="30" /><span class="btn btn-outline-info">  {{'meteo-station.title' | translate}}</span> </h1>
 
-<h2>{{'meteo-station.meteo-in' | translate}} : {{city}}</h2>
+<h2><span class="btn btn-outline-info">{{'meteo-station.meteo-in' | translate}} : {{city}}</span></h2>
 
 <div *ngIf="!meteoAvailable" class="alert alert-warning" role="alert">
   {{'meteo-station.not-ready' | translate}}

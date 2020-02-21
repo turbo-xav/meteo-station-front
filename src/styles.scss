@@ -51,3 +51,14 @@ table.table {
   table.table tr:last-child td:last-child {
     border-bottom-right-radius: 6px;
   }
+
+  span.btn{
+    display:inline-block;
+    margin-left:15px;
+    font-size:18px;
+    opacity:0.8;
+  }
+
+  h2 span.btn{
+    font-size:12px;
+  }
