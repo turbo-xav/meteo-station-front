@@ -53,7 +53,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     FormsModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ReactiveFormsModule
     ]
 })
 export class SharedModule {

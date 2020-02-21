@@ -28,7 +28,7 @@ export class AuthService {
  }
 
   isAuthenticated(): boolean {
-    const rawToken: string = localStorage.getItem('currentUser')
+    const rawToken: string = localStorage.getItem('currentUser');
     const decodedToken = this.helper.decodeToken(rawToken);
 
     if(!decodedToken){ return false; }

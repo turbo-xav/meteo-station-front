@@ -9,7 +9,7 @@ export class FooterComponent implements OnInit {
 
   version: string = version;
 
-  isCollapsed: boolean = true;
+  isCollapsed = true;
 
   constructor() { }
 

@@ -67,7 +67,40 @@
                             <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
                         </li>
                         <li>
+                            <a href="#reqHeader" title="src/app/core/services/meteo.service.ts"><b>reqHeader</b>&nbsp;&nbsp;&nbsp;(src/.../meteo.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reqHeader" title="src/app/core/services/led.service.ts"><b>reqHeader</b>&nbsp;&nbsp;&nbsp;(src/.../led.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reqHeader" title="src/app/core/services/device.service.ts"><b>reqHeader</b>&nbsp;&nbsp;&nbsp;(src/.../device.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reqHeaderWithJson" title="src/app/core/services/led.service.ts"><b>reqHeaderWithJson</b>&nbsp;&nbsp;&nbsp;(src/.../led.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reqHeaderWithJson" title="src/app/core/services/auth.service.ts"><b>reqHeaderWithJson</b>&nbsp;&nbsp;&nbsp;(src/.../auth.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reqHeaderWithJson" title="src/app/core/services/device.service.ts"><b>reqHeaderWithJson</b>&nbsp;&nbsp;&nbsp;(src/.../device.service.ts)</a>
+                        </li>
+                        <li>
                             <a href="#require" title="src/test.ts"><b>require</b>&nbsp;&nbsp;&nbsp;(src/.../test.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#rootUrl" title="src/app/core/services/led.service.ts"><b>rootUrl</b>&nbsp;&nbsp;&nbsp;(src/.../led.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#rootUrl" title="src/app/core/services/device.service.ts"><b>rootUrl</b>&nbsp;&nbsp;&nbsp;(src/.../device.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#rootUrl" title="src/app/core/services/auth.service.ts"><b>rootUrl</b>&nbsp;&nbsp;&nbsp;(src/.../auth.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#rootUrl" title="src/app/core/services/meteo.service.ts"><b>rootUrl</b>&nbsp;&nbsp;&nbsp;(src/.../meteo.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#rootUrlForecast" title="src/app/core/services/meteo.service.ts"><b>rootUrlForecast</b>&nbsp;&nbsp;&nbsp;(src/.../meteo.service.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -145,7 +178,23 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  production: true
+  production: false,
+  apis: {
+    thingerio: {
+      url: &#x27;https://api.thinger.io&#x27;,
+    },
+    forecast: {
+      url: &#x27;https://api.meteo-concept.com/api&#x27;,     
+      token: &#x27;25e8258d583eb394ea0135543b4b285374abbd0cb1d1ca96eda34ffcf8a5c747&#x27;
+    }
+  },
+  devices: {
+    meteo: &#x27;meteostation&#x27;
+  },
+  meteo: {
+    insee: &#x27;94081&#x27;,
+    city: &#x27;Vitry / Seine&#x27;
+  }
 }</code>
                         </td>
                     </tr>
@@ -177,8 +226,273 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  production: false
+  production: false,
+  apis: {
+    thingerio: {
+      url: &#x27;https://api.thinger.io&#x27;,
+    },
+    forecast: {
+      url: &#x27;https://api.meteo-concept.com/api&#x27;,     
+      token: &#x27;25e8258d583eb394ea0135543b4b285374abbd0cb1d1ca96eda34ffcf8a5c747&#x27;
+    }
+  },
+  devices: {
+    meteo: &#x27;meteostation&#x27;
+  },
+  meteo: {
+    insee: &#x27;94081&#x27;,
+    city: &#x27;Vitry / Seine&#x27;
+  }
 }</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/core/services/meteo.service.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="reqHeader"></a>
+                        <span class="name">
+                            <b>
+                            reqHeader</b>
+                            <a href="#reqHeader"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new HttpHeaders({})</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rootUrl"></a>
+                        <span class="name">
+                            <b>
+                            rootUrl</b>
+                            <a href="#rootUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>environment.apis.thingerio.url + &#x27;/v2/users/turboxav/devices/&#x27; + environment.devices.meteo</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rootUrlForecast"></a>
+                        <span class="name">
+                            <b>
+                            rootUrlForecast</b>
+                            <a href="#rootUrlForecast"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>environment.apis.forecast.url</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/core/services/led.service.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="reqHeader"></a>
+                        <span class="name">
+                            <b>
+                            reqHeader</b>
+                            <a href="#reqHeader"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new HttpHeaders({})</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="reqHeaderWithJson"></a>
+                        <span class="name">
+                            <b>
+                            reqHeaderWithJson</b>
+                            <a href="#reqHeaderWithJson"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new HttpHeaders({
+  &#x27;content-type&#x27;: &#x27;application/json&#x27;
+})</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rootUrl"></a>
+                        <span class="name">
+                            <b>
+                            rootUrl</b>
+                            <a href="#rootUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>environment.apis.thingerio.url + &#x27;/v2/users/turboxav/devices/&#x27; + environment.devices.meteo</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/core/services/device.service.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="reqHeader"></a>
+                        <span class="name">
+                            <b>
+                            reqHeader</b>
+                            <a href="#reqHeader"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new HttpHeaders({})</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="reqHeaderWithJson"></a>
+                        <span class="name">
+                            <b>
+                            reqHeaderWithJson</b>
+                            <a href="#reqHeaderWithJson"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new HttpHeaders({
+  &#x27;content-type&#x27;: &#x27;application/json&#x27;
+})</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rootUrl"></a>
+                        <span class="name">
+                            <b>
+                            rootUrl</b>
+                            <a href="#rootUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>environment.apis.thingerio.url + &#x27;/v1/users/turboxav&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/core/services/auth.service.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="reqHeaderWithJson"></a>
+                        <span class="name">
+                            <b>
+                            reqHeaderWithJson</b>
+                            <a href="#reqHeaderWithJson"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new HttpHeaders({
+  &#x27;Content-Type&#x27;: &#x27;application/x-www-form-urlencoded&#x27;
+})</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rootUrl"></a>
+                        <span class="name">
+                            <b>
+                            rootUrl</b>
+                            <a href="#rootUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>environment.apis.thingerio.url</code>
                         </td>
                     </tr>
 

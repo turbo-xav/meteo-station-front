@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
-import { ContentRef } from 'ngx-bootstrap';
+
 import { interval, Subscription } from 'rxjs';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 
 
-  constructor(private readonly fb: FormBuilder,
+  constructor(
+    private readonly fb: FormBuilder,
     private readonly authService: AuthService,
     private readonly router: Router,
     private readonly translateService: TranslateService,
@@ -74,10 +75,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   login() {
     this.loginStep = true;
     this.authService.login(this.username, this.password).subscribe(
-      () => {        
+      () => {
         const urlRedirect = this.authService.lastUrl ? this.authService.lastUrl : 'home';
         setTimeout(() => {
-        this.router.navigate([urlRedirect]);
+          this.router.navigate([urlRedirect]);
         }, 500);
       },
       (err: HttpErrorResponse) => {

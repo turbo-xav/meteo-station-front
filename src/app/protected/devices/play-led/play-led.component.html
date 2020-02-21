@@ -1,0 +1,27 @@
+<h1 class="display-5"><img src="/assets/red-led-switched-on.png" width="30" /> {{'led.magic-led' | translate}}</h1>
+
+<h2>{{'led.play-funny-led' | translate}}</h2>
+
+<hr />
+
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="card border-success mb-3 my-card">
+            <div class="card-header bg-transparent border-success text-success">{{'led.magic-led' | translate}}</div>
+            <div class="card-body">
+
+                <div>
+                    <div id="led-playing">
+                        <div class="alert alert-warning" role="alert" *ngIf="unAvailableLed">
+                            {{'led.led-not-available' | translate}}
+                        </div>
+                        <h5 class="card-title">{{'led.click-to-play-funny-led' | translate}}</h5>
+                        <p class="card-text"> 
+                            <img *ngIf="ledState" class="img-led" (click)="toggleLed()"  src="assets/red-led-switched-{{ledState | lowercase}}.png" alt="LED {{ledState}}" />
+                        </p>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-success">{{'led.led-is' | translate}} : {{('led.'+ledState | lowercase) | translate}}</div>
+            </div>       
+        </div>
+    </div>   

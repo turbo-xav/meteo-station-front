@@ -1,0 +1,15 @@
+<div class="card" *ngIf="deviceStats != null">
+    <div class="card-header">
+      <p *ngIf="deviceStats.connected">{{'device.detail.title' | translate}}</p>
+      <p *ngIf="!deviceStats.connected">{{'device.detail.no-detail' | translate}}</p>
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="deviceStats.connected">
+        <li class="list-group-item">{{'device.detail.connected' | translate}} : 
+            <img src="{{deviceStats.connected ? '/assets/icons/icon-valid.png' : '/assets/icons/icon-invalid.png'}}" width="25" height="25" />
+        </li>
+        <li class="list-group-item">{{'device.detail.connected_ts' | translate}}: {{deviceStats.connected_ts | date: 'dd/MM/yyyy HH:mm:ss'}}</li>
+        <li class="list-group-item">{{'device.detail.ip_address' | translate}} : {{deviceStats.ip_address}}</li>
+        <li class="list-group-item">{{'device.detail.rx_bytes' | translate}} : {{deviceStats.rx_bytes}}</li>
+        <li class="list-group-item">{{'device.detail.tx_bytes' | translate}} : {{deviceStats.tx_bytes}}</li>
+    </ul>
+</div>      

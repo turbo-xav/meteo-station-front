@@ -5,8 +5,10 @@
     "ng": "ng",
     "start": "ng serve --open --aot --port=8080",
     "build": "ng build --prod --baseHref=./ --outputPath=docs/meteo-station",
-    "build-test": "npm run build & http-server -p 8081 -c-1 -o docs/meteo-station",
-    "documentation": "compodoc -p tsconfig.json -o -d ./documentation -s --port 8082",
+    "build-test": "npm run build & http-server -p 8081 -c-1 -o docs/meteo-station",   
+    "build-doc": "compodoc -p tsconfig.json -d ./documentation -s --port 8082",
+    "load-doc":"npm run build-doc -o",
+    "build-all": "npm run build & npm run build-doc",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

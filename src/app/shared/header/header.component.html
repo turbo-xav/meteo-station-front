@@ -43,4 +43,4 @@
       <button class="btn " (click)="logout()" *ngIf="isAuthenticated()"><img width="25" src="/assets/icons/icon-logout.jpg" alrt="log out"/></button>
       <a *ngIf="!isAuthenticated()" [routerLink]="['/login']" class="btn btn-primary">{{'auth.sign-in' | translate}}</a>
     </nav>
-  </header>
+</header>

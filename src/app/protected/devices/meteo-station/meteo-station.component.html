@@ -1,0 +1,39 @@
+<h1 class="display-5"><img src="/assets/weather.png" width="30" /> {{'meteo-station.title' | translate}} </h1>
+
+<h2>{{'meteo-station.meteo-in' | translate}} : {{city}}</h2>
+
+<div *ngIf="!meteoAvailable" class="alert alert-warning" role="alert">
+  {{'meteo-station.not-ready' | translate}}
+</div>
+
+<div class="row" *ngIf="meteoAvailable">
+  <div class="col-6">
+    <div class="card" *ngIf="forecastAvailable">
+      <div class="card-body alert alert-info">
+        <h6 class="card-subtitle mb-2 text-muted">{{'meteo-station.forecast.forecast' | translate}} : {{forecast.datetime | date:'HH:mm'}}</h6>        
+        <img src="/assets/icons/meteo/short-cut/temperature.png" width="40" />
+        {{forecast.temp2m}}&nbsp;°C
+        <hr />
+        <img class="icon-style" src="/assets/icons/meteo/short-cut/{{forecast.icon}}.png" width="40" />
+        {{'meteo-station.forecast.weather.'+forecast.weather | translate }}
+        <hr />
+        <img class="icon-style" src="/assets/icons/meteo/short-cut/sunrise.png" width="40" /> : {{ephemeride.sunrise}}
+        <hr />
+        <img class="icon-style" src="/assets/icons/meteo/short-cut/sunset.png" width="40"  /> : {{ephemeride.sunset}}
+      </div>
+    </div>
+    <div class="alert alert-warning" *ngIf="!forecastAvailable">{{'meteo-station.forecast.problem' | translate}}</div>
+  </div>
+  <div class="col-6" >
+    <div class="card">
+      <div class="card-body alert alert-info">
+        <h6 class="card-subtitle mb-2 text-muted">{{'meteo-station.forecast.mesure'| translate}}</h6>
+        <img class="icon-style" class="icon-style" src="/assets/thermometre.png" width="40" /> : {{temperature}}&nbsp;°C
+        <hr />
+        <img class="icon-style" src="/assets/pressure.png" width="40" /> : {{pressure}}&nbsp;hPa
+        <hr />
+        <img class="icon-style" src="/assets/humidity.png" width="40" /> : {{humidity}}&nbsp;%
+      </div>
+    </div>
+  </div>
+</div>
