@@ -187,8 +187,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/core/services/meteo.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/core/services/meteo.service.ts:36</a></div>
                 </td>
             </tr>
 
@@ -228,8 +228,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/core/services/meteo.service.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/core/services/meteo.service.ts:41</a></div>
                 </td>
             </tr>
 
@@ -269,8 +269,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/core/services/meteo.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/core/services/meteo.service.ts:49</a></div>
                 </td>
             </tr>
 
@@ -359,7 +359,17 @@ export class MeteoService {
 
   public refreshMeteo(): Observable&lt;Meteo&gt; {
     const url &#x3D; rootUrl + &#x27;/meteo&#x27;;
-    return this.http.get&lt;Meteo&gt;(url, { headers: reqHeader });
+    return this.http.get&lt;Meteo&gt;(url, { headers: reqHeader }).pipe(
+      map( (res: any) &#x3D;&gt; {
+        return res.out;
+      }),
+      map((meteo: Meteo) &#x3D;&gt; {
+        meteo.temperature &#x3D; meteo.temperature ? Number(meteo.temperature.toFixed(2)) : null;
+        meteo.pressure &#x3D; meteo.pressure ? Number(meteo.pressure.toFixed(2)) : null;
+        meteo.humidity &#x3D; meteo.humidity ? Number(meteo.humidity.toFixed(2)) : null;
+        return meteo;
+      })
+    );
   }
 
   public checkMeteo(): Observable&lt;any&gt; {

@@ -257,7 +257,10 @@ export class AppComponent {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
 &lt;router-outlet&gt;&lt;/router-outlet&gt;
-&lt;app-footer&gt;&lt;/app-footer&gt;</code></pre>
+&lt;app-footer&gt;&lt;/app-footer&gt;
+&lt;ngx-spinner&gt;
+    &lt;p style&#x3D;&quot;font-size: 20px; color: white;&quot;&gt;{{&#x27;various.loading&#x27; | translate}}&lt;/p&gt;
+&lt;/ngx-spinner&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -292,8 +295,8 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-header></app-header><router-outlet></router-outlet><app-footer></app-footer></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
+        var COMPONENT_TEMPLATE = '<div><app-header></app-header><router-outlet></router-outlet><app-footer></app-footer><ngx-spinner>    <p style="font-size: 20px; color: white;">{{\'various.loading\' | translate}}</p></ngx-spinner></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastDetailComponent', 'selector': 'app-forecast-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'StationDetailComponent', 'selector': 'app-station-detail'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>

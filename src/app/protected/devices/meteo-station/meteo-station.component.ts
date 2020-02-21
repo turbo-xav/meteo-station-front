@@ -65,7 +65,6 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
       );
   }
 
-
   public get meteoAvailable(): boolean {
     if (!(this.meteoEnable && this.meteo && this.meteo.temperature && this.meteo.pressure && this.meteo.humidity)) {
       return false;
@@ -77,22 +76,10 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
     return environment.meteo.city;
   }
 
-  public get temperature() {
-    return this.meteo && this.meteo.temperature ? this.meteo.temperature.toFixed(2) : null;
-  }
-
-  public get pressure() {
-    return this.meteo && this.meteo.pressure ? this.meteo.pressure.toFixed(1) : null;
-  }
-
-  public get humidity() {
-    return this.meteo && this.meteo.humidity ? this.meteo.humidity.toFixed(1) : null;
-  }
-
   refresh() {
     this.meteoService.refreshMeteo().subscribe(
       (meteo: any) => {
-        this.meteo = meteo.out;
+        this.meteo = meteo;
         this.meteoEnable = true;
       },
       () => {

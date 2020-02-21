@@ -54,7 +54,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HeaderComponent,
     FooterComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule
     ]
 })
 export class SharedModule {

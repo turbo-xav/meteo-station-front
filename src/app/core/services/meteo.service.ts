@@ -20,7 +20,17 @@ export class MeteoService {
 
   public refreshMeteo(): Observable<Meteo> {
     const url = rootUrl + '/meteo';
-    return this.http.get<Meteo>(url, { headers: reqHeader });
+    return this.http.get<Meteo>(url, { headers: reqHeader }).pipe(
+      map( (res: any) => {
+        return res.out;
+      }),
+      map((meteo: Meteo) => {
+        meteo.temperature = meteo.temperature ? Number(meteo.temperature.toFixed(2)) : null;
+        meteo.pressure = meteo.pressure ? Number(meteo.pressure.toFixed(2)) : null;
+        meteo.humidity = meteo.humidity ? Number(meteo.humidity.toFixed(2)) : null;
+        return meteo;
+      })
+    );
   }
 
   public checkMeteo(): Observable<any> {

@@ -194,15 +194,6 @@
                                 <li>
                                     <a href="#city">city</a>
                                 </li>
-                                <li>
-                                    <a href="#temperature">temperature</a>
-                                </li>
-                                <li>
-                                    <a href="#pressure">pressure</a>
-                                </li>
-                                <li>
-                                    <a href="#humidity">humidity</a>
-                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -302,8 +293,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:90</a></div>
                 </td>
             </tr>
 
@@ -380,8 +371,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:92</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:79</a></div>
                 </td>
             </tr>
 
@@ -588,7 +579,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:69</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:68</a></div>
                                 </td>
                             </tr>
 
@@ -610,73 +601,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:76</a></div>
-                                </td>
-                            </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="temperature"></a>
-                        <span class="name"><b>temperature</b><a href="#temperature"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>temperature()</code></span>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:80</a></div>
-                                </td>
-                            </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="pressure"></a>
-                        <span class="name"><b>pressure</b><a href="#pressure"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>pressure()</code></span>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:84</a></div>
-                                </td>
-                            </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="humidity"></a>
-                        <span class="name"><b>humidity</b><a href="#humidity"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>humidity()</code></span>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:88</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:75</a></div>
                                 </td>
                             </tr>
 
@@ -754,7 +679,6 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
       );
   }
 
-
   public get meteoAvailable(): boolean {
     if (!(this.meteoEnable &amp;&amp; this.meteo &amp;&amp; this.meteo.temperature &amp;&amp; this.meteo.pressure &amp;&amp; this.meteo.humidity)) {
       return false;
@@ -766,22 +690,10 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
     return environment.meteo.city;
   }
 
-  public get temperature() {
-    return this.meteo &amp;&amp; this.meteo.temperature ? this.meteo.temperature.toFixed(2) : null;
-  }
-
-  public get pressure() {
-    return this.meteo &amp;&amp; this.meteo.pressure ? this.meteo.pressure.toFixed(1) : null;
-  }
-
-  public get humidity() {
-    return this.meteo &amp;&amp; this.meteo.humidity ? this.meteo.humidity.toFixed(1) : null;
-  }
-
   refresh() {
     this.meteoService.refreshMeteo().subscribe(
       (meteo: any) &#x3D;&gt; {
-        this.meteo &#x3D; meteo.out;
+        this.meteo &#x3D; meteo;
         this.meteoEnable &#x3D; true;
       },
       () &#x3D;&gt; {
@@ -808,33 +720,12 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
 
 &lt;div class&#x3D;&quot;row&quot; *ngIf&#x3D;&quot;meteoAvailable&quot;&gt;
   &lt;div class&#x3D;&quot;col-6&quot;&gt;
-    &lt;div class&#x3D;&quot;card&quot; *ngIf&#x3D;&quot;forecastAvailable&quot;&gt;
-      &lt;div class&#x3D;&quot;card-body alert alert-info&quot;&gt;
-        &lt;h6 class&#x3D;&quot;card-subtitle mb-2 text-muted&quot;&gt;{{&#x27;meteo-station.forecast.forecast&#x27; | translate}} : {{forecast.datetime | date:&#x27;HH:mm&#x27;}}&lt;/h6&gt;        
-        &lt;img src&#x3D;&quot;/assets/icons/meteo/short-cut/temperature.png&quot; width&#x3D;&quot;40&quot; /&gt;
-        {{forecast.temp2m}}&amp;nbsp;°C
-        &lt;hr /&gt;
-        &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/icons/meteo/short-cut/{{forecast.icon}}.png&quot; width&#x3D;&quot;40&quot; /&gt;
-        {{&#x27;meteo-station.forecast.weather.&#x27;+forecast.weather | translate }}
-        &lt;hr /&gt;
-        &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/icons/meteo/short-cut/sunrise.png&quot; width&#x3D;&quot;40&quot; /&gt; : {{ephemeride.sunrise}}
-        &lt;hr /&gt;
-        &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/icons/meteo/short-cut/sunset.png&quot; width&#x3D;&quot;40&quot;  /&gt; : {{ephemeride.sunset}}
-      &lt;/div&gt;
-    &lt;/div&gt;
+    &lt;app-forecast-detail *ngIf&#x3D;&quot;forecastAvailable&quot; [ephemeride]&#x3D;&quot;ephemeride&quot; [forecast]&#x3D;&quot;forecast&quot;&gt;&lt;/app-forecast-detail&gt;
     &lt;div class&#x3D;&quot;alert alert-warning&quot; *ngIf&#x3D;&quot;!forecastAvailable&quot;&gt;{{&#x27;meteo-station.forecast.problem&#x27; | translate}}&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class&#x3D;&quot;col-6&quot; &gt;
-    &lt;div class&#x3D;&quot;card&quot;&gt;
-      &lt;div class&#x3D;&quot;card-body alert alert-info&quot;&gt;
-        &lt;h6 class&#x3D;&quot;card-subtitle mb-2 text-muted&quot;&gt;{{&#x27;meteo-station.forecast.mesure&#x27;| translate}}&lt;/h6&gt;
-        &lt;img class&#x3D;&quot;icon-style&quot; class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/thermometre.png&quot; width&#x3D;&quot;40&quot; /&gt; : {{temperature}}&amp;nbsp;°C
-        &lt;hr /&gt;
-        &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/pressure.png&quot; width&#x3D;&quot;40&quot; /&gt; : {{pressure}}&amp;nbsp;hPa
-        &lt;hr /&gt;
-        &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/humidity.png&quot; width&#x3D;&quot;40&quot; /&gt; : {{humidity}}&amp;nbsp;%
-      &lt;/div&gt;
-    &lt;/div&gt;
+    &lt;app-station-detail [meteo]&#x3D;meteo&gt;&lt;/app-station-detail&gt;
+    
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </div>
@@ -843,22 +734,7 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
                 <p class="comment">
                     <code>./meteo-station.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.card{
-    margin:2px;
-}
-
-.alert{
-    margin:0px;
-}
-
-.card img  {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-}
-
-.col-6{
-    border-radius: 15px;
-}</code></pre>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -886,8 +762,8 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h1 class="display-5"><img src="/assets/weather.png" width="30" /> {{\'meteo-station.title\' | translate}} </h1><h2>{{\'meteo-station.meteo-in\' | translate}} : {{city}}</h2><div *ngIf="!meteoAvailable" class="alert alert-warning" role="alert">  {{\'meteo-station.not-ready\' | translate}}</div><div class="row" *ngIf="meteoAvailable">  <div class="col-6">    <div class="card" *ngIf="forecastAvailable">      <div class="card-body alert alert-info">        <h6 class="card-subtitle mb-2 text-muted">{{\'meteo-station.forecast.forecast\' | translate}} : {{forecast.datetime | date:\'HH:mm\'}}</h6>                <img src="/assets/icons/meteo/short-cut/temperature.png" width="40" />        {{forecast.temp2m}}&nbsp;°C        <hr />        <img class="icon-style" src="/assets/icons/meteo/short-cut/{{forecast.icon}}.png" width="40" />        {{\'meteo-station.forecast.weather.\'+forecast.weather | translate }}        <hr />        <img class="icon-style" src="/assets/icons/meteo/short-cut/sunrise.png" width="40" /> : {{ephemeride.sunrise}}        <hr />        <img class="icon-style" src="/assets/icons/meteo/short-cut/sunset.png" width="40"  /> : {{ephemeride.sunset}}      </div>    </div>    <div class="alert alert-warning" *ngIf="!forecastAvailable">{{\'meteo-station.forecast.problem\' | translate}}</div>  </div>  <div class="col-6" >    <div class="card">      <div class="card-body alert alert-info">        <h6 class="card-subtitle mb-2 text-muted">{{\'meteo-station.forecast.mesure\'| translate}}</h6>        <img class="icon-style" class="icon-style" src="/assets/thermometre.png" width="40" /> : {{temperature}}&nbsp;°C        <hr />        <img class="icon-style" src="/assets/pressure.png" width="40" /> : {{pressure}}&nbsp;hPa        <hr />        <img class="icon-style" src="/assets/humidity.png" width="40" /> : {{humidity}}&nbsp;%      </div>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
+        var COMPONENT_TEMPLATE = '<div><h1 class="display-5"><img src="/assets/weather.png" width="30" /> {{\'meteo-station.title\' | translate}} </h1><h2>{{\'meteo-station.meteo-in\' | translate}} : {{city}}</h2><div *ngIf="!meteoAvailable" class="alert alert-warning" role="alert">  {{\'meteo-station.not-ready\' | translate}}</div><div class="row" *ngIf="meteoAvailable">  <div class="col-6">    <app-forecast-detail *ngIf="forecastAvailable" [ephemeride]="ephemeride" [forecast]="forecast"></app-forecast-detail>    <div class="alert alert-warning" *ngIf="!forecastAvailable">{{\'meteo-station.forecast.problem\' | translate}}</div>  </div>  <div class="col-6" >    <app-station-detail [meteo]=meteo></app-station-detail>      </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastDetailComponent', 'selector': 'app-forecast-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'StationDetailComponent', 'selector': 'app-station-detail'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MeteoStationComponent'};
 </script>

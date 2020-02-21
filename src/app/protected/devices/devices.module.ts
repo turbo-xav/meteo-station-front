@@ -8,6 +8,8 @@ import { ListDevicesComponent } from './list-devices/list-devices.component';
 import { DetailDeviceComponent } from './detail-device/detail-device.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from 'src/app/core/inerceptors/tokenInterceptor';
+import { ForecastModule } from './meteo-station/forecast/forecast.module';
+import { StationModule } from './meteo-station/station/station.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { TokenInterceptor } from 'src/app/core/inerceptors/tokenInterceptor';
   ],
   imports: [
     DeviceRoutingModule,
-    SharedModule
+    SharedModule,
+    ForecastModule,
+    StationModule
   ],
   providers:[
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }

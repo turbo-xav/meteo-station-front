@@ -346,7 +346,9 @@ export class HomeComponent implements OnInit {
                 <p class="comment">
                     <code>./home.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">.card{
+    width:80%;   
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -375,7 +377,7 @@ export class HomeComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="container">    <div class="row justify-content-center align-items-center">      <div class="card">        <div class="card-body">          <h1 class="display-5">IOT Application</h1>          <h5 class="card-title">{{\'various.welcome\' | translate}}</h5>          <img class="card-img-top" src="/assets/iot.jpg" alt="Card image cap">          <p class="card-text">{{\'various.welcome-intro\'| translate}}</p>          <p>            <a [routerLink]="[\'/play-led\']" *ngIf="isAuthenticated">              {{\'various.play-with-led\'| translate}}              <img src="/assets/icons/icon-led.png" />            </a>          </p>          <p>            <a [routerLink]="[\'/meteo-station\']" *ngIf="isAuthenticated">              {{\'various.check-meteo\'| translate}}              <img src="/assets/icons/icon-meteo.png" />            </a>          </p>          <p *ngIf="!isAuthenticated">            <a [routerLink]="[\'/login\']" class="btn btn-primary">{{\'auth.sign-in\' | translate}}</a>          </p>        </div>      </div>    </div>  </div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastDetailComponent', 'selector': 'app-forecast-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'StationDetailComponent', 'selector': 'app-station-detail'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
 </script>

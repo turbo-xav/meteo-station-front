@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-body alert alert-info">
+      <h6 class="card-subtitle mb-2 text-muted">{{'meteo-station.forecast.forecast' | translate}} : {{forecast.datetime | date:'HH:mm'}}</h6>        
+      <img src="/assets/icons/meteo/short-cut/temperature.png" width="40" />
+      {{forecast.temp2m}}&nbsp;°C
+      <hr />
+      <img class="icon-style" src="/assets/icons/meteo/short-cut/{{forecast.icon}}.png" width="40" />
+      {{'meteo-station.forecast.weather.'+forecast.weather | translate }}
+      <hr />
+      <img class="icon-style" src="/assets/icons/meteo/short-cut/sunrise.png" width="40" /> : {{ephemeride.sunrise}}
+      <hr />
+      <img class="icon-style" src="/assets/icons/meteo/short-cut/sunset.png" width="40"  /> : {{ephemeride.sunset}}
+    </div>
+</div>
+  

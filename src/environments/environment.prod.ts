@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   apis: {
     thingerio: {
       url: 'https://api.thinger.io',
