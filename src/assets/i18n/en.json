@@ -1,6 +1,6 @@
 {
     "various": {
-        "loading":"Loading .....",
+        "loading": "Loading .....",
         "welcome": "Welcome",
         "welcom-intro": "Hello this is an application of IOT to control Arduino Objects.",
         "play-with-led": "Begin by playing with a led",
@@ -21,10 +21,10 @@
         "description": "Description",
         "my-devices": "My Devices",
         "list-devices": "List of connected devices",
-        "devices-not-available":"List of devices not available",
-        "device-not-available":"Device not available",
-        "more":"Detail",
-        "reset":"Reset",
+        "devices-not-available": "List of devices not available",
+        "device-not-available": "Device not available",
+        "more": "Detail",
+        "reset": "Reset",
         "detail": {
             "no-detail": "No detail available",
             "title": "Detail",
@@ -44,6 +44,13 @@
         "on": "on",
         "led-not-available": "Magic LED is not available"
     },
+    "screen": {
+        "screen": "Screen",
+        "screen-is": "Screen",
+        "off": "off",
+        "on": "on",
+        "screen-not-available": "Screen is not available"
+    },
     "meteo-station": {
         "title": "Meteo station",
         "meteo-in": "Weather in",
@@ -52,10 +59,10 @@
         "pressure": "Pressure",
         "humidity": "Humidity",
         "forecast": {
-            "problem":"There is a problem with forecast service",
-            "forecast":"Forecasts",
-            "mesure":"Mesures",
-            "the-weather-is":"The weather is" ,
+            "problem": "There is a problem with forecast service",
+            "forecast": "Forecasts",
+            "mesure": "Mesures",
+            "the-weather-is": "The weather is",
             "weather": {
                 "0": "Soleil",
                 "1": "Peu nuageux",

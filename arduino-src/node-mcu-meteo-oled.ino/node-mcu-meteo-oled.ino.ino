@@ -8,10 +8,11 @@
 #include <Adafruit_SSD1306.h>
 
 //LED Pins
-#define LED 14    // D5
-#define ROUGE 12  // D6 
-#define VERT 13   // D7
-#define BLEU 15   // D8
+#define SCREEN 2  // D4 : LED PIN
+#define LED 14    // D5 : LED PIN
+#define ROUGE 12  // D6 : RED PIN
+#define VERT 13   // D7 : GREEN PIN
+#define BLEU 15   // D8 : BLUE PIN
 
 // Constantes for Screen OLED
 static const unsigned char PROGMEM logo_bmp[] =
@@ -63,12 +64,14 @@ ThingerESP8266  meteoStation("turboxav", "meteostation", "turboxav");
 
 void setup() {  
   Serial.begin(SERIAL_BAUD);
+  pinMode(SCREEN, OUTPUT);
   pinMode(LED, OUTPUT);
   pinMode(ROUGE, OUTPUT);
   pinMode(VERT, OUTPUT);
   pinMode(BLEU, OUTPUT);
   initMeteoStation();
   digitalWrite(LED,HIGH);
+  digitalWrite(SCREEN, HIGH);
   bme.begin(0x76);
   initScreen();
   delay(500);  
@@ -93,6 +96,10 @@ void initMeteoStation() {
   meteoStation.add_wifi(WIFI_SSID, WIFI_PWD);
   // Record an INPUT value for Led Pin Value to command IT
   meteoStation["led"] << digitalPin(LED);
+  meteoStation["screen"] << digitalPin(SCREEN);
+   meteoStation["screen-state"] >> [](pson& out) { 
+    out["state"] =  digitalRead(SCREEN) ? "ON":"OFF";
+  };
   // Reccord an OUTPUT for Led State to read it
   meteoStation["led-state"] >> [](pson& out) { 
     out["state"] =  digitalRead(LED) ? "ON":"OFF";
@@ -172,7 +179,7 @@ void mesure(){
 
 void displayMesures() {
 
-  if(digitalRead(LED) == LOW){
+  if(digitalRead(SCREEN) == LOW){
     screen.ssd1306_command(SSD1306_DISPLAYOFF); 
     ledRgb(0, 0, 0);
     return;

@@ -15,13 +15,13 @@
                         <div class="alert alert-warning" role="alert" *ngIf="unAvailableLed">
                             {{'led.led-not-available' | translate}}
                         </div>
-                        <h5 class="card-title">{{'led.click-to-play-funny-led' | translate}}</h5>
-                        <p class="card-text"> 
+                        <h5 *ngIf="!unAvailableLed" class="card-title">{{'led.click-to-play-funny-led' | translate}}</h5>
+                        <p class="card-text" *ngIf="!unAvailableLed"> 
                             <img *ngIf="ledState" class="img-led" (click)="toggleLed()"  src="assets/red-led-switched-{{ledState | lowercase}}.png" alt="LED {{ledState}}" />
                         </p>
                     </div>
                 </div>
-                <div class="card-footer bg-transparent border-success">{{'led.led-is' | translate}} : {{('led.'+ledState | lowercase) | translate}}</div>
+                <div *ngIf="!unAvailableLed" class="card-footer bg-transparent border-success">{{'led.led-is' | translate}} : {{('led.'+ledState | lowercase) | translate}}</div>
             </div>       
         </div>
     </div>   

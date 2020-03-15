@@ -33,4 +33,7 @@ export class DeviceService {
     const url = environment.apis.thingerio.url  + '/v2/users/turboxav/devices/' + deviceId + '/reseting';
     return this.http.post(url, { in: true}, { headers: reqHeaderWithJson });
   }
+
+ 
+
 }

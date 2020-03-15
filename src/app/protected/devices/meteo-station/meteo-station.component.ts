@@ -1,13 +1,17 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, interval, combineLatest } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, timeout } from 'rxjs/operators';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Meteo } from 'src/app/core/interfaces/meteo';
 import { Ephemeride } from 'src/app/core/interfaces/ephemeride';
 import { Forecast } from 'src/app/core/interfaces/forecast';
 import { MeteoService } from 'src/app/core/services/meteo.service';
 import { environment } from '../../../../environments/environment';
+import { ScreenService } from 'src/app/core/services/screen.service';
+import { ScreenState } from 'src/app/core/interfaces/screen-state';
+import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -20,10 +24,13 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
 
   private meteoSubscription$: Subscription;
 
-  private meteoEnable = false;
+  public meteoEnable = false;
 
   public forecastAvailable = false;
 
+  public screenState: ScreenState;
+
+  private screenSubscription$: Subscription;
 
   meteo: Meteo;
 
@@ -31,12 +38,20 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
   forecast: Forecast;
 
   constructor(
-    private readonly meteoService: MeteoService ,
-    private readonly spinner: NgxSpinnerService) { }
+    private readonly meteoService: MeteoService,
+    private readonly screenService: ScreenService,
+    private readonly spinner: NgxSpinnerService,
+    private readonly toasterService: ToastrService,
+    private readonly translateService: TranslateService) { }
 
 
   ngOnInit() {
     this.spinner.show();
+
+    this.checkScreen(true);
+    this.screenSubscription$ = interval(2500).subscribe(
+      (val) => { this.checkScreen(false); }
+    );
     this.meteoSubscription$ = interval(1000).subscribe(
       (val) => {
         this.refresh();
@@ -57,12 +72,16 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
           this.forecastAvailable = true;
           this.forecast = forecast;
           this.spinner.hide();
-          },
-          (err: HttpErrorResponse) => {
-            this.forecastAvailable = false;
-            this.spinner.hide();
-          }
+        },
+        (err: HttpErrorResponse) => {
+          this.forecastAvailable = false;
+          this.spinner.hide();
+        }
       );
+  }
+
+  public get screenisOn(): boolean {
+    return this.screenState === ScreenState.ON;
   }
 
   public get meteoAvailable(): boolean {
@@ -76,6 +95,43 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
     return environment.meteo.city;
   }
 
+  public switchScreen() {
+    const screenState: ScreenState = this.screenState === ScreenState.ON ? ScreenState.OFF : ScreenState.ON;
+    this.spinner.show();
+    this.screenService.switchScreen(screenState).subscribe(
+      (res: any) => {
+        this.spinner.hide();
+        console.log('ok', res);
+      },
+      (err: HttpErrorResponse) => {
+        this.spinner.hide();
+        console.log('ko', err);
+      }
+    );
+  }
+
+  checkScreen(withSpinner = false) {
+
+    if(withSpinner) {
+      this.spinner.show();
+    }
+
+    this.screenService.getScreenState().pipe(
+      timeout(3000),
+      switchMap((screenState: ScreenState) => {
+        this.screenState = screenState;
+        return this.screenService.checkScreen();
+      })).subscribe(
+        () => {
+          this.spinner.hide();
+        },
+        (err: HttpErrorResponse) => {
+          this.displayNotAvailableLed();
+          this.spinner.hide();
+        }
+      );
+  }
+
   refresh() {
     this.meteoService.refreshMeteo().subscribe(
       (meteo: any) => {
@@ -87,8 +143,16 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy() {
-    if (this.meteoSubscription$) { this.meteoSubscription$.unsubscribe(); }
+  displayNotAvailableLed() {
+    this.translateService.get('screen.screen-not-available').subscribe(
+      (translation: string) => {
+        this.toasterService.error(translation);
+      }
+    );
   }
 
+  ngOnDestroy() {
+    if (this.meteoSubscription$) { this.meteoSubscription$.unsubscribe(); }
+    if (this.screenSubscription$) { this.screenSubscription$.unsubscribe(); }
+  }
 }

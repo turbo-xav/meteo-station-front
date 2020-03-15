@@ -30,6 +30,10 @@ export class ListDevicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
+    this.loadAllDevices();
+  }
+
+  loadAllDevices(): void {
     this.deviceService.listDevices().subscribe(
       (devices: any) => {
         this.devices = devices;
@@ -46,9 +50,11 @@ export class ListDevicesComponent implements OnInit {
   }
 
   selectDevice(device: Device) {
+    if ( this.deviceSubscription$ ) { this.deviceSubscription$.unsubscribe(); }
     this.spinner.show();
     this.selectedDevice = device;
-    this.deviceSubscription$ = interval(500).subscribe(
+    this.getDeviceDetail(this.selectedDevice.device);
+    this.deviceSubscription$ = interval(5000).subscribe(
       () => {
         this.getDeviceDetail(this.selectedDevice.device);
       }
@@ -70,9 +76,14 @@ export class ListDevicesComponent implements OnInit {
   }
 
   getDeviceDetail(device) {
+    this.loadAllDevices();
     this.deviceService.getDeviceDetail(device).subscribe(
       (deviceStats: DeviceStats) => {
         this.selectedDeviceStats = deviceStats;
+        if ( deviceStats.connected === false ) {
+          this.deviceSubscription$.unsubscribe();
+          this.displayError();
+        }
         setTimeout(() => {
           this.spinner.hide();
         }, 250);

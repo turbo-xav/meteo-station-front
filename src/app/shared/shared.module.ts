@@ -15,7 +15,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-
+import { UiSwitchModule } from 'ngx-toggle-switch';
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -46,7 +46,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     CollapseModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    UiSwitchModule
   ],
   exports: [
     TranslateModule,
@@ -55,7 +56,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeaderComponent,
     FooterComponent,
     ReactiveFormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    UiSwitchModule
     ]
 })
 export class SharedModule {

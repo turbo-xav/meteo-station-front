@@ -1,6 +1,6 @@
 {
     "various": {
-        "loading":"Chargement .....",
+        "loading": "Chargement .....",
         "welcome": "Bienvenue",
         "welcome-intro": "Bonjour ceci est mon application IOT pour contrôler des objets arduino",
         "play-with-led": "Commencez en jouant avec la led",
@@ -21,10 +21,10 @@
         "description": "Description",
         "my-devices": "Mes appareils",
         "list-devices": "Liste d'appareils disponibles",
-        "devices-not-available":"Liste d'appareils indisponible",
-        "device-not-available":"Appareil indisponible",
-        "reset":"Réinitialisation",
-        "more":"Détail",
+        "devices-not-available": "Liste d'appareils indisponible",
+        "device-not-available": "Appareil indisponible",
+        "reset": "Réinitialisation",
+        "more": "Détail",
         "detail": {
             "no-detail": "Pas de détail disponible",
             "title": "Détail",
@@ -44,6 +44,13 @@
         "on": "allumée",
         "led-not-available": "La LED magique n'est pas disponible"
     },
+    "screen": {
+        "Screen": "Ecran",
+        "screen-is": "L'écran est",
+        "off": "éteint",
+        "on": "allumé",
+        "screen-not-available": "L'écran n'est pas disponible"
+    },
     "meteo-station": {
         "title": "Station météo",
         "meteo-in": "Météo à",
@@ -52,9 +59,9 @@
         "pressure": "Pression",
         "humidity": "Humidité",
         "forecast": {
-            "problem":"Il y a un problème avec le service de prévision météo",
-            "forecast":"Prévisions",
-            "mesure":"Mesures",
+            "problem": "Il y a un problème avec le service de prévision météo",
+            "forecast": "Prévisions",
+            "mesure": "Mesures",
             "the-weather-is": "Le temps est",
             "weather": {
                 "0": "Soleil",
