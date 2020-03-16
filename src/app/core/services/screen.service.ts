@@ -21,21 +21,21 @@ export class ScreenService {
   constructor(private readonly http: HttpClient) { }
 
   public switchScreen(screenState: ScreenState): Observable<any> {
-    console.log('Screen state : ',screenState);
-    const url = rootUrl + '/led';
-    return this.http.post(url, { in: screenState === ScreenState.ON}, { headers: reqHeaderWithJson });
+    console.log('Screen state : ', screenState);
+    const url = rootUrl + '/screen';
+    return this.http.post(url, { in: screenState === ScreenState.ON }, { headers: reqHeaderWithJson });
   }
 
   public checkScreen(): Observable<any> {
-    const url =  rootUrl + '/led-state';
+    const url = rootUrl + '/screen-state';
     return this.http.get<any>(url, { headers: reqHeader });
   }
 
   public getScreenState(): Observable<any> {
-    const url = rootUrl +  '/led-state';
-    return this.http.get<any>(url, { headers: reqHeader }).pipe(
+
+    return this.checkScreen().pipe(
       map((res: any) => {
         return res.out.state ? res.out.state : ScreenState.OFF;
-    }));
+      }));
   }
 }

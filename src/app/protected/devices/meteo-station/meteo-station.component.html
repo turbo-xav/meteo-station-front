@@ -7,7 +7,8 @@
   {{'meteo-station.not-ready' | translate}}
 </div>
 
-<ui-switch (change)="switchScreen()" [checked]="screenisOn"></ui-switch>&nbsp;{{'screen.screen-is' | translate}} : {{('screen.' + screenState | lowercase) | translate}}
+<ui-switch (change)="switchScreen()" [checked]="screenisOn"></ui-switch>
+<span *ngIf="screenState">{{'screen.screen-is' | translate}} : {{('screen.' + screenState | lowercase) | translate}}</span>
 
 
 <div class="row" *ngIf="meteoAvailable">

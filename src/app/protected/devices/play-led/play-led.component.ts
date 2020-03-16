@@ -46,29 +46,28 @@ export class PlayLedComponent implements OnInit, OnDestroy {
 
   checkLed(withSpinner = false) {
 
-    if(withSpinner) {
+    if (withSpinner) {
       this.spinner.show();
     }
 
     this.ledService.getLedState().pipe(
-      timeout(3000),
-      switchMap((ledState: LedState) => {
+      timeout(3000)
+    ).subscribe(
+      (ledState: LedState) => {
         this.ledState = ledState;
-        return this.ledService.checkLed();
-      })).subscribe(
-        () => {
-          this.unAvailableLed = false;
-          this.spinner.hide();
-        },
-        (err: HttpErrorResponse) => {
-          this.unAvailableLed = true;
-          this.displayNotAvailableLed();
-          this.spinner.hide();
-        }
-      );
+        this.unAvailableLed = false;
+        this.spinner.hide();
+      },
+      (err: HttpErrorResponse) => {
+        this.unAvailableLed = true;
+        this.displayNotAvailableLed();
+        this.spinner.hide();
+      }
+    );
   }
 
   toggleLed() {
+    const oldLedState = this.ledState;
     const ledState: LedState = this.ledState === LedState.ON ? LedState.OFF : LedState.ON;
     this.spinner.show();
 
@@ -83,6 +82,7 @@ export class PlayLedComponent implements OnInit, OnDestroy {
         ,
         (err: HttpErrorResponse) => {
           this.unAvailableLed = true;
+          this.ledState = oldLedState;
           this.displayNotAvailableLed();
           this.spinner.hide();
         }

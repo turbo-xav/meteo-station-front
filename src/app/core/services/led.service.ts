@@ -20,26 +20,25 @@ export class LedService {
     private readonly http: HttpClient,
     private readonly deviceService: DeviceService) { }
 
-  public getStats(){
-    return this.deviceService. getDeviceDetail(environment.devices.meteo);
+  public getStats() {
+    return this.deviceService.getDeviceDetail(environment.devices.meteo);
   }
 
   public toggleLed(ledState: LedState): Observable<any> {
 
     const url = rootUrl + '/led';
-    return this.http.post(url, { in: ledState === LedState.ON}, { headers: reqHeaderWithJson });
+    return this.http.post(url, { in: ledState === LedState.ON }, { headers: reqHeaderWithJson });
   }
 
   public getLedState(): Observable<any> {
-    const url = rootUrl +  '/led-state';
-    return this.http.get<any>(url, { headers: reqHeader }).pipe(
+    return this.checkLed().pipe(
       map((res: any) => {
         return res.out.state ? res.out.state : LedState.OFF;
-    }));
+      }));
   }
 
   public checkLed(): Observable<any> {
-    const url =  rootUrl + '/led-state';
+    const url = rootUrl + '/led-state';
     return this.http.get<any>(url, { headers: reqHeader });
   }
 }

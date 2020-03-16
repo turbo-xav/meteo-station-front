@@ -28,7 +28,7 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
 
   public forecastAvailable = false;
 
-  public screenState: ScreenState;
+  public screenState = ScreenState.OFF;
 
   private screenSubscription$: Subscription;
 
@@ -96,33 +96,33 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
   }
 
   public switchScreen() {
+    const oldScreenState = this.screenState;
     const screenState: ScreenState = this.screenState === ScreenState.ON ? ScreenState.OFF : ScreenState.ON;
+    this.screenState = null;
     this.spinner.show();
     this.screenService.switchScreen(screenState).subscribe(
       (res: any) => {
         this.spinner.hide();
-        console.log('ok', res);
+        this.screenState = screenState;
       },
       (err: HttpErrorResponse) => {
         this.spinner.hide();
-        console.log('ko', err);
+        this.screenState = oldScreenState;
       }
     );
   }
 
   checkScreen(withSpinner = false) {
 
-    if(withSpinner) {
+    if( withSpinner) {
       this.spinner.show();
     }
 
     this.screenService.getScreenState().pipe(
-      timeout(3000),
-      switchMap((screenState: ScreenState) => {
-        this.screenState = screenState;
-        return this.screenService.checkScreen();
-      })).subscribe(
-        () => {
+      timeout(3000)
+      ).subscribe(
+        (screenState: ScreenState) => {
+          this.screenState = screenState;
           this.spinner.hide();
         },
         (err: HttpErrorResponse) => {

@@ -180,8 +180,7 @@ void mesure(){
 void displayMesures() {
 
   if(digitalRead(SCREEN) == LOW){
-    screen.ssd1306_command(SSD1306_DISPLAYOFF); 
-    ledRgb(0, 0, 0);
+    screen.ssd1306_command(SSD1306_DISPLAYOFF);   
     return;
   }else{
     screen.ssd1306_command(SSD1306_DISPLAYON);
