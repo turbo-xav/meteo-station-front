@@ -179,13 +179,6 @@ void mesure(){
 
 void displayMesures() {
 
-  if(digitalRead(SCREEN) == LOW){
-    screen.ssd1306_command(SSD1306_DISPLAYOFF);   
-    return;
-  }else{
-    screen.ssd1306_command(SSD1306_DISPLAYON);
-  }
-  
   if(temperature < 19){
      ledRgb(0, 0, 255 );
   } else if (temperature >= 19 && temperature <= 22.5)  {
@@ -194,6 +187,13 @@ void displayMesures() {
      ledRgb(255, 0, 0 );
   }
   
+  if(digitalRead(SCREEN) == LOW){
+    screen.ssd1306_command(SSD1306_DISPLAYOFF);   
+    return;
+  }else{
+    screen.ssd1306_command(SSD1306_DISPLAYON);
+  }
+    
   screen.clearDisplay();
   
   screen.setTextSize(2);      // Normal 1:1 pixel scale
