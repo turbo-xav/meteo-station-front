@@ -57,7 +57,16 @@
         "temperature":"Temperature in °C",        
         "time":"Time in Day Hour : min",
         "temperature-evolution":"Temperature evolution",
-        "no-datas":"There is no datas for the moment"
+        "no-datas":"There is no datas for the moment",
+        "days":{
+            "0":"Sunday",
+            "1":"Monday",
+            "2":"Tuesday",
+            "3":"Wednesday",
+            "4":"Thursday",
+            "5":"Friday",
+            "6":"Saturday"
+        }
     }
     ,
     "meteo-station": {

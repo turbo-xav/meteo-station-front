@@ -15,16 +15,18 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
   meteoStats: MeteoStats[];
   displayStats: MeteoStats[];
   meteoStatsSubscription: Subscription;
-  title = 'Average Temperatures';
+  meteoDrawSubscription: Subscription;
+
+
   type = 'LineChart';
-  datas = [
-  ];
+  title = '';
+  datas = [];
   columnNames = [
     "Time",
     "Vitry sur Seine"];
   options = {
     hAxis: {
-      title: 'Month'
+      title: 'Time'
     },
     vAxis: {
       title: 'Temperature'
@@ -32,8 +34,9 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
     curveType: 'function',
     legend: { position: 'top' }
   };
-  width = 800;
-  height = 600;
+
+  width: number;
+  height: number;
 
   constructor(
     private readonly meteoService: MeteoService,
@@ -48,6 +51,11 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
       () => {
         this.checkDatas();
       });
+
+    this.meteoDrawSubscription = interval(500).subscribe(
+      () => {
+        this.drawChart();
+      });
   }
   ngOnDestroy() {
     if (this.meteoStatsSubscription) { this.meteoStatsSubscription.unsubscribe(); }
@@ -55,11 +63,11 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
 
   checkDatas() {
     this.meteoService.getMeteoStats().subscribe(
-      (meteoStats: MeteoStats[]) => {        
+      (meteoStats: MeteoStats[]) => {
 
-       this.meteoStats = meteoStats;
-       this.displayStats = this.meteoStats.reverse();
-       this.drawChart();
+        this.meteoStats = meteoStats;
+        this.displayStats = this.meteoStats.reverse();
+        this.drawChart();
 
       }
     );
@@ -69,19 +77,35 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
     return this.datas !== null && this.datas.length > 0;
   }
 
- 
+  public get windowWidth(): number {
+    return window.innerWidth;
+  }
+
+  private resize(width: number, height: number) {
+    this.width = width;
+    this.height = height;
+  }
 
   public drawChart() {
 
-    const days = [
-      'Dim',
-      'Lun',
-      'Mar',
-      'Mer',
-      'Jeu',
-      'Ven',
-      'Sam'
-    ];
+    const days = [];
+    for (let i = 0; i <= 6; i++) {
+      this.translateService.get('stats.days.' + i).subscribe(
+        (translation: string) => {
+          days[i] = translation;
+        }
+      );
+    }
+
+    if (this.windowWidth < 600) {
+      this.resize(450 , 300);
+    } else if (this.windowWidth < 800) {
+      this.resize(600, 450);
+    } else if (this.windowWidth < 1200) {
+      this.resize(800, 600);
+    } else {
+      this.resize(1200, 900);
+    }
 
     this.translateService.get('stats.time').subscribe(
       (translation: string) => {
@@ -105,10 +129,10 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
 
     for (const meteoStat of this.displayStats) {
       const date = new Date(meteoStat.ts);
-      const day = days[date.getDay()];
+      const day = days[date.getDay()].substring(0, 3);
       const hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
       const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-      const x =`${day}-${hours}:${minutes}`;
+      const x = `${day}-${hours}:${minutes}`;
       datas.push([x, meteoStat.val.temperature]);
     }
     this.datas = datas;
