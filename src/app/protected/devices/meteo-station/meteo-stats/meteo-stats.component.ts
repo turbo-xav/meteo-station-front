@@ -98,7 +98,7 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
     }
 
     if (this.windowWidth < 600) {
-      this.resize(450 , 300);
+      this.resize(400 , 300);
     } else if (this.windowWidth < 800) {
       this.resize(600, 450);
     } else if (this.windowWidth < 1200) {
