@@ -14,7 +14,7 @@
         "devices": "Appreils",
         "play-led": "La led",
         "meteo-station": "Station météo",
-        "meteo-stats":"Statitiques"
+        "meteo-stats": "Statitiques"
     },
     "device": {
         "device": "Appareil",
@@ -46,32 +46,43 @@
         "led-not-available": "La LED magique n'est pas disponible"
     },
     "screen": {
-        "Screen": "Ecran",
+        "screen": "Ecran",
         "screen-is": "L'écran est",
         "off": "éteint",
         "on": "allumé",
         "screen-not-available": "L'écran n'est pas disponible"
     },
+    "heater": {
+        "heater": "Chauffe eau",
+        "switch-on": "Allumer",
+        "switch-off": "Eteindre",
+        "is":"Le chauffe eau est",
+        "on": "allumé",
+        "off": "éteint",
+        "heater-not-available":"Le chauffe eau est non disponible"
+
+    },
     "stats": {
-        "meteo":"Statistiques météo",
-        "temperature":"Temperature en °C",
-        "time":"Temps en Jour Heure : Min",
-        "temperature-evolution":"Evolution de la temperature",
-        "no-datas":"Il n'y a pas de données pour le moment",
-        "days":{
-            "0":"Dimanche",
-            "1":"Lundi",
-            "2":"Mardi",
-            "3":"Mercredi",
-            "4":"Jeudi",
-            "5":"Vendredi",
-            "6":"Samedi"
+        "meteo": "Statistiques météo",
+        "temperature": "Temperature en °C",
+        "time": "Temps en Jour Heure : Min",
+        "temperature-evolution": "Evolution de la temperature",
+        "no-datas": "Il n'y a pas de données pour le moment",
+        "days": {
+            "0": "Dimanche",
+            "1": "Lundi",
+            "2": "Mardi",
+            "3": "Mercredi",
+            "4": "Jeudi",
+            "5": "Vendredi",
+            "6": "Samedi"
         }
     },
     "meteo-station": {
         "title": "Station météo",
         "meteo-in": "Météo à",
         "not-ready": "La station météo n'est pas encore prête pour le moment. Veuillez attendre quelques secondes ou bien vous assurer qu'elle soit allumée",
+        
         "temperature": "Température",
         "pressure": "Pression",
         "humidity": "Humidité",
