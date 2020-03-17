@@ -6,11 +6,13 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Meteo } from '../interfaces/meteo';
+import { MeteoStats } from '../interfaces/meteo-stats';
 
 const reqHeader = new HttpHeaders({});
 
 const rootUrl = environment.apis.thingerio.url + '/v2/users/turboxav/devices/' + environment.devices.meteo;
 const rootUrlForecast = environment.apis.forecast.url;
+const rootUrlBuckets = environment.apis.thingerio.url + '/v1/users/turboxav/buckets/' + environment.devices.meteo;
 
 export class MeteoService {
 
@@ -52,5 +54,10 @@ export class MeteoService {
       map((datas: any) => datas.forecast[0]),
       map((forecast: Forecast) => new Forecast(forecast.weather, forecast.temp2m, forecast.datetime))
     );
+  }
+
+  public getMeteoStats(): Observable<MeteoStats[]>{
+    return this.http.get<MeteoStats[]>(rootUrlBuckets + '/data', { headers: reqHeader });
+
   }
 }

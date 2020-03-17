@@ -10,13 +10,16 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from 'src/app/core/interceptors/tokenInterceptor';
 import { ForecastModule } from './meteo-station/forecast/forecast.module';
 import { StationModule } from './meteo-station/station/station.module';
+import { MeteoStatsComponent } from './meteo-station/meteo-stats/meteo-stats.component';
 
 @NgModule({
   declarations: [
                   ListDevicesComponent,
                   MeteoStationComponent,
                   PlayLedComponent,
-                  DetailDeviceComponent
+                  DetailDeviceComponent,
+                  MeteoStatsComponent,
+                  MeteoStatsComponent
   ],
   imports: [
     DeviceRoutingModule,

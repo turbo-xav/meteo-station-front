@@ -13,7 +13,8 @@
         "home": "Accueil",
         "devices": "Appreils",
         "play-led": "La led",
-        "meteo-station": "Station météo"
+        "meteo-station": "Station météo",
+        "meteo-stats":"Statitiques"
     },
     "device": {
         "device": "Appareil",
@@ -50,6 +51,13 @@
         "off": "éteint",
         "on": "allumé",
         "screen-not-available": "L'écran n'est pas disponible"
+    },
+    "stats": {
+        "meteo":"Statistiques météo",
+        "temperature":"Temperature en °C",
+        "time":"Temps en Jour Heure : Min",
+        "temperature-evolution":"Evolution de la temperature",
+        "no-datas":"Il n'y a pas de données pour le moment"
     },
     "meteo-station": {
         "title": "Station météo",

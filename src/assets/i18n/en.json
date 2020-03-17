@@ -13,7 +13,8 @@
         "home": "Home",
         "devices": "Devices",
         "play-led": "Led",
-        "meteo-station": "Meteo station"
+        "meteo-station": "Meteo station",
+        "meteo-stats":"Statitics"
     },
     "device": {
         "device": "Device",
@@ -51,6 +52,14 @@
         "on": "on",
         "screen-not-available": "Screen is not available"
     },
+    "stats": {
+        "meteo":"Meteo statistics",        
+        "temperature":"Temperature in °C",        
+        "time":"Time in Day Hour : min",
+        "temperature-evolution":"Temperature evolution",
+        "no-datas":"There is no datas for the moment"
+    }
+    ,
     "meteo-station": {
         "title": "Meteo station",
         "meteo-in": "Weather in",
