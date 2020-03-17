@@ -30,7 +30,7 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
 
   public forecastAvailable = false;
 
- 
+
   meteo: Meteo;
 
   ephemeride: Ephemeride;

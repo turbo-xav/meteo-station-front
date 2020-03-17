@@ -25,13 +25,13 @@ export class StationCommandComponent implements OnInit, OnDestroy {
   private checkheaterSubscription$: Subscription;
 
 
-  constructor( 
+  constructor(
     private readonly screenService: ScreenService,
     private readonly heaterService: HeaterService,
     private readonly translateService: TranslateService,
     private readonly toasterService: ToastrService,
     private readonly spinner: NgxSpinnerService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.checkScreen(true);

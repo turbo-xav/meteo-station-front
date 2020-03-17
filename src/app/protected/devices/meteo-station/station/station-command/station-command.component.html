@@ -3,14 +3,14 @@
         <h6 class="card-subtitle mb-2 text-muted">Commande</h6>
         <div class="row">
             <div class="col-6">
-                <label><img src="/assets/oled.png" width="50" alt="{{'screen.screen' | translate}}" /></label>
+                <label><img src="/assets/oled.png" width="35" alt="{{'screen.screen' | translate}}" /></label>
                 <span>
                     <ui-switch [size]="'small'" (change)="switchScreen()" [checked]="screenisOn"></ui-switch>
                     <span class="state" *ngIf="screenState">{{('screen.' + screenState | lowercase) | translate}}</span>
                 </span>
             </div>
             <div class="col-6">
-                <label><img src="/assets/water-heater.png" width="50" alt="{{'heater.heater' | translate}}" /></label>
+                <label><img src="/assets/water-heater.png" width="35" alt="{{'heater.heater' | translate}}" /></label>
                 <span>
                     <ui-switch [size]="'small'" (change)="switchHeater()" [checked]="heaterisOn"></ui-switch>
                     <span class="state" *ngIf="heaterState">{{('heater.' + heaterState | lowercase) | translate}}</span>
