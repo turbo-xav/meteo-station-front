@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1584453550333,
+  "timestamp": 1584453874957,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "./favicon.ico",
         "./index.html",
-        "./main-es2015.63cd629dafbe37ebb55c.js",
-        "./main-es5.63cd629dafbe37ebb55c.js",
+        "./main-es2015.72b7df474cbbee190c57.js",
+        "./main-es5.72b7df474cbbee190c57.js",
         "./manifest.webmanifest",
         "./polyfills-es2015.5b10b8fd823b6392f1fd.js",
         "./polyfills-es5.8e50a9832860f7cf804a.js",
@@ -370,9 +370,9 @@
     "./assets/thermometre.png": "92acb8c0d7e93ae3cb67f760c22cd4b909fc8b1a",
     "./assets/weather.png": "3cc3786000b33b04aff5c4b8cc445c36435066c4",
     "./favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "./index.html": "bf29bb3b94930cd3583bb815eb61890d6b532a33",
-    "./main-es2015.63cd629dafbe37ebb55c.js": "f053da3c0fafdde64227e91260379f2d0ff1a928",
-    "./main-es5.63cd629dafbe37ebb55c.js": "289ce2e993c9434b95b5dbca5880523f770dca13",
+    "./index.html": "be17469cf39adb5b08afc95b05d29126001c0339",
+    "./main-es2015.72b7df474cbbee190c57.js": "1badd1c20096d0f9559ef549bd8e1c549b901bf1",
+    "./main-es5.72b7df474cbbee190c57.js": "913d6c458150bb52c8871aa6d9597650e6d74402",
     "./manifest.webmanifest": "0ea32da9254ab82aaf9fe081c7cb57b302f4354b",
     "./polyfills-es2015.5b10b8fd823b6392f1fd.js": "9abfe15f17820a646e3d51c420908d9f8f7b69b8",
     "./polyfills-es5.8e50a9832860f7cf804a.js": "a9abcb7b9e74feed315773004b623373fdf3fada",

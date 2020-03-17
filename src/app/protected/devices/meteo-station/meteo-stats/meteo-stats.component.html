@@ -1,7 +1,6 @@
 <h1 class="display-5"><img src="/assets/statistics.png" width="30" /><span class="btn btn-outline-info">
         {{'stats.meteo' | translate}}</span> </h1>
 <h2><span class="btn btn-outline-info"> {{'stats.temperature-evolution' | translate}}</span></h2>
-{{windowWidth}}
 <ng-container *ngIf="hasDatas">
     <google-chart #chart [title]="title" [type]="type" [data]="datas" [columnNames]="columnNames" [options]="options"
         [width]="width" [height]="height"></google-chart>
