@@ -14,7 +14,7 @@
         "devices": "Devices",
         "play-led": "Led",
         "meteo-station": "Meteo station",
-        "meteo-stats":"Statitics"
+        "meteo-stats": "Statitics"
     },
     "device": {
         "device": "Device",
@@ -53,26 +53,34 @@
         "screen-not-available": "Screen is not available"
     },
     "stats": {
-        "meteo":"Meteo statistics",        
-        "temperature":"Temperature in °C",        
-        "time":"Time in Day Hour : min",
-        "temperature-evolution":"Temperature evolution",
-        "no-datas":"There is no datas for the moment",
-        "days":{
-            "0":"Sunday",
-            "1":"Monday",
-            "2":"Tuesday",
-            "3":"Wednesday",
-            "4":"Thursday",
-            "5":"Friday",
-            "6":"Saturday"
+        "meteo": "Meteo statistics",
+        "temperature": "Temperature in °C",
+        "time": "Time in Day Hour : min",
+        "temperature-evolution": "Temperature evolution",
+        "no-datas": "There is no datas for the moment",
+        "days": {
+            "0": "Sunday",
+            "1": "Monday",
+            "2": "Tuesday",
+            "3": "Wednesday",
+            "4": "Thursday",
+            "5": "Friday",
+            "6": "Saturday"
         }
-    }
-    ,
+    },
     "meteo-station": {
         "title": "Meteo station",
         "meteo-in": "Weather in",
         "not-ready": "Meteo station is not ready for the moment. Please wait a little or ensure it's on",
+        "heater": {
+            "name": "water heater",
+            "switch-on": "Switch on",
+            "switch-off": "Switch off",
+            "is":"Water heater is",
+            "on": "On",
+            "off": "Off",
+            "heater-not-available":"Water heater is not available"
+        },
         "temperature": "Temperature",
         "pressure": "Pressure",
         "humidity": "Humidity",

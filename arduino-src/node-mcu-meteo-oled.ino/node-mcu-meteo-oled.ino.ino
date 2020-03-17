@@ -8,7 +8,8 @@
 #include <Adafruit_SSD1306.h>
 
 //LED Pins
-#define SCREEN 2  // D4 : LED PIN
+#define RELAY 0   // D3 : RELAY PIN
+#define SCREEN 2  // D4 : SCRREN PIN
 #define LED 14    // D5 : LED PIN
 #define ROUGE 12  // D6 : RED PIN
 #define VERT 13   // D7 : GREEN PIN
@@ -64,17 +65,33 @@ ThingerESP8266  meteoStation("turboxav", "meteostation", "turboxav");
 
 void setup() {  
   Serial.begin(SERIAL_BAUD);
+  pinMode(RELAY, OUTPUT);
   pinMode(SCREEN, OUTPUT);
   pinMode(LED, OUTPUT);
   pinMode(ROUGE, OUTPUT);
   pinMode(VERT, OUTPUT);
   pinMode(BLEU, OUTPUT);
-  initMeteoStation();
   digitalWrite(LED,HIGH);
   digitalWrite(SCREEN, HIGH);
+  digitalWrite(RELAY, HIGH);
+  initMeteoStation(); 
   bme.begin(0x76);
   initScreen();
-  delay(500);  
+  delay(500);
+}
+
+/**
+ * Loop
+ */
+
+void loop() {  
+  mesure();  
+  displayMesures();
+  if(reseting == true) {
+    meteoStation.handle();
+    ESP.reset();
+  }
+  delay(10);
 }
 
 /**
@@ -92,12 +109,20 @@ void setup() {
  */
 
 void initMeteoStation() {
+  
   // Connecte to Wifi
   meteoStation.add_wifi(WIFI_SSID, WIFI_PWD);
-  // Record an INPUT value for Led Pin Value to command IT
+  
+  // Record an INPUT value for Led Pin Value to command IT  
   meteoStation["led"] << digitalPin(LED);
   meteoStation["screen"] << digitalPin(SCREEN);
-   meteoStation["screen-state"] >> [](pson& out) { 
+  meteoStation["heater"] << digitalPin(RELAY);
+  
+  // Send states of Heater, Screen, led to thingerio
+  meteoStation["heater-state"] >> [](pson& out) { 
+    out["state"] =  digitalRead(RELAY) ? "ON":"OFF";
+  };
+  meteoStation["screen-state"] >> [](pson& out) { 
     out["state"] =  digitalRead(SCREEN) ? "ON":"OFF";
   };
   // Reccord an OUTPUT for Led State to read it
@@ -137,20 +162,6 @@ void initScreen() {
 }
 
 /**
- * Loop
- */
-
-void loop() {  
-  mesure();  
-  displayMesures();
-  if(reseting == true) {
-    meteoStation.handle();
-    ESP.reset();
-  }
-  delay(10);
-}
-
-/**
   * Mesure  
   *   Temprature °C
   *   Pressure hPa
@@ -161,7 +172,7 @@ void mesure(){
   temperature = bme.readTemperature();
   humidity = bme.readHumidity();
   pressure = bme.readPressure() / 100.0F;
-  meteoStation.handle();  
+  meteoStation.handle();
 }
 
 /**
@@ -178,21 +189,8 @@ void mesure(){
  */
 
 void displayMesures() {
-
-  if(temperature < 19){
-     ledRgb(0, 0, 255 );
-  } else if (temperature >= 19 && temperature <= 22.5)  {
-     ledRgb(0, 255, 0 );
-  } else if (temperature > 22.5){
-     ledRgb(255, 0, 0 );
-  }
-  
-  if(digitalRead(SCREEN) == LOW){
-    screen.ssd1306_command(SSD1306_DISPLAYOFF);   
-    return;
-  }else{
-    screen.ssd1306_command(SSD1306_DISPLAYON);
-  }
+  checkRGB();
+  checkScreen();
     
   screen.clearDisplay();
   
@@ -218,6 +216,29 @@ void displayMesures() {
   screen.display();
   delay(10);
   
+}
+
+/**
+  * Check if the screen must be ON or OFF 
+  */
+
+void checkScreen() {
+  if(digitalRead(SCREEN) == LOW){
+    screen.ssd1306_command(SSD1306_DISPLAYOFF);   
+    return;
+  }else{
+    screen.ssd1306_command(SSD1306_DISPLAYON);
+  }
+}
+
+void checkRGB(){
+  if(temperature < 19){
+     ledRgb(0, 0, 255 );
+  } else if (temperature >= 19 && temperature <= 22.5)  {
+     ledRgb(0, 255, 0 );
+  } else if (temperature > 22.5){
+     ledRgb(255, 0, 0 );
+  }
 }
 
 /**

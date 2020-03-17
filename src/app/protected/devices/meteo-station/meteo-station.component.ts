@@ -12,6 +12,8 @@ import { ScreenService } from 'src/app/core/services/screen.service';
 import { ScreenState } from 'src/app/core/interfaces/screen-state';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { HeaterState } from 'src/app/core/interfaces/heater-state';
+import { HeaterService } from 'src/app/core/services/heater.service';
 
 
 
@@ -30,6 +32,8 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
 
   public screenState = ScreenState.OFF;
 
+  public heaterState = HeaterState.OFF;
+
   private screenSubscription$: Subscription;
 
   meteo: Meteo;
@@ -40,6 +44,7 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
   constructor(
     private readonly meteoService: MeteoService,
     private readonly screenService: ScreenService,
+    private readonly heaterService: HeaterService,
     private readonly spinner: NgxSpinnerService,
     private readonly toasterService: ToastrService,
     private readonly translateService: TranslateService) { }
@@ -80,8 +85,15 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
       );
   }
 
-  public get screenisOn(): boolean {
-    return this.screenState === ScreenState.ON;
+  refresh() {
+    this.meteoService.refreshMeteo().subscribe(
+      (meteo: any) => {
+        this.meteo = meteo;
+        this.meteoEnable = true;
+      },
+      () => {
+        this.meteoEnable = false;
+      });
   }
 
   public get meteoAvailable(): boolean {
@@ -95,10 +107,13 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
     return environment.meteo.city;
   }
 
+  public get screenisOn(): boolean {
+    return this.screenState === ScreenState.ON;
+  }
+
   public switchScreen() {
     const oldScreenState = this.screenState;
     const screenState: ScreenState = this.screenState === ScreenState.ON ? ScreenState.OFF : ScreenState.ON;
-    this.screenState = null;
     this.spinner.show();
     this.screenService.switchScreen(screenState).subscribe(
       (res: any) => {
@@ -114,37 +129,76 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
 
   checkScreen(withSpinner = false) {
 
-    if( withSpinner) {
+    if (withSpinner) {
       this.spinner.show();
     }
 
     this.screenService.getScreenState().pipe(
       timeout(3000)
-      ).subscribe(
-        (screenState: ScreenState) => {
-          this.screenState = screenState;
-          this.spinner.hide();
-        },
-        (err: HttpErrorResponse) => {
-          this.displayNotAvailableLed();
-          this.spinner.hide();
-        }
-      );
-  }
-
-  refresh() {
-    this.meteoService.refreshMeteo().subscribe(
-      (meteo: any) => {
-        this.meteo = meteo;
-        this.meteoEnable = true;
+    ).subscribe(
+      (screenState: ScreenState) => {
+        this.screenState = screenState;
+        this.spinner.hide();
       },
-      () => {
-        this.meteoEnable = false;
-      });
+      (err: HttpErrorResponse) => {
+        this.displayNotAvailableScreen();
+        this.spinner.hide();
+      }
+    );
   }
 
-  displayNotAvailableLed() {
+  public get heaterisOn(): boolean {
+    return this.heaterState === HeaterState.ON;
+  }
+
+  public switchHeater() {
+    const oldHeaterState = this.heaterState;
+    const heaterState: HeaterState = this.heaterState === HeaterState.ON ? HeaterState.OFF : HeaterState.ON;
+    this.spinner.show();
+    this.heaterService.switchHeater(heaterState).subscribe(
+      (res: any) => {
+        this.spinner.hide();
+        this.heaterState = heaterState;
+      },
+      (err: HttpErrorResponse) => {
+        this.spinner.hide();
+        this.heaterState = oldHeaterState;
+      }
+    );
+  }
+
+  checkHeater(withSpinner = false) {
+
+    if (withSpinner) {
+      this.spinner.show();
+    }
+
+    this.heaterService.getHeaterState().pipe(
+      timeout(3000)
+    ).subscribe(
+      (heaterState: HeaterState) => {
+        this.heaterState = heaterState;
+        this.spinner.hide();
+      },
+      (err: HttpErrorResponse) => {
+        this.displayNotAvailableHeater();
+        this.spinner.hide();
+      }
+    );
+  }
+
+
+
+  displayNotAvailableScreen() {
     this.translateService.get('screen.screen-not-available').subscribe(
+      (translation: string) => {
+        this.toasterService.error(translation);
+      }
+    );
+  }
+
+  displayNotAvailableHeater() {
+    this.translateService.get('heater.heater-not-available').subscribe(
       (translation: string) => {
         this.toasterService.error(translation);
       }
