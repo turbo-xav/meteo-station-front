@@ -8,25 +8,19 @@
 </div>
 
 
+<div class="row">
+  <div class="col-12">
+    <app-station-command></app-station-command>
+  </div>
+</div>
 
 <div class="row" *ngIf="meteoAvailable">
-  <div class="col-4">
+  <div class="col-6">
     <app-forecast-detail *ngIf="forecastAvailable" [ephemeride]="ephemeride" [forecast]="forecast">
     </app-forecast-detail>
     <div class="alert alert-warning" *ngIf="!forecastAvailable">{{'meteo-station.forecast.problem' | translate}}</div>
   </div>
-  <div class="col-4">
+  <div class="col-6">
     <app-station-detail [meteo]=meteo></app-station-detail>
-  </div>
-  <div class="col-4">
-      <label>{{'screen.screen' | translate}}</label>
-      <br />
-      <ui-switch (change)="switchScreen()" [checked]="screenisOn"></ui-switch>      
-      <!--<span *ngIf="screenState">{{'screen.screen-is' | translate}} : {{('screen.' + screenState | lowercase) | translate}}</span>-->
-      <br />
-      <label>{{'heater.heater' | translate}}</label>
-      <br />
-      <ui-switch (change)="switchHeater()" [checked]="heaterisOn"></ui-switch>
-      <!--<span *ngIf="heaterState">{{'meteo-station.heater.is' | translate}} : {{('meteo-station.heater.' + heaterState | lowercase) | translate}}</span>-->
   </div>
 </div>
