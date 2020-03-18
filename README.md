@@ -32,6 +32,20 @@ https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5
 
 # PWA application : ArduinoPwaLed
 
+## What you will see
+
+### Home page
+<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/home-page.jpg?raw=true" />
+
+### Authentication
+<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/authentication.jpg?raw=true" />
+
+### Consult meteo station
+<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/meteo-station.jpg?raw=true" />
+
+### View Statistics
+
+<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/statistics.jpg?raw=true" />
 ## Angular Src
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
