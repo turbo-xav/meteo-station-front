@@ -43,7 +43,7 @@ https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5
 ### Consult meteo station
 <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/meteo-station.jpg?raw=true" />
 
-### View Statistics
+### View statistics
 
 <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/statistics.jpg?raw=true" />
 ## Angular Src
@@ -77,7 +77,7 @@ Ino code : https://github.com/turbo-xav/meteo-station-domotique/blob/master/ardu
 
 - `npm run build-test` to build the project. The build artifacts will be stored in the `docs/meteo-station` directory.
  
-## Generate Dopcumentation & serve it
+## Generate Documentation & serve it
 
 - `npm run documentation` to build the documentation into `documentation` directory
 
