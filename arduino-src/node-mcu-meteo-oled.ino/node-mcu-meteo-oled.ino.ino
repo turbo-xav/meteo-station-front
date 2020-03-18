@@ -73,7 +73,7 @@ void setup() {
   pinMode(BLEU, OUTPUT);
   digitalWrite(LED,HIGH);
   digitalWrite(SCREEN, HIGH);
-  digitalWrite(RELAY, HIGH);
+  digitalWrite(RELAY, LOW);
   initMeteoStation(); 
   bme.begin(0x76);
   initScreen();
