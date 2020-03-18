@@ -12,7 +12,8 @@ const reqHeaderWithJson = new HttpHeaders({
   'content-type': 'application/json'
 });
 
-const rootUrl = environment.apis.thingerio.url + '/v2/users/turboxav/devices/' + environment.devices.meteo;
+const rootUrl = environment.apis.thingerio.url;
+const rootUrlDevice = rootUrl + '/v2/users/' + environment.devices.account + '/devices/' + environment.devices.meteo;
 
 export class LedService {
 
@@ -26,7 +27,7 @@ export class LedService {
 
   public toggleLed(ledState: LedState): Observable<any> {
 
-    const url = rootUrl + '/led';
+    const url = rootUrlDevice + '/led';
     return this.http.post(url, { in: ledState === LedState.ON }, { headers: reqHeaderWithJson });
   }
 
@@ -38,7 +39,7 @@ export class LedService {
   }
 
   public checkLed(): Observable<any> {
-    const url = rootUrl + '/led-state';
+    const url = rootUrlDevice + '/led-state';
     return this.http.get<any>(url, { headers: reqHeader });
   }
 }

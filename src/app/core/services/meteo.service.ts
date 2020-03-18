@@ -10,10 +10,10 @@ import { MeteoStats } from '../interfaces/meteo-stats';
 
 const reqHeader = new HttpHeaders({});
 
-const rootUrl = environment.apis.thingerio.url + '/v2/users/turboxav/devices/' + environment.devices.meteo;
+const rootUrl = environment.apis.thingerio.url 
+const rootUrlDevice = rootUrl + '/v2/users/' + environment.devices.account + '/devices/' + environment.devices.meteo;
+const rootUrlBuckets = rootUrl + '/v1/users/' + environment.devices.account + '/buckets/' + environment.devices.meteo;
 const rootUrlForecast = environment.apis.forecast.url;
-const rootUrlBuckets = environment.apis.thingerio.url + '/v1/users/turboxav/buckets/' + environment.devices.meteo;
-
 export class MeteoService {
 
   constructor(private readonly http: HttpClient) { }
@@ -21,9 +21,9 @@ export class MeteoService {
 
 
   public refreshMeteo(): Observable<Meteo> {
-    const url = rootUrl + '/meteo';
+    const url = rootUrlDevice + '/meteo';
     return this.http.get<Meteo>(url, { headers: reqHeader }).pipe(
-      map( (res: any) => {
+      map((res: any) => {
         return res.out;
       }),
       map((meteo: Meteo) => {
@@ -36,7 +36,7 @@ export class MeteoService {
   }
 
   public checkMeteo(): Observable<any> {
-    const url = rootUrl + '/meteo';
+    const url = rootUrlDevice + '/meteo';
     return this.http.get<any>(url, { headers: reqHeader });
   }
 
@@ -56,7 +56,7 @@ export class MeteoService {
     );
   }
 
-  public getMeteoStats(): Observable<MeteoStats[]>{
+  public getMeteoStats(): Observable<MeteoStats[]> {
     return this.http.get<MeteoStats[]>(rootUrlBuckets + '/data', { headers: reqHeader });
 
   }

@@ -14,6 +14,7 @@ export const environment = {
     }
   },
   devices: {
+    account: 'turboxav',
     meteo: 'meteostation'
   },
   meteo: {

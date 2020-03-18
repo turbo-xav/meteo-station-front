@@ -160,6 +160,9 @@
                                 <a href="#getDeviceDetail">getDeviceDetail</a>
                             </li>
                             <li>
+                                <a href="#loadAllDevices">loadAllDevices</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                             <li>
@@ -296,8 +299,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="89"
-                            class="link-to-prism">src/app/protected/devices/list-devices/list-devices.component.ts:89</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/app/protected/devices/list-devices/list-devices.component.ts:100</a></div>
                 </td>
             </tr>
 
@@ -335,8 +338,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">src/app/protected/devices/list-devices/list-devices.component.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/protected/devices/list-devices/list-devices.component.ts:78</a></div>
                 </td>
             </tr>
 
@@ -374,6 +377,45 @@
                     </div>
                     <div class="io-description">
                         
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadAllDevices"></a>
+                    <span class="name">
+                        <b>
+                            loadAllDevices
+                        </b>
+                        <a href="#loadAllDevices"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadAllDevices()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/protected/devices/list-devices/list-devices.component.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
                     </div>
                 </td>
             </tr>
@@ -440,8 +482,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">src/app/protected/devices/list-devices/list-devices.component.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/app/protected/devices/list-devices/list-devices.component.ts:64</a></div>
                 </td>
             </tr>
 
@@ -510,8 +552,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/protected/devices/list-devices/list-devices.component.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/protected/devices/list-devices/list-devices.component.ts:52</a></div>
                 </td>
             </tr>
 
@@ -710,6 +752,10 @@ export class ListDevicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
+    this.loadAllDevices();
+  }
+
+  loadAllDevices(): void {
     this.deviceService.listDevices().subscribe(
       (devices: any) &#x3D;&gt; {
         this.devices &#x3D; devices;
@@ -726,9 +772,11 @@ export class ListDevicesComponent implements OnInit {
   }
 
   selectDevice(device: Device) {
+    if ( this.deviceSubscription$ ) { this.deviceSubscription$.unsubscribe(); }
     this.spinner.show();
     this.selectedDevice &#x3D; device;
-    this.deviceSubscription$ &#x3D; interval(500).subscribe(
+    this.getDeviceDetail(this.selectedDevice.device);
+    this.deviceSubscription$ &#x3D; interval(5000).subscribe(
       () &#x3D;&gt; {
         this.getDeviceDetail(this.selectedDevice.device);
       }
@@ -750,9 +798,14 @@ export class ListDevicesComponent implements OnInit {
   }
 
   getDeviceDetail(device) {
+    this.loadAllDevices();
     this.deviceService.getDeviceDetail(device).subscribe(
       (deviceStats: DeviceStats) &#x3D;&gt; {
         this.selectedDeviceStats &#x3D; deviceStats;
+        if ( deviceStats.connected &#x3D;&#x3D;&#x3D; false ) {
+          this.deviceSubscription$.unsubscribe();
+          this.displayError();
+        }
         setTimeout(() &#x3D;&gt; {
           this.spinner.hide();
         }, 250);
@@ -849,7 +902,7 @@ export class ListDevicesComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><h1 class="display-5"><img src="/assets/devices.png" width="30" /><span class="btn btn-outline-info"> {{\'device.my-devices\' | translate}}</span> </h1><h2><span class="btn btn-outline-info"> {{\'device.list-devices\' | translate}}</span></h2><div class="container">    <div class="row justify-content-center align-items-center">        <table class="table table-striped">            <thead class="thead-dark">                <tr>                    <th scope="col">{{\'device.device\' | translate}}</th>                    <th scope="col">{{\'device.description\' | translate}}</th>                    <th scope="col">{{\'device.state\' | translate}}</th>                    <th scope="col">{{\'device.more\' | translate}}</th>                    <th scope="col">{{\'device.reset\' | translate}}</th>                </tr>            </thead>            <tbody>                <tr *ngFor="let device of devices" >                    <td scope="row">{{device.device}}</td>                    <td scope="row">{{device.description}}</td>                    <td>                        <img src="/assets/icons/{{device.connection.active ? \'icon-valid\' : \'icon-invalid\'}}.png"                            width="25" height="25" />                    </td>                    <td><img width="25" src="/assets/icons/more.png" (click)=selectDevice(device)/></td>                    <td><img width="25" src="/assets/icons/reset.png" (click)=rebootDevice(device)/></td>                </tr>            </tbody>        </table>        <app-detail-device [deviceStats]="selectedDeviceStats"></app-detail-device>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastDetailComponent', 'selector': 'app-forecast-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'StationDetailComponent', 'selector': 'app-station-detail'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastDetailComponent', 'selector': 'app-forecast-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'MeteoStatsComponent', 'selector': 'app-meteo-stats'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'StationCommandComponent', 'selector': 'app-station-command'},{'name': 'StationDetailComponent', 'selector': 'app-station-detail'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ListDevicesComponent'};
 </script>

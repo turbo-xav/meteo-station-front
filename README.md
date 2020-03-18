@@ -25,6 +25,8 @@ A meteo station
 <tr>
     <th>Home page</th>
     <th>Authentication</th>
+    <th>Meteo station</th>
+    <th>Authentication</th>
 </tr>
 <tr>
     <td>
@@ -33,14 +35,6 @@ A meteo station
     <td>
         <img width="150" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/authentication.jpg?raw=true" />
     </td>
-</tr>
-<table>
-<table>
-<tr>
-    <th>Meteo station</th>
-    <th>Authentication</th>
-</tr>
-<tr>
     <td>
         <img width="150" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/meteo-station.jpg?raw=true" />
     </td>
@@ -49,7 +43,6 @@ A meteo station
     </td>
 </tr>
 <table>
-
 
 ## Basic equipment
 
@@ -90,6 +83,44 @@ Ino code : https://github.com/turbo-xav/meteo-station-domotique/blob/master/ardu
 
 - `git clone https://github.com/turbo-xav/meteo-station-domotique.git`
 
+## Configure your application
+
+### thinger.io device
+
+Open this 2 files & complete your information 
+- "meteo-station-domotique/src/environments/environments.ts"
+- "meteo-station-domotique/src/environments/environments.prod.ts"
+
+Enter your : 
+- "meteo-concept" token
+- "meteo-concept" insee code of your city
+- "meteo-concept" city name ( ex: Vitry / Seine) 
+- "thingerio" account Id( ex: turboxav)
+- "thingerio" device Id (ex :meteostation)
+
+It looks like this :
+<pre>export const environment = {
+  production: false,
+  apis: {
+    thingerio: {
+      url: 'https://api.thinger.io',
+    },
+    forecast: {
+      url: 'https://api.meteo-concept.com/api',     
+      token: 'Enter your token'
+    }
+  },
+  devices: {
+    account: 'your account Id',
+    meteo: 'Your device Id'
+  },
+  meteo: {
+    insee: 'Your INSE code (ex :94081)',
+    city: 'Your city name'
+  }
+};
+</pre>
+
 ## Installation
 
 - Install nodejs ans npm : https://nodejs.org/en/
@@ -101,15 +132,22 @@ Ino code : https://github.com/turbo-xav/meteo-station-domotique/blob/master/ardu
 
 ## Build
 
-- `npm run build` to build the project. The build artifacts will be stored in the `docs/` directory.
+- `npm run build` to build the project. The build artifacts will be stored in the `docs/meteo-station` directory.
 
 ## Test the build
 
 - `npm run build-test` to build the project. The build artifacts will be stored in the `docs/meteo-station` directory.
+- It will serve at : http://localhost:8081/ 
  
 ## Generate Documentation & serve it
 
-- `npm run documentation` to build the documentation into `documentation` directory
+- `npm run load-doc` to build the documentation into `documentation` directory
+- It will serve at : http://localhost:8082/
+
+## Deploy on a server
+- Take the content of `docs/meteo-station` & copy it into a specific directory (ex : `/www/meteo-station/...`) on a HTTP server (ex : OVH, 1&1 or other, ...  ) to serve it.
+- You can access application by your specific url with a sub domain (ex : http://meteo-station.mysite.com ) that points to your specific directory.
+
 
 ## Further help
 

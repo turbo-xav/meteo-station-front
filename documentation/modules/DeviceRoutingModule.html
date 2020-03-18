@@ -76,12 +76,14 @@ import { ListDevicesComponent } from &#x27;./list-devices/list-devices.component
 import { PlayLedComponent } from &#x27;./play-led/play-led.component&#x27;;
 import { MeteoStationComponent } from &#x27;./meteo-station/meteo-station.component&#x27;;
 import { AuthGuard } from &#x27;src/app/core/guards/auth-guard&#x27;;
+import { MeteoStatsComponent } from &#x27;./meteo-station/meteo-stats/meteo-stats.component&#x27;;
 
 
 const routes: Routes &#x3D; [
     { path: &#x27;devices&#x27;, component: ListDevicesComponent, canActivate: [AuthGuard]},
     { path: &#x27;play-led&#x27;, component: PlayLedComponent, canActivate: [AuthGuard] },
-    { path: &#x27;meteo-station&#x27;, component: MeteoStationComponent, canActivate: [AuthGuard] }
+    { path: &#x27;meteo-station&#x27;, component: MeteoStationComponent, canActivate: [AuthGuard] },
+    { path: &#x27;meteo-station/stats&#x27;, component: MeteoStatsComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

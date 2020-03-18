@@ -242,15 +242,15 @@ export class ForecastDetailComponent {
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card&quot;&gt;
     &lt;div class&#x3D;&quot;card-body alert alert-info&quot;&gt;
       &lt;h6 class&#x3D;&quot;card-subtitle mb-2 text-muted&quot;&gt;{{&#x27;meteo-station.forecast.forecast&#x27; | translate}} : {{forecast.datetime | date:&#x27;HH:mm&#x27;}}&lt;/h6&gt;        
-      &lt;img src&#x3D;&quot;/assets/icons/meteo/short-cut/temperature.png&quot; width&#x3D;&quot;40&quot; /&gt;
+      &lt;img src&#x3D;&quot;/assets/icons/meteo/short-cut/temperature.png&quot; width&#x3D;&quot;35&quot; /&gt;
       {{forecast.temp2m}}&amp;nbsp;°C
       &lt;hr /&gt;
-      &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/icons/meteo/short-cut/{{forecast.icon}}.png&quot; width&#x3D;&quot;40&quot; /&gt;
+      &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/icons/meteo/short-cut/{{forecast.icon}}.png&quot; width&#x3D;&quot;35&quot; /&gt;
       {{&#x27;meteo-station.forecast.weather.&#x27;+forecast.weather | translate }}
       &lt;hr /&gt;
-      &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/icons/meteo/short-cut/sunrise.png&quot; width&#x3D;&quot;40&quot; /&gt; : {{ephemeride.sunrise}}
+      &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/icons/meteo/short-cut/sunrise.png&quot; width&#x3D;&quot;35&quot; /&gt; : {{ephemeride.sunrise}}
       &lt;hr /&gt;
-      &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/icons/meteo/short-cut/sunset.png&quot; width&#x3D;&quot;40&quot;  /&gt; : {{ephemeride.sunset}}
+      &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/icons/meteo/short-cut/sunset.png&quot; width&#x3D;&quot;35&quot;  /&gt; : {{ephemeride.sunset}}
     &lt;/div&gt;
 &lt;/div&gt;
   </code></pre>
@@ -303,8 +303,8 @@ export class ForecastDetailComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="card">    <div class="card-body alert alert-info">      <h6 class="card-subtitle mb-2 text-muted">{{\'meteo-station.forecast.forecast\' | translate}} : {{forecast.datetime | date:\'HH:mm\'}}</h6>              <img src="/assets/icons/meteo/short-cut/temperature.png" width="40" />      {{forecast.temp2m}}&nbsp;°C      <hr />      <img class="icon-style" src="/assets/icons/meteo/short-cut/{{forecast.icon}}.png" width="40" />      {{\'meteo-station.forecast.weather.\'+forecast.weather | translate }}      <hr />      <img class="icon-style" src="/assets/icons/meteo/short-cut/sunrise.png" width="40" /> : {{ephemeride.sunrise}}      <hr />      <img class="icon-style" src="/assets/icons/meteo/short-cut/sunset.png" width="40"  /> : {{ephemeride.sunset}}    </div></div>  </div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastDetailComponent', 'selector': 'app-forecast-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'StationDetailComponent', 'selector': 'app-station-detail'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
+        var COMPONENT_TEMPLATE = '<div><div class="card">    <div class="card-body alert alert-info">      <h6 class="card-subtitle mb-2 text-muted">{{\'meteo-station.forecast.forecast\' | translate}} : {{forecast.datetime | date:\'HH:mm\'}}</h6>              <img src="/assets/icons/meteo/short-cut/temperature.png" width="35" />      {{forecast.temp2m}}&nbsp;°C      <hr />      <img class="icon-style" src="/assets/icons/meteo/short-cut/{{forecast.icon}}.png" width="35" />      {{\'meteo-station.forecast.weather.\'+forecast.weather | translate }}      <hr />      <img class="icon-style" src="/assets/icons/meteo/short-cut/sunrise.png" width="35" /> : {{ephemeride.sunrise}}      <hr />      <img class="icon-style" src="/assets/icons/meteo/short-cut/sunset.png" width="35"  /> : {{ephemeride.sunset}}    </div></div>  </div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastDetailComponent', 'selector': 'app-forecast-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'MeteoStatsComponent', 'selector': 'app-meteo-stats'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'StationCommandComponent', 'selector': 'app-station-command'},{'name': 'StationDetailComponent', 'selector': 'app-station-detail'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ForecastDetailComponent'};
 </script>

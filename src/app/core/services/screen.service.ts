@@ -11,7 +11,8 @@ const reqHeaderWithJson = new HttpHeaders({
   'content-type': 'application/json'
 });
 
-const rootUrl = environment.apis.thingerio.url + '/v2/users/turboxav/devices/' + environment.devices.meteo;
+const rootUrl = environment.apis.thingerio.url;
+const rootUrlDevice = rootUrl + '/v2/users/' + environment.devices.account + '/devices/' + environment.devices.meteo;
 
 @Injectable({
   providedIn: 'root'
@@ -22,12 +23,12 @@ export class ScreenService {
 
   public switchScreen(screenState: ScreenState): Observable<any> {
     console.log('Screen state : ', screenState);
-    const url = rootUrl + '/screen';
+    const url = rootUrlDevice + '/screen';
     return this.http.post(url, { in: screenState === ScreenState.ON }, { headers: reqHeaderWithJson });
   }
 
   public checkScreen(): Observable<any> {
-    const url = rootUrl + '/screen-state';
+    const url = rootUrlDevice + '/screen-state';
     return this.http.get<any>(url, { headers: reqHeader });
   }
 

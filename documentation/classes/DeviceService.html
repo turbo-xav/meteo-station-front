@@ -115,7 +115,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/services/device.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/core/services/device.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -183,8 +183,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/core/services/device.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/core/services/device.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -296,8 +296,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/app/core/services/device.service.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/core/services/device.service.ts:31</a></div>
                 </td>
             </tr>
 
@@ -368,27 +368,29 @@ const reqHeaderWithJson &#x3D; new HttpHeaders({
   &#x27;content-type&#x27;: &#x27;application/json&#x27;
 });
 
-const rootUrl &#x3D; environment.apis.thingerio.url + &#x27;/v1/users/turboxav&#x27;;
+const rootUrl &#x3D; environment.apis.thingerio.url;
+const rootUrlDevice &#x3D; rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/devices&#x27;;
 
 export class DeviceService {
 
   constructor(private readonly http: HttpClient) { }
 
-
   public listDevices() {
-    const url &#x3D; rootUrl + &#x27;/devices&#x27;;
-    return this.http.get(url, { headers: reqHeader });
+    return this.http.get(rootUrlDevice, { headers: reqHeader });
   }
 
   public getDeviceDetail(deviceId: string): Observable&lt;DeviceStats&gt; {
-    const url &#x3D; rootUrl + &#x27;/devices/&#x27; + deviceId + &#x27;/stats&#x27;;
+    const url &#x3D; rootUrlDevice + &#x27;/&#x27; + deviceId + &#x27;/stats&#x27;;
     return this.http.get&lt;DeviceStats&gt;(url, { headers: reqHeader });
   }
 
   public rebootDevice(deviceId: string): Observable&lt;any&gt; {
-    const url &#x3D; environment.apis.thingerio.url  + &#x27;/v2/users/turboxav/devices/&#x27; + deviceId + &#x27;/reseting&#x27;;
-    return this.http.post(url, { in: true}, { headers: reqHeaderWithJson });
+    const url &#x3D; rootUrl + &#x27;/v2/users/&#x27; + environment.devices.account + &#x27;/devices/&#x27; + deviceId + &#x27;/reseting&#x27;;
+    return this.http.post(url, { in: true }, { headers: reqHeaderWithJson });
   }
+
+
+
 }
 </code></pre>
     </div>

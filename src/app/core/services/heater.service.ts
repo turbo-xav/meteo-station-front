@@ -11,7 +11,8 @@ const reqHeaderWithJson = new HttpHeaders({
   'content-type': 'application/json'
 });
 
-const rootUrl = environment.apis.thingerio.url + '/v2/users/turboxav/devices/' + environment.devices.meteo;
+const rootUrl = environment.apis.thingerio.url;
+const rootUrlDevice = rootUrl + '/v2/users/' + environment.devices.account + '/devices/' + environment.devices.meteo;
 
 @Injectable({
   providedIn: 'root'
@@ -22,12 +23,12 @@ export class HeaterService {
 
   public switchHeater(screenState: HeaterState): Observable<any> {
     console.log('Screen state : ', screenState);
-    const url = rootUrl + '/heater';
+    const url = rootUrlDevice + '/heater';
     return this.http.post(url, { in: screenState === HeaterState.ON }, { headers: reqHeaderWithJson });
   }
 
   public checkHeater(): Observable<any> {
-    const url = rootUrl + '/heater-state';
+    const url = rootUrlDevice + '/heater-state';
     return this.http.get<any>(url, { headers: reqHeader });
   }
 

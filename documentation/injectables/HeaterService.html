@@ -27,7 +27,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content class">
+               <div class="content injectable">
                    <div class="content-data">
 
 
@@ -36,13 +36,9 @@
 
 
 
-
-
-
-
 <ol class="breadcrumb">
-  <li>Classes</li>
-  <li>MeteoService</li>
+  <li>Injectables</li>
+  <li>HeaterService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,9 +56,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/core/services/meteo.service.ts</code>
+            <code>src/app/core/services/heater.service.ts</code>
         </p>
-
 
 
 
@@ -82,23 +77,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#checkMeteo">checkMeteo</a>
+                                <a href="#checkHeater">checkHeater</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#getEphemeride">getEphemeride</a>
+                                <a href="#getHeaterState">getHeaterState</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#getForecast">getForecast</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#getMeteoStats">getMeteoStats</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#refreshMeteo">refreshMeteo</a>
+                                <a href="#switchHeater">switchHeater</a>
                             </li>
                         </ul>
                     </td>
@@ -123,7 +110,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/services/meteo.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/core/services/heater.service.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -161,7 +148,6 @@
         </table>
 </section>
 
-
             <section>
     
     <h3 id="methods">
@@ -171,28 +157,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="checkMeteo"></a>
+                    <a name="checkHeater"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Public</span>
-                            checkMeteo
+                            checkHeater
                         </b>
-                        <a href="#checkMeteo"><span class="icon ion-ios-link"></span></a>
+                        <a href="#checkHeater"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>checkMeteo()</code>
+                    <code>checkHeater()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/app/core/services/meteo.service.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/core/services/heater.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -212,28 +198,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getEphemeride"></a>
+                    <a name="getHeaterState"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Public</span>
-                            getEphemeride
+                            getHeaterState
                         </b>
-                        <a href="#getEphemeride"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getHeaterState"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getEphemeride()</code>
+                    <code>getHeaterState()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/app/core/services/meteo.service.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/core/services/heater.service.ts:35</a></div>
                 </td>
             </tr>
 
@@ -242,7 +228,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Ephemeride.html" target="_self" >Observable&lt;Ephemeride&gt;</a></code>
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                     </div>
                 </td>
@@ -253,28 +239,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getForecast"></a>
+                    <a name="switchHeater"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Public</span>
-                            getForecast
+                            switchHeater
                         </b>
-                        <a href="#getForecast"><span class="icon ion-ios-link"></span></a>
+                        <a href="#switchHeater"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getForecast()</code>
+                    <code>switchHeater(screenState: <a href="../undefineds/HeaterState.html">HeaterState</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/app/core/services/meteo.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/core/services/heater.service.ts:24</a></div>
                 </td>
             </tr>
 
@@ -283,90 +269,39 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Forecast.html" target="_self" >Observable&lt;Forecast&gt;</a></code>
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>screenState</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#HeaterState" target="_self" >HeaterState</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                     </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getMeteoStats"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            getMeteoStats
-                        </b>
-                        <a href="#getMeteoStats"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getMeteoStats()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/app/core/services/meteo.service.ts:59</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;MeteoStats[]&gt;</code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="refreshMeteo"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            refreshMeteo
-                        </b>
-                        <a href="#refreshMeteo"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>refreshMeteo()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/core/services/meteo.service.ts:23</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Meteo.html" target="_self" >Observable&lt;Meteo&gt;</a></code>
-
+                        
                     </div>
                 </td>
             </tr>
@@ -374,80 +309,61 @@
     </table>
 </section>
 
-
-
-
-
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Forecast } from &#x27;./../interfaces/forecast&#x27;;
-import { Ephemeride } from &#x27;./../interfaces/ephemeride&#x27;;
-import { Injectable } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { environment } from &#x27;./../../../environments/environment&#x27;
 import { Observable } from &#x27;rxjs&#x27;;
 import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
-import { Meteo } from &#x27;../interfaces/meteo&#x27;;
-import { MeteoStats } from &#x27;../interfaces/meteo-stats&#x27;;
+import { HeaterState } from &#x27;../interfaces/heater-state&#x27;;
 
 const reqHeader &#x3D; new HttpHeaders({});
 
-const rootUrl &#x3D; environment.apis.thingerio.url 
+const reqHeaderWithJson &#x3D; new HttpHeaders({
+  &#x27;content-type&#x27;: &#x27;application/json&#x27;
+});
+
+const rootUrl &#x3D; environment.apis.thingerio.url;
 const rootUrlDevice &#x3D; rootUrl + &#x27;/v2/users/&#x27; + environment.devices.account + &#x27;/devices/&#x27; + environment.devices.meteo;
-const rootUrlBuckets &#x3D; rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/buckets/&#x27; + environment.devices.meteo;
-const rootUrlForecast &#x3D; environment.apis.forecast.url;
-export class MeteoService {
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class HeaterService {
 
   constructor(private readonly http: HttpClient) { }
 
-
-
-  public refreshMeteo(): Observable&lt;Meteo&gt; {
-    const url &#x3D; rootUrlDevice + &#x27;/meteo&#x27;;
-    return this.http.get&lt;Meteo&gt;(url, { headers: reqHeader }).pipe(
-      map((res: any) &#x3D;&gt; {
-        return res.out;
-      }),
-      map((meteo: Meteo) &#x3D;&gt; {
-        meteo.temperature &#x3D; meteo.temperature ? Number(meteo.temperature.toFixed(2)) : null;
-        meteo.pressure &#x3D; meteo.pressure ? Number(meteo.pressure.toFixed(2)) : null;
-        meteo.humidity &#x3D; meteo.humidity ? Number(meteo.humidity.toFixed(2)) : null;
-        return meteo;
-      })
-    );
+  public switchHeater(screenState: HeaterState): Observable&lt;any&gt; {
+    console.log(&#x27;Screen state : &#x27;, screenState);
+    const url &#x3D; rootUrlDevice + &#x27;/heater&#x27;;
+    return this.http.post(url, { in: screenState &#x3D;&#x3D;&#x3D; HeaterState.ON }, { headers: reqHeaderWithJson });
   }
 
-  public checkMeteo(): Observable&lt;any&gt; {
-    const url &#x3D; rootUrlDevice + &#x27;/meteo&#x27;;
+  public checkHeater(): Observable&lt;any&gt; {
+    const url &#x3D; rootUrlDevice + &#x27;/heater-state&#x27;;
     return this.http.get&lt;any&gt;(url, { headers: reqHeader });
   }
 
-  public getEphemeride(): Observable&lt;Ephemeride&gt; {
-    const url &#x3D; rootUrlForecast + &#x27;/ephemeride/0?insee&#x3D;&#x27; + environment.meteo.insee;
-    return this.http.get&lt;Ephemeride&gt;(url, { headers: reqHeader }).pipe(
-      map((datas: any) &#x3D;&gt; datas.ephemeride
-      )
-    );
-  }
+  public getHeaterState(): Observable&lt;any&gt; {
 
-  public getForecast(): Observable&lt;Forecast&gt; {
-    const url &#x3D; rootUrlForecast + &#x27;/forecast/nextHours?insee&#x3D;&#x27; + environment.meteo.insee;
-    return this.http.get&lt;Forecast&gt;(url, { headers: reqHeader }).pipe(
-      map((datas: any) &#x3D;&gt; datas.forecast[0]),
-      map((forecast: Forecast) &#x3D;&gt; new Forecast(forecast.weather, forecast.temp2m, forecast.datetime))
-    );
-  }
-
-  public getMeteoStats(): Observable&lt;MeteoStats[]&gt; {
-    return this.http.get&lt;MeteoStats[]&gt;(rootUrlBuckets + &#x27;/data&#x27;, { headers: reqHeader });
-
+    return this.checkHeater().pipe(
+      map((res: any) &#x3D;&gt; {
+        return res.out.state ? res.out.state : HeaterState.OFF;
+      }));
   }
 }
+
 </code></pre>
     </div>
+
 </div>
+
+
+
+
 
 
 
@@ -472,8 +388,8 @@ export class MeteoService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'MeteoService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeaterService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

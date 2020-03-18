@@ -239,7 +239,8 @@ import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
 import { AppRoutingModule } from &#x27;../app-routing.module&#x27;;
 import { FontAwesomeModule, FaIconLibrary } from &#x27;@fortawesome/angular-fontawesome&#x27;;
 import { fas } from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
-
+import { UiSwitchModule } from &#x27;ngx-toggle-switch&#x27;;
+import { GoogleChartsModule } from &#x27;angular-google-charts&#x27;;
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, &#x27;./assets/i18n/&#x27;, &#x27;.json&#x27;);
@@ -270,7 +271,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     CollapseModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    UiSwitchModule,
+    GoogleChartsModule
   ],
   exports: [
     TranslateModule,
@@ -279,7 +282,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeaderComponent,
     FooterComponent,
     ReactiveFormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    UiSwitchModule,
+    GoogleChartsModule
     ]
 })
 export class SharedModule {

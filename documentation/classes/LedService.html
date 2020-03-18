@@ -119,7 +119,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/services/led.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/core/services/led.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -240,8 +240,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/app/core/services/led.service.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/core/services/led.service.ts:34</a></div>
                 </td>
             </tr>
 
@@ -281,8 +281,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/core/services/led.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/core/services/led.service.ts:24</a></div>
                 </td>
             </tr>
 
@@ -322,8 +322,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/core/services/led.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/core/services/led.service.ts:28</a></div>
                 </td>
             </tr>
 
@@ -394,7 +394,8 @@ const reqHeaderWithJson &#x3D; new HttpHeaders({
   &#x27;content-type&#x27;: &#x27;application/json&#x27;
 });
 
-const rootUrl &#x3D; environment.apis.thingerio.url + &#x27;/v2/users/turboxav/devices/&#x27; + environment.devices.meteo;
+const rootUrl &#x3D; environment.apis.thingerio.url;
+const rootUrlDevice &#x3D; rootUrl + &#x27;/v2/users/&#x27; + environment.devices.account + &#x27;/devices/&#x27; + environment.devices.meteo;
 
 export class LedService {
 
@@ -402,26 +403,25 @@ export class LedService {
     private readonly http: HttpClient,
     private readonly deviceService: DeviceService) { }
 
-  public getStats(){
-    return this.deviceService. getDeviceDetail(environment.devices.meteo);
+  public getStats() {
+    return this.deviceService.getDeviceDetail(environment.devices.meteo);
   }
 
   public toggleLed(ledState: LedState): Observable&lt;any&gt; {
 
-    const url &#x3D; rootUrl + &#x27;/led&#x27;;
-    return this.http.post(url, { in: ledState &#x3D;&#x3D;&#x3D; LedState.ON}, { headers: reqHeaderWithJson });
+    const url &#x3D; rootUrlDevice + &#x27;/led&#x27;;
+    return this.http.post(url, { in: ledState &#x3D;&#x3D;&#x3D; LedState.ON }, { headers: reqHeaderWithJson });
   }
 
   public getLedState(): Observable&lt;any&gt; {
-    const url &#x3D; rootUrl +  &#x27;/led-state&#x27;;
-    return this.http.get&lt;any&gt;(url, { headers: reqHeader }).pipe(
+    return this.checkLed().pipe(
       map((res: any) &#x3D;&gt; {
         return res.out.state ? res.out.state : LedState.OFF;
-    }));
+      }));
   }
 
   public checkLed(): Observable&lt;any&gt; {
-    const url &#x3D;  rootUrl + &#x27;/led-state&#x27;;
+    const url &#x3D; rootUrlDevice + &#x27;/led-state&#x27;;
     return this.http.get&lt;any&gt;(url, { headers: reqHeader });
   }
 }
