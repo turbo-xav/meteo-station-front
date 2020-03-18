@@ -22,23 +22,23 @@ A meteo station
 ## What you will see
 
 <table>
-<tr>
+<tr style="font-size:10px">
     <th>Home page</th>
     <th>Authentication</th>
     <th>Meteo station</th>
     <th>Authentication</th>
 </tr>
 <tr>
-    <td>
+    <td style="width:100px">
         <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/home-page.jpg?raw=true" />
     </td>
-    <td>
+    <td style="width:100px">
         <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/authentication.jpg?raw=true" />
     </td>
-    <td>
+    <td style="width:100px">
         <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/meteo-station.jpg?raw=true" />
     </td>
-    <td>
+    <td style="width:100px">
       <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/statistics.jpg?raw=true" />
     </td>
 </tr>
