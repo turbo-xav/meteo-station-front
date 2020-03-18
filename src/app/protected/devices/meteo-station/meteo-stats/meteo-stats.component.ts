@@ -22,17 +22,31 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
   title = '';
   datas = [];
   columnNames = [
-    "Time",
-    "Vitry sur Seine"];
+    'Time',
+    'temperature'
+  ];
   options = {
+    series: {
+      0: { pointShape: 'circle' }
+    },
     hAxis: {
       title: 'Time'
     },
     vAxis: {
-      title: 'Temperature'
+      title: 'Results'
     },
     curveType: 'function',
-    legend: { position: 'top' }
+    pointSize: 4,
+    colors: ['#f78f8f'],
+    legend: {
+      position: 'top'
+    },
+    crosshair: {
+      color: '#ade1fc',
+      trigger: 'focus',
+      opacity: 0.5
+
+    }
   };
 
   width: number;
@@ -98,7 +112,7 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
     }
 
     if (this.windowWidth < 600) {
-      this.resize(400 , 300);
+      this.resize(400, 300);
     } else if (this.windowWidth < 800) {
       this.resize(600, 450);
     } else if (this.windowWidth < 1200) {
@@ -113,9 +127,15 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
       }
     );
 
-    this.translateService.get('stats.temperature').subscribe(
+    this.translateService.get('stats.measurements').subscribe(
       (translation: string) => {
         this.options.vAxis.title = translation;
+      }
+    );
+
+    this.translateService.get('stats.temperature').subscribe(
+      (translation: string) => {
+        this.columnNames[1] = translation;
       }
     );
 

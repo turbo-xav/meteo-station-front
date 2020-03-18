@@ -56,6 +56,7 @@
         "meteo": "Meteo statistics",
         "temperature": "Temperature in °C",
         "time": "Time in Day Hour : min",
+        "measurements":"Measurements",
         "temperature-evolution": "Temperature evolution",
         "no-datas": "There is no datas for the moment",
         "days": {
