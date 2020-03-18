@@ -17,31 +17,6 @@ A meteo station
 
 - Go <a href="https://meteo-station.projets-web.fr">Here</a>
 
-## Basic equipment
-
-- NodeMCU LUA ESP8266 CP2102 ESP-12E : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/nodemcu.jpg?raw=true" /><br /> https://www.amazon.fr/gp/product/B0791FJB62/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
-- BME 280 sensor : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/bme-280.jpg?raw=true" /><br />
-https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5ee1dcd12&pf_rd_r=83K1SKTQNBKG849J7HNW
-
-- Led RGB : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/led-grb.jpg?raw=true" /><br /> https://www.amazon.fr/gp/product/B07911J8M6/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
-
-## Assembly
-
-### BME 280 with nodemcu :
-
-<img width="300" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/assembly-nodemcu-bme280.png?raw=true" /><br />
-
-### Complete
-<img width="300" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/assambly-fritzing.jpg?raw=true" /><br />
-
-
-#### FZPZ Files to import in Fritzing SoftWare
-- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/assambly.fzz">Full Assembly</a>
-
-- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/ESP8266%20NodeMCU%20LoLin%20module.fzpz">Node MCU</a>
-- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/Adafruit%20OLED%20Monochrome%20128x64%200.96%20inch.fzpz">OLED Screen</a>
-- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/BMP280.fzpz">BME 280</a>
-
 # PWA application : ArduinoPwaLed
 
 ## What you will see
@@ -74,6 +49,32 @@ https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5
     </td>
 </tr>
 <table>
+
+
+## Basic equipment
+
+- NodeMCU LUA ESP8266 CP2102 ESP-12E : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/nodemcu.jpg?raw=true" /><br /> https://www.amazon.fr/gp/product/B0791FJB62/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
+- BME 280 sensor : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/bme-280.jpg?raw=true" /><br />
+https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5ee1dcd12&pf_rd_r=83K1SKTQNBKG849J7HNW
+
+- Led RGB : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/led-grb.jpg?raw=true" /><br /> https://www.amazon.fr/gp/product/B07911J8M6/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
+
+## Assembly
+
+### BME 280 with nodemcu :
+
+<img width="300" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/assembly-nodemcu-bme280.png?raw=true" /><br />
+
+### Complete
+<img width="300" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/assambly-fritzing.jpg?raw=true" /><br />
+
+
+#### FZPZ Files to import in Fritzing SoftWare
+- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/assambly.fzz">Full Assembly</a>
+
+- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/ESP8266%20NodeMCU%20LoLin%20module.fzpz">Node MCU</a>
+- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/Adafruit%20OLED%20Monochrome%20128x64%200.96%20inch.fzpz">OLED Screen</a>
+- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/BMP280.fzpz">BME 280</a>
 
 ## Angular Src
 
