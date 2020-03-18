@@ -30,16 +30,16 @@ A meteo station
 </tr>
 <tr>
     <td>
-        <img width="150" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/home-page.jpg?raw=true" />
+        <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/home-page.jpg?raw=true" />
     </td>
     <td>
-        <img width="150" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/authentication.jpg?raw=true" />
+        <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/authentication.jpg?raw=true" />
     </td>
     <td>
-        <img width="150" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/meteo-station.jpg?raw=true" />
+        <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/meteo-station.jpg?raw=true" />
     </td>
     <td>
-      <img width="150" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/statistics.jpg?raw=true" />
+      <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/statistics.jpg?raw=true" />
     </td>
 </tr>
 <table>
