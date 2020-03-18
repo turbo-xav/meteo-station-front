@@ -34,18 +34,35 @@ https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5
 
 ## What you will see
 
-### Home page
-<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/home-page.jpg?raw=true" />
+<table>
+<tr>
+    <th>Home page</th>
+    <th>Authentication</th>
+</tr>
+<tr>
+    <td>
+        <img width="150" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/home-page.jpg?raw=true" />
+    </td>
+    <td>
+        <img width="150" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/authentication.jpg?raw=true" />
+    </td>
+</tr>
+<table>
+<table>
+<tr>
+    <th>Meteo station</th>
+    <th>Authentication</th>
+</tr>
+<tr>
+    <td>
+        <img width="150" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/meteo-station.jpg?raw=true" />
+    </td>
+    <td>
+      <img width="150" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/statistics.jpg?raw=true" />
+    </td>
+</tr>
+<table>
 
-### Authentication
-<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/authentication.jpg?raw=true" />
-
-### Consult meteo station
-<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/meteo-station.jpg?raw=true" />
-
-### View statistics
-
-<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/statistics.jpg?raw=true" />
 ## Angular Src
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
