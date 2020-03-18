@@ -36,7 +36,7 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
       title: 'Results'
     },
     curveType: 'function',
-    pointSize: 4,
+    pointSize: 2,
     colors: ['#f78f8f'],
     legend: {
       position: 'top'
