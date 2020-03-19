@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { HttpErrorResponse } from '@angular/common/http';
 import { timeout } from 'rxjs/operators';
+import { LedState } from 'src/app/core/interfaces/led-state';
+import { LedService } from 'src/app/core/services/led.service';
 
 @Component({
   selector: 'app-station-command',
@@ -17,15 +19,20 @@ import { timeout } from 'rxjs/operators';
 })
 export class StationCommandComponent implements OnInit, OnDestroy {
 
-  public screenState = ScreenState.OFF;
+  public unAvailableLed = true;
 
+
+  public ledState = LedState.OFF;
+  public screenState = ScreenState.OFF;
   public heaterState = HeaterState.OFF;
+
 
   private screenSubscription$: Subscription;
   private checkheaterSubscription$: Subscription;
-
+  private ledSubscription$: Subscription;
 
   constructor(
+    private readonly ledService: LedService,
     private readonly screenService: ScreenService,
     private readonly heaterService: HeaterService,
     private readonly translateService: TranslateService,
@@ -34,6 +41,10 @@ export class StationCommandComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.checkLed(true);
+    this.ledSubscription$ = interval(2500).subscribe(
+      (val) => { this.checkLed(false); }
+    );
     this.checkScreen(true);
     this.screenSubscription$ = interval(2500).subscribe(
       (val) => { this.checkScreen(false); }
@@ -124,6 +135,63 @@ export class StationCommandComponent implements OnInit, OnDestroy {
     );
   }
 
+  public get ledisOn(): boolean {
+    return this.ledState === LedState.ON;
+  }
+
+  checkLed(withSpinner = false) {
+
+    if (withSpinner) {
+      this.spinner.show();
+    }
+
+    this.ledService.getLedState().pipe(
+      timeout(3000)
+    ).subscribe(
+      (ledState: LedState) => {
+        this.ledState = ledState;
+        this.unAvailableLed = false;
+        this.spinner.hide();
+      },
+      (err: HttpErrorResponse) => {
+        this.unAvailableLed = true;
+        this.displayNotAvailableLed();
+        this.spinner.hide();
+      }
+    );
+  }
+
+  toggleLed() {
+    const oldLedState = this.ledState;
+    const ledState: LedState = this.ledState === LedState.ON ? LedState.OFF : LedState.ON;
+    this.spinner.show();
+
+    this.ledService.toggleLed(ledState)
+      .pipe(timeout(3000))
+      .subscribe(
+        () => {
+          this.unAvailableLed = false;
+          this.ledState = ledState;
+          this.spinner.hide();
+        }
+        ,
+        (err: HttpErrorResponse) => {
+          this.unAvailableLed = true;
+          this.ledState = oldLedState;
+          this.displayNotAvailableLed();
+          this.spinner.hide();
+        }
+      );
+  }
+
+  displayNotAvailableLed() {
+    this.translateService.get('led.led-not-available').subscribe(
+      (translation: string) => {
+        this.toasterService.error(translation);
+      }
+    );
+  }
+
 
 
   displayNotAvailableScreen() {
@@ -143,6 +211,7 @@ export class StationCommandComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    if (this.ledSubscription$) { this.ledSubscription$.unsubscribe(); }
     if (this.screenSubscription$) { this.screenSubscription$.unsubscribe(); }
     if (this.checkheaterSubscription$) { this.checkheaterSubscription$.unsubscribe(); }
   }
