@@ -66,7 +66,7 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
         this.checkDatas();
       });
 
-    this.meteoDrawSubscription = interval(500).subscribe(
+    this.meteoDrawSubscription = interval(5000).subscribe(
       () => {
         this.drawChart();
       });
@@ -156,6 +156,22 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
       datas.push([x, meteoStat.val.temperature]);
     }
     this.datas = datas;
-
   }
+
+  public get datasInPaquets(): any[] {
+    const packets = [];
+
+    const limit = 10;
+    let datasInPackets = [];
+    for (let i = 1 ; i <= this.datas.length; i++) {
+      datasInPackets.push(this.datas[i - 1]);
+      if (i % limit === 0 || i ===  this.datas.length) {
+        packets.push(datasInPackets);
+        datasInPackets = [];
+      }
+    }
+    return packets;
+  }
+
+ 
 }

@@ -57,8 +57,11 @@
         "meteo": "Meteo statistics",
         "temperature": "Temperature in °C",
         "time": "Time in Day Hour : min",
+        "time-short": "Time",
+        "temperature-short": "Temperature °C",
         "measurements":"Measurements",
         "temperature-evolution": "Temperature evolution",
+        "datas":"Datas",
         "no-datas": "There is no datas for the moment",
         "days": {
             "0": "Sunday",

@@ -67,9 +67,12 @@
         "meteo": "Statistiques météo",
         "temperature": "Temperature en °C",
         "time": "Temps en Jour Heure : Min",
+        "time-short": "Temps",
+        "temperature-short": "Température °C",
         "measurements":"Mesures",
         "temperature-evolution": "Evolution de la temperature",
         "no-datas": "Il n'y a pas de données pour le moment",
+        "datas":"Données",
         "days": {
             "0": "Dimanche",
             "1": "Lundi",
