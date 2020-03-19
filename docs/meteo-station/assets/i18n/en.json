@@ -5,6 +5,7 @@
         "welcom-intro": "Hello this is an application of IOT to control Arduino Objects.",
         "play-with-led": "Begin by playing with a led",
         "check-meteo": "Check weather thanks to my meteo station",
+        "check-meteo-stats": "Check meteo evolution thanks to statistics",
         "legal-mentions": "Legal mentions",
         "personnal-application": "This is a personnal application",
         "last-update": "Last update"
