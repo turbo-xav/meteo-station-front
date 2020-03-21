@@ -94,6 +94,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#getForecastDaily">getForecastDaily</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#getMeteoStats">getMeteoStats</a>
                             </li>
                             <li>
@@ -294,6 +298,47 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getForecastDaily"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getForecastDaily
+                        </b>
+                        <a href="#getForecastDaily"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getForecastDaily()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/core/services/meteo.service.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Forecast.html" target="_self" >Observable&lt;Forecast[]&gt;</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getMeteoStats"></a>
                     <span class="name">
                         <b>
@@ -314,8 +359,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/app/core/services/meteo.service.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/app/core/services/meteo.service.ts:72</a></div>
                 </td>
             </tr>
 
@@ -394,7 +439,7 @@ import { MeteoStats } from &#x27;../interfaces/meteo-stats&#x27;;
 
 const reqHeader &#x3D; new HttpHeaders({});
 
-const rootUrl &#x3D; environment.apis.thingerio.url 
+const rootUrl &#x3D; environment.apis.thingerio.url
 const rootUrlDevice &#x3D; rootUrl + &#x27;/v2/users/&#x27; + environment.devices.account + &#x27;/devices/&#x27; + environment.devices.meteo;
 const rootUrlBuckets &#x3D; rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/buckets/&#x27; + environment.devices.meteo;
 const rootUrlForecast &#x3D; environment.apis.forecast.url;
@@ -436,8 +481,21 @@ export class MeteoService {
     const url &#x3D; rootUrlForecast + &#x27;/forecast/nextHours?insee&#x3D;&#x27; + environment.meteo.insee;
     return this.http.get&lt;Forecast&gt;(url, { headers: reqHeader }).pipe(
       map((datas: any) &#x3D;&gt; datas.forecast[0]),
-      map((forecast: Forecast) &#x3D;&gt; new Forecast(forecast.weather, forecast.temp2m, forecast.datetime))
+      map((forecast: Forecast) &#x3D;&gt; new Forecast(forecast.weather, forecast.temp2m, null, null, forecast.datetime))
     );
+  }
+
+  public getForecastDaily(): Observable&lt;Forecast[]&gt; {
+    const url &#x3D; rootUrlForecast + &#x27;/forecast/daily?insee&#x3D;&#x27; + environment.meteo.insee;
+    return this.http.get&lt;Forecast[]&gt;(url, { headers: reqHeader }).pipe(
+      map((datas: any) &#x3D;&gt; datas.forecast),
+      map((datas: Forecast[]) &#x3D;&gt; {
+        const forecasts: Forecast[] &#x3D; [];
+        for (const forecast of datas) {
+          forecasts.push(new Forecast(forecast.weather, null, forecast.tmin, forecast.tmax, forecast.datetime));
+        }
+        return forecasts;
+      }));
   }
 
   public getMeteoStats(): Observable&lt;MeteoStats[]&gt; {

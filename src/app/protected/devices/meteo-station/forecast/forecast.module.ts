@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ForecastDetailComponent } from './forecast-detail/forecast-detail.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ForecastDaysComponent } from './forecast-hour-days/forecast-days.component';
+
 
 
 
 @NgModule({
-  declarations: [ForecastDetailComponent],
+  declarations: [ForecastDetailComponent, ForecastDaysComponent],
   imports: [
     SharedModule
   ],

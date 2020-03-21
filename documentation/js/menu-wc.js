@@ -116,13 +116,17 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ForecastModule.html" data-type="entity-link">ForecastModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-ForecastModule-9ed5735287c9cdaff037602d22ce90f8"' : 'data-target="#xs-components-links-module-ForecastModule-9ed5735287c9cdaff037602d22ce90f8"' }>
+                                            'data-target="#components-links-module-ForecastModule-77f5aec3b0ab1b03d8373af6eb61a117"' : 'data-target="#xs-components-links-module-ForecastModule-77f5aec3b0ab1b03d8373af6eb61a117"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ForecastModule-9ed5735287c9cdaff037602d22ce90f8"' :
-                                            'id="xs-components-links-module-ForecastModule-9ed5735287c9cdaff037602d22ce90f8"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ForecastModule-77f5aec3b0ab1b03d8373af6eb61a117"' :
+                                            'id="xs-components-links-module-ForecastModule-77f5aec3b0ab1b03d8373af6eb61a117"' }>
+                                            <li class="link">
+                                                <a href="components/ForecastDaysComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ForecastDaysComponent</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/ForecastDetailComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ForecastDetailComponent</a>

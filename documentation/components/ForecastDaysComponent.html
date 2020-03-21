@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>StationDetailComponent</li>
+  <li>ForecastDaysComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/protected/devices/meteo-station/station/station-detail/station-detail.component.ts</code>
+    <code>src/app/protected/devices/meteo-station/forecast/forecast-hour-days/forecast-days.component.ts</code>
 </p>
 
 
@@ -91,19 +91,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-station-detail</code></td>
+                <td class="col-md-9"><code>app-forecast-days</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./station-detail.component.scss</code></td>
+                <td class="col-md-9"><code>./forecast-days.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./station-detail.component.html</code></td>
+                <td class="col-md-9"><code>./forecast-days.component.html</code></td>
             </tr>
 
 
@@ -121,6 +121,21 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#forecasts">forecasts</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -137,20 +152,6 @@
                     </td>
                 </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#meteo">meteo</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
 
 
@@ -165,43 +166,50 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(meteoService: <a href="../classes/MeteoService.html">MeteoService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-detail/station-detail.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/protected/devices/meteo-station/forecast/forecast-hour-days/forecast-days.component.ts:12</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>meteoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/MeteoService.html" target="_self" >MeteoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
 
-    <section>
-    <h3 id="inputs">Inputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="meteo"></a>
-                        <b>meteo</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/Meteo.html" target="_self" >Meteo</a></code>
 
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-detail/station-detail.component.ts:11</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
 
 
 
@@ -232,8 +240,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-detail/station-detail.component.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/forecast/forecast-hour-days/forecast-days.component.ts:18</a></div>
                 </td>
             </tr>
 
@@ -250,26 +258,69 @@
         </tbody>
     </table>
 </section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forecasts"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            forecasts</b>
+                            <a href="#forecasts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Forecast.html" target="_self" >Forecast[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/protected/devices/meteo-station/forecast/forecast-hour-days/forecast-days.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input } from &#x27;@angular/core&#x27;;
-import { Meteo } from &#x27;src/app/core/interfaces/meteo&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { MeteoService } from &#x27;src/app/core/services/meteo.service&#x27;;
+import { Forecast } from &#x27;src/app/core/interfaces/forecast&#x27;;
 
 @Component({
-  selector: &#x27;app-station-detail&#x27;,
-  templateUrl: &#x27;./station-detail.component.html&#x27;,
-  styleUrls: [&#x27;./station-detail.component.scss&#x27;]
+  selector: &#x27;app-forecast-days&#x27;,
+  templateUrl: &#x27;./forecast-days.component.html&#x27;,
+  styleUrls: [&#x27;./forecast-days.component.scss&#x27;]
 })
-export class StationDetailComponent implements OnInit {
+export class ForecastDaysComponent implements OnInit {
 
-  @Input() meteo: Meteo;
+  public forecasts: Forecast[]
 
-  constructor() { }
+  constructor(
+    private readonly meteoService: MeteoService
+  ) { }
 
   ngOnInit() {
+    this.meteoService.getForecastDaily().subscribe(
+      (forecasts: Forecast[]) &#x3D;&gt; {
+        this.forecasts &#x3D; forecasts;
+        console.log(this.forecasts);
+      }
+    );
   }
 
 }
@@ -277,42 +328,29 @@ export class StationDetailComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card&quot;&gt;
-&lt;div class&#x3D;&quot;card-body alert alert-info&quot;&gt;
-    &lt;h6 class&#x3D;&quot;card-subtitle mb-2 text-muted&quot;&gt;{{&#x27;meteo-station.forecast.mesure&#x27;| translate}}&lt;/h6&gt;
-    &lt;img class&#x3D;&quot;icon-style&quot; class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/thermometre.png&quot; width&#x3D;&quot;35&quot; /&gt; : {{meteo.temperature}}&amp;nbsp;°C
-    &lt;hr /&gt;
-    &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/pressure.png&quot; width&#x3D;&quot;35&quot; /&gt; : {{meteo.pressure}}&amp;nbsp;hPa
-    &lt;hr /&gt;
-    &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/humidity.png&quot; width&#x3D;&quot;35&quot; /&gt; : {{meteo.humidity}}&amp;nbsp;%
-&lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;h1 class&#x3D;&quot;display-5&quot;&gt;&lt;img src&#x3D;&quot;/assets/forecast-long.png&quot; width&#x3D;&quot;30&quot; /&gt;&lt;span class&#x3D;&quot;btn btn-outline-info&quot;&gt;
+        {{&#x27;meteo-station.forecast.forecast&#x27; | translate}}&lt;/span&gt; &lt;/h1&gt;
+&lt;h2&gt;&lt;span class&#x3D;&quot;btn btn-outline-info&quot;&gt; {{&#x27;meteo-station.forecast.forecast-2-weeks&#x27; | translate}}&lt;/span&gt;&lt;/h2&gt;
+
+
+&lt;div class&#x3D;&quot;card&quot; *ngFor&#x3D;&quot;let forecast of forecasts&quot;&gt;
+    &lt;div class&#x3D;&quot;card-body alert alert-info&quot;&gt;
+        &lt;h6 class&#x3D;&quot;card-subtitle mb-2 text-muted&quot;&gt;{{&#x27;various.days.&#x27;+(forecast.datetime | date:&#x27;EEEE&#x27;)  | translate}}
+            {{forecast.datetime | date:&#x27;dd&#x27;}} {{&#x27;various.months.&#x27;+(forecast.datetime | date:&#x27;LLLL&#x27;) | translate}}&lt;/h6&gt;
+        &lt;img class&#x3D;&quot;icon-style&quot; src&#x3D;&quot;/assets/icons/meteo/short-cut/{{forecast.icon}}.png&quot; width&#x3D;&quot;35&quot; /&gt;
+        {{&#x27;meteo-station.forecast.weather.&#x27;+forecast.weather | translate }}
+        &lt;hr /&gt;
+        &lt;img src&#x3D;&quot;/assets/icons/meteo/short-cut/temperature.png&quot; width&#x3D;&quot;35&quot; /&gt;
+        {{forecast.tmin}}&amp;nbsp;-&amp;nbsp;{{forecast.tmax}} °C
+    &lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
-                    <code>./station-detail.component.scss</code>
+                    <code>./forecast-days.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.card{
-    margin:2px;
-}
-
-.alert{
-    margin:0px;
-}
-
-.card img  {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-}
-
-.col-6{
-    border-radius: 15px;
-}
-
-:host {
-    font-size:12px;
-}</code></pre>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -340,10 +378,10 @@ export class StationDetailComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="card"><div class="card-body alert alert-info">    <h6 class="card-subtitle mb-2 text-muted">{{\'meteo-station.forecast.mesure\'| translate}}</h6>    <img class="icon-style" class="icon-style" src="/assets/thermometre.png" width="35" /> : {{meteo.temperature}}&nbsp;°C    <hr />    <img class="icon-style" src="/assets/pressure.png" width="35" /> : {{meteo.pressure}}&nbsp;hPa    <hr />    <img class="icon-style" src="/assets/humidity.png" width="35" /> : {{meteo.humidity}}&nbsp;%</div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><h1 class="display-5"><img src="/assets/forecast-long.png" width="30" /><span class="btn btn-outline-info">        {{\'meteo-station.forecast.forecast\' | translate}}</span> </h1><h2><span class="btn btn-outline-info"> {{\'meteo-station.forecast.forecast-2-weeks\' | translate}}</span></h2><div class="card" *ngFor="let forecast of forecasts">    <div class="card-body alert alert-info">        <h6 class="card-subtitle mb-2 text-muted">{{\'various.days.\'+(forecast.datetime | date:\'EEEE\')  | translate}}            {{forecast.datetime | date:\'dd\'}} {{\'various.months.\'+(forecast.datetime | date:\'LLLL\') | translate}}</h6>        <img class="icon-style" src="/assets/icons/meteo/short-cut/{{forecast.icon}}.png" width="35" />        {{\'meteo-station.forecast.weather.\'+forecast.weather | translate }}        <hr />        <img src="/assets/icons/meteo/short-cut/temperature.png" width="35" />        {{forecast.tmin}}&nbsp;-&nbsp;{{forecast.tmax}} °C    </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastDaysComponent', 'selector': 'app-forecast-days'},{'name': 'ForecastDetailComponent', 'selector': 'app-forecast-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'MeteoStatsComponent', 'selector': 'app-meteo-stats'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'StationCommandComponent', 'selector': 'app-station-command'},{'name': 'StationDetailComponent', 'selector': 'app-station-detail'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'StationDetailComponent'};
+    var ACTUAL_COMPONENT = {'name': 'ForecastDaysComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -378,7 +416,7 @@ export class StationDetailComponent implements OnInit {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'StationDetailComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ForecastDaysComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

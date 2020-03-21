@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MeteoService } from 'src/app/core/services/meteo.service';
 import { MeteoStats } from 'src/app/core/interfaces/meteo-stats';
 import { TranslateService } from '@ngx-translate/core';
-import { transition } from '@angular/animations';
 import { Subscription, interval } from 'rxjs';
 
 @Component({

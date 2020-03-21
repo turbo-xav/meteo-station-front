@@ -8,14 +8,38 @@
         "check-meteo-stats": "Suivez l'évolution de la météo grâce aux statistiques",
         "legal-mentions": "Mentions légales",
         "personnal-application": "Ceci est une application personnelle",
-        "last-update": "Dernière mise à jour"
+        "last-update": "Dernière mise à jour",
+        "days": {
+            "Sunday": "Dimanche",
+            "Monday": "Lundi",
+            "Tuesday": "Mardi",
+            "Wednesday": "Mercredi",
+            "Thursday": "Jeudi",
+            "Friday": "Vendredi",
+            "Saturday": "Samedi"
+        },
+        "months":{
+            "January":"Janvier",
+            "February":"Février",
+            "March":"Mars",
+            "April":"Avril",
+            "May":"Mai",
+            "June":"Juin",
+            "July":"Juillet",
+            "September":"Septembre",
+            "October":"Octobre",
+            "November":"Novembre",
+            "December":"Decembre"
+        }
+
     },
     "navigation": {
         "home": "Accueil",
         "devices": "Appreils",
         "play-led": "La led",
         "meteo-station": "Station météo",
-        "meteo-stats": "Statitiques"
+        "meteo-stats": "Statitiques",
+        "meteo-forecast":"Prévisions"
     },
     "device": {
         "device": "Appareil",
@@ -94,6 +118,7 @@
         "forecast": {
             "problem": "Il y a un problème avec le service de prévision météo",
             "forecast": "Prévisions",
+            "forecast-2-weeks":"Prévision sur 2 semaines",
             "mesure": "Mesures",
             "the-weather-is": "Le temps est",
             "weather": {

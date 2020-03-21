@@ -25,6 +25,10 @@
                 src="assets/icons/icon-meteo.png">&nbsp;{{'navigation.meteo-station' | translate}}</a>
           </li>
           <li>
+            <a class="nav-link" [routerLink]="['/meteo-station','forecasts']" routerLinkActive="active"><img
+                src="assets/icons/icon-forecast-long.png">&nbsp;{{'navigation.meteo-forecast' | translate}}</a>
+          </li>
+          <li>
             <a class="nav-link" [routerLink]="['/meteo-station','stats']" routerLinkActive="active"><img
                 src="assets/icons/icon-statistics.png">&nbsp;{{'navigation.meteo-stats' | translate}}</a>
           </li>

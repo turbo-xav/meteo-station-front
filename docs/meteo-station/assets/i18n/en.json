@@ -8,14 +8,37 @@
         "check-meteo-stats": "Check meteo evolution thanks to statistics",
         "legal-mentions": "Legal mentions",
         "personnal-application": "This is a personnal application",
-        "last-update": "Last update"
+        "last-update": "Last update",
+        "days": {
+            "Sunday": "Sunday",
+            "Monday": "Monday",
+            "Tuesday": "Tuesday",
+            "Wednesday": "Wednesday",
+            "Thursday": "Thursday",
+            "Friday": "Friday",
+            "Saturday": "Saturday"
+        },
+        "months":{
+            "January":"January",
+            "February":"February",
+            "March":"March",
+            "April":"April",
+            "May":"May",
+            "June":"June",
+            "July":"July",
+            "September":"September",
+            "October":"October",
+            "November":"November",
+            "December":"December"
+        }
     },
     "navigation": {
         "home": "Home",
         "devices": "Devices",
         "play-led": "Led",
         "meteo-station": "Meteo station",
-        "meteo-stats": "Statitics"
+        "meteo-stats": "Statitics",
+        "meteo-forecast":"Forecasts"
     },
     "device": {
         "device": "Device",
@@ -59,9 +82,9 @@
         "time": "Time in Day Hour : min",
         "time-short": "Time",
         "temperature-short": "Temperature °C",
-        "measurements":"Measurements",
+        "measurements": "Measurements",
         "temperature-evolution": "Temperature evolution",
-        "datas":"Datas",
+        "datas": "Datas",
         "no-datas": "There is no datas for the moment",
         "days": {
             "0": "Sunday",
@@ -81,10 +104,10 @@
             "name": "water heater",
             "switch-on": "Switch on",
             "switch-off": "Switch off",
-            "is":"Water heater is",
+            "is": "Water heater is",
             "on": "On",
             "off": "Off",
-            "heater-not-available":"Water heater is not available"
+            "heater-not-available": "Water heater is not available"
         },
         "temperature": "Temperature",
         "pressure": "Pressure",
@@ -92,6 +115,7 @@
         "forecast": {
             "problem": "There is a problem with forecast service",
             "forecast": "Forecasts",
+            "forecast-2-weeks":"Forecasts on 2 weeks",
             "mesure": "Mesures",
             "the-weather-is": "The weather is",
             "weather": {

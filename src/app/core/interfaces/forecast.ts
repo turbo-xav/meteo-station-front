@@ -106,15 +106,21 @@ export class Forecast {
   weather: number;
   temp2m: number;
   datetime: string;
+  tmin: number;
+  tmax: number;
 
-  public constructor(weather: number, temp2m: number, datetime?: string) {
+  public constructor(weather: number, temp2m: number, tmin: number, tmax: number, datetime?: string) {
     this.weather = weather;
     this.temp2m = temp2m;
+    this.tmin = tmin;
+    this.tmax = tmax;
     this.datetime = datetime;
   }
 
   public get icon(): string {
-    const icons = this.icons.filter(icon => icon.min <= this.weather && icon.max >= this.weather);
+    const icons = this.icons.filter( ( myIcon: any) => {
+      return myIcon.min <= this.weather && myIcon.max >= this.weather;
+    });
     const icon = icons && icons.length >= 0 ? icons[0] : '';
 
     return icon && icon.icon ? icon.icon : 'default';

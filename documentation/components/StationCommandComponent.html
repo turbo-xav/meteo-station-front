@@ -140,11 +140,23 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#ledState">ledState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#ledSubscription$">ledSubscription$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#screenState">screenState</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#screenSubscription$">screenSubscription$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#unAvailableLed">unAvailableLed</a>
                             </li>
                         </ul>
                     </td>
@@ -162,10 +174,16 @@
                                 <a href="#checkHeater">checkHeater</a>
                             </li>
                             <li>
+                                <a href="#checkLed">checkLed</a>
+                            </li>
+                            <li>
                                 <a href="#checkScreen">checkScreen</a>
                             </li>
                             <li>
                                 <a href="#displayNotAvailableHeater">displayNotAvailableHeater</a>
+                            </li>
+                            <li>
+                                <a href="#displayNotAvailableLed">displayNotAvailableLed</a>
                             </li>
                             <li>
                                 <a href="#displayNotAvailableScreen">displayNotAvailableScreen</a>
@@ -183,6 +201,9 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#switchScreen">switchScreen</a>
+                            </li>
+                            <li>
+                                <a href="#toggleLed">toggleLed</a>
                             </li>
                         </ul>
                     </td>
@@ -206,6 +227,9 @@
                                 <li>
                                     <a href="#heaterisOn">heaterisOn</a>
                                 </li>
+                                <li>
+                                    <a href="#ledisOn">ledisOn</a>
+                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -219,12 +243,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(screenService: <a href="../injectables/ScreenService.html">ScreenService</a>, heaterService: <a href="../injectables/HeaterService.html">HeaterService</a>, translateService: TranslateService, toasterService: ToastrService, spinner: NgxSpinnerService)</code>
+<code>constructor(ledService: <a href="../classes/LedService.html">LedService</a>, screenService: <a href="../injectables/ScreenService.html">ScreenService</a>, heaterService: <a href="../injectables/HeaterService.html">HeaterService</a>, translateService: TranslateService, toasterService: ToastrService, spinner: NgxSpinnerService)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -241,6 +265,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                                <tr>
+                                                        <td>ledService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/LedService.html" target="_self" >LedService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                                 <tr>
                                                         <td>screenService</td>
                                                   
@@ -341,8 +377,78 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="107"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:107</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:118</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>withSpinner</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>false</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkLed"></a>
+                    <span class="name">
+                        <b>
+                            checkLed
+                        </b>
+                        <a href="#checkLed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkLed(withSpinner)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:142</a></div>
                 </td>
             </tr>
 
@@ -411,8 +517,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:78</a></div>
                 </td>
             </tr>
 
@@ -481,8 +587,47 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="137"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:137</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="205"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:205</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayNotAvailableLed"></a>
+                    <span class="name">
+                        <b>
+                            displayNotAvailableLed
+                        </b>
+                        <a href="#displayNotAvailableLed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>displayNotAvailableLed()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="187"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:187</a></div>
                 </td>
             </tr>
 
@@ -520,8 +665,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="197"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:197</a></div>
                 </td>
             </tr>
 
@@ -559,8 +704,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="145"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:145</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="213"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:213</a></div>
                 </td>
             </tr>
 
@@ -598,8 +743,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:43</a></div>
                 </td>
             </tr>
 
@@ -639,8 +784,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:91</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:102</a></div>
                 </td>
             </tr>
 
@@ -680,8 +825,47 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleLed"></a>
+                    <span class="name">
+                        <b>
+                            toggleLed
+                        </b>
+                        <a href="#toggleLed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleLed()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="164"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:164</a></div>
                 </td>
             </tr>
 
@@ -724,7 +908,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -751,7 +935,62 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ledState"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            ledState</b>
+                            <a href="#ledState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>LedState.OFF</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ledSubscription$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            ledSubscription$</b>
+                            <a href="#ledSubscription$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -778,7 +1017,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -806,7 +1045,34 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="unAvailableLed"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            unAvailableLed</b>
+                            <a href="#unAvailableLed"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -835,7 +1101,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:58</a></div>
                                 </td>
                             </tr>
 
@@ -857,7 +1123,29 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:87</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:98</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ledisOn"></a>
+                        <span class="name"><b>ledisOn</b><a href="#ledisOn"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>ledisOn()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">src/app/protected/devices/meteo-station/station/station-command/station-command.component.ts:138</a></div>
                                 </td>
                             </tr>
 
@@ -879,6 +1167,8 @@ import { ToastrService } from &#x27;ngx-toastr&#x27;;
 import { NgxSpinnerService } from &#x27;ngx-spinner&#x27;;
 import { HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
 import { timeout } from &#x27;rxjs/operators&#x27;;
+import { LedState } from &#x27;src/app/core/interfaces/led-state&#x27;;
+import { LedService } from &#x27;src/app/core/services/led.service&#x27;;
 
 @Component({
   selector: &#x27;app-station-command&#x27;,
@@ -887,15 +1177,20 @@ import { timeout } from &#x27;rxjs/operators&#x27;;
 })
 export class StationCommandComponent implements OnInit, OnDestroy {
 
-  public screenState &#x3D; ScreenState.OFF;
+  public unAvailableLed &#x3D; true;
 
+
+  public ledState &#x3D; LedState.OFF;
+  public screenState &#x3D; ScreenState.OFF;
   public heaterState &#x3D; HeaterState.OFF;
+
 
   private screenSubscription$: Subscription;
   private checkheaterSubscription$: Subscription;
-
+  private ledSubscription$: Subscription;
 
   constructor(
+    private readonly ledService: LedService,
     private readonly screenService: ScreenService,
     private readonly heaterService: HeaterService,
     private readonly translateService: TranslateService,
@@ -904,6 +1199,10 @@ export class StationCommandComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.checkLed(true);
+    this.ledSubscription$ &#x3D; interval(2500).subscribe(
+      (val) &#x3D;&gt; { this.checkLed(false); }
+    );
     this.checkScreen(true);
     this.screenSubscription$ &#x3D; interval(2500).subscribe(
       (val) &#x3D;&gt; { this.checkScreen(false); }
@@ -994,6 +1293,63 @@ export class StationCommandComponent implements OnInit, OnDestroy {
     );
   }
 
+  public get ledisOn(): boolean {
+    return this.ledState &#x3D;&#x3D;&#x3D; LedState.ON;
+  }
+
+  checkLed(withSpinner &#x3D; false) {
+
+    if (withSpinner) {
+      this.spinner.show();
+    }
+
+    this.ledService.getLedState().pipe(
+      timeout(3000)
+    ).subscribe(
+      (ledState: LedState) &#x3D;&gt; {
+        this.ledState &#x3D; ledState;
+        this.unAvailableLed &#x3D; false;
+        this.spinner.hide();
+      },
+      (err: HttpErrorResponse) &#x3D;&gt; {
+        this.unAvailableLed &#x3D; true;
+        this.displayNotAvailableLed();
+        this.spinner.hide();
+      }
+    );
+  }
+
+  toggleLed() {
+    const oldLedState &#x3D; this.ledState;
+    const ledState: LedState &#x3D; this.ledState &#x3D;&#x3D;&#x3D; LedState.ON ? LedState.OFF : LedState.ON;
+    this.spinner.show();
+
+    this.ledService.toggleLed(ledState)
+      .pipe(timeout(3000))
+      .subscribe(
+        () &#x3D;&gt; {
+          this.unAvailableLed &#x3D; false;
+          this.ledState &#x3D; ledState;
+          this.spinner.hide();
+        }
+        ,
+        (err: HttpErrorResponse) &#x3D;&gt; {
+          this.unAvailableLed &#x3D; true;
+          this.ledState &#x3D; oldLedState;
+          this.displayNotAvailableLed();
+          this.spinner.hide();
+        }
+      );
+  }
+
+  displayNotAvailableLed() {
+    this.translateService.get(&#x27;led.led-not-available&#x27;).subscribe(
+      (translation: string) &#x3D;&gt; {
+        this.toasterService.error(translation);
+      }
+    );
+  }
+
 
 
   displayNotAvailableScreen() {
@@ -1013,6 +1369,7 @@ export class StationCommandComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    if (this.ledSubscription$) { this.ledSubscription$.unsubscribe(); }
     if (this.screenSubscription$) { this.screenSubscription$.unsubscribe(); }
     if (this.checkheaterSubscription$) { this.checkheaterSubscription$.unsubscribe(); }
   }
@@ -1026,20 +1383,35 @@ export class StationCommandComponent implements OnInit, OnDestroy {
     &lt;div class&#x3D;&quot;card-body alert alert-info&quot;&gt;
         &lt;h6 class&#x3D;&quot;card-subtitle mb-2 text-muted&quot;&gt;Commande&lt;/h6&gt;
         &lt;div class&#x3D;&quot;row&quot;&gt;
-            &lt;div class&#x3D;&quot;col-6&quot;&gt;
-                &lt;label&gt;&lt;img src&#x3D;&quot;/assets/oled.png&quot; width&#x3D;&quot;35&quot; alt&#x3D;&quot;{{&#x27;screen.screen&#x27; | translate}}&quot; /&gt;&lt;/label&gt;
-                &lt;span&gt;
+            &lt;div class&#x3D;&quot;col-4&quot;&gt;
+                &lt;label&gt;&lt;img src&#x3D;&quot;/assets/oled.png&quot; (click)&#x3D;&quot;switchScreen()&quot; width&#x3D;&quot;25&quot; alt&#x3D;&quot;{{&#x27;screen.screen&#x27; | translate}}&quot; /&gt; : 
+                    &lt;span  *ngIf&#x3D;&quot;screenState&quot;&gt;{{(&#x27;screen.&#x27; + screenState | lowercase) | translate}}&lt;/span&gt;&lt;/label&gt;
+                &lt;div *ngIf&#x3D;&quot;screenState&quot; class&#x3D;&quot;state card-footer bg-transparent border-success&quot;&gt;
                     &lt;ui-switch [size]&#x3D;&quot;&#x27;small&#x27;&quot; (change)&#x3D;&quot;switchScreen()&quot; [checked]&#x3D;&quot;screenisOn&quot;&gt;&lt;/ui-switch&gt;
-                    &lt;span class&#x3D;&quot;state&quot; *ngIf&#x3D;&quot;screenState&quot;&gt;{{(&#x27;screen.&#x27; + screenState | lowercase) | translate}}&lt;/span&gt;
-                &lt;/span&gt;
+                &lt;/div&gt;
+
             &lt;/div&gt;
-            &lt;div class&#x3D;&quot;col-6&quot;&gt;
-                &lt;label&gt;&lt;img src&#x3D;&quot;/assets/water-heater.png&quot; width&#x3D;&quot;35&quot; alt&#x3D;&quot;{{&#x27;heater.heater&#x27; | translate}}&quot; /&gt;&lt;/label&gt;
-                &lt;span&gt;
+            &lt;div class&#x3D;&quot;col-4&quot;&gt;
+                &lt;label&gt;&lt;img src&#x3D;&quot;/assets/water-heater.png&quot; (click)&#x3D;&quot;switchHeater()&quot; width&#x3D;&quot;25&quot; alt&#x3D;&quot;{{&#x27;heater.heater&#x27; | translate}}&quot; /&gt; : 
+                    &lt;span *ngIf&#x3D;&quot;heaterState&quot;&gt;{{(&#x27;heater.&#x27; + heaterState | lowercase) | translate}}&lt;/span&gt;&lt;/label&gt;
+
+                &lt;div *ngIf&#x3D;&quot;heaterState&quot; class&#x3D;&quot;state card-footer bg-transparent border-success&quot;&gt;
                     &lt;ui-switch [size]&#x3D;&quot;&#x27;small&#x27;&quot; (change)&#x3D;&quot;switchHeater()&quot; [checked]&#x3D;&quot;heaterisOn&quot;&gt;&lt;/ui-switch&gt;
-                    &lt;span class&#x3D;&quot;state&quot; *ngIf&#x3D;&quot;heaterState&quot;&gt;{{(&#x27;heater.&#x27; + heaterState | lowercase) | translate}}&lt;/span&gt;
-                &lt;/span&gt;
+                &lt;/div&gt;
+
             &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-4&quot;&gt;
+                &lt;label&gt;&lt;img *ngIf&#x3D;&quot;ledState&quot; width&#x3D;&quot;25&quot; (click)&#x3D;&quot;toggleLed()&quot; class&#x3D;&quot;img-led&quot; (click)&#x3D;&quot;toggleLed()&quot;
+                        src&#x3D;&quot;assets/red-led-switched-{{ledState | lowercase}}.png&quot; alt&#x3D;&quot;LED {{ledState}}&quot; /&gt; : 
+                        &lt;span *ngIf&#x3D;&quot;!unAvailableLed&quot;&gt;{{(&#x27;led.&#x27;+ledState | lowercase) | translate}}&lt;/span&gt;&lt;/label&gt;
+
+                &lt;div *ngIf&#x3D;&quot;!unAvailableLed&quot; class&#x3D;&quot;state card-footer bg-transparent border-success&quot;&gt;
+                    &lt;ui-switch [size]&#x3D;&quot;&#x27;small&#x27;&quot; (change)&#x3D;&quot;toggleLed()&quot; [checked]&#x3D;&quot;ledisOn&quot;&gt;&lt;/ui-switch&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+
+
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -1056,11 +1428,11 @@ export class StationCommandComponent implements OnInit, OnDestroy {
 
 .card img {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 :host {
-    font-size:12px;
+    font-size:10px;
 }</code></pre>
     </div>
 
@@ -1089,8 +1461,8 @@ export class StationCommandComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="card">    <div class="card-body alert alert-info">        <h6 class="card-subtitle mb-2 text-muted">Commande</h6>        <div class="row">            <div class="col-6">                <label><img src="/assets/oled.png" width="35" alt="{{\'screen.screen\' | translate}}" /></label>                <span>                    <ui-switch [size]="\'small\'" (change)="switchScreen()" [checked]="screenisOn"></ui-switch>                    <span class="state" *ngIf="screenState">{{(\'screen.\' + screenState | lowercase) | translate}}</span>                </span>            </div>            <div class="col-6">                <label><img src="/assets/water-heater.png" width="35" alt="{{\'heater.heater\' | translate}}" /></label>                <span>                    <ui-switch [size]="\'small\'" (change)="switchHeater()" [checked]="heaterisOn"></ui-switch>                    <span class="state" *ngIf="heaterState">{{(\'heater.\' + heaterState | lowercase) | translate}}</span>                </span>            </div>        </div>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastDetailComponent', 'selector': 'app-forecast-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'MeteoStatsComponent', 'selector': 'app-meteo-stats'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'StationCommandComponent', 'selector': 'app-station-command'},{'name': 'StationDetailComponent', 'selector': 'app-station-detail'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
+        var COMPONENT_TEMPLATE = '<div><div class="card">    <div class="card-body alert alert-info">        <h6 class="card-subtitle mb-2 text-muted">Commande</h6>        <div class="row">            <div class="col-4">                <label><img src="/assets/oled.png" (click)="switchScreen()" width="25" alt="{{\'screen.screen\' | translate}}" /> :                     <span  *ngIf="screenState">{{(\'screen.\' + screenState | lowercase) | translate}}</span></label>                <div *ngIf="screenState" class="state card-footer bg-transparent border-success">                    <ui-switch [size]="\'small\'" (change)="switchScreen()" [checked]="screenisOn"></ui-switch>                </div>            </div>            <div class="col-4">                <label><img src="/assets/water-heater.png" (click)="switchHeater()" width="25" alt="{{\'heater.heater\' | translate}}" /> :                     <span *ngIf="heaterState">{{(\'heater.\' + heaterState | lowercase) | translate}}</span></label>                <div *ngIf="heaterState" class="state card-footer bg-transparent border-success">                    <ui-switch [size]="\'small\'" (change)="switchHeater()" [checked]="heaterisOn"></ui-switch>                </div>            </div>            <div class="col-4">                <label><img *ngIf="ledState" width="25" (click)="toggleLed()" class="img-led" (click)="toggleLed()"                        src="assets/red-led-switched-{{ledState | lowercase}}.png" alt="LED {{ledState}}" /> :                         <span *ngIf="!unAvailableLed">{{(\'led.\'+ledState | lowercase) | translate}}</span></label>                <div *ngIf="!unAvailableLed" class="state card-footer bg-transparent border-success">                    <ui-switch [size]="\'small\'" (change)="toggleLed()" [checked]="ledisOn"></ui-switch>                </div>            </div>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastDaysComponent', 'selector': 'app-forecast-days'},{'name': 'ForecastDetailComponent', 'selector': 'app-forecast-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'MeteoStatsComponent', 'selector': 'app-meteo-stats'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'StationCommandComponent', 'selector': 'app-station-command'},{'name': 'StationDetailComponent', 'selector': 'app-station-detail'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'StationCommandComponent'};
 </script>

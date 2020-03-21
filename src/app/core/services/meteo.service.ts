@@ -10,7 +10,7 @@ import { MeteoStats } from '../interfaces/meteo-stats';
 
 const reqHeader = new HttpHeaders({});
 
-const rootUrl = environment.apis.thingerio.url 
+const rootUrl = environment.apis.thingerio.url
 const rootUrlDevice = rootUrl + '/v2/users/' + environment.devices.account + '/devices/' + environment.devices.meteo;
 const rootUrlBuckets = rootUrl + '/v1/users/' + environment.devices.account + '/buckets/' + environment.devices.meteo;
 const rootUrlForecast = environment.apis.forecast.url;
@@ -52,8 +52,21 @@ export class MeteoService {
     const url = rootUrlForecast + '/forecast/nextHours?insee=' + environment.meteo.insee;
     return this.http.get<Forecast>(url, { headers: reqHeader }).pipe(
       map((datas: any) => datas.forecast[0]),
-      map((forecast: Forecast) => new Forecast(forecast.weather, forecast.temp2m, forecast.datetime))
+      map((forecast: Forecast) => new Forecast(forecast.weather, forecast.temp2m, null, null, forecast.datetime))
     );
+  }
+
+  public getForecastDaily(): Observable<Forecast[]> {
+    const url = rootUrlForecast + '/forecast/daily?insee=' + environment.meteo.insee;
+    return this.http.get<Forecast[]>(url, { headers: reqHeader }).pipe(
+      map((datas: any) => datas.forecast),
+      map((datas: Forecast[]) => {
+        const forecasts: Forecast[] = [];
+        for (const forecast of datas) {
+          forecasts.push(new Forecast(forecast.weather, null, forecast.tmin, forecast.tmax, forecast.datetime));
+        }
+        return forecasts;
+      }));
   }
 
   public getMeteoStats(): Observable<MeteoStats[]> {
