@@ -9,7 +9,6 @@
 
 //LED Pins
 #define RELAY 0   // D3 : RELAY PIN
-#define SCREEN 2  // D4 : SCRREN PIN
 #define LED 14    // D5 : LED PIN
 #define ROUGE 12  // D6 : RED PIN
 #define VERT 13   // D7 : GREEN PIN
@@ -54,6 +53,8 @@ Adafruit_SSD1306 screen(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 float temperature, humidity, pressure;
 // reseting boolean to command reboot
 boolean reseting = false;
+// screen state
+boolean screenState = true;
 // Instance for BME sensors 
 Adafruit_BME280 bme;
 //Instnce of ESP
@@ -66,18 +67,19 @@ ThingerESP8266  meteoStation("turboxav", "meteostation", "turboxav");
 void setup() {  
   Serial.begin(SERIAL_BAUD);
   pinMode(RELAY, OUTPUT);
-  pinMode(SCREEN, OUTPUT);
+ 
   pinMode(LED, OUTPUT);
   pinMode(ROUGE, OUTPUT);
   pinMode(VERT, OUTPUT);
   pinMode(BLEU, OUTPUT);
   digitalWrite(LED,HIGH);
-  digitalWrite(SCREEN, HIGH);
+  
   digitalWrite(RELAY, LOW);
   initMeteoStation(); 
   bme.begin(0x76);
   initScreen();
   delay(500);
+  Serial.begin(115200);
 }
 
 /**
@@ -85,6 +87,7 @@ void setup() {
  */
 
 void loop() {  
+  Serial.println(screenState);
   mesure();  
   displayMesures();
   if(reseting == true) {
@@ -115,7 +118,9 @@ void initMeteoStation() {
   
   // Record an INPUT value for Led Pin Value to command IT  
   meteoStation["led"] << digitalPin(LED);
-  meteoStation["screen"] << digitalPin(SCREEN);
+  meteoStation["screen"] << [](pson& in){
+      screenState = in;
+  };  
   meteoStation["heater"] << digitalPin(RELAY);
   
   // Send states of Heater, Screen, led to thingerio
@@ -123,7 +128,7 @@ void initMeteoStation() {
     out["state"] =  digitalRead(RELAY) ? "ON":"OFF";
   };
   meteoStation["screen-state"] >> [](pson& out) { 
-    out["state"] =  digitalRead(SCREEN) ? "ON":"OFF";
+    out["state"] =  screenState ? "ON":"OFF";
   };
   // Reccord an OUTPUT for Led State to read it
   meteoStation["led-state"] >> [](pson& out) { 
@@ -223,7 +228,7 @@ void displayMesures() {
   */
 
 void checkScreen() {
-  if(digitalRead(SCREEN) == LOW){
+  if(!screenState){
     screen.ssd1306_command(SSD1306_DISPLAYOFF);   
     return;
   }else{
