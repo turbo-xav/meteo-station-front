@@ -19,6 +19,12 @@
             </a>
           </p>
           <p>
+            <a [routerLink]="['/meteo-station','forecasts']" *ngIf="isAuthenticated">
+              {{'various.check-meteo-forecasts'| translate}}
+              <img src="/assets/icons/icon-forecast-long.png" />
+            </a>
+          </p>
+          <p>
             <a [routerLink]="['/meteo-station','stats']" *ngIf="isAuthenticated">
               {{'various.check-meteo-stats'| translate}}
               <img src="/assets/icons/icon-statistics.png" />

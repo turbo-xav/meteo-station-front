@@ -18,8 +18,6 @@ export class MeteoService {
 
   constructor(private readonly http: HttpClient) { }
 
-
-
   public refreshMeteo(): Observable<Meteo> {
     const url = rootUrlDevice + '/meteo';
     return this.http.get<Meteo>(url, { headers: reqHeader }).pipe(
@@ -40,8 +38,8 @@ export class MeteoService {
     return this.http.get<any>(url, { headers: reqHeader });
   }
 
-  public getEphemeride(): Observable<Ephemeride> {
-    const url = rootUrlForecast + '/ephemeride/0?insee=' + environment.meteo.insee;
+  public getEphemeride(day = 0): Observable<Ephemeride> {
+    const url = rootUrlForecast + '/ephemeride/' + day + '?insee=' + environment.meteo.insee;
     return this.http.get<Ephemeride>(url, { headers: reqHeader }).pipe(
       map((datas: any) => datas.ephemeride
       )
@@ -68,6 +66,7 @@ export class MeteoService {
         return forecasts;
       }));
   }
+ 
 
   public getMeteoStats(): Observable<MeteoStats[]> {
     return this.http.get<MeteoStats[]>(rootUrlBuckets + '/data', { headers: reqHeader });

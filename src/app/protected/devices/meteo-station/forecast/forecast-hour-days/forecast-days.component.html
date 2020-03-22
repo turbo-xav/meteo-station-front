@@ -3,7 +3,7 @@
 <h2><span class="btn btn-outline-info"> {{'meteo-station.forecast.forecast-2-weeks' | translate}}</span></h2>
 
 
-<div class="card" *ngFor="let forecast of forecasts">
+<div class="card" *ngFor="let forecast of forecasts, let i = index">
     <div class="card-body alert alert-info">
         <h6 class="card-subtitle mb-2 text-muted">{{'various.days.'+(forecast.datetime | date:'EEEE')  | translate}}
             {{forecast.datetime | date:'dd'}} {{'various.months.'+(forecast.datetime | date:'LLLL') | translate}}</h6>
@@ -12,5 +12,12 @@
         <hr />
         <img src="/assets/icons/meteo/short-cut/temperature.png" width="35" />
         {{forecast.tmin}}&nbsp;-&nbsp;{{forecast.tmax}} °C
+        <ng-container *ngIf="ephemerides[i]">
+            <hr />
+            <img class="icon-style" src="/assets/icons/meteo/short-cut/sunrise.png" width="35" /> :
+            {{ephemerides[i].sunrise}}
+            <img class="icon-style" src="/assets/icons/meteo/short-cut/sunset.png" width="35" /> :
+            {{ephemerides[i].sunset}}
+        </ng-container>
     </div>
 </div>

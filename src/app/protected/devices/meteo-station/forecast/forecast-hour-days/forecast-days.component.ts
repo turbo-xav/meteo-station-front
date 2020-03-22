@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MeteoService } from 'src/app/core/services/meteo.service';
 import { Forecast } from 'src/app/core/interfaces/forecast';
+import { Ephemeride } from 'src/app/core/interfaces/ephemeride';
 
 @Component({
   selector: 'app-forecast-days',
@@ -9,7 +10,9 @@ import { Forecast } from 'src/app/core/interfaces/forecast';
 })
 export class ForecastDaysComponent implements OnInit {
 
-  public forecasts: Forecast[]
+  public forecasts: Forecast[];
+
+  public ephemerides: Ephemeride[] = [];
 
   constructor(
     private readonly meteoService: MeteoService
@@ -19,9 +22,14 @@ export class ForecastDaysComponent implements OnInit {
     this.meteoService.getForecastDaily().subscribe(
       (forecasts: Forecast[]) => {
         this.forecasts = forecasts;
-        console.log(this.forecasts);
+        for (let i = 0; i < forecasts.length ; i++) {
+          this.meteoService.getEphemeride(i).subscribe(
+            (ephemeride: Ephemeride) => {
+              this.ephemerides[i] = ephemeride;
+            }
+          );
+        }
       }
     );
   }
-
 }
