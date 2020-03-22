@@ -6,6 +6,9 @@
 //Library for Oled Screen
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <NTPClient.h>
+#include <ESP8266WiFi.h>
+#include <WiFiUdp.h>
 
 //LED Pins
 #define RELAY 0   // D3 : RELAY PIN
@@ -58,28 +61,42 @@ boolean screenState = true;
 // Instance for BME sensors 
 Adafruit_BME280 bme;
 //Instnce of ESP
-ThingerESP8266  meteoStation("turboxav", "meteostation", "turboxav");
-
+ThingerESP8266  meteoStation("turboxav", "homemeteostation", "turboxav");
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP,"europe.pool.ntp.org", 3600, 60000);
 /**
  * SetUp
  */
 
 void setup() {  
   Serial.begin(SERIAL_BAUD);
-  pinMode(RELAY, OUTPUT);
- 
+  
+  pinMode(RELAY, OUTPUT); 
   pinMode(LED, OUTPUT);
   pinMode(ROUGE, OUTPUT);
   pinMode(VERT, OUTPUT);
   pinMode(BLEU, OUTPUT);
-  digitalWrite(LED,HIGH);
   
+  digitalWrite(LED,HIGH);  
   digitalWrite(RELAY, LOW);
+
+  WiFi.begin(WIFI_SSID, WIFI_PWD);
+
+  while ( WiFi.status() != WL_CONNECTED ) {
+    delay ( 500 );
+    Serial.print ( "." );
+  }
+
+  timeClient.begin();
+  timeClient.update();
+  Serial.print("Time : ");
+  Serial.println(timeClient.getFormattedTime());
+  delay(1000);
+  
   initMeteoStation(); 
   bme.begin(0x76);
   initScreen();
-  delay(500);
-  Serial.begin(115200);
+  delay(500);  
 }
 
 /**
@@ -87,7 +104,6 @@ void setup() {
  */
 
 void loop() {  
-  Serial.println(screenState);
   mesure();  
   displayMesures();
   if(reseting == true) {
@@ -178,6 +194,10 @@ void mesure(){
   humidity = bme.readHumidity();
   pressure = bme.readPressure() / 100.0F;
   meteoStation.handle();
+  if(timeClient.getFormattedTime() == "12:00:00"){
+    meteoStation.write_bucket("meteostationday", "meteo");
+    delay(1000);
+  }
 }
 
 /**

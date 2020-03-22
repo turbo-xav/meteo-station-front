@@ -220,13 +220,17 @@
       url: &#x27;https://api.thinger.io&#x27;,
     },
     forecast: {
-      url: &#x27;https://api.meteo-concept.com/api&#x27;,     
+      url: &#x27;https://api.meteo-concept.com/api&#x27;,
       token: &#x27;25e8258d583eb394ea0135543b4b285374abbd0cb1d1ca96eda34ffcf8a5c747&#x27;
     }
   },
   devices: {
     account: &#x27;turboxav&#x27;,
-    meteo: &#x27;meteostation&#x27;
+    meteo: &#x27;homemeteostation&#x27;,
+    buckets: {
+      min30: &#x27;meteostation30m&#x27;,
+      dayOnce: &#x27;meteostationDay&#x27;,
+    }
   },
   meteo: {
     insee: &#x27;94081&#x27;,
@@ -275,7 +279,11 @@
   },
   devices: {
     account: &#x27;turboxav&#x27;,
-    meteo: &#x27;meteostation&#x27;
+    meteo: &#x27;homemeteostation&#x27;,
+    buckets: {
+      min30: &#x27;meteostation30m&#x27;,
+      dayOnce: &#x27;meteostationDay&#x27;,
+    }
   },
   meteo: {
     insee: &#x27;94081&#x27;,
@@ -347,7 +355,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/buckets/&#x27; + environment.devices.meteo</code>
+                            <i>Default value : </i><code>rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/buckets/&#x27; + environment.devices.buckets.min30</code>
                         </td>
                     </tr>
 

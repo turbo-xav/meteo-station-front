@@ -476,7 +476,7 @@ const reqHeader &#x3D; new HttpHeaders({});
 
 const rootUrl &#x3D; environment.apis.thingerio.url
 const rootUrlDevice &#x3D; rootUrl + &#x27;/v2/users/&#x27; + environment.devices.account + &#x27;/devices/&#x27; + environment.devices.meteo;
-const rootUrlBuckets &#x3D; rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/buckets/&#x27; + environment.devices.meteo;
+const rootUrlBuckets &#x3D; rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/buckets/&#x27; + environment.devices.buckets.min30;
 const rootUrlForecast &#x3D; environment.apis.forecast.url;
 export class MeteoService {
 

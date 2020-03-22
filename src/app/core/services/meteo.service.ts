@@ -12,7 +12,7 @@ const reqHeader = new HttpHeaders({});
 
 const rootUrl = environment.apis.thingerio.url
 const rootUrlDevice = rootUrl + '/v2/users/' + environment.devices.account + '/devices/' + environment.devices.meteo;
-const rootUrlBuckets = rootUrl + '/v1/users/' + environment.devices.account + '/buckets/' + environment.devices.meteo;
+const rootUrlBuckets = rootUrl + '/v1/users/' + environment.devices.account + '/buckets/' + environment.devices.buckets.min30;
 const rootUrlForecast = environment.apis.forecast.url;
 export class MeteoService {
 

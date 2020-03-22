@@ -11,7 +11,11 @@ export const environment = {
   },
   devices: {
     account: 'turboxav',
-    meteo: 'meteostation'
+    meteo: 'homemeteostation',
+    buckets: {
+      min30: 'meteostation30m',
+      dayOnce: 'meteostationDay',
+    }
   },
   meteo: {
     insee: '94081',
