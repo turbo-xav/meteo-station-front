@@ -60,7 +60,7 @@ https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5
 
 ### Complete
 <img width="300" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/assambly-fritzing.jpg?raw=true" /><br />
-
+<img width="300" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/assembly/easy-eda.png?raw=true" /><br />
 
 #### FZPZ Files to import in Fritzing SoftWare
 - <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/assambly.fzz">Full Assembly</a>
@@ -69,13 +69,14 @@ https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5
 - <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/Adafruit%20OLED%20Monochrome%20128x64%200.96%20inch.fzpz">OLED Screen</a>
 - <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/BMP280.fzpz">BME 280</a>
 - <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/keyes-relay.fzpz">Relay</a>
-## Angular Src
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
 ## Arduino Src
 
 Ino code : https://github.com/turbo-xav/meteo-station-domotique/blob/master/arduino-src/node-mcu-meteo.ino
+
+## Angular Src
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
 # Run application
 
