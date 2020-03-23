@@ -12,7 +12,6 @@
 
 //LED Pins
 #define RELAY 0   // D3 : RELAY PIN
-#define LED 14    // D5 : LED PIN
 #define ROUGE 12  // D6 : RED PIN
 #define VERT 13   // D7 : GREEN PIN
 #define BLEU 15   // D8 : BLUE PIN
@@ -58,6 +57,8 @@ float temperature, humidity, pressure;
 boolean reseting = false;
 // screen state
 boolean screenState = true;
+// led state
+boolean ledState = true;
 // Instance for BME sensors 
 Adafruit_BME280 bme;
 //Instnce of ESP
@@ -72,12 +73,10 @@ void setup() {
   Serial.begin(SERIAL_BAUD);
   
   pinMode(RELAY, OUTPUT); 
-  pinMode(LED, OUTPUT);
   pinMode(ROUGE, OUTPUT);
   pinMode(VERT, OUTPUT);
   pinMode(BLEU, OUTPUT);
   
-  digitalWrite(LED,HIGH);  
   digitalWrite(RELAY, LOW);
 
   WiFi.begin(WIFI_SSID, WIFI_PWD);
@@ -89,9 +88,9 @@ void setup() {
 
   timeClient.begin();
   timeClient.update();
-  Serial.print("Time : ");
-  Serial.println(timeClient.getFormattedTime());
-  delay(1000);
+  //Serial.print("Time : ");
+  //Serial.println(timeClient.getFormattedTime());
+  delay(500);
   
   initMeteoStation(); 
   bme.begin(0x76);
@@ -133,7 +132,10 @@ void initMeteoStation() {
   meteoStation.add_wifi(WIFI_SSID, WIFI_PWD);
   
   // Record an INPUT value for Led Pin Value to command IT  
-  meteoStation["led"] << digitalPin(LED);
+  meteoStation["led"] << [](pson& in){
+      ledState = in;
+  }; 
+  
   meteoStation["screen"] << [](pson& in){
       screenState = in;
   };  
@@ -148,7 +150,7 @@ void initMeteoStation() {
   };
   // Reccord an OUTPUT for Led State to read it
   meteoStation["led-state"] >> [](pson& out) { 
-    out["state"] =  digitalRead(LED) ? "ON":"OFF";
+    out["state"] =  ledState ? "ON":"OFF";
   };
   // record OUTPUT for meteo reading
   meteoStation["meteo"] >> [](pson& out){
@@ -271,7 +273,7 @@ void checkRGB(){
  */
 
 void ledRgb(int rouge, int vert,int bleu ){
-  if(digitalRead(LED) == HIGH){
+  if(ledState){
     analogWrite(ROUGE,rouge);
     analogWrite(VERT,vert);
     analogWrite(BLEU,bleu);
