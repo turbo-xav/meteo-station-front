@@ -59,7 +59,13 @@ https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5
 <img width="300" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/assembly-nodemcu-bme280.png?raw=true" /><br />
 
 ### Complete
+
+### Fritzing
+
 <img width="300" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/assambly-fritzing.jpg?raw=true" /><br />
+
+### Easy EDA
+
 <img width="300" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/assembly/easy-eda.png?raw=true" /><br />
 
 #### FZPZ Files to import in Fritzing SoftWare
