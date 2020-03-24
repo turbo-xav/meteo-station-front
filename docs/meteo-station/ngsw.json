@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1584900350213,
+  "timestamp": 1585054259118,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -213,8 +213,8 @@
     "./assets/farewell-say-goodbye-bye-road.jpg": "391e6f5899eda642d67459d46a442d491193b3dc",
     "./assets/forecast-long.png": "64939802faeb9d56275551c7ca80f5ee8a98afb1",
     "./assets/humidity.png": "e96d39b9954606cc3842e87a6fc71858a395cdfd",
-    "./assets/i18n/en.json": "4b1a14bafebeb0d22cb198e16a18e3d8c1666db8",
-    "./assets/i18n/fr.json": "5a9c48dd356df70ef750d8964989fa3a7ff1fe5d",
+    "./assets/i18n/en.json": "e2029a7cdcf75a8eef90050bc49e72d77ac81a93",
+    "./assets/i18n/fr.json": "a68c59db5a96abe395847d044e4bc519c9f4a963",
     "./assets/icons/forecast.png": "f07c3462ffa6c3bb2400b8044c86d3b4899928a8",
     "./assets/icons/icon-128x128.png": "e7c21aaa82fe91d4147d0496e76afaf7a4d158ba",
     "./assets/icons/icon-144x144.png": "97e41db09b0f6ae1485382099e969dee6b12f8f0",

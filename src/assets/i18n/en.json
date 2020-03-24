@@ -38,7 +38,7 @@
         "devices": "Devices",
         "play-led": "Led",
         "meteo-station": "Meteo station",
-        "meteo-stats": "Statitics",
+        "meteo-stats": "Statistics",
         "meteo-forecast":"Forecasts"
     },
     "device": {
