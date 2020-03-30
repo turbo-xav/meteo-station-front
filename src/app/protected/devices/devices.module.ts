@@ -11,6 +11,7 @@ import { TokenInterceptor } from 'src/app/core/interceptors/tokenInterceptor';
 import { ForecastModule } from './meteo-station/forecast/forecast.module';
 import { StationModule } from './meteo-station/station/station.module';
 import { MeteoStatsComponent } from './meteo-station/meteo-stats/meteo-stats.component';
+import { MeteoStatsGraphicComponent } from './meteo-station/meteo-stats-graphic/meteo-stats-graphic.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { MeteoStatsComponent } from './meteo-station/meteo-stats/meteo-stats.com
                   PlayLedComponent,
                   DetailDeviceComponent,
                   MeteoStatsComponent,
-                  MeteoStatsComponent
+                  MeteoStatsGraphicComponent
   ],
   imports: [
     DeviceRoutingModule,

@@ -1,0 +1,25 @@
+<google-chart #chart [title]="title" [type]="type" [data]="datas" [columnNames]="columnNames" [options]="options"
+        [width]="width" [height]="height"></google-chart>
+
+        <div class="container datas">
+            <div class="row">
+                <div class="col-xl-2 col-md-3 col-sm-6 col-xs-6 col-6" *ngFor="let packet of datasInPaquets; let i = index ">
+                    <table class="table table-striped table-responsive">
+                        <caption>{{'stats.datas' | translate}} : {{i+1}} - {{'stats.temperature-short' | translate}}</caption>
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">{{'stats.time-short' | translate}}</th>
+                                <th scope="col">{{'stats.temperature-short' | translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of packet">
+                                <td scope="row">{{data[0]}}</td>
+                                <td scope="row">{{data[1]}}&nbsp;°C</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
