@@ -82,13 +82,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/DevicesModule.html" data-type="entity-link">DevicesModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-DevicesModule-6f0b804a89df4606afc1c703a0cfccc0"' : 'data-target="#xs-components-links-module-DevicesModule-6f0b804a89df4606afc1c703a0cfccc0"' }>
+                                            'data-target="#components-links-module-DevicesModule-ec0a032c17e1fc311432463ac128db41"' : 'data-target="#xs-components-links-module-DevicesModule-ec0a032c17e1fc311432463ac128db41"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-DevicesModule-6f0b804a89df4606afc1c703a0cfccc0"' :
-                                            'id="xs-components-links-module-DevicesModule-6f0b804a89df4606afc1c703a0cfccc0"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-DevicesModule-ec0a032c17e1fc311432463ac128db41"' :
+                                            'id="xs-components-links-module-DevicesModule-ec0a032c17e1fc311432463ac128db41"' }>
                                             <li class="link">
                                                 <a href="components/DetailDeviceComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">DetailDeviceComponent</a>
@@ -104,6 +104,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <li class="link">
                                                 <a href="components/MeteoStatsComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">MeteoStatsComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/MeteoStatsGraphicComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">MeteoStatsGraphicComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/PlayLedComponent.html"
@@ -177,13 +181,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SharedModule.html" data-type="entity-link">SharedModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-SharedModule-d369f635972f544a1b0b4ed513db83ef"' : 'data-target="#xs-components-links-module-SharedModule-d369f635972f544a1b0b4ed513db83ef"' }>
+                                            'data-target="#components-links-module-SharedModule-3f2c31be65725e15eb851ea2441f6ab3"' : 'data-target="#xs-components-links-module-SharedModule-3f2c31be65725e15eb851ea2441f6ab3"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SharedModule-d369f635972f544a1b0b4ed513db83ef"' :
-                                            'id="xs-components-links-module-SharedModule-d369f635972f544a1b0b4ed513db83ef"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SharedModule-3f2c31be65725e15eb851ea2441f6ab3"' :
+                                            'id="xs-components-links-module-SharedModule-3f2c31be65725e15eb851ea2441f6ab3"' }>
                                             <li class="link">
                                                 <a href="components/FooterComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">FooterComponent</a>

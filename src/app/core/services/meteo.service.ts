@@ -12,7 +12,7 @@ const reqHeader = new HttpHeaders({});
 
 const rootUrl = environment.apis.thingerio.url
 const rootUrlDevice = rootUrl + '/v2/users/' + environment.devices.account + '/devices/' + environment.devices.meteo;
-const rootUrlBuckets = rootUrl + '/v1/users/' + environment.devices.account + '/buckets/' + environment.devices.buckets.min30;
+const rootUrlBuckets = rootUrl + '/v1/users/' + environment.devices.account + '/buckets';
 const rootUrlForecast = environment.apis.forecast.url;
 export class MeteoService {
 
@@ -68,8 +68,12 @@ export class MeteoService {
   }
  
 
-  public getMeteoStats(): Observable<MeteoStats[]> {
-    return this.http.get<MeteoStats[]>(rootUrlBuckets + '/data', { headers: reqHeader });
+  public getMeteoStatsH24(): Observable<MeteoStats[]> {
+    return this.http.get<MeteoStats[]>(rootUrlBuckets + '/' + environment.devices.buckets.h24 + '/data', { headers: reqHeader });
 
+  }
+
+  public getMeteoStatsDaily(): Observable<MeteoStats[]> {
+    return this.http.get<MeteoStats[]>(rootUrlBuckets + '/' + environment.devices.buckets.daily + '/data', { headers: reqHeader });
   }
 }

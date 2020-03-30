@@ -339,7 +339,7 @@ export class HeaterService {
   public switchHeater(screenState: HeaterState): Observable&lt;any&gt; {
     console.log(&#x27;Screen state : &#x27;, screenState);
     const url &#x3D; rootUrlDevice + &#x27;/heater&#x27;;
-    return this.http.post(url, { in: screenState &#x3D;&#x3D;&#x3D; HeaterState.ON }, { headers: reqHeaderWithJson });
+    return this.http.post(url, { in: !(screenState &#x3D;&#x3D;&#x3D; HeaterState.ON) }, { headers: reqHeaderWithJson });
   }
 
   public checkHeater(): Observable&lt;any&gt; {

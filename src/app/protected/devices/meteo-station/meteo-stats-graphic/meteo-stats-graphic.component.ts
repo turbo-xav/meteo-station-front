@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { MeteoStats } from 'src/app/core/interfaces/meteo-stats';
+import { Subscription, interval } from 'rxjs';
 
 @Component({
   selector: 'app-meteo-stats-graphic',
@@ -9,8 +10,8 @@ import { MeteoStats } from 'src/app/core/interfaces/meteo-stats';
 })
 export class MeteoStatsGraphicComponent implements OnInit {
 
+ 
   @Input() meteoStats: MeteoStats[];
-  displayStats: MeteoStats[];
 
   type = 'LineChart';
   title = '';
@@ -52,8 +53,10 @@ export class MeteoStatsGraphicComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.displayStats = this.meteoStats.reverse();
-    this.drawChart();
+    interval(500).subscribe(
+      () => {
+        this.drawChart();
+      });
   }
 
 
@@ -117,7 +120,7 @@ export class MeteoStatsGraphicComponent implements OnInit {
 
     const datas = [];
 
-    for (const meteoStat of this.displayStats) {
+    for (const meteoStat of this.meteoStats) {
       const date = new Date(meteoStat.ts);
       const day = days[date.getDay()].substring(0, 3);
       const hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
@@ -133,9 +136,9 @@ export class MeteoStatsGraphicComponent implements OnInit {
 
     const limit = 10;
     let datasInPackets = [];
-    for (let i = 1 ; i <= this.datas.length; i++) {
+    for (let i = 1; i <= this.datas.length; i++) {
       datasInPackets.push(this.datas[i - 1]);
-      if (i % limit === 0 || i ===  this.datas.length) {
+      if (i % limit === 0 || i === this.datas.length) {
         packets.push(datasInPackets);
         datasInPackets = [];
       }

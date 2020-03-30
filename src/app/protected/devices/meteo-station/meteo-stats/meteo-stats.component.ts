@@ -12,17 +12,35 @@ import { Subscription, interval } from 'rxjs';
 export class MeteoStatsComponent implements OnInit, OnDestroy {
 
   meteoStats: MeteoStats[];
+
   meteoStatsSubscription: Subscription;
 
-  constructor(
-    private readonly meteoService: MeteoService
-  ) {
+  selectedGraphic = 'daily';
 
-  }
+  graphics = [];
+
+  constructor(
+    private readonly meteoService: MeteoService,
+    private readonly translateService: TranslateService
+  ) { }
 
   ngOnInit() {
+    interval(500).subscribe(
+      () => {
+        this.graphics = [];
+        this.translateService.get('stats.h24').subscribe(
+          (translation: string) => {
+            this.graphics.push({ id: 'h24', name: translation });
+          }
+        );
+        this.translateService.get('stats.daily').subscribe(
+          (translation: string) => {
+            this.graphics.push({ id: 'daily', name: translation });
+          }
+        );
+      });
     this.checkDatas();
-    this.meteoStatsSubscription = interval(30000).subscribe(
+    this.meteoStatsSubscription = interval(1000).subscribe(
       () => {
         this.checkDatas();
       });
@@ -33,11 +51,19 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
   }
 
   checkDatas() {
-    this.meteoService.getMeteoStats().subscribe(
-      (meteoStats: MeteoStats[]) => {
-        this.meteoStats = meteoStats;
-      }
-    );
+    if (this.selectedGraphic === 'h24') {
+      this.meteoService.getMeteoStatsH24().subscribe(
+        (meteoStats: MeteoStats[]) => {
+          this.meteoStats = meteoStats.reverse();
+        }
+      );
+    } else if (this.selectedGraphic === 'daily') {
+      this.meteoService.getMeteoStatsDaily().subscribe(
+        (meteoStats: MeteoStats[]) => {
+          this.meteoStats = meteoStats.reverse();
+        }
+      );
+    }
   }
 
   ngOnDestroy() {

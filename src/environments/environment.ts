@@ -17,8 +17,8 @@ export const environment = {
     account: 'turboxav',
     meteo: 'homemeteostation',
     buckets: {
-      min30: 'meteostation30m',
-      dayOnce: 'meteostationDay',
+      h24: 'meteostation30m',
+      daily: 'meteostationday'
     }
   },
   meteo: {

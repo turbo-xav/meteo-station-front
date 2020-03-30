@@ -24,7 +24,7 @@ export class HeaterService {
   public switchHeater(screenState: HeaterState): Observable<any> {
     console.log('Screen state : ', screenState);
     const url = rootUrlDevice + '/heater';
-    return this.http.post(url, { in: screenState === HeaterState.ON }, { headers: reqHeaderWithJson });
+    return this.http.post(url, { in: !(screenState === HeaterState.ON) }, { headers: reqHeaderWithJson });
   }
 
   public checkHeater(): Observable<any> {

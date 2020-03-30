@@ -61,10 +61,13 @@
                             <a href="#context" title="src/test.ts"><b>context</b>&nbsp;&nbsp;&nbsp;(src/.../test.ts)</a>
                         </li>
                         <li>
-                            <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                            <a href="#customSelectOptions" title="src/app/shared/shared.module.ts"><b>customSelectOptions</b>&nbsp;&nbsp;&nbsp;(src/.../shared.module.ts)</a>
                         </li>
                         <li>
                             <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
                         </li>
                         <li>
                             <a href="#reqHeader" title="src/app/core/services/meteo.service.ts"><b>reqHeader</b>&nbsp;&nbsp;&nbsp;(src/.../meteo.service.ts)</a>
@@ -191,51 +194,32 @@
             </tbody>
         </table>
 </section>
-    <h3>src/environments/environment.ts</h3>
+    <h3>src/app/shared/shared.module.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="environment"></a>
+                        <a name="customSelectOptions"></a>
                         <span class="name">
                             <b>
-                            environment</b>
-                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                            customSelectOptions</b>
+                            <a href="#customSelectOptions"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Type : </i>    <code>INgxSelectOptions</code>
 
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>{
-  production: false,
-  apis: {
-    thingerio: {
-      url: &#x27;https://api.thinger.io&#x27;,
-    },
-    forecast: {
-      url: &#x27;https://api.meteo-concept.com/api&#x27;,
-      token: &#x27;25e8258d583eb394ea0135543b4b285374abbd0cb1d1ca96eda34ffcf8a5c747&#x27;
-    }
-  },
-  devices: {
-    account: &#x27;turboxav&#x27;,
-    meteo: &#x27;homemeteostation&#x27;,
-    buckets: {
-      min30: &#x27;meteostation30m&#x27;,
-      dayOnce: &#x27;meteostationDay&#x27;,
-    }
-  },
-  meteo: {
-    insee: &#x27;94081&#x27;,
-    city: &#x27;Vitry / Seine&#x27;
-  }
+                            <i>Default value : </i><code>{ // Check the interface for more options
+  optionValueField: &#x27;id&#x27;,
+  optionTextField: &#x27;name&#x27;,
+  keepSelectedItems: true
 }</code>
                         </td>
                     </tr>
@@ -273,7 +257,7 @@
       url: &#x27;https://api.thinger.io&#x27;,
     },
     forecast: {
-      url: &#x27;https://api.meteo-concept.com/api&#x27;,     
+      url: &#x27;https://api.meteo-concept.com/api&#x27;,
       token: &#x27;25e8258d583eb394ea0135543b4b285374abbd0cb1d1ca96eda34ffcf8a5c747&#x27;
     }
   },
@@ -281,8 +265,61 @@
     account: &#x27;turboxav&#x27;,
     meteo: &#x27;homemeteostation&#x27;,
     buckets: {
-      min30: &#x27;meteostation30m&#x27;,
-      dayOnce: &#x27;meteostationDay&#x27;,
+      h24: &#x27;meteostation30m&#x27;,
+      daily: &#x27;meteostationday&#x27;
+    }
+  },
+  meteo: {
+    insee: &#x27;94081&#x27;,
+    city: &#x27;Vitry / Seine&#x27;
+  }
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/environments/environment.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="environment"></a>
+                        <span class="name">
+                            <b>
+                            environment</b>
+                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  production: false,
+  apis: {
+    thingerio: {
+      url: &#x27;https://api.thinger.io&#x27;,
+    },
+    forecast: {
+      url: &#x27;https://api.meteo-concept.com/api&#x27;,
+      token: &#x27;25e8258d583eb394ea0135543b4b285374abbd0cb1d1ca96eda34ffcf8a5c747&#x27;
+    }
+  },
+  devices: {
+    account: &#x27;turboxav&#x27;,
+    meteo: &#x27;homemeteostation&#x27;,
+    buckets: {
+      h24: &#x27;meteostation30m&#x27;,
+      daily: &#x27;meteostationday&#x27;
     }
   },
   meteo: {
@@ -355,7 +392,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/buckets/&#x27; + environment.devices.buckets.min30</code>
+                            <i>Default value : </i><code>rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/buckets&#x27;</code>
                         </td>
                     </tr>
 

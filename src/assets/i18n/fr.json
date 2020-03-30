@@ -89,6 +89,8 @@
 
     },
     "stats": {
+        "h24": "H 24",
+        "daily": "Quotidien",
         "meteo": "Statistiques météo",
         "temperature": "Temperature en °C",
         "time": "Temps en Jour Heure : Min",

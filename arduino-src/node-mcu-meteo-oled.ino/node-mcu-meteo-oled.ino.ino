@@ -77,7 +77,7 @@ void setup() {
   pinMode(VERT, OUTPUT);
   pinMode(BLEU, OUTPUT);
   
-  digitalWrite(RELAY, LOW);
+  digitalWrite(RELAY, HIGH);
 
   WiFi.begin(WIFI_SSID, WIFI_PWD);
 
@@ -143,7 +143,7 @@ void initMeteoStation() {
   
   // Send states of Heater, Screen, led to thingerio
   meteoStation["heater-state"] >> [](pson& out) { 
-    out["state"] =  digitalRead(RELAY) ? "ON":"OFF";
+    out["state"] =  !digitalRead(RELAY) ? "ON":"OFF";
   };
   meteoStation["screen-state"] >> [](pson& out) { 
     out["state"] =  screenState ? "ON":"OFF";

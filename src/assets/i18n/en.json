@@ -78,6 +78,8 @@
         "screen-not-available": "Screen is not available"
     },
     "stats": {
+        "h24": "H 24",
+        "daily": "Daily",
         "meteo": "Meteo statistics",
         "temperature": "Temperature in °C",
         "time": "Time in Day Hour : min",

@@ -1,5 +1,6 @@
 <h1 class="display-5"><img src="/assets/statistics.png" width="30" /><span class="btn btn-outline-info">
         {{'stats.meteo' | translate}}</span> </h1>
 <h2><span class="btn btn-outline-info"> {{'stats.temperature-evolution' | translate}}</span></h2>
+<ngx-select [items]="graphics" [(ngModel)]="selectedGraphic"></ngx-select>
 <app-meteo-stats-graphic *ngIf="hasDatas" [meteoStats]="meteoStats"></app-meteo-stats-graphic>
 <p class="alert alert-info" *ngIf="!hasDatas">{{'stats.no-datas' | translate}}</p>

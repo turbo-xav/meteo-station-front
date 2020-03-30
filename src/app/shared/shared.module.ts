@@ -17,11 +17,19 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { UiSwitchModule } from 'ngx-toggle-switch';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { NgxSelectModule, INgxSelectOptions  } from 'ngx-select-ex';
+
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+
+const customSelectOptions: INgxSelectOptions = { // Check the interface for more options
+  optionValueField: 'id',
+  optionTextField: 'name',
+  keepSelectedItems: true
+};
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
@@ -49,7 +57,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
     UiSwitchModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    NgxSelectModule.forRoot(customSelectOptions)
   ],
   exports: [
     TranslateModule,
@@ -60,7 +69,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     NgxSpinnerModule,
     UiSwitchModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    NgxSelectModule
     ]
 })
 export class SharedModule {

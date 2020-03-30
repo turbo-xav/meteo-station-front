@@ -98,7 +98,11 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#getMeteoStats">getMeteoStats</a>
+                                <a href="#getMeteoStatsDaily">getMeteoStatsDaily</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getMeteoStatsH24">getMeteoStatsH24</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -374,20 +378,61 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getMeteoStats"></a>
+                    <a name="getMeteoStatsDaily"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Public</span>
-                            getMeteoStats
+                            getMeteoStatsDaily
                         </b>
-                        <a href="#getMeteoStats"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getMeteoStatsDaily"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getMeteoStats()</code>
+                    <code>getMeteoStatsDaily()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/app/core/services/meteo.service.ts:76</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;MeteoStats[]&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMeteoStatsH24"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getMeteoStatsH24
+                        </b>
+                        <a href="#getMeteoStatsH24"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getMeteoStatsH24()</code>
                 </td>
             </tr>
 
@@ -476,7 +521,7 @@ const reqHeader &#x3D; new HttpHeaders({});
 
 const rootUrl &#x3D; environment.apis.thingerio.url
 const rootUrlDevice &#x3D; rootUrl + &#x27;/v2/users/&#x27; + environment.devices.account + &#x27;/devices/&#x27; + environment.devices.meteo;
-const rootUrlBuckets &#x3D; rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/buckets/&#x27; + environment.devices.buckets.min30;
+const rootUrlBuckets &#x3D; rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/buckets&#x27;;
 const rootUrlForecast &#x3D; environment.apis.forecast.url;
 export class MeteoService {
 
@@ -532,9 +577,13 @@ export class MeteoService {
   }
  
 
-  public getMeteoStats(): Observable&lt;MeteoStats[]&gt; {
-    return this.http.get&lt;MeteoStats[]&gt;(rootUrlBuckets + &#x27;/data&#x27;, { headers: reqHeader });
+  public getMeteoStatsH24(): Observable&lt;MeteoStats[]&gt; {
+    return this.http.get&lt;MeteoStats[]&gt;(rootUrlBuckets + &#x27;/&#x27; + environment.devices.buckets.h24 + &#x27;/data&#x27;, { headers: reqHeader });
 
+  }
+
+  public getMeteoStatsDaily(): Observable&lt;MeteoStats[]&gt; {
+    return this.http.get&lt;MeteoStats[]&gt;(rootUrlBuckets + &#x27;/&#x27; + environment.devices.buckets.daily + &#x27;/data&#x27;, { headers: reqHeader });
   }
 }
 </code></pre>
