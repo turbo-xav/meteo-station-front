@@ -164,12 +164,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#displayError">displayError</a>
-                            </li>
-                            <li>
-                                <a href="#displaySuccess">displaySuccess</a>
-                            </li>
-                            <li>
                                 <a href="#ngOnDestroy">ngOnDestroy</a>
                             </li>
                             <li>
@@ -217,12 +211,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(meteoService: <a href="../classes/MeteoService.html">MeteoService</a>, translateService: TranslateService, toasterService: ToastrService, spinner: NgxSpinnerService)</code>
+<code>constructor(meteoService: <a href="../classes/MeteoService.html">MeteoService</a>, displayService: <a href="../injectables/DisplayService.html">DisplayService</a>, spinner: NgxSpinnerService)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -252,22 +246,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>translateService</td>
+                                                        <td>displayService</td>
                                                   
                                                         <td>
-                                                                    <code>TranslateService</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>toasterService</td>
-                                                  
-                                                        <td>
-                                                                    <code>ToastrService</code>
+                                                                        <code><a href="../injectables/DisplayService.html" target="_self" >DisplayService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -305,138 +287,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="displayError"></a>
-                    <span class="name">
-                        <b>
-                            displayError
-                        </b>
-                        <a href="#displayError"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>displayError(error)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="119"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:119</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>error</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="displaySuccess"></a>
-                    <span class="name">
-                        <b>
-                            displaySuccess
-                        </b>
-                        <a href="#displaySuccess"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>displaySuccess(success)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="127"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:127</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>success</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -621,7 +471,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -648,7 +498,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -675,7 +525,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -702,7 +552,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -729,7 +579,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -757,7 +607,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-station.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -831,6 +681,7 @@ import { MeteoService } from &#x27;src/app/core/services/meteo.service&#x27;;
 import { environment } from &#x27;../../../../environments/environment&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { ToastrService } from &#x27;ngx-toastr&#x27;;
+import { DisplayService } from &#x27;src/app/core/services/display.service&#x27;;
 
 
 
@@ -856,8 +707,7 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly meteoService: MeteoService,
-    private readonly translateService: TranslateService,
-    private readonly toasterService: ToastrService,
+    private readonly displayService: DisplayService,
     private readonly spinner: NgxSpinnerService) { }
 
 
@@ -924,11 +774,11 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
       )
     ).subscribe(
       () &#x3D;&gt; {
-        this.displaySuccess(&#x27;meteo-station.send-ok&#x27;);
+        this.displayService.displaySuccess(&#x27;meteo-station.send-ok&#x27;);
         this.spinner.hide();
       },
       (err: HttpErrorResponse) &#x3D;&gt; {
-        this.displaySuccess(&#x27;meteo-station.send-ko&#x27;);
+        this.displayService.displayError(&#x27;meteo-station.send-ko&#x27;);
         this.spinner.hide();
       });
   }
@@ -937,21 +787,6 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
     if (this.meteoSubscription$) { this.meteoSubscription$.unsubscribe(); }
   }
 
-  displayError(error) {
-    this.translateService.get(error).subscribe(
-      (translation: string) &#x3D;&gt; {
-        this.toasterService.error(translation);
-      }
-    );
-  }
-
-  displaySuccess(success) {
-    this.translateService.get(success).subscribe(
-      (translation: string) &#x3D;&gt; {
-        this.toasterService.success(translation);
-      }
-    );
-  }
 }
 </code></pre>
     </div>

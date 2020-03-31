@@ -10,6 +10,7 @@ import { MeteoService } from 'src/app/core/services/meteo.service';
 import { environment } from '../../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
+import { DisplayService } from 'src/app/core/services/display.service';
 
 
 
@@ -35,8 +36,7 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly meteoService: MeteoService,
-    private readonly translateService: TranslateService,
-    private readonly toasterService: ToastrService,
+    private readonly displayService: DisplayService,
     private readonly spinner: NgxSpinnerService) { }
 
 
@@ -103,11 +103,11 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
       )
     ).subscribe(
       () => {
-        this.displaySuccess('meteo-station.send-ok');
+        this.displayService.displaySuccess('meteo-station.send-ok');
         this.spinner.hide();
       },
       (err: HttpErrorResponse) => {
-        this.displaySuccess('meteo-station.send-ko');
+        this.displayService.displayError('meteo-station.send-ko');
         this.spinner.hide();
       });
   }
@@ -116,19 +116,4 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
     if (this.meteoSubscription$) { this.meteoSubscription$.unsubscribe(); }
   }
 
-  displayError(error) {
-    this.translateService.get(error).subscribe(
-      (translation: string) => {
-        this.toasterService.error(translation);
-      }
-    );
-  }
-
-  displaySuccess(success) {
-    this.translateService.get(success).subscribe(
-      (translation: string) => {
-        this.toasterService.success(translation);
-      }
-    );
-  }
 }

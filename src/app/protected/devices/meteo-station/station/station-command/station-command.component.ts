@@ -11,6 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { timeout } from 'rxjs/operators';
 import { LedState } from 'src/app/core/interfaces/led-state';
 import { LedService } from 'src/app/core/services/led.service';
+import { DisplayService } from 'src/app/core/services/display.service';
 
 @Component({
   selector: 'app-station-command',
@@ -35,8 +36,7 @@ export class StationCommandComponent implements OnInit, OnDestroy {
     private readonly ledService: LedService,
     private readonly screenService: ScreenService,
     private readonly heaterService: HeaterService,
-    private readonly translateService: TranslateService,
-    private readonly toasterService: ToastrService,
+    private readonly displayService: DisplayService,
     private readonly spinner: NgxSpinnerService
   ) { }
 
@@ -89,7 +89,7 @@ export class StationCommandComponent implements OnInit, OnDestroy {
         this.spinner.hide();
       },
       (err: HttpErrorResponse) => {
-        this.displayNotAvailableScreen();
+        this.displayService.displayError('screen.screen-not-available');
         this.spinner.hide();
       }
     );
@@ -129,7 +129,7 @@ export class StationCommandComponent implements OnInit, OnDestroy {
         this.spinner.hide();
       },
       (err: HttpErrorResponse) => {
-        this.displayNotAvailableHeater();
+        this.displayService.displayError('heater.heater-not-available');
         this.spinner.hide();
       }
     );
@@ -155,7 +155,7 @@ export class StationCommandComponent implements OnInit, OnDestroy {
       },
       (err: HttpErrorResponse) => {
         this.unAvailableLed = true;
-        this.displayNotAvailableLed();
+        this.displayService.displayError('led.led-not-available');
         this.spinner.hide();
       }
     );
@@ -178,37 +178,12 @@ export class StationCommandComponent implements OnInit, OnDestroy {
         (err: HttpErrorResponse) => {
           this.unAvailableLed = true;
           this.ledState = oldLedState;
-          this.displayNotAvailableLed();
+          this.displayService.displayError('led.led-not-available');
           this.spinner.hide();
         }
       );
   }
 
-  displayNotAvailableLed() {
-    this.translateService.get('led.led-not-available').subscribe(
-      (translation: string) => {
-        this.toasterService.error(translation);
-      }
-    );
-  }
-
-
-
-  displayNotAvailableScreen() {
-    this.translateService.get('screen.screen-not-available').subscribe(
-      (translation: string) => {
-        this.toasterService.error(translation);
-      }
-    );
-  }
-
-  displayNotAvailableHeater() {
-    this.translateService.get('heater.heater-not-available').subscribe(
-      (translation: string) => {
-        this.toasterService.error(translation);
-      }
-    );
-  }
 
   ngOnDestroy() {
     if (this.ledSubscription$) { this.ledSubscription$.unsubscribe(); }

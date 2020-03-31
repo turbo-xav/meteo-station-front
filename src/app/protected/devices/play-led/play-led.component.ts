@@ -8,6 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { DeviceStats } from 'src/app/core/interfaces/device-stats';
 import { LedState } from 'src/app/core/interfaces/led-state';
 import { LedService } from 'src/app/core/services/led.service';
+import { DisplayService } from 'src/app/core/services/display.service';
 
 @Component({
   selector: 'app-play-led',
@@ -29,8 +30,7 @@ export class PlayLedComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly ledService: LedService,
-    private readonly toasterService: ToastrService,
-    private readonly translateService: TranslateService,
+    private readonly displayService: DisplayService,
     private readonly spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
@@ -60,7 +60,7 @@ export class PlayLedComponent implements OnInit, OnDestroy {
       },
       (err: HttpErrorResponse) => {
         this.unAvailableLed = true;
-        this.displayNotAvailableLed();
+        this.displayService.displayError('led.led-not-available');
         this.spinner.hide();
       }
     );
@@ -83,17 +83,9 @@ export class PlayLedComponent implements OnInit, OnDestroy {
         (err: HttpErrorResponse) => {
           this.unAvailableLed = true;
           this.ledState = oldLedState;
-          this.displayNotAvailableLed();
+          this.displayService.displayError('led.led-not-available');
           this.spinner.hide();
         }
       );
-  }
-
-  displayNotAvailableLed() {
-    this.translateService.get('led.led-not-available').subscribe(
-      (translation: string) => {
-        this.toasterService.error(translation);
-      }
-    );
   }
 }
