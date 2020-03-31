@@ -14,6 +14,7 @@ const rootUrl = environment.apis.thingerio.url
 const rootUrlDevice = rootUrl + '/v2/users/' + environment.devices.account + '/devices/' + environment.devices.meteo;
 const rootUrlBuckets = rootUrl + '/v1/users/' + environment.devices.account + '/buckets';
 const rootUrlForecast = environment.apis.forecast.url;
+const rootUrlEndPoint = rootUrl+'/v1/users/'+ environment.devices.account+'/endpoints';
 export class MeteoService {
 
   constructor(private readonly http: HttpClient) { }
@@ -75,5 +76,9 @@ export class MeteoService {
 
   public getMeteoStatsDaily(): Observable<MeteoStats[]> {
     return this.http.get<MeteoStats[]>(rootUrlBuckets + '/' + environment.devices.buckets.daily + '/data', { headers: reqHeader });
+  }
+
+  public sendEndPoint(meteo: Meteo): Observable<any>{
+    return this.http.post<any>(rootUrlEndPoint + '/meteo/call', meteo, { headers: reqHeader });
   }
 }

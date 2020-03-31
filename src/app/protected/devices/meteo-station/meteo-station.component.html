@@ -7,9 +7,11 @@
   {{'meteo-station.not-ready' | translate}}
 </div>
 
+<div (click)="send()">{{'meteo-station.send' | translate}} : <img src="/assets/icons/icon-mail.png" alt="" /></div>
 
 <div class="row">
   <div class="col-12">
+    
     <app-station-command></app-station-command>
   </div>
 </div>

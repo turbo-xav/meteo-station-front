@@ -258,8 +258,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/app/shared/header/header.component.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/shared/header/header.component.ts:33</a></div>
                 </td>
             </tr>
 
@@ -297,8 +297,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/shared/header/header.component.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/shared/header/header.component.ts:28</a></div>
                 </td>
             </tr>
 
@@ -453,6 +453,7 @@ export class HeaderComponent implements OnInit {
 
   useLanguage(language: string) {
     this.translate.use(language);
+    sessionStorage.setItem(&#x27;lang&#x27;,language);
   }
 
   logout() {

@@ -11,9 +11,8 @@ export class AppComponent {
 
   constructor(private readonly translate: TranslateService) {
     this.translate.setDefaultLang('fr');
-
-  const date = new Date(1585566000286);
-  console.log(date.getHours());
-
+    if(sessionStorage.getItem('lang')){
+      this.translate.setDefaultLang(sessionStorage.getItem('lang'));
+    }
   }
 }

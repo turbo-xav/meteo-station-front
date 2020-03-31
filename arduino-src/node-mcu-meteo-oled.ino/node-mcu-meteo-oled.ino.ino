@@ -87,12 +87,12 @@ void setup() {
   }
 
   timeClient.begin();
+  timeClient.setTimeOffset(3600*2);
   timeClient.update();
-  //Serial.print("Time : ");
-  //Serial.println(timeClient.getFormattedTime());
+  Serial.print("Time : ");
+  Serial.println(timeClient.getFormattedTime());
   delay(500);
-  
-  initMeteoStation(); 
+  initMeteoStation();
   bme.begin(0x76);
   initScreen();
   delay(500);  

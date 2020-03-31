@@ -1,19 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription, interval, combineLatest } from 'rxjs';
+import { Subscription, interval } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { switchMap, timeout } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Meteo } from 'src/app/core/interfaces/meteo';
 import { Ephemeride } from 'src/app/core/interfaces/ephemeride';
 import { Forecast } from 'src/app/core/interfaces/forecast';
 import { MeteoService } from 'src/app/core/services/meteo.service';
 import { environment } from '../../../../environments/environment';
-import { ScreenService } from 'src/app/core/services/screen.service';
-import { ScreenState } from 'src/app/core/interfaces/screen-state';
-import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
-import { HeaterState } from 'src/app/core/interfaces/heater-state';
-import { HeaterService } from 'src/app/core/services/heater.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 
@@ -38,6 +35,8 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly meteoService: MeteoService,
+    private readonly translateService: TranslateService,
+    private readonly toasterService: ToastrService,
     private readonly spinner: NgxSpinnerService) { }
 
 
@@ -94,7 +93,42 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
     return environment.meteo.city;
   }
 
+  public send() {
+    this.spinner.show();
+    this.meteoService.refreshMeteo().pipe(
+      switchMap(
+        (meteo: Meteo) => {
+          return this.meteoService.sendEndPoint(meteo)
+        }
+      )
+    ).subscribe(
+      () => {
+        this.displaySuccess('meteo-station.send-ok');
+        this.spinner.hide();
+      },
+      (err: HttpErrorResponse) => {
+        this.displaySuccess('meteo-station.send-ko');
+        this.spinner.hide();
+      });
+  }
+
   ngOnDestroy() {
     if (this.meteoSubscription$) { this.meteoSubscription$.unsubscribe(); }
+  }
+
+  displayError(error) {
+    this.translateService.get(error).subscribe(
+      (translation: string) => {
+        this.toasterService.error(translation);
+      }
+    );
+  }
+
+  displaySuccess(success) {
+    this.translateService.get(success).subscribe(
+      (translation: string) => {
+        this.toasterService.success(translation);
+      }
+    );
   }
 }

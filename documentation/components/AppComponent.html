@@ -249,6 +249,9 @@ export class AppComponent {
 
   constructor(private readonly translate: TranslateService) {
     this.translate.setDefaultLang(&#x27;fr&#x27;);
+    if(sessionStorage.getItem(&#x27;lang&#x27;)){
+      this.translate.setDefaultLang(sessionStorage.getItem(&#x27;lang&#x27;));
+    }
   }
 }
 </code></pre>

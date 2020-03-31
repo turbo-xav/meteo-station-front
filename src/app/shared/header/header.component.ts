@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
 
   useLanguage(language: string) {
     this.translate.use(language);
+    sessionStorage.setItem('lang',language);
   }
 
   logout() {
