@@ -1,5 +1,7 @@
 # Arduino Pwa Led & Meteo Station
 
+## Version 1.0.0
+
 ## Purpose
 
 This Arduino project is performed to create an IOT application in order to control from anywhere outside the house :
@@ -25,8 +27,6 @@ A meteo station
 <tr style="font-size:10px">
     <th>Home page</th>
     <th>Authentication</th>
-    <th>Meteo station</th>
-    <th>Authentication</th>
 </tr>
 <tr>
     <td style="width:100px">
@@ -35,14 +35,28 @@ A meteo station
     <td style="width:100px">
         <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/authentication.jpg?raw=true" />
     </td>
+</tr>
+<table>
+
+<table>
+<tr style="font-size:10px">
+    <th>Meteo station</th>
+    <th>Forecasts</th>
+    <th>Statictics</th>
+</tr>
+<tr>
     <td style="width:100px">
         <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/meteo-station.jpg?raw=true" />
+    </td>
+     <td style="width:100px">
+      <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/forecast.jpg?raw=true" />
     </td>
     <td style="width:100px">
       <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/statistics.jpg?raw=true" />
     </td>
 </tr>
 <table>
+
 
 ## Basic equipment
 
