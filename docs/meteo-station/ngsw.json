@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1585842167392,
+  "timestamp": 1585843349510,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -10,15 +10,15 @@
       "urls": [
         "./favicon.ico",
         "./index.html",
-        "./main-es2015.8552a7850a0240ed5bff.js",
-        "./main-es5.8552a7850a0240ed5bff.js",
+        "./main-es2015.d2a6a4cf7b5e1283696d.js",
+        "./main-es5.d2a6a4cf7b5e1283696d.js",
         "./manifest.webmanifest",
         "./polyfills-es2015.28b264071c0a6503d0b4.js",
         "./polyfills-es5.4bd3a6b7592230c35408.js",
         "./runtime-es2015.c9afb3256f2870e161de.js",
         "./runtime-es5.c9afb3256f2870e161de.js",
         "./scripts.e8090da0c1b5cfcab2a0.js",
-        "./styles.5af8c4732d2554e05675.css"
+        "./styles.924c504f6a86b1f730ca.css"
       ],
       "patterns": []
     },
@@ -392,16 +392,16 @@
     "./assets/water-heater.png": "ace8d54759d25ca04b0e72fcc1b79639f1060b9a",
     "./assets/weather.png": "3cc3786000b33b04aff5c4b8cc445c36435066c4",
     "./favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "./index.html": "3485f2c7e1605853a223b5b0ced04d195395cd97",
-    "./main-es2015.8552a7850a0240ed5bff.js": "0792727474d330434ae09fc2d2920b57b59aa464",
-    "./main-es5.8552a7850a0240ed5bff.js": "c20c772245d905fe47f2f277141e44c943edbd8a",
+    "./index.html": "cc8769ffd24b2fe219c675ab8be972be26f7a27f",
+    "./main-es2015.d2a6a4cf7b5e1283696d.js": "02c79f48f62afc94f8639d991aff734c3d9123d8",
+    "./main-es5.d2a6a4cf7b5e1283696d.js": "c31cc94c85209933e2cad566f2868f4dde47bebd",
     "./manifest.webmanifest": "0ea32da9254ab82aaf9fe081c7cb57b302f4354b",
     "./polyfills-es2015.28b264071c0a6503d0b4.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "./polyfills-es5.4bd3a6b7592230c35408.js": "e51a1de4f016cd689dbdbef51043dec9518c4111",
     "./runtime-es2015.c9afb3256f2870e161de.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "./runtime-es5.c9afb3256f2870e161de.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "./scripts.e8090da0c1b5cfcab2a0.js": "e409293dad28284e193dba14c66eec68c3076717",
-    "./styles.5af8c4732d2554e05675.css": "8eb9a42db256d6eee2453a6b86169c7371b271e0"
+    "./styles.924c504f6a86b1f730ca.css": "b59ea4875f4a28e218adb2e42d0f9b9dd9a0f22f"
   },
   "navigationUrls": [
     {

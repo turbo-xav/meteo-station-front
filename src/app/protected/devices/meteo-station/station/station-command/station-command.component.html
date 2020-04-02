@@ -6,7 +6,7 @@
                 <label><img src="/assets/oled.png" (click)="switchScreen()" width="25" alt="{{'screen.screen' | translate}}" /> : 
                     <span  *ngIf="screenState">{{('screen.' + screenState | lowercase) | translate}}</span></label>
                 <div *ngIf="screenState" class="state card-footer bg-transparent border-success">
-                    <mat-slide-toggle (change)="switchScreen()" [checked]="screenisOn"></mat-slide-toggle>
+                    <mat-slide-toggle (change)="switchScreen()" [color]="'primary'" [checked]="screenisOn"></mat-slide-toggle>
                 </div>
 
             </div>
@@ -15,7 +15,7 @@
                     <span *ngIf="heaterState">{{('heater.' + heaterState | lowercase) | translate}}</span></label>
 
                 <div *ngIf="heaterState" class="state card-footer bg-transparent border-success">
-                    <mat-slide-toggle (change)="switchHeater()"  [checked]="heaterisOn"></mat-slide-toggle>
+                    <mat-slide-toggle (change)="switchHeater()"  [color]="'primary'"  [checked]="heaterisOn"></mat-slide-toggle>
                 </div>
 
             </div>
@@ -25,7 +25,7 @@
                         <span *ngIf="!unAvailableLed">{{('led.'+ledState | lowercase) | translate}}</span></label>
 
                 <div *ngIf="!unAvailableLed" class="state card-footer bg-transparent border-success">
-                    <mat-slide-toggle (change)="toggleLed()"  [checked]="ledisOn"></mat-slide-toggle>
+                    <mat-slide-toggle (change)="toggleLed()"  [color]="'primary'"  [checked]="ledisOn"></mat-slide-toggle>
                 </div>
             </div>
 
