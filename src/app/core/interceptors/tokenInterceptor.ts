@@ -3,7 +3,9 @@ import { AuthService } from '../services/auth.service';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
     // We inject a LoginService

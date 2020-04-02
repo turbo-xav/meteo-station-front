@@ -15,6 +15,7 @@ const rootUrlDevice = rootUrl + '/v2/users/' + environment.devices.account + '/d
 const rootUrlBuckets = rootUrl + '/v1/users/' + environment.devices.account + '/buckets';
 const rootUrlForecast = environment.apis.forecast.url;
 const rootUrlEndPoint = rootUrl+'/v1/users/'+ environment.devices.account+'/endpoints';
+@Injectable()
 export class MeteoService {
 
   constructor(private readonly http: HttpClient) { }

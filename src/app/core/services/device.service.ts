@@ -15,6 +15,7 @@ const reqHeaderWithJson = new HttpHeaders({
 const rootUrl = environment.apis.thingerio.url;
 const rootUrlDevice = rootUrl + '/v1/users/' + environment.devices.account + '/devices';
 
+@Injectable()
 export class DeviceService {
 
   constructor(private readonly http: HttpClient) { }

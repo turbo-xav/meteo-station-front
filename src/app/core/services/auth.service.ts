@@ -9,6 +9,7 @@ const reqHeaderWithJson = new HttpHeaders({
 
 const rootUrl = environment.apis.thingerio.url;
 
+@Injectable()
 export class AuthService {
 
  helper: JwtHelperService;

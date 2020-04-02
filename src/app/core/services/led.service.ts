@@ -15,6 +15,7 @@ const reqHeaderWithJson = new HttpHeaders({
 const rootUrl = environment.apis.thingerio.url;
 const rootUrlDevice = rootUrl + '/v2/users/' + environment.devices.account + '/devices/' + environment.devices.meteo;
 
+@Injectable()
 export class LedService {
 
   constructor(
