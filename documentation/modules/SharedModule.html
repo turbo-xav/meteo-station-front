@@ -239,7 +239,7 @@ import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
 import { AppRoutingModule } from &#x27;../app-routing.module&#x27;;
 import { FontAwesomeModule, FaIconLibrary } from &#x27;@fortawesome/angular-fontawesome&#x27;;
 import { fas } from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
-import { UiSwitchModule } from &#x27;ngx-toggle-switch&#x27;;
+import {MatSlideToggleModule} from &#x27;@angular/material/slide-toggle&#x27;;
 import { GoogleChartsModule } from &#x27;angular-google-charts&#x27;;
 import { NgxSelectModule, INgxSelectOptions  } from &#x27;ngx-select-ex&#x27;;
 
@@ -279,8 +279,8 @@ const customSelectOptions: INgxSelectOptions &#x3D; { // Check the interface for
       }
     }),
     CollapseModule.forRoot(),
-    BsDropdownModule.forRoot(),
-    UiSwitchModule,
+    BsDropdownModule.forRoot(),   
+    MatSlideToggleModule,
     GoogleChartsModule,
     NgxSelectModule.forRoot(customSelectOptions)
   ],
@@ -291,8 +291,8 @@ const customSelectOptions: INgxSelectOptions &#x3D; { // Check the interface for
     HeaderComponent,
     FooterComponent,
     ReactiveFormsModule,
-    NgxSpinnerModule,
-    UiSwitchModule,
+    NgxSpinnerModule,   
+    MatSlideToggleModule,
     GoogleChartsModule,
     NgxSelectModule
     ]

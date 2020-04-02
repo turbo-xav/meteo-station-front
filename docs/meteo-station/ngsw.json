@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1585674857196,
+  "timestamp": 1585842167392,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -10,15 +10,15 @@
       "urls": [
         "./favicon.ico",
         "./index.html",
-        "./main-es2015.1380b52a26de3185dc38.js",
-        "./main-es5.1380b52a26de3185dc38.js",
+        "./main-es2015.8552a7850a0240ed5bff.js",
+        "./main-es5.8552a7850a0240ed5bff.js",
         "./manifest.webmanifest",
-        "./polyfills-es2015.5b10b8fd823b6392f1fd.js",
-        "./polyfills-es5.8e50a9832860f7cf804a.js",
-        "./runtime-es2015.c5fa8325f89fc516600b.js",
-        "./runtime-es5.c5fa8325f89fc516600b.js",
-        "./scripts.fd12c80ebcc479d5730a.js",
-        "./styles.531a37fe24d7de08209b.css"
+        "./polyfills-es2015.28b264071c0a6503d0b4.js",
+        "./polyfills-es5.4bd3a6b7592230c35408.js",
+        "./runtime-es2015.c9afb3256f2870e161de.js",
+        "./runtime-es5.c9afb3256f2870e161de.js",
+        "./scripts.e8090da0c1b5cfcab2a0.js",
+        "./styles.5af8c4732d2554e05675.css"
       ],
       "patterns": []
     },
@@ -392,16 +392,16 @@
     "./assets/water-heater.png": "ace8d54759d25ca04b0e72fcc1b79639f1060b9a",
     "./assets/weather.png": "3cc3786000b33b04aff5c4b8cc445c36435066c4",
     "./favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "./index.html": "22633deba048d17c2f808dc8efca984844534802",
-    "./main-es2015.1380b52a26de3185dc38.js": "f141cd5748d95379b42759bb8e94d36c7bd61219",
-    "./main-es5.1380b52a26de3185dc38.js": "350b40823a4955dc005e56615facb83b51c6e309",
+    "./index.html": "3485f2c7e1605853a223b5b0ced04d195395cd97",
+    "./main-es2015.8552a7850a0240ed5bff.js": "0792727474d330434ae09fc2d2920b57b59aa464",
+    "./main-es5.8552a7850a0240ed5bff.js": "c20c772245d905fe47f2f277141e44c943edbd8a",
     "./manifest.webmanifest": "0ea32da9254ab82aaf9fe081c7cb57b302f4354b",
-    "./polyfills-es2015.5b10b8fd823b6392f1fd.js": "9abfe15f17820a646e3d51c420908d9f8f7b69b8",
-    "./polyfills-es5.8e50a9832860f7cf804a.js": "a9abcb7b9e74feed315773004b623373fdf3fada",
-    "./runtime-es2015.c5fa8325f89fc516600b.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "./runtime-es5.c5fa8325f89fc516600b.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "./scripts.fd12c80ebcc479d5730a.js": "247767d0800c47d01e7274b46c91c13a84428e71",
-    "./styles.531a37fe24d7de08209b.css": "2af016138856bcf277a71286c43473f3362c7cde"
+    "./polyfills-es2015.28b264071c0a6503d0b4.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "./polyfills-es5.4bd3a6b7592230c35408.js": "e51a1de4f016cd689dbdbef51043dec9518c4111",
+    "./runtime-es2015.c9afb3256f2870e161de.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "./runtime-es5.c9afb3256f2870e161de.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "./scripts.e8090da0c1b5cfcab2a0.js": "e409293dad28284e193dba14c66eec68c3076717",
+    "./styles.5af8c4732d2554e05675.css": "8eb9a42db256d6eee2453a6b86169c7371b271e0"
   },
   "navigationUrls": [
     {
