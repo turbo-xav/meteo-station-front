@@ -60,12 +60,18 @@ A meteo station
 
 ## Basic equipment
 
-- NodeMCU LUA ESP8266 CP2102 ESP-12E : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/nodemcu.jpg?raw=true" /><br /> https://www.amazon.fr/gp/product/B0791FJB62/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
-- BME 280 sensor : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/bme-280.jpg?raw=true" /><br />
+- NodeMCU LUA ESP8266 CP2102 ESP-12E : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/nodemcu.jpg?raw=true" />
+<br />
+https://www.amazon.fr/gp/product/B0791FJB62/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
+- BME 280 sensor : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/bme-280.jpg?raw=true" />
+<br />
 https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5ee1dcd12&pf_rd_r=83K1SKTQNBKG849J7HNW
-
-- Led RGB : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/led-grb.jpg?raw=true" /><br /> https://www.amazon.fr/gp/product/B07911J8M6/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
-
+- Led RGB : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/led-grb.jpg?raw=true" />
+<br />
+https://www.amazon.fr/gp/product/B07911J8M6/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
+- Relay 3.3v <br /><img with="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/relay3.3v.jpg?raw=true" />
+<br />
+https://fr.aliexpress.com/item/32983499479.html?spm=a2g0s.9042311.0.0.2e0b6c37W3j21i
 ## Assembly
 
 ### BME 280 with nodemcu :
