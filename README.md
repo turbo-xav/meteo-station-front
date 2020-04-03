@@ -69,7 +69,7 @@ https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5
 - Led RGB : <br /><img width="100" src="photos/led-grb.jpg?raw=true" />
 <br />
 https://www.amazon.fr/gp/product/B07911J8M6/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
-- Relay 3.3v <br /><img with="100" src="photos/relay-3.3v.jpg?raw=true" />
+- Relay 3.3v <br /><img width="100" src="photos/relay-3.3v.jpg?raw=true" />
 <br />
 https://fr.aliexpress.com/item/32983499479.html?spm=a2g0s.9042311.0.0.2e0b6c37W3j21i
 ## Assembly
