@@ -30,10 +30,10 @@ A meteo station
 </tr>
 <tr>
     <td style="width:100px">
-        <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/home-page.jpg?raw=true" />
+        <img width="100" src="photos/screenshot/home-page.jpg?raw=true" />
     </td>
     <td style="width:100px">
-        <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/authentication.jpg?raw=true" />
+        <img width="100" src="photos/screenshot/authentication.jpg?raw=true" />
     </td>
 </tr>
 <table>
@@ -46,13 +46,13 @@ A meteo station
 </tr>
 <tr>
     <td style="width:100px">
-        <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/meteo-station.jpg?raw=true" />
+        <img width="100" src="photos/screenshot/meteo-station.jpg?raw=true" />
     </td>
      <td style="width:100px">
-      <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/forecast.jpg?raw=true" />
+      <img width="100" src="photos/screenshot/forecast.jpg?raw=true" />
     </td>
     <td style="width:100px">
-      <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/screenshot/statistics.jpg?raw=true" />
+      <img width="100" src="photos/screenshot/statistics.jpg?raw=true" />
     </td>
 </tr>
 <table>
@@ -60,33 +60,33 @@ A meteo station
 
 ## Basic equipment
 
-- NodeMCU LUA ESP8266 CP2102 ESP-12E : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/nodemcu.jpg?raw=true" />
+- NodeMCU LUA ESP8266 CP2102 ESP-12E : <br /><img width="100" src="photos/nodemcu.jpg?raw=true" />
 <br />
 https://www.amazon.fr/gp/product/B0791FJB62/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
-- BME 280 sensor : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/bme-280.jpg?raw=true" />
+- BME 280 sensor : <br /><img width="100" src="photos/bme-280.jpg?raw=true" />
 <br />
 https://www.amazon.fr/gp/product/B07D8T4HP6?pf_rd_p=3369e5a6-6989-43dc-ad01-b2b5ee1dcd12&pf_rd_r=83K1SKTQNBKG849J7HNW
-- Led RGB : <br /><img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/led-grb.jpg?raw=true" />
+- Led RGB : <br /><img width="100" src="photos/led-grb.jpg?raw=true" />
 <br />
 https://www.amazon.fr/gp/product/B07911J8M6/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
-- Relay 3.3v <br /><img with="100" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/relay3.3v.jpg?raw=true" />
+- Relay 3.3v <br /><img with="100" src="photos/relay3.3v.jpg?raw=true" />
 <br />
 https://fr.aliexpress.com/item/32983499479.html?spm=a2g0s.9042311.0.0.2e0b6c37W3j21i
 ## Assembly
 
 ### BME 280 with nodemcu :
 
-<img width="300" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/assembly-nodemcu-bme280.png?raw=true" /><br />
+<img width="300" src="photos/assembly-nodemcu-bme280.png?raw=true" /><br />
 
 ### Complete
 
 ### Fritzing
 
-<img width="300" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/photos/assambly-fritzing.jpg?raw=true" /><br />
+<img width="300" src="photos/assambly-fritzing.jpg?raw=true" /><br />
 
 ### Easy EDA
 
-<img width="300" src="https://github.com/turbo-xav/meteo-station-domotique/blob/master/assembly/easy-eda.png?raw=true" /><br />
+<img width="300" src="assembly/easy-eda.png?raw=true" /><br />
 
 #### FZPZ Files to import in Fritzing SoftWare
 - <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/assambly.fzz">Full Assembly</a>
@@ -98,7 +98,7 @@ https://fr.aliexpress.com/item/32983499479.html?spm=a2g0s.9042311.0.0.2e0b6c37W3
 
 ## Arduino Src
 
-Ino code : https://github.com/turbo-xav/meteo-station-domotique/blob/master/arduino-src/node-mcu-meteo.ino
+Ino code : <a href="arduino-src/node-mcu-meteo.ino">here</a>
 
 ## Angular Src
 
