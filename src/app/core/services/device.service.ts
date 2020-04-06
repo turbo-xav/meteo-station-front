@@ -41,8 +41,7 @@ export class DeviceService {
     console.log(ressourceId,state);
     const url = rootUrlMeteoStation + '/' + ressourceId;
     const stateExpression = state !== ResourceState.ON;
-    const stateTest = invert ? !stateExpression : stateExpression;
-    return this.http.post(url, { in: stateTest }, { headers: reqHeaderWithJson });
+    return this.http.post(url, { in: stateExpression }, { headers: reqHeaderWithJson });
   }
 
   public getResourceState(ressourceId: string): Observable<any> {

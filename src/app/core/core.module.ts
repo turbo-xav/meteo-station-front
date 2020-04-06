@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PublicModule } from '../public/public.module';
 import { ProtectedModule } from '../protected/protected.module';
 import { AuthService } from './services/auth.service';
-import { TranslateService } from '@ngx-translate/core';
 import { MeteoService } from './services/meteo.service';
-import { LedService } from './services/led.service';
 import { DeviceService } from './services/device.service';
 
 @NgModule({
@@ -18,7 +16,6 @@ import { DeviceService } from './services/device.service';
   providers:[
     AuthService,
     MeteoService,
-    LedService,
     DeviceService
   ]
 })

@@ -59,6 +59,8 @@ boolean reseting = false;
 boolean screenState = true;
 // led state
 boolean ledState = true;
+// heater state
+boolean heaterState = true;
 // Instance for BME sensors 
 Adafruit_BME280 bme;
 //Instnce of ESP
@@ -138,9 +140,12 @@ void initMeteoStation() {
   
   meteoStation["screen"] << [](pson& in){
       screenState = in;
+  }; 
+
+  meteoStation["heater"] << [](pson& in){
+      heaterState = in;
   };  
-  meteoStation["heater"] << digitalPin(RELAY);
-  
+   
   // Send states of Heater, Screen, led to thingerio
   meteoStation["heater-state"] >> [](pson& out) { 
     out["state"] =  !digitalRead(RELAY) ? "ON":"OFF";
@@ -218,6 +223,7 @@ void mesure(){
 void displayMesures() {
   checkRGB();
   checkScreen();
+  checkHeater();
     
   screen.clearDisplay();
   
@@ -243,6 +249,14 @@ void displayMesures() {
   screen.display();
   delay(10);
   
+}
+
+/**
+  * Check if the screen must be ON or OFF 
+  */
+
+void checkHeater() {
+  digitalWrite(RELAY, heaterState == true ? LOW : HIGH);
 }
 
 /**

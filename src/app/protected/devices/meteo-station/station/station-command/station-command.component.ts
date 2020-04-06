@@ -34,7 +34,7 @@ export class StationCommandComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.checkLed(true);
-    /*this.ledSubscription$ = interval(2500).subscribe(
+    this.ledSubscription$ = interval(2500).subscribe(
       () => { this.checkLed(false); }
     );
     this.checkScreen(true);
@@ -44,7 +44,7 @@ export class StationCommandComponent implements OnInit, OnDestroy {
     this.checkHeater(true);
     this.checkheaterSubscription$ = interval(2500).subscribe(
       () => { this.checkHeater(false); }
-    );*/
+    );
   }
 
   public get ledisOn(): boolean {
@@ -136,7 +136,7 @@ export class StationCommandComponent implements OnInit, OnDestroy {
   public switchHeater() {
     this.spinner.show();
 
-    this.deviceService.switchResource('heater', this.heaterState, true).subscribe(
+    this.deviceService.switchResource('heater', this.heaterState).subscribe(
       (res: any) => {
         this.spinner.hide();
         this.checkHeater();
