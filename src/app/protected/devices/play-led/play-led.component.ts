@@ -1,14 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { TranslateService } from '@ngx-translate/core';
 import { timeout, switchMap } from 'rxjs/operators';
 import { interval, Subscription } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DeviceStats } from 'src/app/core/interfaces/device-stats';
-import { LedState } from 'src/app/core/interfaces/led-state';
-import { LedService } from 'src/app/core/services/led.service';
 import { DisplayService } from 'src/app/core/services/display.service';
+import { ResourceState } from 'src/app/core/interfaces/resource-state';
+import { DeviceService } from 'src/app/core/services/device.service';
 
 @Component({
   selector: 'app-play-led',
@@ -23,20 +21,20 @@ export class PlayLedComponent implements OnInit, OnDestroy {
 
   ledStats: DeviceStats;
 
-  ledState: LedState;
+  ledState: ResourceState;
 
   private ledSubscription$: Subscription;
 
 
   constructor(
-    private readonly ledService: LedService,
+    private readonly deviceService: DeviceService,
     private readonly displayService: DisplayService,
     private readonly spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.checkLed(true);
     this.ledSubscription$ = interval(2500).subscribe(
-      (val) => { this.checkLed(false); }
+      () => { this.checkLed(false); }
     );
   }
 
@@ -50,10 +48,10 @@ export class PlayLedComponent implements OnInit, OnDestroy {
       this.spinner.show();
     }
 
-    this.ledService.getLedState().pipe(
+    this.deviceService.getResourceState('led').pipe(
       timeout(3000)
     ).subscribe(
-      (ledState: LedState) => {
+      (ledState: ResourceState) => {
         this.ledState = ledState;
         this.unAvailableLed = false;
         this.spinner.hide();
@@ -67,24 +65,23 @@ export class PlayLedComponent implements OnInit, OnDestroy {
   }
 
   toggleLed() {
-    const oldLedState = this.ledState;
-    const ledState: LedState = this.ledState === LedState.ON ? LedState.OFF : LedState.ON;
+
     this.spinner.show();
 
-    this.ledService.toggleLed(ledState)
+    this.deviceService.switchResource('led', this.ledState)
       .pipe(timeout(3000))
       .subscribe(
         () => {
           this.unAvailableLed = false;
-          this.ledState = ledState;
           this.spinner.hide();
+          this.checkLed();
         }
         ,
         (err: HttpErrorResponse) => {
           this.unAvailableLed = true;
-          this.ledState = oldLedState;
           this.displayService.displayError('led.led-not-available');
           this.spinner.hide();
+          this.checkLed();
         }
       );
   }

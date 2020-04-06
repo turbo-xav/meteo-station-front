@@ -3,8 +3,8 @@ import { environment } from './../../../environments/environment'
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DeviceService } from './device.service';
-import { tap, map } from 'rxjs/operators';
-import { LedState } from '../interfaces/led-state';
+import { map } from 'rxjs/operators';
+
 
 const reqHeader = new HttpHeaders({});
 
@@ -25,22 +25,5 @@ export class LedService {
   public getStats() {
     return this.deviceService.getDeviceDetail(environment.devices.meteo);
   }
-
-  public toggleLed(ledState: LedState): Observable<any> {
-
-    const url = rootUrlDevice + '/led';
-    return this.http.post(url, { in: ledState === LedState.ON }, { headers: reqHeaderWithJson });
-  }
-
-  public getLedState(): Observable<any> {
-    return this.checkLed().pipe(
-      map((res: any) => {
-        return res.out.state ? res.out.state : LedState.OFF;
-      }));
-  }
-
-  public checkLed(): Observable<any> {
-    const url = rootUrlDevice + '/led-state';
-    return this.http.get<any>(url, { headers: reqHeader });
-  }
+ 
 }

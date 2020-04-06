@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { environment } from './../../../environments/environment'
-import { Observable } from 'rxjs';
+import { Observable, pipe } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { DeviceStats } from '../interfaces/device-stats';
+import { ResourceState } from '../interfaces/resource-state';
+import { map } from 'rxjs/operators';
 
 
 const reqHeader = new HttpHeaders({});
@@ -14,6 +16,7 @@ const reqHeaderWithJson = new HttpHeaders({
 
 const rootUrl = environment.apis.thingerio.url;
 const rootUrlDevice = rootUrl + '/v1/users/' + environment.devices.account + '/devices';
+const rootUrlMeteoStation = rootUrlDevice + '/' + environment.devices.meteo;
 
 @Injectable()
 export class DeviceService {
@@ -34,6 +37,20 @@ export class DeviceService {
     return this.http.post(url, { in: true }, { headers: reqHeaderWithJson });
   }
 
+  public switchResource(ressourceId: string, state: ResourceState, invert = false): Observable<any> {
+    console.log(ressourceId,state);
+    const url = rootUrlMeteoStation + '/' + ressourceId;
+    const stateExpression = state !== ResourceState.ON;
+    const stateTest = invert ? !stateExpression : stateExpression;
+    return this.http.post(url, { in: stateTest }, { headers: reqHeaderWithJson });
+  }
 
+  public getResourceState(ressourceId: string): Observable<any> {
+    const url = rootUrlMeteoStation + '/' + ressourceId + '-state';
+    return this.http.get<any>(url, { headers: reqHeader }).pipe(
+      map((res: any) => {
+        return res.state ? res.state : ResourceState.OFF;
+    }));
+  }
 
 }

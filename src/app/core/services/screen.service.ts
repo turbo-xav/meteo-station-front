@@ -33,7 +33,6 @@ export class ScreenService {
   }
 
   public getScreenState(): Observable<any> {
-
     return this.checkScreen().pipe(
       map((res: any) => {
         return res.out.state ? res.out.state : ScreenState.OFF;

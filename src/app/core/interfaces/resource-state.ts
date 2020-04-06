@@ -1,4 +1,4 @@
-export enum LedState {
+export enum ResourceState {
     ON  = 'ON'  ,
     OFF = 'OFF'
 }
