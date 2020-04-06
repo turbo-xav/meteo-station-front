@@ -81,11 +81,19 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#getResourceState">getResourceState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#listDevices">listDevices</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#rebootDevice">rebootDevice</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#switchResource">switchResource</a>
                             </li>
                         </ul>
                     </td>
@@ -110,7 +118,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/core/services/device.service.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/core/services/device.service.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -177,8 +185,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/core/services/device.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/core/services/device.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -229,6 +237,78 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getResourceState"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getResourceState
+                        </b>
+                        <a href="#getResourceState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getResourceState(ressourceId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/core/services/device.service.ts:47</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ressourceId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="listDevices"></a>
                     <span class="name">
                         <b>
@@ -249,8 +329,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/core/services/device.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/core/services/device.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -290,8 +370,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/app/core/services/device.service.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/core/services/device.service.ts:35</a></div>
                 </td>
             </tr>
 
@@ -338,6 +418,109 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="switchResource"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            switchResource
+                        </b>
+                        <a href="#switchResource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>switchResource(ressourceId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, state: <a href="../undefineds/ResourceState.html">ResourceState</a>, invert)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/core/services/device.service.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ressourceId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>state</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#ResourceState" target="_self" >ResourceState</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>invert</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>false</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -346,10 +529,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { environment } from &#x27;./../../../environments/environment&#x27;
-import { Observable } from &#x27;rxjs&#x27;;
+import { Observable, pipe } from &#x27;rxjs&#x27;;
 import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 
 import { DeviceStats } from &#x27;../interfaces/device-stats&#x27;;
+import { ResourceState } from &#x27;../interfaces/resource-state&#x27;;
+import { map } from &#x27;rxjs/operators&#x27;;
 
 
 const reqHeader &#x3D; new HttpHeaders({});
@@ -360,6 +545,7 @@ const reqHeaderWithJson &#x3D; new HttpHeaders({
 
 const rootUrl &#x3D; environment.apis.thingerio.url;
 const rootUrlDevice &#x3D; rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/devices&#x27;;
+const rootUrlMeteoStation &#x3D; rootUrlDevice + &#x27;/&#x27; + environment.devices.meteo;
 
 @Injectable()
 export class DeviceService {
@@ -380,7 +566,20 @@ export class DeviceService {
     return this.http.post(url, { in: true }, { headers: reqHeaderWithJson });
   }
 
+  public switchResource(ressourceId: string, state: ResourceState, invert &#x3D; false): Observable&lt;any&gt; {
+    console.log(ressourceId,state);
+    const url &#x3D; rootUrlMeteoStation + &#x27;/&#x27; + ressourceId;
+    const stateExpression &#x3D; state !&#x3D;&#x3D; ResourceState.ON;
+    return this.http.post(url, { in: stateExpression }, { headers: reqHeaderWithJson });
+  }
 
+  public getResourceState(ressourceId: string): Observable&lt;any&gt; {
+    const url &#x3D; rootUrlMeteoStation + &#x27;/&#x27; + ressourceId + &#x27;-state&#x27;;
+    return this.http.get&lt;any&gt;(url, { headers: reqHeader }).pipe(
+      map((res: any) &#x3D;&gt; {
+        return res.state ? res.state : ResourceState.OFF;
+    }));
+  }
 
 }
 </code></pre>

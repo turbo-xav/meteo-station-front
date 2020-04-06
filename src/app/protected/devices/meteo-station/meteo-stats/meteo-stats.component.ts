@@ -15,7 +15,7 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
 
   meteoStatsSubscription: Subscription;
 
-  selectedGraphic = 'daily';
+  selectedGraphic = 'h24';
 
   graphics = [];
 

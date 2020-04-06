@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Meteo } from 'src/app/core/interfaces/meteo';
+import { MeteoData } from 'src/app/core/interfaces/meteo-data';
 
 @Component({
   selector: 'app-station-detail',
@@ -8,7 +8,7 @@ import { Meteo } from 'src/app/core/interfaces/meteo';
 })
 export class StationDetailComponent implements OnInit {
 
-  @Input() meteo: Meteo;
+  @Input() meteo: MeteoData;
 
   constructor() { }
 

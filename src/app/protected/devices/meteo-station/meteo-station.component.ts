@@ -3,13 +3,11 @@ import { Subscription, interval } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { switchMap } from 'rxjs/operators';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Meteo } from 'src/app/core/interfaces/meteo';
+import { MeteoData } from 'src/app/core/interfaces/meteo-data';
 import { Ephemeride } from 'src/app/core/interfaces/ephemeride';
 import { Forecast } from 'src/app/core/interfaces/forecast';
 import { MeteoService } from 'src/app/core/services/meteo.service';
 import { environment } from '../../../../environments/environment';
-import { TranslateService } from '@ngx-translate/core';
-import { ToastrService } from 'ngx-toastr';
 import { DisplayService } from 'src/app/core/services/display.service';
 
 
@@ -29,7 +27,7 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
   public forecastAvailable = false;
 
 
-  meteo: Meteo;
+  meteo: MeteoData;
 
   ephemeride: Ephemeride;
   forecast: Forecast;
@@ -97,7 +95,7 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
     this.spinner.show();
     this.meteoService.refreshMeteo().pipe(
       switchMap(
-        (meteo: Meteo) => {
+        (meteo: MeteoData) => {
           return this.meteoService.sendEndPoint(meteo)
         }
       )

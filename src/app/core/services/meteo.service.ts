@@ -5,8 +5,8 @@ import { environment } from './../../../environments/environment'
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Meteo } from '../interfaces/meteo';
 import { MeteoStats } from '../interfaces/meteo-stats';
+import { MeteoData } from '../interfaces/meteo-data';
 
 const reqHeader = new HttpHeaders({});
 
@@ -20,13 +20,13 @@ export class MeteoService {
 
   constructor(private readonly http: HttpClient) { }
 
-  public refreshMeteo(): Observable<Meteo> {
+  public refreshMeteo(): Observable<MeteoData> {
     const url = rootUrlDevice + '/meteo';
-    return this.http.get<Meteo>(url, { headers: reqHeader }).pipe(
+    return this.http.get<MeteoData>(url, { headers: reqHeader }).pipe(
       map((res: any) => {
         return res.out;
       }),
-      map((meteo: Meteo) => {
+      map((meteo: MeteoData) => {
         meteo.temperature = meteo.temperature ? Number(meteo.temperature.toFixed(2)) : null;
         meteo.pressure = meteo.pressure ? Number(meteo.pressure.toFixed(2)) : null;
         meteo.humidity = meteo.humidity ? Number(meteo.humidity.toFixed(2)) : null;
@@ -79,7 +79,7 @@ export class MeteoService {
     return this.http.get<MeteoStats[]>(rootUrlBuckets + '/' + environment.devices.buckets.daily + '/data', { headers: reqHeader });
   }
 
-  public sendEndPoint(meteo: Meteo): Observable<any>{
+  public sendEndPoint(meteo: MeteoData): Observable<any>{
     return this.http.post<any>(rootUrlEndPoint + '/meteo/call', meteo, { headers: reqHeader });
   }
 }

@@ -406,7 +406,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;MeteoStats[]&gt;</code>
+                        <b>Returns : </b>        <code><a href="../classes/MeteoStats.html" target="_self" >Observable&lt;MeteoStats[]&gt;</a></code>
 
                     </div>
                 </td>
@@ -447,7 +447,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;MeteoStats[]&gt;</code>
+                        <b>Returns : </b>        <code><a href="../classes/MeteoStats.html" target="_self" >Observable&lt;MeteoStats[]&gt;</a></code>
 
                     </div>
                 </td>
@@ -488,7 +488,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Meteo.html" target="_self" >Observable&lt;Meteo&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/MeteoData.html" target="_self" >Observable&lt;MeteoData&gt;</a></code>
 
                     </div>
                 </td>
@@ -512,7 +512,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>sendEndPoint(meteo: <a href="../classes/Meteo.html">Meteo</a>)</code>
+                    <code>sendEndPoint(meteo: <a href="../classes/MeteoData.html">MeteoData</a>)</code>
                 </td>
             </tr>
 
@@ -542,7 +542,7 @@
                                 <tr>
                                     <td>meteo</td>
                                     <td>
-                                                <code><a href="../classes/Meteo.html" target="_self" >Meteo</a></code>
+                                                <code><a href="../classes/MeteoData.html" target="_self" >MeteoData</a></code>
                                     </td>
 
                                     <td>
@@ -580,8 +580,8 @@ import { environment } from &#x27;./../../../environments/environment&#x27;
 import { Observable } from &#x27;rxjs&#x27;;
 import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
-import { Meteo } from &#x27;../interfaces/meteo&#x27;;
 import { MeteoStats } from &#x27;../interfaces/meteo-stats&#x27;;
+import { MeteoData } from &#x27;../interfaces/meteo-data&#x27;;
 
 const reqHeader &#x3D; new HttpHeaders({});
 
@@ -595,13 +595,13 @@ export class MeteoService {
 
   constructor(private readonly http: HttpClient) { }
 
-  public refreshMeteo(): Observable&lt;Meteo&gt; {
+  public refreshMeteo(): Observable&lt;MeteoData&gt; {
     const url &#x3D; rootUrlDevice + &#x27;/meteo&#x27;;
-    return this.http.get&lt;Meteo&gt;(url, { headers: reqHeader }).pipe(
+    return this.http.get&lt;MeteoData&gt;(url, { headers: reqHeader }).pipe(
       map((res: any) &#x3D;&gt; {
         return res.out;
       }),
-      map((meteo: Meteo) &#x3D;&gt; {
+      map((meteo: MeteoData) &#x3D;&gt; {
         meteo.temperature &#x3D; meteo.temperature ? Number(meteo.temperature.toFixed(2)) : null;
         meteo.pressure &#x3D; meteo.pressure ? Number(meteo.pressure.toFixed(2)) : null;
         meteo.humidity &#x3D; meteo.humidity ? Number(meteo.humidity.toFixed(2)) : null;
@@ -654,7 +654,7 @@ export class MeteoService {
     return this.http.get&lt;MeteoStats[]&gt;(rootUrlBuckets + &#x27;/&#x27; + environment.devices.buckets.daily + &#x27;/data&#x27;, { headers: reqHeader });
   }
 
-  public sendEndPoint(meteo: Meteo): Observable&lt;any&gt;{
+  public sendEndPoint(meteo: MeteoData): Observable&lt;any&gt;{
     return this.http.post&lt;any&gt;(rootUrlEndPoint + &#x27;/meteo/call&#x27;, meteo, { headers: reqHeader });
   }
 }
