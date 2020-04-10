@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from './../../../environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { tap } from 'rxjs/operators';
+import { TokenDetail } from '../interfaces/token-detail';
 
 const reqHeaderWithJson = new HttpHeaders({
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -12,53 +14,40 @@ const rootUrl = environment.apis.thingerio.url;
 @Injectable()
 export class AuthService {
 
- helper: JwtHelperService;
+  helper: JwtHelperService;
+  private itemName$ = 'currentUser';
 
- constructor(private http: HttpClient) {
-   this.helper = new JwtHelperService();
- }
+  constructor(private http: HttpClient) {
+    this.helper = new JwtHelperService();
+  }
 
- private theLastUrl: string;
+  private theLastUrl: string;
 
- public set lastUrl(lastUrl: string) {
-   this.theLastUrl = lastUrl;
- }
+  public set lastUrl(lastUrl: string) {
+    this.theLastUrl = lastUrl;
+  }
 
- public get lastUrl(): string{
-  return this.theLastUrl ? this.theLastUrl : 'home';
- }
+  public get lastUrl(): string {
+    return this.theLastUrl ? this.theLastUrl : 'home';
+  }
 
   isAuthenticated(): boolean {
-    const rawToken: string = localStorage.getItem('currentUser');
-    const decodedToken = this.helper.decodeToken(rawToken);
-
-    if(!decodedToken){ return false; }
-
-    return !this.helper.isTokenExpired(rawToken);
+    const rawToken: string = localStorage.getItem(this.itemName$);
+    return this.helper.decodeToken(rawToken) && !this.helper.isTokenExpired(rawToken);
   }
 
   getToken(): string {
-    return this.isAuthenticated ? localStorage.getItem('currentUser') : null;
+    return this.isAuthenticated ? localStorage.getItem(this.itemName$) : null;
   }
 
   login(username: string, password: string) {
 
-    const subcription = this.http.post<any>(
-      rootUrl + '/oauth/token', 'grant_type=password&username=' + username + '&password=' + password,
-      {
-        headers: reqHeaderWithJson
-      }
-    );
-
-    subcription.subscribe(
-      (res: any) => {
-        localStorage.setItem('currentUser', res.access_token);
-      }
-    );
-    return subcription;
+    return this.http.post<any>(
+      rootUrl + '/oauth/token', 'grant_type=password&username=' + username + '&password=' + password, { headers: reqHeaderWithJson })
+      .pipe( tap((res: TokenDetail) => { localStorage.setItem(this.itemName$, res.access_token); } ));
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem(this.itemName$);
   }
 }
