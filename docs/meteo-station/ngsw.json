@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1586522703721,
+  "timestamp": 1586527485698,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -10,15 +10,15 @@
       "urls": [
         "./favicon.ico",
         "./index.html",
-        "./main-es2015.f3f3e5eca0943ff93b3e.js",
-        "./main-es5.f3f3e5eca0943ff93b3e.js",
+        "./main-es2015.1bb7bdee10945e5c0f2f.js",
+        "./main-es5.1bb7bdee10945e5c0f2f.js",
         "./manifest.webmanifest",
-        "./polyfills-es2015.28b264071c0a6503d0b4.js",
-        "./polyfills-es5.4bd3a6b7592230c35408.js",
-        "./runtime-es2015.c9afb3256f2870e161de.js",
-        "./runtime-es5.c9afb3256f2870e161de.js",
+        "./polyfills-es2015.f2c5ab749249a66bdf26.js",
+        "./polyfills-es5.049f620af8c864cf4d88.js",
+        "./runtime-es2015.1eba213af0b233498d9d.js",
+        "./runtime-es5.1eba213af0b233498d9d.js",
         "./scripts.e8090da0c1b5cfcab2a0.js",
-        "./styles.924c504f6a86b1f730ca.css"
+        "./styles.2db68e956a78ce693f87.css"
       ],
       "patterns": []
     },
@@ -392,16 +392,16 @@
     "./assets/water-heater.png": "ace8d54759d25ca04b0e72fcc1b79639f1060b9a",
     "./assets/weather.png": "3cc3786000b33b04aff5c4b8cc445c36435066c4",
     "./favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "./index.html": "f7a9d08aaccdebb607b2baa6580cd1730f7f4700",
-    "./main-es2015.f3f3e5eca0943ff93b3e.js": "8418fd1fc717705c71d0aaf8f28aa2709a618e05",
-    "./main-es5.f3f3e5eca0943ff93b3e.js": "d50b4ff0356f05884a13894467ffc7090e2792d4",
+    "./index.html": "5b6d497382e4878697e4309dccc50d61fc019062",
+    "./main-es2015.1bb7bdee10945e5c0f2f.js": "ae0193322e75c849457cf6b6997c6f0893d6a04e",
+    "./main-es5.1bb7bdee10945e5c0f2f.js": "8da5ffd8ae74239955cd4d71afe64b78a8cba6e9",
     "./manifest.webmanifest": "0ea32da9254ab82aaf9fe081c7cb57b302f4354b",
-    "./polyfills-es2015.28b264071c0a6503d0b4.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
-    "./polyfills-es5.4bd3a6b7592230c35408.js": "e51a1de4f016cd689dbdbef51043dec9518c4111",
-    "./runtime-es2015.c9afb3256f2870e161de.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "./runtime-es5.c9afb3256f2870e161de.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "./polyfills-es2015.f2c5ab749249a66bdf26.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "./polyfills-es5.049f620af8c864cf4d88.js": "e51a1de4f016cd689dbdbef51043dec9518c4111",
+    "./runtime-es2015.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "./runtime-es5.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "./scripts.e8090da0c1b5cfcab2a0.js": "e409293dad28284e193dba14c66eec68c3076717",
-    "./styles.924c504f6a86b1f730ca.css": "b59ea4875f4a28e218adb2e42d0f9b9dd9a0f22f"
+    "./styles.2db68e956a78ce693f87.css": "5be9b927b9645c5cef3a2a17ac0493b5c9d67af1"
   },
   "navigationUrls": [
     {

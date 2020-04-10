@@ -204,13 +204,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SharedModule.html" data-type="entity-link">SharedModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-SharedModule-88be5a051f3e903c7958ab3d0f1a53a6"' : 'data-target="#xs-components-links-module-SharedModule-88be5a051f3e903c7958ab3d0f1a53a6"' }>
+                                            'data-target="#components-links-module-SharedModule-9fdb9a1b0f3f3cf39bbef94da0a66942"' : 'data-target="#xs-components-links-module-SharedModule-9fdb9a1b0f3f3cf39bbef94da0a66942"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SharedModule-88be5a051f3e903c7958ab3d0f1a53a6"' :
-                                            'id="xs-components-links-module-SharedModule-88be5a051f3e903c7958ab3d0f1a53a6"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SharedModule-9fdb9a1b0f3f3cf39bbef94da0a66942"' :
+                                            'id="xs-components-links-module-SharedModule-9fdb9a1b0f3f3cf39bbef94da0a66942"' }>
                                             <li class="link">
                                                 <a href="components/FooterComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">FooterComponent</a>
@@ -277,6 +277,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/MeteoStats.html" data-type="entity-link">MeteoStats</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TokenDetail.html" data-type="entity-link">TokenDetail</a>
                             </li>
                         </ul>
                     </li>
