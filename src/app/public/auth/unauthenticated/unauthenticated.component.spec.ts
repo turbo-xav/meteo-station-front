@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UnauthenticatedComponent } from './unauthenticated.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 describe('UnauthenticatedComponent', () => {
   let component: UnauthenticatedComponent;
@@ -8,7 +11,11 @@ describe('UnauthenticatedComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UnauthenticatedComponent ]
+      imports: [
+        RouterTestingModule,
+        SharedModule,
+        CoreModule
+      ]
     })
     .compileComponents();
   }));

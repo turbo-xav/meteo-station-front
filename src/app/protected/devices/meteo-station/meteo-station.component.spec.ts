@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MeteoStationComponent } from './meteo-station.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 describe('MeteoStationComponent', () => {
   let component: MeteoStationComponent;
@@ -8,7 +11,11 @@ describe('MeteoStationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MeteoStationComponent ]
+      imports: [
+        RouterTestingModule,
+        SharedModule,
+        CoreModule
+      ]
     })
     .compileComponents();
   }));

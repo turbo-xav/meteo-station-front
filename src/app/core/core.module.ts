@@ -5,6 +5,8 @@ import { ProtectedModule } from '../protected/protected.module';
 import { AuthService } from './services/auth.service';
 import { MeteoService } from './services/meteo.service';
 import { DeviceService } from './services/device.service';
+import { HttpClient } from '@angular/common/http';
+import { DisplayService } from './services/display.service';
 
 @NgModule({
   declarations: [],
@@ -16,7 +18,9 @@ import { DeviceService } from './services/device.service';
   providers:[
     AuthService,
     MeteoService,
-    DeviceService
+    DeviceService,
+    DisplayService,
+    HttpClient
   ]
 })
 export class CoreModule {

@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlayLedComponent } from './play-led.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 describe('PlayLedComponent', () => {
   let component: PlayLedComponent;
@@ -8,7 +11,11 @@ describe('PlayLedComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlayLedComponent ]
+      imports: [
+        RouterTestingModule,
+        SharedModule,
+        CoreModule
+      ]
     })
     .compileComponents();
   }));

@@ -4,6 +4,7 @@ import { environment } from './../../../environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { tap } from 'rxjs/operators';
 import { TokenDetail } from '../interfaces/token-detail';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const reqHeaderWithJson = new HttpHeaders({
   'Content-Type': 'application/x-www-form-urlencoded'

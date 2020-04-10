@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetailDeviceComponent } from './detail-device.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 describe('DetailDeviceComponent', () => {
   let component: DetailDeviceComponent;
@@ -8,7 +11,11 @@ describe('DetailDeviceComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailDeviceComponent ]
+      imports: [
+        RouterTestingModule,
+        SharedModule,
+        CoreModule
+      ]
     })
     .compileComponents();
   }));

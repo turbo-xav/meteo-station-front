@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListDevicesComponent } from './list-devices.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 describe('ListDevicesComponent', () => {
   let component: ListDevicesComponent;
@@ -8,7 +11,11 @@ describe('ListDevicesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListDevicesComponent ]
+      imports: [
+        RouterTestingModule,
+        SharedModule,
+        CoreModule
+      ]
     })
     .compileComponents();
   }));
@@ -22,4 +29,5 @@ describe('ListDevicesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

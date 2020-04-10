@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FooterComponent } from './footer.component';
+import { SharedModule } from '../shared.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CoreModule } from 'src/app/core/core.module';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
@@ -8,7 +11,11 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
+      imports: [
+        RouterTestingModule,
+        SharedModule,
+        CoreModule
+      ]
     })
     .compileComponents();
   }));

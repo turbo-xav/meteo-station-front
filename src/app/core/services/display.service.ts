@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DisplayService {
 
   constructor( 

@@ -89,12 +89,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "src/test.ts",
+          "builder": "@angular-builders/jest:run",
+          "options": {            
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
+            "tsConfig": "tsconfig.spec.json",           
             "assets": [
               "src/favicon.ico",
               "src/assets",
