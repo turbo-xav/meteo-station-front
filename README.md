@@ -61,17 +61,14 @@ A meteo station
 
 ### Into the box
 
-- <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/raw/master/photos/box-assembly-1.jpg" />
-
-- <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/raw/master/photos/box-assembly-2.jpg" />
+<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/raw/master/photos/box-assembly-1.jpg" />
+&nbsp;<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/raw/master/photos/box-assembly-2.jpg" />
 
 ### Linking relay to the heater
 
-- <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/raw/master/photos/box-assembly-3.jpg" />
-
-- <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/raw/master/photos/box-assembly-4.jpg" />
-
-- <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/raw/master/photos/box-assembly-5.jpg" />
+<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/raw/master/photos/box-assembly-3.jpg" />
+&nbsp;<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/raw/master/photos/box-assembly-4.jpg" />
+&nbsp;<img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/raw/master/photos/box-assembly-5.jpg" />
 
 
 ## Basic equipment
