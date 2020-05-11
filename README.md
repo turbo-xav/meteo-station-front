@@ -29,11 +29,11 @@ A meteo station
     <th>Authentication</th>
 </tr>
 <tr>
-    <td style="width:100px">
-        <img width="100" src="photos/screenshot/home-page.jpg?raw=true" />
+    <td style="width:120px">
+        <img width="120" src="photos/screenshot/home-page.jpg?raw=true" />
     </td>
-    <td style="width:100px">
-        <img width="100" src="photos/screenshot/authentication.jpg?raw=true" />
+    <td style="width:120px">
+        <img width="120" src="photos/screenshot/authentication.jpg?raw=true" />
     </td>
 </tr>
 <table>
@@ -48,7 +48,7 @@ A meteo station
     <td style="width:120px">
         <img width="120" src="photos/screenshot/meteo-station.jpg?raw=true" />
     </td>
-     <td style="width:100px">
+     <td style="width:120px">
       <img width="120" src="photos/screenshot/forecast.jpg?raw=true" />
     </td>
     <td style="width:120px">
