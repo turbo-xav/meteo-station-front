@@ -56,7 +56,8 @@ ftpDeploy
   .then(
       res => { 
         console.log('Deploy is OK : ', res); 
-        let commitMsg = readline.question('What is your password ?');
+        console.log('Preparing git commit & push ...');
+        let commitMsg = readline.question('What is your commit message ?');
         commitMsg = commitMsg ? commitMsg : 'Automatic releasing';
         gitRelease(commitMsg);
       }
