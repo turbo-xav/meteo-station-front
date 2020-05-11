@@ -10,6 +10,7 @@ const readline = require('readline-sync');
 const FtpDeploy = require('ftp-deploy');
 const { exec } = require('child_process');
 
+
 function gitRelease(msg: string){
   exec('git pull && git add -A && git commit -m "'+msg+'" && git push', (error, stdout, stderr) => {
     if (error) {
@@ -24,10 +25,6 @@ function gitRelease(msg: string){
   });
 }
 
-
-// Input kayboard for password
-const passwword = readline.question('What is your password ?');
-
 // Deploy config
 const ftpDeploy = new FtpDeploy();
 
@@ -39,6 +36,8 @@ ftpDeploy.on('uploading', function(data) {
     console.log('Uploading : ',data.filename, 'Transfered :', data.transferredFileCount, '/',data.totalFilesCount);
 });
 
+// Input kayboard for password
+const passwword = readline.question('What is your password ?');
 const config = {
   user: 'projetsw',
   password: passwword,
@@ -57,8 +56,10 @@ ftpDeploy
   .then(
       res => { 
         console.log('Deploy is OK : ', res); 
-        gitRelease('Releasing new version');
-      }    
+        let commitMsg = readline.question('What is your password ?');
+        commitMsg = commitMsg ? commitMsg : 'Automatic releasing';
+        gitRelease(commitMsg);
+      }
   )
   .catch(
       err => { 
