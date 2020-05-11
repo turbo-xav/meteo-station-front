@@ -13,8 +13,8 @@ export class UnauthenticatedComponent implements OnInit, OnDestroy {
 
   constructor(private readonly router: Router, private readonly authService: AuthService, ) { }
 
-  initialCounter: number = 0;
-  counter: number = 0;
+  initialCounter = 0;
+  counter = 0;
   private _counterSubscription: Subscription;
 
   ngOnInit() {
@@ -30,6 +30,10 @@ export class UnauthenticatedComponent implements OnInit, OnDestroy {
           }, 500);
         }
       })
+    }else{
+      setTimeout(() => {
+        this.router.navigate(['/login']);
+      }, 500);
     }
   }
 

@@ -9,18 +9,18 @@ export class DisplayService {
     private readonly translateService: TranslateService,
     private readonly toasterService: ToastrService) { }
 
-  displayError(error) {
+  displayError(error: string, msg = '') {
     this.translateService.get(error).subscribe(
       (translation: string) => {
-        this.toasterService.error(translation);
+        this.toasterService.error(msg,translation);
       }
     );
   }
 
-  displaySuccess(success) {
+  displaySuccess(success: string, msg = '') {
     this.translateService.get(success).subscribe(
       (translation: string) => {
-        this.toasterService.success(translation);
+        this.toasterService.success(msg, translation);
       }
     );
   }

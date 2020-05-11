@@ -38,7 +38,6 @@ export class DeviceService {
   }
 
   public switchResource(ressourceId: string, state: ResourceState, invert = false): Observable<any> {
-    console.log(ressourceId,state);
     const url = rootUrlMeteoStation + '/' + ressourceId;
     const stateExpression = state !== ResourceState.ON;
     return this.http.post(url, { in: stateExpression }, { headers: reqHeaderWithJson });

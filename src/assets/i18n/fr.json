@@ -227,6 +227,9 @@
         "already-authenticated": "Vous êtes déjà authentifié !",
         "redirected-message": "You allez être redirigé vers l'accueil"
     },
+    "error":{
+        "http-error":"Requête HTTP invalide"
+    },
     "language": {
         "fr": "Français",
         "en": "Anglais",
