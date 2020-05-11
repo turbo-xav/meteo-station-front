@@ -11,17 +11,30 @@ const FtpDeploy = require('ftp-deploy');
 const { exec } = require('child_process');
 
 
-function gitRelease(msg: string){
-  exec('git pull && git add -A && git commit -m "'+msg+'" && git push', (error, stdout, stderr) => {
+function executeCommand(command: string): boolean {
+  return exec(command, (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
-
     }
     if (stderr) {        
        console.log('stderr : ', stderr);
     }
     console.log(`stdout: ${stdout}`);
+
+    return error ? false : true;
+
   });
+}
+
+function gitRelease(){
+        if(!executeCommand('git pull')){ return; }
+        if(!executeCommand('git add -A')){ return }
+        let commitMsg = readline.question('What is your commit message ?');
+        commitMsg = commitMsg ? commitMsg : 'Automatic releasing';
+        if(!executeCommand('git commit -m "'+commitMsg+'"')){ return }
+        if(!executeCommand('git push')){ return; }
+  
+  
 }
 
 
@@ -57,9 +70,7 @@ ftpDeploy
       res => { 
         console.log('Deploy is OK : ', res); 
         console.log('Preparing git commit & push ...');
-        let commitMsg = readline.question('What is your commit message ?');
-        commitMsg = commitMsg ? commitMsg : 'Automatic releasing';
-        gitRelease(commitMsg);
+        gitRelease();
       }
   )
   .catch(
