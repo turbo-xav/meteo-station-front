@@ -19,7 +19,10 @@ function executeCommand(command: string): boolean {
     if (stderr) {        
        console.log('stderr : ', stderr);
     }
-    console.log(`stdout: ${stdout}`);
+    
+    if(stdout){
+      console.log(`stdout: ${stdout}`);
+    }
 
     return error ? false : true;
 
@@ -37,7 +40,7 @@ function gitRelease(){
   
 }
 
-
+gitRelease();
 // Deploy config
 const ftpDeploy = new FtpDeploy();
 
