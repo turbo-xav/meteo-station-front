@@ -174,7 +174,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>displayError(error)</code>
+<code>displayError(error: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, msg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -196,17 +196,39 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>error</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
 
                                     <td>
                                         No
                                     </td>
 
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>msg</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>&#x27;&#x27;</code>
+                                    </td>
 
                                 </tr>
                             </tbody>
@@ -240,7 +262,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>displaySuccess(success)</code>
+<code>displaySuccess(success: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, msg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -262,17 +284,39 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>success</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
 
                                     <td>
                                         No
                                     </td>
 
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>msg</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>&#x27;&#x27;</code>
+                                    </td>
 
                                 </tr>
                             </tbody>
@@ -308,18 +352,18 @@ export class DisplayService {
     private readonly translateService: TranslateService,
     private readonly toasterService: ToastrService) { }
 
-  displayError(error) {
+  displayError(error: string, msg &#x3D; &#x27;&#x27;) {
     this.translateService.get(error).subscribe(
       (translation: string) &#x3D;&gt; {
-        this.toasterService.error(translation);
+        this.toasterService.error(msg,translation);
       }
     );
   }
 
-  displaySuccess(success) {
+  displaySuccess(success: string, msg &#x3D; &#x27;&#x27;) {
     this.translateService.get(success).subscribe(
       (translation: string) &#x3D;&gt; {
-        this.toasterService.success(translation);
+        this.toasterService.success(msg, translation);
       }
     );
   }

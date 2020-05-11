@@ -610,13 +610,14 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;h1 class&#x3D;&quot;display-5&quot;&gt;&lt;img src&#x3D;&quot;/assets/statistics.png&quot; width&#x3D;&quot;30&quot; /&gt;&lt;span class&#x3D;&quot;btn btn-outline-info&quot;&gt;
-        {{&#x27;stats.meteo&#x27; | translate}}&lt;/span&gt; &lt;/h1&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;h1 class&#x3D;&quot;display-5&quot;&gt;
+        &lt;img src&#x3D;&quot;/assets/statistics.png&quot; width&#x3D;&quot;30&quot; /&gt;
+        &lt;span class&#x3D;&quot;btn btn-outline-info&quot;&gt;{{&#x27;stats.meteo&#x27; | translate}}&lt;/span&gt;
+&lt;/h1&gt;
 &lt;h2&gt;&lt;span class&#x3D;&quot;btn btn-outline-info&quot;&gt; {{&#x27;stats.temperature-evolution&#x27; | translate}}&lt;/span&gt;&lt;/h2&gt;
 &lt;ngx-select [items]&#x3D;&quot;graphics&quot; [(ngModel)]&#x3D;&quot;selectedGraphic&quot;&gt;&lt;/ngx-select&gt;
 &lt;app-meteo-stats-graphic *ngIf&#x3D;&quot;hasDatas&quot; [meteoStats]&#x3D;&quot;meteoStats&quot;&gt;&lt;/app-meteo-stats-graphic&gt;
-&lt;p class&#x3D;&quot;alert alert-info&quot; *ngIf&#x3D;&quot;!hasDatas&quot;&gt;{{&#x27;stats.no-datas&#x27; | translate}}&lt;/p&gt;
-</code></pre>
+&lt;p class&#x3D;&quot;alert alert-info&quot; *ngIf&#x3D;&quot;!hasDatas&quot;&gt;{{&#x27;stats.no-datas&#x27; | translate}}&lt;/p&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -653,7 +654,7 @@ export class MeteoStatsComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h1 class="display-5"><img src="/assets/statistics.png" width="30" /><span class="btn btn-outline-info">        {{\'stats.meteo\' | translate}}</span> </h1><h2><span class="btn btn-outline-info"> {{\'stats.temperature-evolution\' | translate}}</span></h2><ngx-select [items]="graphics" [(ngModel)]="selectedGraphic"></ngx-select><app-meteo-stats-graphic *ngIf="hasDatas" [meteoStats]="meteoStats"></app-meteo-stats-graphic><p class="alert alert-info" *ngIf="!hasDatas">{{\'stats.no-datas\' | translate}}</p></div>'
+        var COMPONENT_TEMPLATE = '<div><h1 class="display-5">        <img src="/assets/statistics.png" width="30" />        <span class="btn btn-outline-info">{{\'stats.meteo\' | translate}}</span></h1><h2><span class="btn btn-outline-info"> {{\'stats.temperature-evolution\' | translate}}</span></h2><ngx-select [items]="graphics" [(ngModel)]="selectedGraphic"></ngx-select><app-meteo-stats-graphic *ngIf="hasDatas" [meteoStats]="meteoStats"></app-meteo-stats-graphic><p class="alert alert-info" *ngIf="!hasDatas">{{\'stats.no-datas\' | translate}}</p></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetailDeviceComponent', 'selector': 'app-detail-device'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastDaysComponent', 'selector': 'app-forecast-days'},{'name': 'ForecastDetailComponent', 'selector': 'app-forecast-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListDevicesComponent', 'selector': 'app-list-devices'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MeteoStationComponent', 'selector': 'app-meteo-station'},{'name': 'MeteoStatsComponent', 'selector': 'app-meteo-stats'},{'name': 'MeteoStatsGraphicComponent', 'selector': 'app-meteo-stats-graphic'},{'name': 'PlayLedComponent', 'selector': 'app-play-led'},{'name': 'StationCommandComponent', 'selector': 'app-station-command'},{'name': 'StationDetailComponent', 'selector': 'app-station-detail'},{'name': 'UnauthenticatedComponent', 'selector': 'app-unauthenticated'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MeteoStatsComponent'};

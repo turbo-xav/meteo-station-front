@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1586534490623,
+  "timestamp": 1589194219485,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "./favicon.ico",
         "./index.html",
-        "./main-es2015.34629c86c16122ee1fb3.js",
-        "./main-es5.34629c86c16122ee1fb3.js",
+        "./main-es2015.c36113a2e2c020e1847d.js",
+        "./main-es5.c36113a2e2c020e1847d.js",
         "./manifest.webmanifest",
         "./polyfills-es2015.f2c5ab749249a66bdf26.js",
         "./polyfills-es5.049f620af8c864cf4d88.js",
@@ -220,8 +220,8 @@
     "./assets/farewell-say-goodbye-bye-road.jpg": "391e6f5899eda642d67459d46a442d491193b3dc",
     "./assets/forecast-long.png": "64939802faeb9d56275551c7ca80f5ee8a98afb1",
     "./assets/humidity.png": "e96d39b9954606cc3842e87a6fc71858a395cdfd",
-    "./assets/i18n/en.json": "8d79b874a1a8f0ba6083a737db834e92c061384d",
-    "./assets/i18n/fr.json": "62da649f1ef319ab46762a9bbc84d3c58ccb25cc",
+    "./assets/i18n/en.json": "187e8ac8851c509bd7feca11e75e695059570770",
+    "./assets/i18n/fr.json": "5383c679155734041b6ed598cebd39550cf50a36",
     "./assets/icons/forecast.png": "f07c3462ffa6c3bb2400b8044c86d3b4899928a8",
     "./assets/icons/icon-128x128.png": "e7c21aaa82fe91d4147d0496e76afaf7a4d158ba",
     "./assets/icons/icon-144x144.png": "97e41db09b0f6ae1485382099e969dee6b12f8f0",
@@ -392,9 +392,9 @@
     "./assets/water-heater.png": "ace8d54759d25ca04b0e72fcc1b79639f1060b9a",
     "./assets/weather.png": "3cc3786000b33b04aff5c4b8cc445c36435066c4",
     "./favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "./index.html": "860750db3d0410609c40d3ed6d7fac7523d11b34",
-    "./main-es2015.34629c86c16122ee1fb3.js": "f461ccc61ec1e1ea71cf916e9121d9c0d8af2ad6",
-    "./main-es5.34629c86c16122ee1fb3.js": "27b5e88a46489c8f36b6702ea44332647e264a31",
+    "./index.html": "10b954bbf474ab0938520b52f1150b7d07ad99e4",
+    "./main-es2015.c36113a2e2c020e1847d.js": "9534b4ea4603104cf637fbedbb6ec370750e843e",
+    "./main-es5.c36113a2e2c020e1847d.js": "ba85fe078d6b3e319876796e2b14346f42d145b6",
     "./manifest.webmanifest": "0ea32da9254ab82aaf9fe081c7cb57b302f4354b",
     "./polyfills-es2015.f2c5ab749249a66bdf26.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "./polyfills-es5.049f620af8c864cf4d88.js": "e51a1de4f016cd689dbdbef51043dec9518c4111",

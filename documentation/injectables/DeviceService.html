@@ -257,8 +257,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/core/services/device.service.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/core/services/device.service.ts:46</a></div>
                 </td>
             </tr>
 
@@ -567,7 +567,6 @@ export class DeviceService {
   }
 
   public switchResource(ressourceId: string, state: ResourceState, invert &#x3D; false): Observable&lt;any&gt; {
-    console.log(ressourceId,state);
     const url &#x3D; rootUrlMeteoStation + &#x27;/&#x27; + ressourceId;
     const stateExpression &#x3D; state !&#x3D;&#x3D; ResourceState.ON;
     return this.http.post(url, { in: stateExpression }, { headers: reqHeaderWithJson });

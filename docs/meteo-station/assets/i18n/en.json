@@ -225,6 +225,9 @@
         "already-authenticated": "You are already authenticated",
         "redirected-message": "You will be redirected in few secondes"
     },
+    "error":{
+        "http-error":"Http request invalid"
+    },
     "language": {
         "fr": "French",
         "en": "English",

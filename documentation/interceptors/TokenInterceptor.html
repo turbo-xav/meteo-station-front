@@ -104,12 +104,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>)</code>
+<code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>, displayService: <a href="../injectables/DisplayService.html">DisplayService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -131,6 +131,30 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>displayService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DisplayService.html" target="_self" >DisplayService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -174,8 +198,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:19</a></div>
                 </td>
             </tr>
 
@@ -251,15 +275,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isForecastUrl(url)</code>
+                    <code>isForecastUrl(url: string | string[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:60</a></div>
                 </td>
             </tr>
 
@@ -273,12 +297,16 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>url</td>
+                                    <td>
+                                            <code>string | string[]</code>
+                                    </td>
 
                                     <td>
                                         No
@@ -319,15 +347,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isThingerIo(url)</code>
+                    <code>isThingerIo(url: string | string[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:64</a></div>
                 </td>
             </tr>
 
@@ -341,12 +369,16 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>url</td>
+                                    <td>
+                                            <code>string | string[]</code>
+                                    </td>
 
                                     <td>
                                         No
@@ -376,18 +408,23 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from &#x27;@angular/common/http&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse, HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
 import { AuthService } from &#x27;../services/auth.service&#x27;;
 import { Observable, throwError } from &#x27;rxjs&#x27;;
-import { catchError } from &#x27;rxjs/operators&#x27;;
+import { catchError, map } from &#x27;rxjs/operators&#x27;;
 import { environment } from &#x27;src/environments/environment&#x27;;
-import { Injectable } from &quot;@angular/core&quot;;
+import { Injectable } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { DisplayService } from &#x27;../services/display.service&#x27;;
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
     // We inject a LoginService
-    constructor(private authService: AuthService) { }
+    constructor(
+        private readonly authService: AuthService,
+        private readonly displayService: DisplayService,
+        private readonly router: Router) { }
 
     intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
 
@@ -402,25 +439,39 @@ export class TokenInterceptor implements HttpInterceptor {
                         }
                     });
                 } else if (this.isForecastUrl(request.url)) {
-                   request &#x3D; request.clone({
+                    request &#x3D; request.clone({
                         setParams: {
                             token: environment.apis.forecast.token
-                        }});
+                        }
+                    });
                 }
             }
         }
 
         return next.handle(request).pipe(
-            catchError((error) &#x3D;&gt; {
-                return throwError(error);
+            map((http: HttpEvent&lt;any&gt;) &#x3D;&gt; {
+                if (http instanceof HttpErrorResponse) {
+
+
+                }
+                return http;
+            }),
+            catchError((httpError: HttpErrorResponse) &#x3D;&gt; {
+                this.displayService.displayError(&#x27;error.http-error&#x27;, &#x27;Status : &#x27; + httpError.status);
+                switch (httpError.status) {
+                    case 401:
+                        this.router.navigate([&#x27;/unauthenticated&#x27;]);
+                        break;
+                }
+                return throwError(httpError);
             }));
     }
 
-    private isForecastUrl(url): boolean {
+    private isForecastUrl(url: string | string[]): boolean {
         return url.includes(environment.apis.forecast.url)
     }
 
-    private isThingerIo(url): boolean {
+    private isThingerIo(url: string | string[]): boolean {
         return url.includes(environment.apis.thingerio.url)
     }
 }</code></pre>
