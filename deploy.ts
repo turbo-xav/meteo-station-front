@@ -15,7 +15,7 @@ function gitRelease(msg: string){
   exec('git pull && git add -A && git commit -m "'+msg+'" && git push', (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
-        return;
+
     }
     if (stderr) {        
        console.log('stderr : ', stderr);
@@ -23,6 +23,7 @@ function gitRelease(msg: string){
     console.log(`stdout: ${stdout}`);
   });
 }
+
 
 // Deploy config
 const ftpDeploy = new FtpDeploy();
