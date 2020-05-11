@@ -57,6 +57,12 @@ A meteo station
 </tr>
 <table>
 
+## Box assembly
+
+- <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/raw/master/photos/box-assembly-1.jpg" />
+
+- <img width="100" src="https://github.com/turbo-xav/meteo-station-domotique/raw/master/photos/box-assembly-2.jpg" />
+
 
 ## Basic equipment
 
@@ -99,6 +105,7 @@ https://fr.aliexpress.com/item/32983499479.html?spm=a2g0s.9042311.0.0.2e0b6c37W3
 ## Arduino Src
 
 Ino code : <a href="arduino-src/node-mcu-meteo.ino">here</a>
+
 
 ## Angular Src
 
