@@ -45,14 +45,14 @@ A meteo station
     <th>Statictics</th>
 </tr>
 <tr>
-    <td style="width:100px">
-        <img width="100" src="photos/screenshot/meteo-station.jpg?raw=true" />
+    <td style="width:120px">
+        <img width="120" src="photos/screenshot/meteo-station.jpg?raw=true" />
     </td>
      <td style="width:100px">
-      <img width="100" src="photos/screenshot/forecast.jpg?raw=true" />
+      <img width="120" src="photos/screenshot/forecast.jpg?raw=true" />
     </td>
-    <td style="width:100px">
-      <img width="100" src="photos/screenshot/statistics.jpg?raw=true" />
+    <td style="width:120px">
+      <img width="120" src="photos/screenshot/statistics.jpg?raw=true" />
     </td>
 </tr>
 <table>
@@ -63,11 +63,11 @@ A meteo station
 
 <table>
 <tr>
-    <td style="width:100px">
-        <img width="100" src="photos/box-assembly-1.jpg?raw=true" />
+    <td style="width:120px">
+        <img width="120" src="photos/box-assembly-1.jpg?raw=true" />
     </td>
-    <td style="width:100px">
-        <img width="100" src="photos/box-assembly-2.jpg?raw=true" />
+    <td style="width:120px">
+        <img width="120" src="photos/box-assembly-2.jpg?raw=true" />
     </td>
 </tr>
 <table>
@@ -77,14 +77,14 @@ A meteo station
 
 <table>
 <tr>
-    <td style="width:100px">
-        <img width="100" src="photos/box-assembly-3.jpg?raw=true" />
+    <td style="width:120px">
+        <img width="120" src="photos/box-assembly-3.jpg?raw=true" />
     </td>
-    <td style="width:100px">
-        <img width="100" src="photos/box-assembly-4.jpg?raw=true" />
+    <td style="width:120px">
+        <img width="120" src="photos/box-assembly-4.jpg?raw=true" />
     </td>
-    <td style="width:100px">
-        <img width="100" src="photos/box-assembly-5.jpg?raw=true" />
+    <td style="width:120px">
+        <img width="120" src="photos/box-assembly-5.jpg?raw=true" />
     </td>
 </tr>
 <table>
