@@ -14,13 +14,13 @@ const { exec } = require('child_process');
 function executeCommand(command: string): boolean {
   return exec(command, (error, stdout, stderr) => {
     if (error) {
-        console.log(`error: ${error.message}`);
+      console.log(`error: ${error.message}`);
     }
-    if (stderr) {        
-       console.log('stderr : ', stderr);
+    if (stderr) {
+      console.log('stderr : ', stderr);
     }
-    
-    if(stdout){
+
+    if (stdout) {
       console.log(`stdout: ${stdout}`);
     }
 
@@ -29,27 +29,24 @@ function executeCommand(command: string): boolean {
   });
 }
 
-function gitRelease(){
-        if(!executeCommand('git pull')){ return; }
-        if(!executeCommand('git add -A')){ return }
-        let commitMsg = readline.question('What is your commit message ?');
-        commitMsg = commitMsg ? commitMsg : 'Automatic releasing';
-        if(!executeCommand('git commit -m "'+commitMsg+'"')){ return }
-        if(!executeCommand('git push')){ return; }
-  
-  
+function gitRelease() {
+  if (!executeCommand('git pull')) { return; }
+  if (!executeCommand('git add -A')) { return }
+  let commitMsg = readline.question('What is your commit message ?');
+  commitMsg = commitMsg ? commitMsg : 'Automatic releasing';
+  if (!executeCommand('git commit -m "' + commitMsg + '"')) { return }
+  if (!executeCommand('git push')) { return; }
 }
 
-gitRelease();
 // Deploy config
 const ftpDeploy = new FtpDeploy();
 
-ftpDeploy.on('log', function(data) {
+ftpDeploy.on('log', function (data) {
   console.log(data); // same data as uploading event
 });
 
-ftpDeploy.on('uploading', function(data) {
-    console.log('Uploading : ',data.filename, 'Transfered :', data.transferredFileCount, '/',data.totalFilesCount);
+ftpDeploy.on('uploading', function (data) {
+  console.log('Uploading : ', data.filename, 'Transfered :', data.transferredFileCount, '/', data.totalFilesCount);
 });
 
 // Input kayboard for password
@@ -70,18 +67,18 @@ const config = {
 ftpDeploy
   .deploy(config)
   .then(
-      res => { 
-        console.log('Deploy is OK : ', res); 
-        console.log('Preparing git commit & push ...');
-        gitRelease();
-      }
+    res => {
+      console.log('Deploy is OK : ', res);
+      console.log('Preparing git commit & push ...');
+      gitRelease();
+    }
   )
   .catch(
-      err => { 
-        console.error('Cannot deploy');
-        if(err.code){
-          console.error('Code Error : ', err.code);
-        }
-        console.error('The reason is : ',err.message) 
+    err => {
+      console.error('Cannot deploy');
+      if (err.code) {
+        console.error('Code Error : ', err.code);
+      }
+      console.error('The reason is : ', err.message)
     }
-);
+  );
