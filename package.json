@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
     "postinstall": "ngcc",
     "start": "ng serve --open --aot --port=8080",
+    "test": "jest --ci",
+    "deploy": "ts-node deploy.ts",
     "build": "ng build --prod --baseHref=./ --outputPath=docs/meteo-station",
     "build-test": "npm run build & http-server -p 8081 -c-1 -o docs/meteo-station",
     "build-doc": "compodoc -p tsconfig.json -d ./documentation ",
     "load-doc": "compodoc -p tsconfig.json -d ./documentation -o -s --port 8082",
     "build-all": "npm run test && npm run build & npm run build-doc",
-    "test": "jest --ci",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build-all-deploy":"npm run build-all && npm run deploy"   
   },
   "private": true,
   "dependencies": {
@@ -54,14 +56,17 @@
     "@angular/language-service": "^9.1.1",
     "@compodoc/compodoc": "^1.1.11",
     "@types/jest": "^25.2.1",
-    "@types/node": "^13.11.1",
+    "@types/node": "^13.13.5",
     "codelyzer": "^5.1.2",
+    "ftp-deploy": "^2.3.7",
     "http-server": "^0.12.1",
     "jest": "^25.3.0",
     "jest-html-reporter": "^3.1.0",
     "jest-preset-angular": "^8.1.3",
+    "promise-ftp-common": "^1.1.5",
     "protractor": "~5.4.0",
-    "ts-node": "^8.8.2",
+    "readline-sync": "^1.4.10",
+    "ts-node": "^8.10.1",
     "tslint": "^6.1.1",
     "typescript": "~3.8.3"
   }

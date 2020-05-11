@@ -20,7 +20,7 @@
       "es2018",
       "dom"
     ],
-    "types": ["jest"]
+    "types": ["node","jest"]
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
