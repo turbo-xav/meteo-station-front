@@ -13,6 +13,9 @@ const { exec } = require('child_process');
 
 function executeCommand(command: string): boolean {
   return exec(command, (error, stdout, stderr) => {
+    
+    console.log('Exec commande : ', command);
+    
     if (error) {
       console.log(`error: ${error.message}`);
     }
