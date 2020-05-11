@@ -17,8 +17,8 @@ function gitRelease(msg: string){
         console.log(`error: ${error.message}`);
         return;
     }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
+    if (stderr) {        
+       console.log('stderr : ', stderr);
         return;
     }
     console.log(`stdout: ${stdout}`);
