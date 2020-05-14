@@ -947,7 +947,7 @@ export class MeteoStatsGraphicComponent implements OnInit {
   }
   ngOnInit(): void {
     this.drawChart();
-    interval(2000).subscribe(
+    interval(500).subscribe(
       () &#x3D;&gt; {
         this.drawChart();
       });
