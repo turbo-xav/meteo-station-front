@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1589461570373,
+  "timestamp": 1589468023154,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "./favicon.ico",
         "./index.html",
-        "./main-es2015.10e1e2a243d151fa7198.js",
-        "./main-es5.10e1e2a243d151fa7198.js",
+        "./main-es2015.572959b1383afbe2da7e.js",
+        "./main-es5.572959b1383afbe2da7e.js",
         "./manifest.webmanifest",
         "./polyfills-es2015.f2c5ab749249a66bdf26.js",
         "./polyfills-es5.049f620af8c864cf4d88.js",
@@ -392,10 +392,10 @@
     "./assets/water-heater.png": "ace8d54759d25ca04b0e72fcc1b79639f1060b9a",
     "./assets/weather.png": "3cc3786000b33b04aff5c4b8cc445c36435066c4",
     "./favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "./index.html": "8f074a912132ed81fa6e7b02ceb61cb3bb04ac5d",
-    "./main-es2015.10e1e2a243d151fa7198.js": "27265f3b44ab54af186667a854bf4066ed01cc01",
-    "./main-es5.10e1e2a243d151fa7198.js": "814aee77d788b2954f1be7ed1c7cf9b91f1a5dcb",
-    "./manifest.webmanifest": "0ea32da9254ab82aaf9fe081c7cb57b302f4354b",
+    "./index.html": "3ab57a06af5bf5ec3bf976c90a8f9f572f64bfb8",
+    "./main-es2015.572959b1383afbe2da7e.js": "27265f3b44ab54af186667a854bf4066ed01cc01",
+    "./main-es5.572959b1383afbe2da7e.js": "814aee77d788b2954f1be7ed1c7cf9b91f1a5dcb",
+    "./manifest.webmanifest": "4e34b64a5e0f3534bffc5591662f20e505c92095",
     "./polyfills-es2015.f2c5ab749249a66bdf26.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "./polyfills-es5.049f620af8c864cf4d88.js": "e51a1de4f016cd689dbdbef51043dec9518c4111",
     "./runtime-es2015.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",

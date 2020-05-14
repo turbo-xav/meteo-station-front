@@ -58,28 +58,28 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#config" title="deploy.ts"><b>config</b>&nbsp;&nbsp;&nbsp;(deploy.ts)</a>
-                        </li>
-                        <li>
                             <a href="#customSelectOptions" title="src/app/shared/shared.module.ts"><b>customSelectOptions</b>&nbsp;&nbsp;&nbsp;(src/.../shared.module.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
                         </li>
                         <li>
                             <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
                         </li>
                         <li>
-                            <a href="#ftpDeploy" title="deploy.ts"><b>ftpDeploy</b>&nbsp;&nbsp;&nbsp;(deploy.ts)</a>
+                            <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
                         </li>
                         <li>
-                            <a href="#FtpDeploy" title="deploy.ts"><b>FtpDeploy</b>&nbsp;&nbsp;&nbsp;(deploy.ts)</a>
+                            <a href="#ftpConfig" title="deployment/deploy.ts"><b>ftpConfig</b>&nbsp;&nbsp;&nbsp;(deployment/.../deploy.ts)</a>
                         </li>
                         <li>
-                            <a href="#passwword" title="deploy.ts"><b>passwword</b>&nbsp;&nbsp;&nbsp;(deploy.ts)</a>
+                            <a href="#FtpDeploy" title="deployment/deploy-ftp.ts"><b>FtpDeploy</b>&nbsp;&nbsp;&nbsp;(deployment/.../deploy-ftp.ts)</a>
                         </li>
                         <li>
-                            <a href="#readline" title="deploy.ts"><b>readline</b>&nbsp;&nbsp;&nbsp;(deploy.ts)</a>
+                            <a href="#ftpFeature" title="deployment/deploy.ts"><b>ftpFeature</b>&nbsp;&nbsp;&nbsp;(deployment/.../deploy.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#gitFeature" title="deployment/deploy.ts"><b>gitFeature</b>&nbsp;&nbsp;&nbsp;(deployment/.../deploy.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#readlineFtp" title="deployment/deploy-git.ts"><b>readlineFtp</b>&nbsp;&nbsp;&nbsp;(deployment/.../deploy-git.ts)</a>
                         </li>
                         <li>
                             <a href="#reqHeader" title="src/app/core/services/device.service.ts"><b>reqHeader</b>&nbsp;&nbsp;&nbsp;(src/.../device.service.ts)</a>
@@ -121,7 +121,7 @@
                             <a href="#rootUrlMeteoStation" title="src/app/core/services/device.service.ts"><b>rootUrlMeteoStation</b>&nbsp;&nbsp;&nbsp;(src/.../device.service.ts)</a>
                         </li>
                         <li>
-                            <a href="#" title="deploy.ts"><b></b>&nbsp;&nbsp;&nbsp;(deploy.ts)</a>
+                            <a href="#" title="deployment/deploy-git.ts"><b></b>&nbsp;&nbsp;&nbsp;(deployment/.../deploy-git.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -130,157 +130,6 @@
     </table>
 </section>
 
-    <h3>deploy.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="config"></a>
-                        <span class="name">
-                            <b>
-                            config</b>
-                            <a href="#config"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-  user: &#x27;projetsw&#x27;,
-  password: passwword,
-  host: &#x27;ftp.cluster010.hosting.ovh.net&#x27;,
-  port: 21,
-  localRoot: __dirname + &#x27;/docs/meteo-station&#x27;,
-  remoteRoot: &#x27;/www/meteo-station&#x27;,
-  include: [&#x27;*&#x27;, &#x27;**/*&#x27;],
-  deleteRemote: true,
-  forcePasv: true
-}</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ftpDeploy"></a>
-                        <span class="name">
-                            <b>
-                            ftpDeploy</b>
-                            <a href="#ftpDeploy"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new FtpDeploy()</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="FtpDeploy"></a>
-                        <span class="name">
-                            <b>
-                            FtpDeploy</b>
-                            <a href="#FtpDeploy"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>require(&#x27;ftp-deploy&#x27;)</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="passwword"></a>
-                        <span class="name">
-                            <b>
-                            passwword</b>
-                            <a href="#passwword"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>readline.question(&#x27;What is your password ?&#x27;)</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="readline"></a>
-                        <span class="name">
-                            <b>
-                            readline</b>
-                            <a href="#readline"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>require(&#x27;readline-sync&#x27;)</code>
-                        </td>
-                    </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>This file is used to deply on FTP server the build appplication</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name=""></a>
-                        <span class="name">
-                            <b>
-                            </b>
-                            <a href="#"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>require(&#x27;child_process&#x27;)</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
     <h3>src/app/shared/shared.module.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -307,6 +156,59 @@
   optionValueField: &#x27;id&#x27;,
   optionTextField: &#x27;name&#x27;,
   keepSelectedItems: true
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/environments/environment.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="environment"></a>
+                        <span class="name">
+                            <b>
+                            environment</b>
+                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  production: false,
+  apis: {
+    thingerio: {
+      url: &#x27;https://api.thinger.io&#x27;,
+    },
+    forecast: {
+      url: &#x27;https://api.meteo-concept.com/api&#x27;,
+      token: &#x27;25e8258d583eb394ea0135543b4b285374abbd0cb1d1ca96eda34ffcf8a5c747&#x27;
+    }
+  },
+  devices: {
+    account: &#x27;turboxav&#x27;,
+    meteo: &#x27;homemeteostation&#x27;,
+    buckets: {
+      h24: &#x27;meteostation30m&#x27;,
+      daily: &#x27;meteostationday&#x27;
+    }
+  },
+  meteo: {
+    insee: &#x27;94081&#x27;,
+    city: &#x27;Vitry / Seine&#x27;
+  }
 }</code>
                         </td>
                     </tr>
@@ -368,17 +270,17 @@
             </tbody>
         </table>
 </section>
-    <h3>src/environments/environment.ts</h3>
+    <h3>deployment/deploy.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="environment"></a>
+                        <a name="ftpConfig"></a>
                         <span class="name">
                             <b>
-                            environment</b>
-                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                            ftpConfig</b>
+                            <a href="#ftpConfig"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -391,29 +293,132 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  production: false,
-  apis: {
-    thingerio: {
-      url: &#x27;https://api.thinger.io&#x27;,
-    },
-    forecast: {
-      url: &#x27;https://api.meteo-concept.com/api&#x27;,
-      token: &#x27;25e8258d583eb394ea0135543b4b285374abbd0cb1d1ca96eda34ffcf8a5c747&#x27;
-    }
-  },
-  devices: {
-    account: &#x27;turboxav&#x27;,
-    meteo: &#x27;homemeteostation&#x27;,
-    buckets: {
-      h24: &#x27;meteostation30m&#x27;,
-      daily: &#x27;meteostationday&#x27;
-    }
-  },
-  meteo: {
-    insee: &#x27;94081&#x27;,
-    city: &#x27;Vitry / Seine&#x27;
-  }
+  user: &#x27;projetsw&#x27;,  
+  host: &#x27;ftp.cluster010.hosting.ovh.net&#x27;,
+  port: 21,
+  localRoot: __dirname + &#x27;/../docs/meteo-station&#x27;,
+  remoteRoot: &#x27;/www/meteo-station&#x27;,
+  include: [&#x27;*&#x27;, &#x27;**/*&#x27;],
+  deleteRemote: true,
+  forcePasv: true
 }</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ftpFeature"></a>
+                        <span class="name">
+                            <b>
+                            ftpFeature</b>
+                            <a href="#ftpFeature"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>require(&#x27;./deploy-ftp&#x27;)</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="gitFeature"></a>
+                        <span class="name">
+                            <b>
+                            gitFeature</b>
+                            <a href="#gitFeature"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>require(&#x27;./deploy-git&#x27;)</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>This file is used to deploy on FTP &amp; Git your application </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>deployment/deploy-ftp.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="FtpDeploy"></a>
+                        <span class="name">
+                            <b>
+                            FtpDeploy</b>
+                            <a href="#FtpDeploy"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>require(&#x27;ftp-deploy&#x27;)</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>deployment/deploy-git.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="readlineFtp"></a>
+                        <span class="name">
+                            <b>
+                            readlineFtp</b>
+                            <a href="#readlineFtp"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>require(&#x27;readline-sync&#x27;)</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name=""></a>
+                        <span class="name">
+                            <b>
+                            </b>
+                            <a href="#"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>require(&#x27;child_process&#x27;)</code>
                         </td>
                     </tr>
 

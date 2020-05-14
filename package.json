@@ -13,8 +13,8 @@
     "build-test": "npm run build & http-server -p 8081 -c-1 -o docs/meteo-station",
     "build-doc": "compodoc -p tsconfig.json -d ./documentation ",
     "load-doc": "compodoc -p tsconfig.json -d ./documentation -o -s --port 8082",
-    "build-all": "npm run test && npm run build & npm run build-doc",
-    "build-all-deploy": "npm run build-all && npm run deploy"
+    "build-all": "npm run test & npm run build & npm run build-doc",
+    "build-all-deploy": "npm run build-all & npm run deploy"
   },
   "private": true,
   "dependencies": {
