@@ -325,8 +325,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="177"
-                            class="link-to-prism">src/app/protected/devices/meteo-station/meteo-stats-graphic/meteo-stats-graphic.component.ts:177</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">src/app/protected/devices/meteo-station/meteo-stats-graphic/meteo-stats-graphic.component.ts:179</a></div>
                 </td>
             </tr>
 
@@ -870,7 +870,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-stats-graphic/meteo-stats-graphic.component.ts:162</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">src/app/protected/devices/meteo-station/meteo-stats-graphic/meteo-stats-graphic.component.ts:164</a></div>
                                 </td>
                             </tr>
 
@@ -1014,32 +1014,34 @@ export class MeteoStatsGraphicComponent implements OnInit {
 
     const datas &#x3D; [];
     let cpt &#x3D; 0;
-    for (const meteoStat of this.meteoStats) {
+    if (this.meteoStats) {
+      for (const meteoStat of this.meteoStats) {
 
-      const dateNow &#x3D; new Date();
-      const dayNow &#x3D; dateNow.getDate();
-      const monthNow &#x3D; dateNow.getMonth();
-      const yearNow &#x3D; dateNow.getFullYear();
+        const dateNow &#x3D; new Date();
+        const dayNow &#x3D; dateNow.getDate();
+        const monthNow &#x3D; dateNow.getMonth();
+        const yearNow &#x3D; dateNow.getFullYear();
 
-      const date &#x3D; new Date(meteoStat.ts);
-      const day &#x3D; dateNow.getDate();
-      const month &#x3D; dateNow.getMonth();
-      const year &#x3D; dateNow.getFullYear();
-      const hours &#x3D; date.getHours() &lt; 10 ? &#x27;0&#x27; + date.getHours() : date.getHours();
-      const minutes &#x3D; date.getMinutes() &lt; 10 ? &#x27;0&#x27; + date.getMinutes() : date.getMinutes();
+        const date &#x3D; new Date(meteoStat.ts);
+        const day &#x3D; dateNow.getDate();
+        const month &#x3D; dateNow.getMonth();
+        const year &#x3D; dateNow.getFullYear();
+        const hours &#x3D; date.getHours() &lt; 10 ? &#x27;0&#x27; + date.getHours() : date.getHours();
+        const minutes &#x3D; date.getMinutes() &lt; 10 ? &#x27;0&#x27; + date.getMinutes() : date.getMinutes();
 
-      let x &#x3D; &#x27;&#x27;;
-      if (cpt &#x3D;&#x3D;&#x3D; 0 ) {
-        x &#x3D; &#x60;${dayNow} / ${monthNow} / ${yearNow}&#x60;;
+        let x &#x3D; &#x27;&#x27;;
+        if (cpt &#x3D;&#x3D;&#x3D; 0) {
+          x &#x3D; &#x60;${dayNow} / ${monthNow} / ${yearNow}&#x60;;
+        }
+        else {
+          x &#x3D; &#x27;j&#x27; + ((this.dayDiff(date, dateNow) &gt; 0) ? &#x27;-&#x27; + (this.dayDiff(date, dateNow)) : &#x27;&#x27;) + &#x60; ${hours}:${minutes}&#x60;;
+        }
+        datas.push([x, meteoStat.val.temperature]);
+        cpt++;
+
       }
-      else {
-        x &#x3D; &#x27;j&#x27; + ((this.dayDiff(date, dateNow) &gt; 0) ? &#x27;-&#x27; + (this.dayDiff(date, dateNow)) : &#x27;&#x27;) + &#x60; ${hours}:${minutes}&#x60;;
-      }
-      datas.push([x, meteoStat.val.temperature]);
-      cpt++;
-
+      this.datas &#x3D; datas;
     }
-    this.datas &#x3D; datas;
   }
 
   public get datasInPaquets(): any[] {

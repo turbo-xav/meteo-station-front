@@ -131,32 +131,34 @@ export class MeteoStatsGraphicComponent implements OnInit {
 
     const datas = [];
     let cpt = 0;
-    for (const meteoStat of this.meteoStats) {
+    if (this.meteoStats) {
+      for (const meteoStat of this.meteoStats) {
 
-      const dateNow = new Date();
-      const dayNow = dateNow.getDate();
-      const monthNow = dateNow.getMonth();
-      const yearNow = dateNow.getFullYear();
+        const dateNow = new Date();
+        const dayNow = dateNow.getDate();
+        const monthNow = dateNow.getMonth();
+        const yearNow = dateNow.getFullYear();
 
-      const date = new Date(meteoStat.ts);
-      const day = dateNow.getDate();
-      const month = dateNow.getMonth();
-      const year = dateNow.getFullYear();
-      const hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
-      const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+        const date = new Date(meteoStat.ts);
+        const day = dateNow.getDate();
+        const month = dateNow.getMonth();
+        const year = dateNow.getFullYear();
+        const hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+        const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
 
-      let x = '';
-      if (cpt === 0 ) {
-        x = `${dayNow} / ${monthNow} / ${yearNow}`;
+        let x = '';
+        if (cpt === 0) {
+          x = `${dayNow} / ${monthNow} / ${yearNow}`;
+        }
+        else {
+          x = 'j' + ((this.dayDiff(date, dateNow) > 0) ? '-' + (this.dayDiff(date, dateNow)) : '') + ` ${hours}:${minutes}`;
+        }
+        datas.push([x, meteoStat.val.temperature]);
+        cpt++;
+
       }
-      else {
-        x = 'j' + ((this.dayDiff(date, dateNow) > 0) ? '-' + (this.dayDiff(date, dateNow)) : '') + ` ${hours}:${minutes}`;
-      }
-      datas.push([x, meteoStat.val.temperature]);
-      cpt++;
-
+      this.datas = datas;
     }
-    this.datas = datas;
   }
 
   public get datasInPaquets(): any[] {
