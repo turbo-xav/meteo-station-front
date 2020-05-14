@@ -29,7 +29,7 @@ export class MeteoStatsGraphicComponent implements OnInit {
       textStyle: {
         color: '#007BFF',
         bold: true,
-        fontSize: 8
+        fontSize: 10
       }
     },
     vAxis: {
