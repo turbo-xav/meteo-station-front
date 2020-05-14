@@ -14,17 +14,17 @@ const { exec } = require('child_process');
 function executeCommand(command: string): boolean {
   return exec(command, (error, stdout, stderr) => {
     
-    console.log('Exec commande : ', command);
+    console.log('Execute commande : ', command);
     
     if (error) {
-      console.log(`error: ${error.message}`);
+      console.log(`- error: ${error.message}`);
     }
     if (stderr) {
-      console.log('stderr : ', stderr);
+      console.log(' - err : ', stderr);
     }
 
     if (stdout) {
-      console.log(`stdout: ${stdout}`);
+      console.log(`- info : ${stdout}`);
     }
 
     return error ? false : true;
