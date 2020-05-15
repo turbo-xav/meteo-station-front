@@ -22,14 +22,16 @@ const rootUrlMeteoStation = rootUrlDevice + '/' + environment.devices.meteo;
 @Injectable()
 export class DeviceService {
 
-  private rootUrl: string;// = environment.apis.thingerio.url;
-  private rootUrlDevice: string;// = this.rootUrl + '/v1/users/' +  environment.apis.thingerio.account + '/devices';
-  private rootUrlMeteoStation: string;// = this.rootUrlDevice + '/' + environment.devices.meteo;
+  private rootUrl = '';// = environment.apis.thingerio.url;
+  private rootUrlDevice = '';// = this.rootUrl + '/v1/users/' +  environment.apis.thingerio.account + '/devices';
+  private rootUrlMeteoStation = '';// = this.rootUrlDevice + '/' + environment.devices.meteo;
 
   constructor(private readonly http: HttpClient, private readonly environmentService: EnvironmentService) {
-    this.rootUrl = this.environmentService.getEnvironnent().getThingerIo().url;
-    this.rootUrlDevice = this.rootUrl + '/v1/users/' +  this.environmentService.getEnvironnent().getThingerIo().account.name + '/devices';
-    this.rootUrlMeteoStation = this.rootUrlDevice + '/' + this.environmentService.getEnvironnent().getThingerIo().device.meteo.name;
+    if(this.environmentService.getEnvironnent() && this.environmentService.getEnvironnent().getThingerIo()){
+      this.rootUrl = this.environmentService.getEnvironnent().getThingerIo().url;
+      this.rootUrlDevice = this.rootUrl + '/v1/users/' +  this.environmentService.getEnvironnent().getThingerIo().account.name + '/devices';
+      this.rootUrlMeteoStation = this.rootUrlDevice + '/' + this.environmentService.getEnvironnent().getThingerIo().device.meteo.name;
+    }
   }
 
   public listDevices() {

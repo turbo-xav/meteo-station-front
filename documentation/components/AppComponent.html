@@ -150,7 +150,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/app.component.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/app.component.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -223,7 +223,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/app.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/app.component.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -245,11 +245,12 @@ import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
   styleUrls: [&#x27;./app.component.scss&#x27;]
 })
 export class AppComponent {
+
   title &#x3D; &#x27;meteo-station-domotique&#x27;;
 
   constructor(private readonly translate: TranslateService) {
     this.translate.setDefaultLang(&#x27;fr&#x27;);
-    if(sessionStorage.getItem(&#x27;lang&#x27;)){
+    if (sessionStorage.getItem(&#x27;lang&#x27;)) {
       this.translate.setDefaultLang(sessionStorage.getItem(&#x27;lang&#x27;));
     }
   }

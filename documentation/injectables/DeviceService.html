@@ -66,6 +66,29 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#rootUrl">rootUrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#rootUrlDevice">rootUrlDevice</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#rootUrlMeteoStation">rootUrlMeteoStation</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -113,12 +136,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, environmentService: <a href="../injectables/EnvironmentService.html">EnvironmentService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/core/services/device.service.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/core/services/device.service.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -140,6 +163,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>environmentService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EnvironmentService.html" target="_self" >EnvironmentService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -185,8 +220,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/core/services/device.service.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/core/services/device.service.ts:41</a></div>
                 </td>
             </tr>
 
@@ -257,8 +292,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">src/app/core/services/device.service.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/core/services/device.service.ts:57</a></div>
                 </td>
             </tr>
 
@@ -329,8 +364,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/core/services/device.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/core/services/device.service.ts:37</a></div>
                 </td>
             </tr>
 
@@ -370,8 +405,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/core/services/device.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/core/services/device.service.ts:46</a></div>
                 </td>
             </tr>
 
@@ -442,8 +477,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/core/services/device.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/core/services/device.service.ts:51</a></div>
                 </td>
             </tr>
 
@@ -522,6 +557,111 @@
         </tbody>
     </table>
 </section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rootUrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            rootUrl</b>
+                            <a href="#rootUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/core/services/device.service.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rootUrlDevice"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            rootUrlDevice</b>
+                            <a href="#rootUrlDevice"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/core/services/device.service.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rootUrlMeteoStation"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            rootUrlMeteoStation</b>
+                            <a href="#rootUrlMeteoStation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/core/services/device.service.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
 
     </div>
 
@@ -535,6 +675,7 @@ import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { DeviceStats } from &#x27;../interfaces/device-stats&#x27;;
 import { ResourceState } from &#x27;../interfaces/resource-state&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
+import { EnvironmentService } from &#x27;./environment.service&#x27;;
 
 
 const reqHeader &#x3D; new HttpHeaders({});
@@ -543,37 +684,47 @@ const reqHeaderWithJson &#x3D; new HttpHeaders({
   &#x27;content-type&#x27;: &#x27;application/json&#x27;
 });
 
-const rootUrl &#x3D; environment.apis.thingerio.url;
-const rootUrlDevice &#x3D; rootUrl + &#x27;/v1/users/&#x27; + environment.devices.account + &#x27;/devices&#x27;;
+/* const rootUrl &#x3D; environment.apis.thingerio.url;
+const rootUrlDevice &#x3D; rootUrl + &#x27;/v1/users/&#x27; +  environment.apis.thingerio.account + &#x27;/devices&#x27;;
 const rootUrlMeteoStation &#x3D; rootUrlDevice + &#x27;/&#x27; + environment.devices.meteo;
-
+ */
 @Injectable()
 export class DeviceService {
 
-  constructor(private readonly http: HttpClient) { }
+  private rootUrl &#x3D; &#x27;&#x27;;// &#x3D; environment.apis.thingerio.url;
+  private rootUrlDevice &#x3D; &#x27;&#x27;;// &#x3D; this.rootUrl + &#x27;/v1/users/&#x27; +  environment.apis.thingerio.account + &#x27;/devices&#x27;;
+  private rootUrlMeteoStation &#x3D; &#x27;&#x27;;// &#x3D; this.rootUrlDevice + &#x27;/&#x27; + environment.devices.meteo;
+
+  constructor(private readonly http: HttpClient, private readonly environmentService: EnvironmentService) {
+    if(this.environmentService.getEnvironnent() &amp;&amp; this.environmentService.getEnvironnent().getThingerIo()){
+      this.rootUrl &#x3D; this.environmentService.getEnvironnent().getThingerIo().url;
+      this.rootUrlDevice &#x3D; this.rootUrl + &#x27;/v1/users/&#x27; +  this.environmentService.getEnvironnent().getThingerIo().account.name + &#x27;/devices&#x27;;
+      this.rootUrlMeteoStation &#x3D; this.rootUrlDevice + &#x27;/&#x27; + this.environmentService.getEnvironnent().getThingerIo().device.meteo.name;
+    }
+  }
 
   public listDevices() {
-    return this.http.get(rootUrlDevice, { headers: reqHeader });
+    return this.http.get(this.rootUrlDevice, { headers: reqHeader });
   }
 
   public getDeviceDetail(deviceId: string): Observable&lt;DeviceStats&gt; {
-    const url &#x3D; rootUrlDevice + &#x27;/&#x27; + deviceId + &#x27;/stats&#x27;;
+    const url &#x3D; this.rootUrlDevice + &#x27;/&#x27; + deviceId + &#x27;/stats&#x27;;
     return this.http.get&lt;DeviceStats&gt;(url, { headers: reqHeader });
   }
 
   public rebootDevice(deviceId: string): Observable&lt;any&gt; {
-    const url &#x3D; rootUrl + &#x27;/v2/users/&#x27; + environment.devices.account + &#x27;/devices/&#x27; + deviceId + &#x27;/reseting&#x27;;
+    const url &#x3D; this.rootUrl + &#x27;/v2/users/&#x27; +  environment.apis.thingerio.account + &#x27;/devices/&#x27; + deviceId + &#x27;/reseting&#x27;;
     return this.http.post(url, { in: true }, { headers: reqHeaderWithJson });
   }
 
   public switchResource(ressourceId: string, state: ResourceState, invert &#x3D; false): Observable&lt;any&gt; {
-    const url &#x3D; rootUrlMeteoStation + &#x27;/&#x27; + ressourceId;
+    const url &#x3D; this.rootUrlMeteoStation + &#x27;/&#x27; + ressourceId;
     const stateExpression &#x3D; state !&#x3D;&#x3D; ResourceState.ON;
     return this.http.post(url, { in: stateExpression }, { headers: reqHeaderWithJson });
   }
 
   public getResourceState(ressourceId: string): Observable&lt;any&gt; {
-    const url &#x3D; rootUrlMeteoStation + &#x27;/&#x27; + ressourceId + &#x27;-state&#x27;;
+    const url &#x3D; this.rootUrlMeteoStation + &#x27;/&#x27; + ressourceId + &#x27;-state&#x27;;
     return this.http.get&lt;any&gt;(url, { headers: reqHeader }).pipe(
       map((res: any) &#x3D;&gt; {
         return res.state ? res.state : ResourceState.OFF;

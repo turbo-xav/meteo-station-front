@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>LedService</li>
+  <li>EnvironmentService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/core/services/led.service.ts</code>
+            <code>src/app/core/services/environment.service.ts</code>
         </p>
 
 
@@ -77,19 +77,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#checkLed">checkLed</a>
+                                <a href="#destroyEnv">destroyEnv</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#getLedState">getLedState</a>
+                                <a href="#getEnvironnent">getEnvironnent</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#getStats">getStats</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#toggleLed">toggleLed</a>
+                                <a href="#setEnvironnent">setEnvironnent</a>
                             </li>
                         </ul>
                     </td>
@@ -109,57 +105,15 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, deviceService: <a href="../injectables/DeviceService.html">DeviceService</a>)</code>
+<code>constructor()</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/core/services/led.service.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/core/services/environment.service.ts:6</a></div>
                             </td>
                         </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>http</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>deviceService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/DeviceService.html" target="_self" >DeviceService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
@@ -173,28 +127,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="checkLed"></a>
+                    <a name="destroyEnv"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Public</span>
-                            checkLed
+                            destroyEnv
                         </b>
-                        <a href="#checkLed"><span class="icon ion-ios-link"></span></a>
+                        <a href="#destroyEnv"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>checkLed()</code>
+                    <code>destroyEnv()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/app/core/services/led.service.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/core/services/environment.service.ts:24</a></div>
                 </td>
             </tr>
 
@@ -203,7 +157,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                 </td>
@@ -214,28 +168,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getLedState"></a>
+                    <a name="getEnvironnent"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Public</span>
-                            getLedState
+                            getEnvironnent
                         </b>
-                        <a href="#getLedState"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getEnvironnent"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getLedState()</code>
+                    <code>getEnvironnent()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/core/services/led.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">src/app/core/services/environment.service.ts:10</a></div>
                 </td>
             </tr>
 
@@ -244,7 +198,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                        <b>Returns : </b>        <code><a href="../classes/EnvironmentDetail.html" target="_self" >EnvironmentDetail</a></code>
 
                     </div>
                 </td>
@@ -255,69 +209,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getStats"></a>
+                    <a name="setEnvironnent"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Public</span>
-                            getStats
+                            setEnvironnent
                         </b>
-                        <a href="#getStats"><span class="icon ion-ios-link"></span></a>
+                        <a href="#setEnvironnent"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getStats()</code>
+                    <code>setEnvironnent(thingerio, forecast)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/app/core/services/led.service.ts:25</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="toggleLed"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            toggleLed
-                        </b>
-                        <a href="#toggleLed"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>toggleLed(ledState: <a href="../undefineds/LedState.html">LedState</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/app/core/services/led.service.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/core/services/environment.service.ts:19</a></div>
                 </td>
             </tr>
 
@@ -331,16 +244,21 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
-                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>ledState</td>
+                                    <td>thingerio</td>
+
                                     <td>
-                                                <code><a href="../miscellaneous/enumerations.html#LedState" target="_self" >LedState</a></code>
+                                        No
                                     </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>forecast</td>
 
                                     <td>
                                         No
@@ -354,7 +272,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -371,49 +289,30 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { environment } from &#x27;./../../../environments/environment&#x27;
-import { Observable } from &#x27;rxjs&#x27;;
-import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
-import { DeviceService } from &#x27;./device.service&#x27;;
-import { tap, map } from &#x27;rxjs/operators&#x27;;
-import { LedState } from &#x27;../interfaces/led-state&#x27;;
+import { EnvironmentDetail } from &#x27;../interfaces/environmentDetail&#x27;;
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class EnvironmentService {
 
-const reqHeader &#x3D; new HttpHeaders({});
+  constructor() { }
 
-const reqHeaderWithJson &#x3D; new HttpHeaders({
-  &#x27;content-type&#x27;: &#x27;application/json&#x27;
-});
-
-const rootUrl &#x3D; environment.apis.thingerio.url;
-const rootUrlDevice &#x3D; rootUrl + &#x27;/v2/users/&#x27; + environment.devices.account + &#x27;/devices/&#x27; + environment.devices.meteo;
-
-@Injectable()
-export class LedService {
-
-  constructor(
-    private readonly http: HttpClient,
-    private readonly deviceService: DeviceService) { }
-
-  public getStats() {
-    return this.deviceService.getDeviceDetail(environment.devices.meteo);
+  public getEnvironnent(): EnvironmentDetail {
+    const environmentDetail &#x3D;  !!localStorage.getItem(&#x27;env&#x27;) ? JSON.parse(localStorage.getItem(&#x27;env&#x27;)): null ;
+    if(!environmentDetail || !environmentDetail.environnement){
+      return null;
+    }
+    return new EnvironmentDetail( environmentDetail.environment.apis.thingerio, environmentDetail.environment.apis.forecast);
+    
   }
 
-  public toggleLed(ledState: LedState): Observable&lt;any&gt; {
-
-    const url &#x3D; rootUrlDevice + &#x27;/led&#x27;;
-    return this.http.post(url, { in: ledState &#x3D;&#x3D;&#x3D; LedState.ON }, { headers: reqHeaderWithJson });
+  public setEnvironnent(thingerio, forecast) {
+   const environmentDetail &#x3D; new EnvironmentDetail( thingerio, forecast);
+   localStorage.setItem(&#x27;env&#x27;, JSON.stringify(environmentDetail));
   }
 
-  public getLedState(): Observable&lt;any&gt; {
-    return this.checkLed().pipe(
-      map((res: any) &#x3D;&gt; {
-        return res.out.state ? res.out.state : LedState.OFF;
-      }));
-  }
-
-  public checkLed(): Observable&lt;any&gt; {
-    const url &#x3D; rootUrlDevice + &#x27;/led-state&#x27;;
-    return this.http.get&lt;any&gt;(url, { headers: reqHeader });
+  public destroyEnv(){
+    localStorage.removeItem(&#x27;env&#x27;);
   }
 }
 </code></pre>
@@ -449,7 +348,7 @@ export class LedService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'LedService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'EnvironmentService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -9,7 +9,11 @@ export class EnvironmentService {
 
   public getEnvironnent(): EnvironmentDetail {
     const environmentDetail =  !!localStorage.getItem('env') ? JSON.parse(localStorage.getItem('env')): null ;
+    if(!environmentDetail || !environmentDetail.environnement){
+      return null;
+    }
     return new EnvironmentDetail( environmentDetail.environment.apis.thingerio, environmentDetail.environment.apis.forecast);
+    
   }
 
   public setEnvironnent(thingerio, forecast) {
