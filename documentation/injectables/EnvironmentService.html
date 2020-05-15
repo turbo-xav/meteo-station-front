@@ -147,8 +147,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/core/services/environment.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/core/services/environment.service.ts:23</a></div>
                 </td>
             </tr>
 
@@ -229,8 +229,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/core/services/environment.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/core/services/environment.service.ts:18</a></div>
                 </td>
             </tr>
 
@@ -299,11 +299,10 @@ export class EnvironmentService {
 
   public getEnvironnent(): EnvironmentDetail {
     const environmentDetail &#x3D;  !!localStorage.getItem(&#x27;env&#x27;) ? JSON.parse(localStorage.getItem(&#x27;env&#x27;)): null ;
-    if(!environmentDetail || !environmentDetail.environnement){
-      return null;
+    if(!!environmentDetail &amp;&amp; !!environmentDetail.environment ){
+      return new EnvironmentDetail( environmentDetail.environment.apis.thingerio, environmentDetail.environment.apis.forecast);
     }
-    return new EnvironmentDetail( environmentDetail.environment.apis.thingerio, environmentDetail.environment.apis.forecast);
-    
+    return null;
   }
 
   public setEnvironnent(thingerio, forecast) {

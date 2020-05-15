@@ -696,7 +696,7 @@ export class DeviceService {
   private rootUrlMeteoStation &#x3D; &#x27;&#x27;;// &#x3D; this.rootUrlDevice + &#x27;/&#x27; + environment.devices.meteo;
 
   constructor(private readonly http: HttpClient, private readonly environmentService: EnvironmentService) {
-    if(this.environmentService.getEnvironnent() &amp;&amp; this.environmentService.getEnvironnent().getThingerIo()){
+    if(!!this.environmentService.getEnvironnent() &amp;&amp; !!this.environmentService.getEnvironnent().getThingerIo()){
       this.rootUrl &#x3D; this.environmentService.getEnvironnent().getThingerIo().url;
       this.rootUrlDevice &#x3D; this.rootUrl + &#x27;/v1/users/&#x27; +  this.environmentService.getEnvironnent().getThingerIo().account.name + &#x27;/devices&#x27;;
       this.rootUrlMeteoStation &#x3D; this.rootUrlDevice + &#x27;/&#x27; + this.environmentService.getEnvironnent().getThingerIo().device.meteo.name;
