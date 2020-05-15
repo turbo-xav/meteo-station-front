@@ -20,7 +20,7 @@ export class AuthService {
   private itemName$ = 'currentUser';
   private app$: any;
 
-  constructor(private http: HttpClient) {
+  constructor(private readonly http: HttpClient) {
     this.helper = new JwtHelperService();
     this.app$ = firebase.initializeApp(environment.firebaseConfig);
   }
@@ -45,14 +45,15 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-
-    return this.signInFireBaseUser(username,password).pipe(
+    firebase.auth().signOut();
+    return this.signInFireBaseUser(username, password).pipe(
       switchMap(() => from(this.getFireBaseMeteoConfigInfos())),
       switchMap((querySnapshot: firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>) => {
         let obs: Observable<any> = null;
         querySnapshot.forEach((doc) => {
-          const usr = doc.get('apis.thingerio.account');
-          const pwd = doc.get('apis.thingerio.password');
+          console.log('OK')
+          const usr = doc.get('thingerio.account.name');
+          const pwd = doc.get('thingerio.account.password');
           obs = this.http.post<any>(
             `${rootUrl}/oauth/token`, `grant_type=password&username=${usr}&password=${pwd}`, { headers: reqHeaderWithJson })
             .pipe(tap((res: TokenDetail) => { localStorage.setItem(this.itemName$, res.access_token); }));

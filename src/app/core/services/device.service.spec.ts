@@ -11,7 +11,7 @@ describe('DeviceService', () => {
   }));
 
   it('should be created', () => {
-    const service: DeviceService = TestBed.get(DeviceService);
+    const service: DeviceService = TestBed.inject(DeviceService);
     expect(service).toBeTruthy();
   });
 });

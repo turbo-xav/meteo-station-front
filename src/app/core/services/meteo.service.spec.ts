@@ -11,7 +11,7 @@ describe('MeteoService', () => {
   }));
 
   it('should be created', () => {
-    const service: MeteoService = TestBed.get(MeteoService);
+    const service: MeteoService = TestBed.inject(MeteoService);
     expect(service).toBeTruthy();
   });
 });
