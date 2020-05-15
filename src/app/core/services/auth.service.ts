@@ -6,6 +6,8 @@ import { tap, switchMap, catchError } from 'rxjs/operators';
 import { TokenDetail } from '../interfaces/token-detail';
 import * as firebase from 'firebase';
 import { from, of, Observable } from 'rxjs';
+import { EnvironmentService } from './environment.service';
+import { EnvironmentDetail } from '../interfaces/environmentDetail';
 
 const reqHeaderWithJson = new HttpHeaders({
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -20,7 +22,7 @@ export class AuthService {
   private itemName$ = 'currentUser';
   private app$: any;
 
-  constructor(private readonly http: HttpClient) {
+  constructor(private readonly http: HttpClient, private readonly environmentService: EnvironmentService) {
     this.helper = new JwtHelperService();
     this.app$ = firebase.initializeApp(environment.firebaseConfig);
   }
@@ -51,14 +53,16 @@ export class AuthService {
       switchMap((querySnapshot: firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>) => {
         let obs: Observable<any> = null;
         querySnapshot.forEach((doc) => {
-          console.log('OK')
+          this.environmentService.setEnvironnent(doc.get('thingerio'), doc.get('forecast'));
           const usr = doc.get('thingerio.account.name');
           const pwd = doc.get('thingerio.account.password');
+          // Firebase is not useful now we have all datas
+          firebase.auth().signOut();
           obs = this.http.post<any>(
             `${rootUrl}/oauth/token`, `grant_type=password&username=${usr}&password=${pwd}`, { headers: reqHeaderWithJson })
             .pipe(tap((res: TokenDetail) => { localStorage.setItem(this.itemName$, res.access_token); }));
-
         });
+
         return obs;
       })
     );

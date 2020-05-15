@@ -19,6 +19,6 @@ export class EnvironmentService {
   }
 
   public setEnvironnent(thingerio, forecast) {
-   this.environmentDetail = new EnvironmentDetail(thingerio,forecast);
+   this.environmentDetail = new EnvironmentDetail( thingerio, forecast);
   }
 }
