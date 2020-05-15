@@ -13,10 +13,10 @@ export class EnvironmentDetail {
     }
 
     public getThingerIo(): any {
-        return this.environment && this.environment.apis.thingerio ? this.environment.apis.thingerio : null;
+        return this.environment.apis.thingerio;
     }
 
     public getForecast(): any {
-        return this.environment && this.environment.apis.forecast ? this.environment.apis.thingerio : null;
+        return this.environment.apis.forecast;
     }
 }

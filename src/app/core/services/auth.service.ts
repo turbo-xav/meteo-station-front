@@ -83,5 +83,6 @@ export class AuthService {
 
   signOutFireBaseUser() {
     firebase.auth().signOut();
+    this.environmentService.destroyEnv();
   }
 }
