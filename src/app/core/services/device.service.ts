@@ -15,7 +15,7 @@ const reqHeaderWithJson = new HttpHeaders({
 });
 
 const rootUrl = environment.apis.thingerio.url;
-const rootUrlDevice = rootUrl + '/v1/users/' + environment.devices.account + '/devices';
+const rootUrlDevice = rootUrl + '/v1/users/' +  environment.apis.thingerio.account + '/devices';
 const rootUrlMeteoStation = rootUrlDevice + '/' + environment.devices.meteo;
 
 @Injectable()
@@ -33,7 +33,7 @@ export class DeviceService {
   }
 
   public rebootDevice(deviceId: string): Observable<any> {
-    const url = rootUrl + '/v2/users/' + environment.devices.account + '/devices/' + deviceId + '/reseting';
+    const url = rootUrl + '/v2/users/' +  environment.apis.thingerio.account + '/devices/' + deviceId + '/reseting';
     return this.http.post(url, { in: true }, { headers: reqHeaderWithJson });
   }
 

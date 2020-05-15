@@ -7,11 +7,12 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'meteo-station-domotique';
 
   constructor(private readonly translate: TranslateService) {
     this.translate.setDefaultLang('fr');
-    if(sessionStorage.getItem('lang')){
+    if (sessionStorage.getItem('lang')) {
       this.translate.setDefaultLang(sessionStorage.getItem('lang'));
     }
   }

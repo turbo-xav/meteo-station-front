@@ -11,10 +11,10 @@ import { MeteoData } from '../interfaces/meteo-data';
 const reqHeader = new HttpHeaders({});
 
 const rootUrl = environment.apis.thingerio.url
-const rootUrlDevice = rootUrl + '/v2/users/' + environment.devices.account + '/devices/' + environment.devices.meteo;
-const rootUrlBuckets = rootUrl + '/v1/users/' + environment.devices.account + '/buckets';
+const rootUrlDevice = rootUrl + '/v2/users/' +  environment.apis.thingerio.account + '/devices/' + environment.devices.meteo;
+const rootUrlBuckets = rootUrl + '/v1/users/' +  environment.apis.thingerio.account + '/buckets';
 const rootUrlForecast = environment.apis.forecast.url;
-const rootUrlEndPoint = rootUrl+'/v1/users/'+ environment.devices.account+'/endpoints';
+const rootUrlEndPoint = rootUrl+'/v1/users/'+  environment.apis.thingerio.account+'/endpoints';
 @Injectable()
 export class MeteoService {
 

@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from './../../../environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { tap } from 'rxjs/operators';
+import { tap, switchMap, catchError } from 'rxjs/operators';
 import { TokenDetail } from '../interfaces/token-detail';
-import { SharedModule } from 'src/app/shared/shared.module';
+import * as firebase from 'firebase';
+import { from, of, Observable } from 'rxjs';
 
 const reqHeaderWithJson = new HttpHeaders({
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -17,9 +18,11 @@ export class AuthService {
 
   helper: JwtHelperService;
   private itemName$ = 'currentUser';
+  private app$: any;
 
   constructor(private http: HttpClient) {
     this.helper = new JwtHelperService();
+    this.app$ = firebase.initializeApp(environment.firebaseConfig);
   }
 
   private theLastUrl: string;
@@ -43,12 +46,37 @@ export class AuthService {
 
   login(username: string, password: string) {
 
-    return this.http.post<any>(
-      rootUrl + '/oauth/token', 'grant_type=password&username=' + username + '&password=' + password, { headers: reqHeaderWithJson })
-      .pipe( tap((res: TokenDetail) => { localStorage.setItem(this.itemName$, res.access_token); } ));
+    return this.signInFireBaseUser(username,password).pipe(
+      switchMap(() => from(this.getFireBaseMeteoConfigInfos())),
+      switchMap((querySnapshot: firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>) => {
+        let obs: Observable<any> = null;
+        querySnapshot.forEach((doc) => {
+          const usr = doc.get('apis.thingerio.account');
+          const pwd = doc.get('apis.thingerio.password');
+          obs = this.http.post<any>(
+            `${rootUrl}/oauth/token`, `grant_type=password&username=${usr}&password=${pwd}`, { headers: reqHeaderWithJson })
+            .pipe(tap((res: TokenDetail) => { localStorage.setItem(this.itemName$, res.access_token); }));
+
+        });
+        return obs;
+      })
+    );
   }
 
   logout() {
     localStorage.removeItem(this.itemName$);
+    this.signOutFireBaseUser();
+  }
+
+  getFireBaseMeteoConfigInfos(): Observable<firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>> {
+    return from(firebase.firestore(this.app$).collection('meteo-config').get());
+  }
+
+  signInFireBaseUser(email: string, password: string): Observable<firebase.auth.UserCredential> {
+    return from(firebase.auth().signInWithEmailAndPassword(email, password));
+  }
+
+  signOutFireBaseUser() {
+    firebase.auth().signOut();
   }
 }
