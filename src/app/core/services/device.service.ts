@@ -15,16 +15,13 @@ const reqHeaderWithJson = new HttpHeaders({
   'content-type': 'application/json'
 });
 
-/* const rootUrl = environment.apis.thingerio.url;
-const rootUrlDevice = rootUrl + '/v1/users/' +  environment.apis.thingerio.account + '/devices';
-const rootUrlMeteoStation = rootUrlDevice + '/' + environment.devices.meteo;
- */
+
 @Injectable()
 export class DeviceService {
 
-  private rootUrl = '';// = environment.apis.thingerio.url;
-  private rootUrlDevice = '';// = this.rootUrl + '/v1/users/' +  environment.apis.thingerio.account + '/devices';
-  private rootUrlMeteoStation = '';// = this.rootUrlDevice + '/' + environment.devices.meteo;
+  private rootUrl = '';
+  private rootUrlDevice = '';
+  private rootUrlMeteoStation = '';
 
   constructor(private readonly http: HttpClient, private readonly environmentService: EnvironmentService) {
     if(!!this.environmentService.getEnvironnent() && !!this.environmentService.getEnvironnent().getThingerIo()){
@@ -39,23 +36,23 @@ export class DeviceService {
   }
 
   public getDeviceDetail(deviceId: string): Observable<DeviceStats> {
-    const url = this.rootUrlDevice + '/' + deviceId + '/stats';
+    const url = `${this.rootUrlDevice}/${deviceId}/stats`;
     return this.http.get<DeviceStats>(url, { headers: reqHeader });
   }
 
   public rebootDevice(deviceId: string): Observable<any> {
-    const url = this.rootUrl + '/v2/users/' +  environment.apis.thingerio.account + '/devices/' + deviceId + '/reseting';
+    const url = `${this.rootUrl}/v2/users/${environment.apis.thingerio.account}/devices/${deviceId}/reseting`;
     return this.http.post(url, { in: true }, { headers: reqHeaderWithJson });
   }
 
   public switchResource(ressourceId: string, state: ResourceState, invert = false): Observable<any> {
-    const url = this.rootUrlMeteoStation + '/' + ressourceId;
+    const url = `${this.rootUrlMeteoStation}/${ressourceId}`;
     const stateExpression = state !== ResourceState.ON;
     return this.http.post(url, { in: stateExpression }, { headers: reqHeaderWithJson });
   }
 
   public getResourceState(ressourceId: string): Observable<any> {
-    const url = this.rootUrlMeteoStation + '/' + ressourceId + '-state';
+    const url = `${this.rootUrlMeteoStation}/${ressourceId}-state`;
     return this.http.get<any>(url, { headers: reqHeader }).pipe(
       map((res: any) => {
         return res.state ? res.state : ResourceState.OFF;

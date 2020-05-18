@@ -9,7 +9,7 @@ export class EnvironmentDetail {
 
     public constructor(thingerio, forecast) {
         this.environment.apis.thingerio = thingerio;
-        this.environment.apis.forecast = thingerio;
+        this.environment.apis.forecast = forecast;
     }
 
     public getThingerIo(): any {
