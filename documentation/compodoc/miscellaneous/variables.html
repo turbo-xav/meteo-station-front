@@ -76,6 +76,12 @@
                             <a href="#ftpFeature" title="deployment/deploy.ts"><b>ftpFeature</b>&nbsp;&nbsp;&nbsp;(deployment/.../deploy.ts)</a>
                         </li>
                         <li>
+                            <a href="#getArgs" title="deployment/deploy.ts"><b>getArgs</b>&nbsp;&nbsp;&nbsp;(deployment/.../deploy.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getArgs1" title="deployment/deploy-git.ts"><b>getArgs1</b>&nbsp;&nbsp;&nbsp;(deployment/.../deploy-git.ts)</a>
+                        </li>
+                        <li>
                             <a href="#gitFeature" title="deployment/deploy.ts"><b>gitFeature</b>&nbsp;&nbsp;&nbsp;(deployment/.../deploy.ts)</a>
                         </li>
                         <li>
@@ -164,6 +170,7 @@
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
   production: true,
+  thingerioUrl:&#x27;https://api.thinger.io&#x27;,
   firebaseConfig: {
     apiKey: &#x27;AIzaSyBX1-5v-0I1ET3MFKis4EM_jqotL1rSgws&#x27;,
     authDomain: &#x27;meteo-home-station.firebaseapp.com&#x27;,
@@ -173,28 +180,6 @@
     messagingSenderId: &#x27;1059510330077&#x27;,
     appId: &#x27;1:1059510330077:web:adad6b75c614e9bcb2b134&#x27;,
     measurementId: &#x27;G-FYE3CQ31VS&#x27;
-  },
-  apis: {
-    thingerio: {
-      url: &#x27;https://api.thinger.io&#x27;,
-      account: &#x27;turboxav&#x27;
-    },
-    forecast: {
-      url: &#x27;https://api.meteo-concept.com/api&#x27;,
-      token: &#x27;25e8258d583eb394ea0135543b4b285374abbd0cb1d1ca96eda34ffcf8a5c747&#x27;
-    }
-  },
-  devices: {
-    account: &#x27;turboxav&#x27;,
-    meteo: &#x27;homemeteostation&#x27;,
-    buckets: {
-      h24: &#x27;meteostation30m&#x27;,
-      daily: &#x27;meteostationday&#x27;
-    }
-  },
-  meteo: {
-    insee: &#x27;94081&#x27;,
-    city: &#x27;Vitry / Seine&#x27;
   }
 }</code>
                         </td>
@@ -228,7 +213,7 @@
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
   production: false,
-
+  thingerioUrl:&#x27;https://api.thinger.io&#x27;,
   firebaseConfig: {
     apiKey: &#x27;AIzaSyBX1-5v-0I1ET3MFKis4EM_jqotL1rSgws&#x27;,
     authDomain: &#x27;meteo-home-station.firebaseapp.com&#x27;,
@@ -238,29 +223,7 @@
     messagingSenderId: &#x27;1059510330077&#x27;,
     appId: &#x27;1:1059510330077:web:adad6b75c614e9bcb2b134&#x27;,
     measurementId: &#x27;G-FYE3CQ31VS&#x27;
-  },
-
-  apis: {
-    thingerio: {
-      url: &#x27;https://api.thinger.io&#x27;,
-      account: &#x27;turboxav&#x27;
-    },
-    forecast: {
-      url: &#x27;https://api.meteo-concept.com/api&#x27;,
-      token: &#x27;25e8258d583eb394ea0135543b4b285374abbd0cb1d1ca96eda34ffcf8a5c747&#x27;
-    }
-  },
-  devices: {
-    meteo: &#x27;homemeteostation&#x27;,
-    buckets: {
-      h24: &#x27;meteostation30m&#x27;,
-      daily: &#x27;meteostationday&#x27;
-    }
-  },
-  meteo: {
-    insee: &#x27;94081&#x27;,
-    city: &#x27;Vitry / Seine&#x27;
-  }
+  }  
 }</code>
                         </td>
                     </tr>
@@ -292,11 +255,11 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  user: &#x27;projetsw&#x27;,  
+  user: &#x27;projetsw&#x27;,
   host: &#x27;ftp.cluster010.hosting.ovh.net&#x27;,
   port: 21,
   localRoot: __dirname + &#x27;/../docs/meteo-station&#x27;,
-  remoteRoot: &#x27;/www/meteo-station&#x27;,
+  remoteRoot: &#x27;/www/meteo-station&#x27; + (!getArgs(&#x27;--prod&#x27;) ? &#x27;-test&#x27; : &#x27;&#x27;),
   include: [&#x27;*&#x27;, &#x27;**/*&#x27;],
   deleteRemote: true,
   forcePasv: true
@@ -322,6 +285,35 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>require(&#x27;./deploy-ftp&#x27;)</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getArgs"></a>
+                        <span class="name">
+                            <b>
+                            getArgs</b>
+                            <a href="#getArgs"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(name: string) &#x3D;&gt; {
+  const args &#x3D; process.argv.slice(2);
+  for (const arg of args) {
+    const exploded &#x3D; arg.split(&#x27;&#x3D;&#x27;);
+    if (exploded[0] &#x3D;&#x3D;&#x3D; name) {
+      return exploded.length &#x3D;&#x3D;&#x3D; 2 ? exploded[1] : exploded[0];
+    }
+  }
+}</code>
                         </td>
                     </tr>
 
@@ -383,6 +375,35 @@
     <h3>deployment/deploy-git.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getArgs1"></a>
+                        <span class="name">
+                            <b>
+                            getArgs1</b>
+                            <a href="#getArgs1"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(name: string) &#x3D;&gt; {
+    const args &#x3D; process.argv.slice(2);
+    for (const arg of args) {
+      const exploded &#x3D; arg.split(&#x27;&#x3D;&#x27;);
+      if (exploded[0] &#x3D;&#x3D;&#x3D; name) {
+        return exploded.length &#x3D;&#x3D;&#x3D; 2 ? exploded[1] : exploded[0];
+      }
+    }
+  }</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
@@ -535,7 +556,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>environment.apis.thingerio.url</code>
+                            <i>Default value : </i><code>environment.thingerioUrl</code>
                         </td>
                     </tr>
 

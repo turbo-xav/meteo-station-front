@@ -19,14 +19,13 @@ export class MeteoService {
   private rootUrlForecast = '';
   private rootUrlEndPoint = '';
   private insee: string;
+  private city: string;
   private bucketH24: string;
   private bucketDaily: string;
 
 
   constructor(private readonly http: HttpClient, private readonly environmentService: EnvironmentService) {
-    if (!!this.environmentService.getEnvironnent()
-      && !!this.environmentService.getEnvironnent().getThingerIo()
-      && !!this.environmentService.getEnvironnent().getForecast()) {
+    if (this.environmentService.isLoaded()) {
 
       const thingerIoAccount = this.environmentService.getEnvironnent().getThingerIo().account.name;
       const meteoDeviceName = this.environmentService.getEnvironnent().getThingerIo().device.name
@@ -37,19 +36,18 @@ export class MeteoService {
       this.rootUrlForecast = this.environmentService.getEnvironnent().getForecast().url;
       this.rootUrlEndPoint = `${rootUrl}/v1/users/${thingerIoAccount}/endpoints`;
 
-      this.insee = this.environmentService.getEnvironnent()
-        && this.environmentService.getEnvironnent().getForecast() ? this.environmentService.getEnvironnent().getForecast().insee : '';
-
-      this.bucketH24 = this.environmentService.getEnvironnent()
-        && this.environmentService.getEnvironnent().getThingerIo()
-        ? this.environmentService.getEnvironnent().getThingerIo().device.buckets.h24 : '';
-
-      this.bucketDaily = this.environmentService.getEnvironnent()
-        && this.environmentService.getEnvironnent().getThingerIo()
-        ? this.environmentService.getEnvironnent().getThingerIo().device.buckets.daily : '';
+      this.insee = this.environmentService.getEnvironnent().getForecast().insee;
+      this.city = this.environmentService.getEnvironnent().getForecast().city;
+      this.insee = this.environmentService.getEnvironnent().getForecast().insee;
+      this.bucketH24 = this.environmentService.getEnvironnent().getThingerIo().device.buckets.h24;
+      this.bucketDaily = this.environmentService.getEnvironnent().getThingerIo().device.buckets.daily;
 
 
     }
+  }
+
+  public getCity(): string{
+    return this.city;
   }
 
   public refreshMeteo(): Observable<MeteoData> {

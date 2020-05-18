@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { DisplayService } from '../services/display.service';
+import { EnvironmentService } from '../services/environment.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -14,7 +15,8 @@ export class TokenInterceptor implements HttpInterceptor {
     constructor(
         private readonly authService: AuthService,
         private readonly displayService: DisplayService,
-        private readonly router: Router) { }
+        private readonly router: Router,
+        private readonly environmentService: EnvironmentService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -29,11 +31,15 @@ export class TokenInterceptor implements HttpInterceptor {
                         }
                     });
                 } else if (this.isForecastUrl(request.url)) {
+                    if(this.environmentService.isLoaded()){
                     request = request.clone({
                         setParams: {
-                            token: environment.apis.forecast.token
+                            token: this.environmentService.getEnvironnent().getForecast().token
                         }
                     });
+                    }else{
+                        request = request.clone({});
+                    }
                 }
             }
         }
@@ -58,10 +64,10 @@ export class TokenInterceptor implements HttpInterceptor {
     }
 
     private isForecastUrl(url: string | string[]): boolean {
-        return url.includes(environment.apis.forecast.url)
+        return this.environmentService.isLoaded() ? url.includes(this.environmentService.getEnvironnent().getForecast().url) : false;
     }
 
     private isThingerIo(url: string | string[]): boolean {
-        return url.includes(environment.apis.thingerio.url)
+        return this.environmentService.isLoaded() ? url.includes(this.environmentService.getEnvironnent().getThingerIo().url) : false;
     }
 }

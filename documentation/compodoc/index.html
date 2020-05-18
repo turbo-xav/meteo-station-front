@@ -132,22 +132,22 @@ https://fr.aliexpress.com/item/32983499479.html?spm=a2g0s.9042311.0.0.2e0b6c37W3
 <h3 id="fritzing">Fritzing</h3>
 <p><img width="300" src="documentation/photos/assambly-fritzing.jpg?raw=true" /><br /></p>
 <h3 id="easy-eda">Easy EDA</h3>
-<p><img width="300" src="assembly/easy-eda.png?raw=true" /><br /></p>
+<p><img width="300" src="documentation/photos/assembly/easy-eda.png?raw=true" /><br /></p>
 <h4 id="fzpz-files-to-import-in-fritzing-software">FZPZ Files to import in Fritzing SoftWare</h4>
 <ul>
-<li><p><a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/assambly.fzz">Full Assembly</a></p>
+<li><p><a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/documentation/fritzing-src/assambly.fzz">Full Assembly</a></p>
 </li>
-<li><p><a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/ESP8266%20NodeMCU%20LoLin%20module.fzpz">Node MCU</a></p>
+<li><p><a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/documentation/fritzing-src/ESP8266%20NodeMCU%20LoLin%20module.fzpz">Node MCU</a></p>
 </li>
-<li><p><a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/Adafruit%20OLED%20Monochrome%20128x64%200.96%20inch.fzpz">OLED Screen</a></p>
+<li><p><a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/documentation/fritzing-src/Adafruit%20OLED%20Monochrome%20128x64%200.96%20inch.fzpz">OLED Screen</a></p>
 </li>
-<li><p><a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/BMP280.fzpz">BME 280</a></p>
+<li><p><a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/documentation/fritzing-src/BMP280.fzpz">BME 280</a></p>
 </li>
-<li><p><a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/keyes-relay.fzpz">Relay</a></p>
+<li><p><a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/documentation/fritzing-src/keyes-relay.fzpz">Relay</a></p>
 </li>
 </ul>
 <h2 id="arduino-src">Arduino Src</h2>
-<p>Ino code : <a href="arduino-src/node-mcu-meteo.ino">here</a></p>
+<p>Ino code : <a href="documentation/arduino-src/node-mcu-meteo-oled.ino/node-mcu-meteo-oled.ino.ino">here</a></p>
 <h2 id="angular-src">Angular Src</h2>
 <p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 8.3.20.</p>
 <h1 id="run-application">Run application</h1>
@@ -218,11 +218,42 @@ https://fr.aliexpress.com/item/32983499479.html?spm=a2g0s.9042311.0.0.2e0b6c37W3
 </ul>
 <h2 id="deploy-on-a-server">Deploy on a server</h2>
 <ul>
-<li>Take the content of <code>docs/meteo-station</code> &amp; copy it into a specific directory (ex : <code>/www/meteo-station/...</code>) on a HTTP server (ex : OVH, 1&amp;1 or other, ...  ) to serve it.</li>
-<li>You can access application by your specific url with a sub domain (ex : <a href="http://meteo-station.mysite.com">http://meteo-station.mysite.com</a> ) that points to your specific directory.</li>
+<li><p>Take the content of <code>docs/meteo-station</code> &amp; copy it into a specific directory (ex : <code>/www/meteo-station/...</code>) on a HTTP server (ex : OVH, 1&amp;1 or other, ...  ) to serve it.</p>
+</li>
+<li><p>You can access application by your specific url with a sub domain (ex : <a href="http://meteo-station.mysite.com">http://meteo-station.mysite.com</a> ) that points to your specific directory.</p>
+</li>
+<li><p>You can conigure your deployment in thie this files <code>deployment/deploy.ts</code></p>
+<div><pre class="line-numbers"><code class="language-typescript">//Ftp config
+const ftpConfig = {
+user: &#39;projetsw&#39;,  
+host: &#39;ftp.cluster010.hosting.ovh.net&#39;,
+port: 21,
+localRoot: __dirname + &#39;/../docs/meteo-station&#39;,
+//Define your directory to deploy
+  // - here is /www/meteo-station for prod 
+  // - here is /www/meteo-station for test
+remoteRoot: &#39;/www/meteo-station&#39;+ (!getArgs(&#39;--prod&#39;) ? &#39;-test&#39; : &#39;&#39;),
+include: [&#39;*&#39;, &#39;**/*&#39;],
+deleteRemote: true,
+forcePasv: true  
+};</code></pre></div><p>You have 2 choices :</p>
+</li>
+<li><p><code>npm run build-all-deploy</code> to test &amp; build application &amp; generate documentation &amp; deploy in <code>test</code> environment (url can be : <a href="http://meteo-station-test.mysite.com">http://meteo-station-test.mysite.com</a>)</p>
+</li>
+<li><p><code>npm run build-all-deploy-prod</code> to test &amp; build application &amp; generate documentation &amp; deploy in <code>prod</code> environment (url can be : <a href="http://meteo-station.mysite.com">http://meteo-station.mysite.com</a>)
+Each process :</p>
+</li>
+<li><p>Runs all tests</p>
+</li>
+<li><p>build application</p>
+</li>
+<li><p>Deploy on FTP (Staging or prodduction)</p>
+</li>
+<li><p>Deploy on GIT</p>
+</li>
+<li><p>Increments next itération (Only for production)</p>
+</li>
 </ul>
-<h2 id="further-help">Further help</h2>
-<p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://github.com/angular/angular-cli/blob/master/README.md">Angular CLI README</a>.</p>
 
 
 

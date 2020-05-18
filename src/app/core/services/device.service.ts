@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { environment } from './../../../environments/environment'
 import { Observable, pipe } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -22,12 +21,14 @@ export class DeviceService {
   private rootUrl = '';
   private rootUrlDevice = '';
   private rootUrlMeteoStation = '';
+  private account = '';
 
   constructor(private readonly http: HttpClient, private readonly environmentService: EnvironmentService) {
-    if(!!this.environmentService.getEnvironnent() && !!this.environmentService.getEnvironnent().getThingerIo()){
+    if(this.environmentService.isLoaded()){
       this.rootUrl = this.environmentService.getEnvironnent().getThingerIo().url;
       this.rootUrlDevice = this.rootUrl + '/v1/users/' +  this.environmentService.getEnvironnent().getThingerIo().account.name + '/devices';
       this.rootUrlMeteoStation = this.rootUrlDevice + '/' + this.environmentService.getEnvironnent().getThingerIo().device.name;
+      this.account = this.environmentService.getEnvironnent().getThingerIo().url;
     }
   }
 
@@ -41,7 +42,7 @@ export class DeviceService {
   }
 
   public rebootDevice(deviceId: string): Observable<any> {
-    const url = `${this.rootUrl}/v2/users/${environment.apis.thingerio.account}/devices/${deviceId}/reseting`;
+    const url = `${this.rootUrl}/v2/users/${this.account}/devices/${deviceId}/reseting`;
     return this.http.post(url, { in: true }, { headers: reqHeaderWithJson });
   }
 

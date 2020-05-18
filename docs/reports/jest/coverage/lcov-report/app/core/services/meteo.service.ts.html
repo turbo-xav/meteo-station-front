@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.89% </span>
+                <span class="strong">38.6% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/54</span>
+                <span class='fraction'>22/57</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.54% </span>
+                <span class="strong">18.18% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/26</span>
+                <span class='fraction'>2/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">29.41% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/16</span>
+                <span class='fraction'>5/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36% </span>
+                <span class="strong">35.85% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>18/50</span>
+                <span class='fraction'>19/53</span>
             </div>
         
             
@@ -174,9 +174,7 @@
 <a name='L115'></a><a href='#L115'>115</a>
 <a name='L116'></a><a href='#L116'>116</a>
 <a name='L117'></a><a href='#L117'>117</a>
-<a name='L118'></a><a href='#L118'>118</a>
-<a name='L119'></a><a href='#L119'>119</a>
-<a name='L120'></a><a href='#L120'>120</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">21x</span>
+<a name='L118'></a><a href='#L118'>118</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -201,11 +199,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -216,18 +213,17 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -316,14 +312,13 @@ export class MeteoService {
   private rootUrlForecast = '';
   private rootUrlEndPoint = '';
   private insee: string;
+  private city: string;
   private bucketH24: string;
   private bucketDaily: string;
 &nbsp;
 &nbsp;
   constructor(private readonly http: HttpClient, private readonly environmentService: EnvironmentService) {
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (!!this.environmentService.getEnvironnent()
-      &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!!this.environmentService.getEnvironnent().getThingerIo()</span>
-      &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >!!this.environmentService.getEnvironnent().getForecast())</span> {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.environmentService.isLoaded()) {
 &nbsp;
       const thingerIoAccount = <span class="cstat-no" title="statement not covered" >this.environmentService.getEnvironnent().getThingerIo().account.name;</span>
       const meteoDeviceName = <span class="cstat-no" title="statement not covered" >this.environmentService.getEnvironnent().getThingerIo().device.name</span>
@@ -334,19 +329,18 @@ export class MeteoService {
 <span class="cstat-no" title="statement not covered" >      this.rootUrlForecast = this.environmentService.getEnvironnent().getForecast().url;</span>
 <span class="cstat-no" title="statement not covered" >      this.rootUrlEndPoint = `${rootUrl}/v1/users/${thingerIoAccount}/endpoints`;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      this.insee = this.environmentService.getEnvironnent()</span>
-        &amp;&amp; this.environmentService.getEnvironnent().getForecast() ? this.environmentService.getEnvironnent().getForecast().insee : '';
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      this.bucketH24 = this.environmentService.getEnvironnent()</span>
-        &amp;&amp; this.environmentService.getEnvironnent().getThingerIo()
-        ? this.environmentService.getEnvironnent().getThingerIo().device.buckets.h24 : '';
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      this.bucketDaily = this.environmentService.getEnvironnent()</span>
-        &amp;&amp; this.environmentService.getEnvironnent().getThingerIo()
-        ? this.environmentService.getEnvironnent().getThingerIo().device.buckets.daily : '';
+<span class="cstat-no" title="statement not covered" >      this.insee = this.environmentService.getEnvironnent().getForecast().insee;</span>
+<span class="cstat-no" title="statement not covered" >      this.city = this.environmentService.getEnvironnent().getForecast().city;</span>
+<span class="cstat-no" title="statement not covered" >      this.insee = this.environmentService.getEnvironnent().getForecast().insee;</span>
+<span class="cstat-no" title="statement not covered" >      this.bucketH24 = this.environmentService.getEnvironnent().getThingerIo().device.buckets.h24;</span>
+<span class="cstat-no" title="statement not covered" >      this.bucketDaily = this.environmentService.getEnvironnent().getThingerIo().device.buckets.daily;</span>
 &nbsp;
 &nbsp;
     }
+  }
+&nbsp;
+  public getCity(): string{
+    return this.city;
   }
 &nbsp;
   public <span class="fstat-no" title="function not covered" >refreshMeteo(</span>): Observable&lt;MeteoData&gt; {
@@ -421,7 +415,7 @@ export class MeteoService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon May 18 2020 15:24:55 GMT+0200 (GMT+02:00)
+                at Mon May 18 2020 18:07:58 GMT+0200 (GMT+02:00)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

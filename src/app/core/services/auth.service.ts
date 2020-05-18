@@ -13,7 +13,7 @@ const reqHeaderWithJson = new HttpHeaders({
   'Content-Type': 'application/x-www-form-urlencoded'
 });
 
-const rootUrl = environment.apis.thingerio.url;
+const rootUrl = environment.thingerioUrl;
 
 @Injectable()
 export class AuthService {

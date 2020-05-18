@@ -7,10 +7,7 @@ import { MeteoData } from 'src/app/core/interfaces/meteo-data';
 import { Ephemeride } from 'src/app/core/interfaces/ephemeride';
 import { Forecast } from 'src/app/core/interfaces/forecast';
 import { MeteoService } from 'src/app/core/services/meteo.service';
-import { environment } from '../../../../environments/environment';
 import { DisplayService } from 'src/app/core/services/display.service';
-
-
 
 
 @Component({
@@ -88,7 +85,7 @@ export class MeteoStationComponent implements OnInit, OnDestroy {
   }
 
   public get city(): string {
-    return environment.meteo.city;
+    return this.meteoService.getCity();
   }
 
   public send() {

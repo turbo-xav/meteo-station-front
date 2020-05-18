@@ -117,19 +117,19 @@ https://fr.aliexpress.com/item/32983499479.html?spm=a2g0s.9042311.0.0.2e0b6c37W3
 
 ### Easy EDA
 
-<img width="300" src="assembly/easy-eda.png?raw=true" /><br />
+<img width="300" src="documentation/photos/assembly/easy-eda.png?raw=true" /><br />
 
 #### FZPZ Files to import in Fritzing SoftWare
-- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/assambly.fzz">Full Assembly</a>
+- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/documentation/fritzing-src/assambly.fzz">Full Assembly</a>
 
-- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/ESP8266%20NodeMCU%20LoLin%20module.fzpz">Node MCU</a>
-- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/Adafruit%20OLED%20Monochrome%20128x64%200.96%20inch.fzpz">OLED Screen</a>
-- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/BMP280.fzpz">BME 280</a>
-- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/fritzing-src/keyes-relay.fzpz">Relay</a>
+- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/documentation/fritzing-src/ESP8266%20NodeMCU%20LoLin%20module.fzpz">Node MCU</a>
+- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/documentation/fritzing-src/Adafruit%20OLED%20Monochrome%20128x64%200.96%20inch.fzpz">OLED Screen</a>
+- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/documentation/fritzing-src/BMP280.fzpz">BME 280</a>
+- <a href="https://github.com/turbo-xav/meteo-station-domotique/raw/master/documentation/fritzing-src/keyes-relay.fzpz">Relay</a>
 
 ## Arduino Src
 
-Ino code : <a href="arduino-src/node-mcu-meteo.ino">here</a>
+Ino code : <a href="documentation/arduino-src/node-mcu-meteo-oled.ino/node-mcu-meteo-oled.ino.ino">here</a>
 
 
 ## Angular Src
@@ -207,7 +207,30 @@ It looks like this :
 - Take the content of `docs/meteo-station` & copy it into a specific directory (ex : `/www/meteo-station/...`) on a HTTP server (ex : OVH, 1&1 or other, ...  ) to serve it.
 - You can access application by your specific url with a sub domain (ex : http://meteo-station.mysite.com ) that points to your specific directory.
 
+- You can conigure your deployment in thie this files `deployment/deploy.ts`
+```typescript
+//Ftp config
+const ftpConfig = {
+  user: 'projetsw',  
+  host: 'ftp.cluster010.hosting.ovh.net',
+  port: 21,
+  localRoot: __dirname + '/../docs/meteo-station',
+  //Define your directory to deploy
+    // - here is /www/meteo-station for prod 
+    // - here is /www/meteo-station for test
+  remoteRoot: '/www/meteo-station'+ (!getArgs('--prod') ? '-test' : ''),
+  include: ['*', '**/*'],
+  deleteRemote: true,
+  forcePasv: true  
+};
+```
+You have 2 choices :
+- `npm run build-all-deploy` to test & build application & generate documentation & deploy in `test` environment (url can be : http://meteo-station-test.mysite.com)
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- `npm run build-all-deploy-prod` to test & build application & generate documentation & deploy in `prod` environment (url can be : http://meteo-station.mysite.com)
+Each process :
+- Runs all tests
+- build application
+- Deploy on FTP (Staging or prodduction)
+- Deploy on GIT
+- Increments next itération (Only for production)

@@ -1,5 +1,5 @@
 export class DeviceIo {
     constructor(
         public name: string,
-         public buckets:string[]){}
+         public buckets: any){}
 }

@@ -104,12 +104,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>, displayService: <a href="../injectables/DisplayService.html">DisplayService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>, displayService: <a href="../injectables/DisplayService.html">DisplayService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, environmentService: <a href="../injectables/EnvironmentService.html">EnvironmentService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -162,6 +162,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>environmentService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EnvironmentService.html" target="_self" >EnvironmentService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -198,8 +210,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:21</a></div>
                 </td>
             </tr>
 
@@ -282,8 +294,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:66</a></div>
                 </td>
             </tr>
 
@@ -354,8 +366,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/core/interceptors/tokenInterceptor.ts:70</a></div>
                 </td>
             </tr>
 
@@ -416,6 +428,7 @@ import { environment } from &#x27;src/environments/environment&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { DisplayService } from &#x27;../services/display.service&#x27;;
+import { EnvironmentService } from &#x27;../services/environment.service&#x27;;
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -424,7 +437,8 @@ export class TokenInterceptor implements HttpInterceptor {
     constructor(
         private readonly authService: AuthService,
         private readonly displayService: DisplayService,
-        private readonly router: Router) { }
+        private readonly router: Router,
+        private readonly environmentService: EnvironmentService) { }
 
     intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
 
@@ -439,11 +453,15 @@ export class TokenInterceptor implements HttpInterceptor {
                         }
                     });
                 } else if (this.isForecastUrl(request.url)) {
+                    if(this.environmentService.isLoaded()){
                     request &#x3D; request.clone({
                         setParams: {
-                            token: environment.apis.forecast.token
+                            token: this.environmentService.getEnvironnent().getForecast().token
                         }
                     });
+                    }else{
+                        request &#x3D; request.clone({});
+                    }
                 }
             }
         }
@@ -468,11 +486,11 @@ export class TokenInterceptor implements HttpInterceptor {
     }
 
     private isForecastUrl(url: string | string[]): boolean {
-        return url.includes(environment.apis.forecast.url)
+        return this.environmentService.isLoaded() ? url.includes(this.environmentService.getEnvironnent().getForecast().url) : false;
     }
 
     private isThingerIo(url: string | string[]): boolean {
-        return url.includes(environment.apis.thingerio.url)
+        return this.environmentService.isLoaded() ? url.includes(this.environmentService.getEnvironnent().getThingerIo().url) : false;
     }
 }</code></pre>
     </div>

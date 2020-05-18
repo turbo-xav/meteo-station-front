@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.11% </span>
+                <span class="strong">63.16% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/18</span>
+                <span class='fraction'>12/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.86% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/7</span>
+                <span class='fraction'>4/10</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">56.25% </span>
+                <span class="strong">58.82% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/16</span>
+                <span class='fraction'>10/17</span>
             </div>
         
             
@@ -89,7 +89,11 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">22x</span>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-yes">22x</span>
@@ -98,8 +102,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
@@ -110,6 +112,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -119,6 +125,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
@@ -131,8 +139,6 @@ import { AccountIo } from '../interfaces/environment/account-io';
 })
 export class EnvironmentService {
 &nbsp;
-  constructor() { }
-&nbsp;
   public getEnvironnent(): EnvironmentDetail {
     const environmentDetail =  !!localStorage.getItem('env') ? <span class="branch-0 cbranch-no" title="branch not covered" >JSON.parse(localStorage.getItem('env')):</span> null ;
     <span class="missing-if-branch" title="if path not taken" >I</span>if(!!environmentDetail &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!!environmentDetail.thingerIo </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >!!environmentDetail.forecast)</span>{
@@ -141,7 +147,11 @@ export class EnvironmentService {
     return null;
   }
 &nbsp;
-  public <span class="fstat-no" title="function not covered" >setEnvironnent(</span>thingerIo, forecast) {
+  public isLoaded(): boolean{
+    return !!this.getEnvironnent() &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!!this.getEnvironnent().getThingerIo </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >!!this.getEnvironnent().getForecast();</span>
+  }
+&nbsp;
+  public <span class="fstat-no" title="function not covered" >setEnvironnent(</span>thingerIo, forecast): void {
     const accountIo = <span class="cstat-no" title="statement not covered" >new AccountIo(thingerIo.account.name, thingerIo.account.password);</span>
     const thingerIoEnv = <span class="cstat-no" title="statement not covered" >new ThingerIoEnv( thingerIo.url , accountIo, thingerIo.device);</span>
     const forecastEnv: ForecastEnv = <span class="cstat-no" title="statement not covered" >new ForecastEnv(forecast.url, forecast.token, forecast.insee, forecast.city);</span>
@@ -149,9 +159,11 @@ export class EnvironmentService {
 <span class="cstat-no" title="statement not covered" >    localStorage.setItem('env', JSON.stringify(environmentDetail));</span>
   }
 &nbsp;
-  public <span class="fstat-no" title="function not covered" >destroyEnv(</span>){
+  public <span class="fstat-no" title="function not covered" >destroyEnv(</span>): void{
 <span class="cstat-no" title="statement not covered" >    localStorage.removeItem('env');</span>
   }
+&nbsp;
+ 
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -160,7 +172,7 @@ export class EnvironmentService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon May 18 2020 15:24:55 GMT+0200 (GMT+02:00)
+                at Mon May 18 2020 18:07:58 GMT+0200 (GMT+02:00)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

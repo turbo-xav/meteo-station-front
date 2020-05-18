@@ -8,11 +8,11 @@ export class EnvironmentDetail {
     constructor(public thingerIo: ThingerIoEnv, public forecast: ForecastEnv) {
     }
 
-    public getThingerIo(): any {
+    public getThingerIo(): ThingerIoEnv {
         return this.thingerIo;
     }
 
-    public getForecast(): any {
+    public getForecast(): ForecastEnv {
         return this.forecast;
     }
 }

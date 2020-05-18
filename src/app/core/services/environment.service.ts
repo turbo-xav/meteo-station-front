@@ -8,8 +8,6 @@ import { AccountIo } from '../interfaces/environment/account-io';
 })
 export class EnvironmentService {
 
-  constructor() { }
-
   public getEnvironnent(): EnvironmentDetail {
     const environmentDetail =  !!localStorage.getItem('env') ? JSON.parse(localStorage.getItem('env')): null ;
     if(!!environmentDetail && !!environmentDetail.thingerIo && !!environmentDetail.forecast){
@@ -18,7 +16,11 @@ export class EnvironmentService {
     return null;
   }
 
-  public setEnvironnent(thingerIo, forecast) {
+  public isLoaded(): boolean{
+    return !!this.getEnvironnent() && !!this.getEnvironnent().getThingerIo && !!this.getEnvironnent().getForecast();
+  }
+
+  public setEnvironnent(thingerIo, forecast): void {
     const accountIo = new AccountIo(thingerIo.account.name, thingerIo.account.password);
     const thingerIoEnv = new ThingerIoEnv( thingerIo.url , accountIo, thingerIo.device);
     const forecastEnv: ForecastEnv = new ForecastEnv(forecast.url, forecast.token, forecast.insee, forecast.city);
@@ -26,7 +28,9 @@ export class EnvironmentService {
     localStorage.setItem('env', JSON.stringify(environmentDetail));
   }
 
-  public destroyEnv(){
+  public destroyEnv(): void{
     localStorage.removeItem('env');
   }
+
+ 
 }

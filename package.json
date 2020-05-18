@@ -1,20 +1,22 @@
 {
   "name": "meteo-station-domotique",
-  "version": "3.0.0",
+  "version": "4.0.10",
   "scripts": {
     "ng": "ng",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ngcc",
     "start": "ng serve --open --aot --port=8080",
-    "test": "jest --ci",
-    "deploy": "ts-node ./deployment/deploy.ts",
+    "test": "jest --clearCache && jest --showConfig && jest --ci",
+    "build-doc": "compodoc -p tsconfig.json -d ./documentation/compodoc ",
+    "load-doc": "compodoc -p tsconfig.json -d ./documentation/compodoc -o -s --port 8082",
     "build": "ng build --prod --baseHref=./ --outputPath=docs/meteo-station",
     "build-test": "npm run build & http-server -p 8081 -c-1 -o docs/meteo-station",
-    "build-doc": "compodoc -p tsconfig.json -d ./documentation ",
-    "load-doc": "compodoc -p tsconfig.json -d ./documentation/compodoc -o -s --port 8082",
     "build-all": "npm run test & npm run build & npm run build-doc",
-    "build-all-deploy": "npm run build-all & npm run deploy"
+    "build-all-deploy": "npm run build-all & npm run deploy",
+    "build-all-deploy-prod": "npm run build-all & npm run deploy-prod",
+    "deploy": "ts-node ./deployment/deploy.ts",
+    "deploy-prod": "ts-node ./deployment/deploy.ts --prod"
   },
   "private": true,
   "dependencies": {
@@ -65,6 +67,7 @@
     "jest": "^25.3.0",
     "jest-html-reporter": "^3.1.0",
     "jest-preset-angular": "^8.1.3",
+    "minimist": "^1.2.5",
     "promise-ftp-common": "^1.1.5",
     "protractor": "~5.4.0",
     "readline-sync": "^1.4.10",
