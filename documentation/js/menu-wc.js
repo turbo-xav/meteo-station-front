@@ -259,6 +259,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
+                                <a href="classes/AccountIo.html" data-type="entity-link">AccountIo</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/AppPage.html" data-type="entity-link">AppPage</a>
                             </li>
                             <li class="link">
@@ -266,6 +269,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/Device.html" data-type="entity-link">Device</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/DeviceIo.html" data-type="entity-link">DeviceIo</a>
                             </li>
                             <li class="link">
                                 <a href="classes/DeviceStats.html" data-type="entity-link">DeviceStats</a>
@@ -280,10 +286,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Forecast.html" data-type="entity-link">Forecast</a>
                             </li>
                             <li class="link">
+                                <a href="classes/ForecastEnv.html" data-type="entity-link">ForecastEnv</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/MeteoData.html" data-type="entity-link">MeteoData</a>
                             </li>
                             <li class="link">
                                 <a href="classes/MeteoStats.html" data-type="entity-link">MeteoStats</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ThingerIoEnv.html" data-type="entity-link">ThingerIoEnv</a>
                             </li>
                             <li class="link">
                                 <a href="classes/TokenDetail.html" data-type="entity-link">TokenDetail</a>

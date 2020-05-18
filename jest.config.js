@@ -23,7 +23,7 @@ module.exports = {
     [
       "jest-html-reporter",
       {
-        "outputPath": "docs/reports/test.html"
+        "outputPath": "docs/reports/jest/test.html"
       }
     ]
   ],
@@ -33,6 +33,7 @@ module.exports = {
     "<rootDir>/target/*"
   ],
   verbose: true,
+  coverageDirectory:'docs/reports/jest/coverage',
   collectCoverage: true,
   collectCoverageFrom: [
     'src/app/**/*.component.ts',

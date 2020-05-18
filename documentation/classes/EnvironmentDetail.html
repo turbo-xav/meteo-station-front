@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/core/interfaces/environmentDetail.ts</code>
+            <code>src/app/core/interfaces/environment/environmentDetail.ts</code>
         </p>
 
 
@@ -80,8 +80,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#environment">environment</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#forecast">forecast</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#thingerIo">thingerIo</a>
                             </li>
                         </ul>
                     </td>
@@ -121,13 +125,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                                <span class="modifier">Public</span>
-                        <code>constructor(thingerio, forecast)</code>
+<code>constructor(thingerIo: <a href="../classes/ThingerIoEnv.html">ThingerIoEnv</a>, forecast: <a href="../classes/ForecastEnv.html">ForecastEnv</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/core/interfaces/environmentDetail.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/core/interfaces/environment/environmentDetail.ts:5</a></div>
                             </td>
                         </tr>
 
@@ -139,13 +142,17 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>thingerio</td>
+                                                        <td>thingerIo</td>
                                                   
+                                                        <td>
+                                                                        <code><a href="../classes/ThingerIoEnv.html" target="_self" >ThingerIoEnv</a></code>
+                                                        </td>
                                                   
                                                     <td>
                                                             No
@@ -155,6 +162,9 @@
                                                 <tr>
                                                         <td>forecast</td>
                                                   
+                                                        <td>
+                                                                        <code><a href="../classes/ForecastEnv.html" target="_self" >ForecastEnv</a></code>
+                                                        </td>
                                                   
                                                     <td>
                                                             No
@@ -179,34 +189,52 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="environment"></a>
+                        <a name="forecast"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
-                            environment</b>
-                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                                <span class="modifier">Public</span>
+                            forecast</b>
+                            <a href="#forecast"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Type : </i>        <code><a href="../classes/ForecastEnv.html" target="_self" >ForecastEnv</a></code>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-        apis: {
-            thingerio: {},
-            forecast: {}
-        }
-    }</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/app/core/interfaces/environmentDetail.ts:3</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/core/interfaces/environment/environmentDetail.ts:8</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="thingerIo"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            thingerIo</b>
+                            <a href="#thingerIo"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/ThingerIoEnv.html" target="_self" >ThingerIoEnv</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/core/interfaces/environment/environmentDetail.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -244,8 +272,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/core/interfaces/environmentDetail.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/core/interfaces/environment/environmentDetail.ts:15</a></div>
                 </td>
             </tr>
 
@@ -285,8 +313,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/app/core/interfaces/environmentDetail.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">src/app/core/interfaces/environment/environmentDetail.ts:11</a></div>
                 </td>
             </tr>
 
@@ -312,26 +340,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class EnvironmentDetail {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForecastEnv } from &#x27;./forecast-env&#x27;;
+import { AccountIo } from &#x27;./account-io&#x27;;
+import { ThingerIoEnv } from &#x27;./thingerio-env&#x27;;
 
-    private environment &#x3D; {
-        apis: {
-            thingerio: {},
-            forecast: {}
-        }
-    }
+export class EnvironmentDetail {
 
-    public constructor(thingerio, forecast) {
-        this.environment.apis.thingerio &#x3D; thingerio;
-        this.environment.apis.forecast &#x3D; thingerio;
+
+    constructor(public thingerIo: ThingerIoEnv, public forecast: ForecastEnv) {
     }
 
     public getThingerIo(): any {
-        return !!this.environment.apis ? this.environment.apis.thingerio : null;
+        return this.thingerIo;
     }
 
     public getForecast(): any {
-        return  !!this.environment.apis ? this.environment.apis.forecast : null;
+        return this.forecast;
     }
 }</code></pre>
     </div>

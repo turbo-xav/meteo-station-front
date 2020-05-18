@@ -7,7 +7,7 @@ import { TokenDetail } from '../interfaces/token-detail';
 import * as firebase from 'firebase';
 import { from, of, Observable } from 'rxjs';
 import { EnvironmentService } from './environment.service';
-import { EnvironmentDetail } from '../interfaces/environmentDetail';
+import { EnvironmentDetail } from '../interfaces/environment/environmentDetail';
 
 const reqHeaderWithJson = new HttpHeaders({
   'Content-Type': 'application/x-www-form-urlencoded'

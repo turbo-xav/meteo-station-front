@@ -27,7 +27,7 @@ export class DeviceService {
     if(!!this.environmentService.getEnvironnent() && !!this.environmentService.getEnvironnent().getThingerIo()){
       this.rootUrl = this.environmentService.getEnvironnent().getThingerIo().url;
       this.rootUrlDevice = this.rootUrl + '/v1/users/' +  this.environmentService.getEnvironnent().getThingerIo().account.name + '/devices';
-      this.rootUrlMeteoStation = this.rootUrlDevice + '/' + this.environmentService.getEnvironnent().getThingerIo().device.meteo.name;
+      this.rootUrlMeteoStation = this.rootUrlDevice + '/' + this.environmentService.getEnvironnent().getThingerIo().device.name;
     }
   }
 

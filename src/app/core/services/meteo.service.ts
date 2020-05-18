@@ -1,13 +1,13 @@
 import { Forecast } from './../interfaces/forecast';
 import { Ephemeride } from './../interfaces/ephemeride';
 import { Injectable } from '@angular/core';
-import { environment } from './../../../environments/environment'
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { MeteoStats } from '../interfaces/meteo-stats';
 import { MeteoData } from '../interfaces/meteo-data';
 import { EnvironmentService } from './environment.service';
+import { ForecastEnv } from '../interfaces/environment/forecast-env';
 
 const reqHeader = new HttpHeaders({});
 
@@ -18,22 +18,37 @@ export class MeteoService {
   private rootUrlBuckets = '';
   private rootUrlForecast = '';
   private rootUrlEndPoint = '';
+  private insee: string;
+  private bucketH24: string;
+  private bucketDaily: string;
 
 
   constructor(private readonly http: HttpClient, private readonly environmentService: EnvironmentService) {
-
     if (!!this.environmentService.getEnvironnent()
       && !!this.environmentService.getEnvironnent().getThingerIo()
       && !!this.environmentService.getEnvironnent().getForecast()) {
 
       const thingerIoAccount = this.environmentService.getEnvironnent().getThingerIo().account.name;
-      const meteoDeviceName = this.environmentService.getEnvironnent().getThingerIo().device.meteo.name
+      const meteoDeviceName = this.environmentService.getEnvironnent().getThingerIo().device.name
       const rootUrl = this.environmentService.getEnvironnent().getThingerIo().url;
 
       this.rootUrlDevice = `${rootUrl}/v2/users/${thingerIoAccount}/devices/${meteoDeviceName}`;
       this.rootUrlBuckets = `${rootUrl}/v1/users/${thingerIoAccount}/buckets`;
       this.rootUrlForecast = this.environmentService.getEnvironnent().getForecast().url;
       this.rootUrlEndPoint = `${rootUrl}/v1/users/${thingerIoAccount}/endpoints`;
+
+      this.insee = this.environmentService.getEnvironnent()
+        && this.environmentService.getEnvironnent().getForecast() ? this.environmentService.getEnvironnent().getForecast().insee : '';
+
+      this.bucketH24 = this.environmentService.getEnvironnent()
+        && this.environmentService.getEnvironnent().getThingerIo()
+        ? this.environmentService.getEnvironnent().getThingerIo().device.buckets.h24 : '';
+
+      this.bucketDaily = this.environmentService.getEnvironnent()
+        && this.environmentService.getEnvironnent().getThingerIo()
+        ? this.environmentService.getEnvironnent().getThingerIo().device.buckets.daily : '';
+
+
     }
   }
 
@@ -58,7 +73,8 @@ export class MeteoService {
   }
 
   public getEphemeride(day = 0): Observable<Ephemeride> {
-    const url = `${this.rootUrlForecast}/ephemeride/${day}?insee=${environment.meteo.insee}`;
+
+    const url = `${this.rootUrlForecast}/ephemeride/${day}?insee=${this.insee}`;
     return this.http.get<Ephemeride>(url, { headers: reqHeader }).pipe(
       map((datas: any) => datas.ephemeride
       )
@@ -66,7 +82,7 @@ export class MeteoService {
   }
 
   public getForecast(): Observable<Forecast> {
-    const url = `${this.rootUrlForecast}/forecast/nextHours?insee=${environment.meteo.insee}`;
+    const url = `${this.rootUrlForecast}/forecast/nextHours?insee=${this.insee}`;
     return this.http.get<Forecast>(url, { headers: reqHeader }).pipe(
       map((datas: any) => datas.forecast[0]),
       map((forecast: Forecast) => new Forecast(forecast.weather, forecast.temp2m, null, null, forecast.datetime))
@@ -74,7 +90,7 @@ export class MeteoService {
   }
 
   public getForecastDaily(): Observable<Forecast[]> {
-    const url = `${this.rootUrlForecast}/forecast/daily?insee=${environment.meteo.insee}`;
+    const url = `${this.rootUrlForecast}/forecast/daily?insee=${this.insee}`;
     return this.http.get<Forecast[]>(url, { headers: reqHeader }).pipe(
       map((datas: any) => datas.forecast),
       map((datas: Forecast[]) => {
@@ -88,12 +104,13 @@ export class MeteoService {
 
 
   public getMeteoStatsH24(): Observable<MeteoStats[]> {
-    return this.http.get<MeteoStats[]>(`${this.rootUrlBuckets}/${environment.devices.buckets.h24}/data`, { headers: reqHeader });
+    return this.http.get<MeteoStats[]>(`${this.rootUrlBuckets}/${this.bucketH24}/data`, { headers: reqHeader });
 
   }
 
   public getMeteoStatsDaily(): Observable<MeteoStats[]> {
-    return this.http.get<MeteoStats[]>(`${this.rootUrlBuckets}/${environment.devices.buckets.daily}/data`, { headers: reqHeader });
+    if (!this.environmentService.getEnvironnent().getThingerIo()) { return null; }
+    return this.http.get<MeteoStats[]>(`${this.rootUrlBuckets}/${this.bucketDaily}/data`, { headers: reqHeader });
   }
 
   public sendEndPoint(meteo: MeteoData): Observable<any> {
