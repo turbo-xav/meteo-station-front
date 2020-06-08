@@ -25,10 +25,10 @@ export class DeviceService {
 
   constructor(private readonly http: HttpClient, private readonly environmentService: EnvironmentService) {
     if(this.environmentService.isLoaded()){
+      this.account = this.environmentService.getEnvironnent().getThingerIo().account.name;
       this.rootUrl = this.environmentService.getEnvironnent().getThingerIo().url;
       this.rootUrlDevice = this.rootUrl + '/v1/users/' +  this.environmentService.getEnvironnent().getThingerIo().account.name + '/devices';
       this.rootUrlMeteoStation = this.rootUrlDevice + '/' + this.environmentService.getEnvironnent().getThingerIo().device.name;
-      this.account = this.environmentService.getEnvironnent().getThingerIo().url;
     }
   }
 

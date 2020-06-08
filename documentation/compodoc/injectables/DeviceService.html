@@ -731,10 +731,10 @@ export class DeviceService {
 
   constructor(private readonly http: HttpClient, private readonly environmentService: EnvironmentService) {
     if(this.environmentService.isLoaded()){
+      this.account &#x3D; this.environmentService.getEnvironnent().getThingerIo().account.name;
       this.rootUrl &#x3D; this.environmentService.getEnvironnent().getThingerIo().url;
       this.rootUrlDevice &#x3D; this.rootUrl + &#x27;/v1/users/&#x27; +  this.environmentService.getEnvironnent().getThingerIo().account.name + &#x27;/devices&#x27;;
       this.rootUrlMeteoStation &#x3D; this.rootUrlDevice + &#x27;/&#x27; + this.environmentService.getEnvironnent().getThingerIo().device.name;
-      this.account &#x3D; this.environmentService.getEnvironnent().getThingerIo().url;
     }
   }
 
