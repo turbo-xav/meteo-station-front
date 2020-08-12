@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1597245710072,
+  "timestamp": 1597249941200,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -13,15 +13,15 @@
       "urls": [
         "./favicon.ico",
         "./index.html",
-        "./main-es2015.22dc0b52e7d5bf5c1f64.js",
-        "./main-es5.22dc0b52e7d5bf5c1f64.js",
+        "./main-es2015.44c0943256951314e94c.js",
+        "./main-es5.44c0943256951314e94c.js",
         "./manifest.webmanifest",
         "./polyfills-es2015.a0fa45e0fa52702b64f0.js",
         "./polyfills-es5.ad488d10aedb20ee68c9.js",
         "./runtime-es2015.409e6590615fb48d139f.js",
         "./runtime-es5.409e6590615fb48d139f.js",
-        "./scripts.f5ae069b94e847396e78.js",
-        "./styles.dd918548a844a0689a7b.css"
+        "./scripts.3e91c0b642823db265d5.js",
+        "./styles.1ce85da4c8acab2053ee.css"
       ],
       "patterns": []
     },
@@ -398,16 +398,16 @@
     "./assets/water-heater.png": "ace8d54759d25ca04b0e72fcc1b79639f1060b9a",
     "./assets/weather.png": "3cc3786000b33b04aff5c4b8cc445c36435066c4",
     "./favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "./index.html": "1d2d09fb1c76fc41b16821d4e6e1919aef33acb3",
-    "./main-es2015.22dc0b52e7d5bf5c1f64.js": "e6174af5e573e6ae625bd2f102fda179699d80f1",
-    "./main-es5.22dc0b52e7d5bf5c1f64.js": "4779671c0a4f403245c5c22b7740c4ab55276dd4",
+    "./index.html": "c5e05352d7258a1f730e69086b404b15f7b260ba",
+    "./main-es2015.44c0943256951314e94c.js": "6cd497abf24293d9e4c31212c9e28ac3592682ac",
+    "./main-es5.44c0943256951314e94c.js": "a23c7dac420db15935cb230225161425bdbaa6f1",
     "./manifest.webmanifest": "4e34b64a5e0f3534bffc5591662f20e505c92095",
     "./polyfills-es2015.a0fa45e0fa52702b64f0.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "./polyfills-es5.ad488d10aedb20ee68c9.js": "ff14d90e08622190714660721edab5f43578829a",
     "./runtime-es2015.409e6590615fb48d139f.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "./runtime-es5.409e6590615fb48d139f.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "./scripts.f5ae069b94e847396e78.js": "5d25c75a9dc4d188fb22d2cfb6585a164385a561",
-    "./styles.dd918548a844a0689a7b.css": "f16cc9ff71743ddc17a15706ba5dfaa8e0eb5dca"
+    "./scripts.3e91c0b642823db265d5.js": "8874570bcb8e8a8b7d46f2f8e964bae2af154bd3",
+    "./styles.1ce85da4c8acab2053ee.css": "e1dd859427afa6bce20c8e0f445496ab6a9f2dd1"
   },
   "navigationUrls": [
     {

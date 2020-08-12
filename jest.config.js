@@ -30,7 +30,11 @@ module.exports = {
   testPathIgnorePatterns: [
     "<rootDir>/src/test.ts",
     "<rootDir>/e2e/*",
-    "<rootDir>/target/*"
+    "<rootDir>/target/*"/*,
+    "<rootDir>/src/app/protected/*",
+    "<rootDir>/src/app/public/*",
+    "<rootDir>/src/app/shared/*",
+    "<rootDir>/src/app/core/*"*/    
   ],
   verbose: true,
   coverageDirectory:'docs/reports/jest/coverage',

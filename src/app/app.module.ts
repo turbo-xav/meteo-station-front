@@ -13,12 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' }),
     SharedModule,
-    CoreModule,
-    BrowserAnimationsModule
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
