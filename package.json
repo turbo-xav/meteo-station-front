@@ -1,6 +1,6 @@
 {
   "name": "meteo-station-domotique",
-  "version": "4.1.10",
+  "version": "4.2.10",
   "scripts": {
     "ng": "ng",
     "lint": "ng lint",
@@ -32,7 +32,7 @@
     "@angular/platform-browser-dynamic": "^10.0.8",
     "@angular/router": "^10.0.8",
     "@angular/service-worker": "^10.0.8",
-    "@auth0/angular-jwt": "^4.0.0",
+    "@auth0/angular-jwt": "^5.0.1",
     "@fortawesome/angular-fontawesome": "^0.7.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
