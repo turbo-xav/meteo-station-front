@@ -4,6 +4,7 @@ import { interval } from 'rxjs';
 import { MeteoStats } from 'src/app/generic/interfaces/meteo-stats';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ChartType } from 'angular-google-charts';
 
 @Component({
   selector: 'app-graph',
@@ -15,7 +16,7 @@ export class GraphComponent implements OnInit {
 
   @Input() meteoStats?: MeteoStats[];
 
-  type = 'LineChart';
+  type: ChartType = ChartType.LineChart;
   title = '';
   datas: (string | number)[][] = [];
   columnNames = [
@@ -92,7 +93,6 @@ export class GraphComponent implements OnInit {
       }
     });
   }
-
 
   ngOnInit(): void {
     this.drawChart();

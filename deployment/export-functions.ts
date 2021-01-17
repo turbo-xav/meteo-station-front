@@ -22,7 +22,7 @@ exports.executeCommand = (command: string): void=> {
     }
 };
 
-exports.getArgs = (name: string): string  => {
+exports.getArgs = (name: string): string | null  => {
     const args = process.argv.slice(2);
     for (const arg of args) {
       const exploded = arg.split('=');

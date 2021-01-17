@@ -1,13 +1,13 @@
-/*
- * This file is used to deploy on FTP & Git your application 
- */
+/**
+  * This file is used to deploy on FTP & Git your application 
+  */
 
 const myFunctions = require('./export-functions');
 const gitFeature = require('./deploy-git');
 const ftpFeature = require('./deploy-ftp');
 
 
-// Ftp config
+//Ftp config
 const ftpConfig = {
   user: 'projetsw',
   host: 'ftp.cluster010.hosting.ovh.net',
