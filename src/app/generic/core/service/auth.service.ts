@@ -23,7 +23,6 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    console.warn(this._authenticated);
     return this._authenticated;
   }
 }

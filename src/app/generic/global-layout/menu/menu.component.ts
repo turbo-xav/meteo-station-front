@@ -37,7 +37,6 @@ export class MenuComponent implements OnInit  {
   }
 
   public get connected():boolean {
-    console.warn(this.authService.isAuthenticated());
     return this.authService.isAuthenticated();
   }
 
