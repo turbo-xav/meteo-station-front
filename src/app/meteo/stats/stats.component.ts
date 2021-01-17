@@ -22,6 +22,7 @@ export class StatsComponent implements OnInit {
   }
 
   reload(){
+    this.meteoStats = [];
     for(let i = 0 ; i < 45 ; i++ ) {
 
       const humidity = Math.floor(Math.random() * 50);
@@ -35,5 +36,6 @@ export class StatsComponent implements OnInit {
           )
       );
     }
+    this.meteoStats.reverse();
   }
 }
