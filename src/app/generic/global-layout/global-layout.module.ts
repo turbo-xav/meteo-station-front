@@ -10,7 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, MenuComponent],
   imports: [
-    CommonModule,    
+    CommonModule,
     SharedModule
   ],
   exports: [HeaderComponent, FooterComponent, MenuComponent]

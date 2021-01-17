@@ -13,7 +13,7 @@ import { GraphComponent } from './stats/graph/graph.component';
 
 @NgModule({
   declarations: [StationComponent, ForecastsComponent, StatsComponent, ForecastsCardComponent, GraphComponent],
-  imports: [    
+  imports: [
     MeteoRoutingModule,
     SharedModule
   ]

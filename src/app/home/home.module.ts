@@ -10,7 +10,7 @@ import { CoreModule } from 'src/app/generic/core/core.module';
 @NgModule({
   declarations: [HomeComponent],
   imports: [
-    SharedModule,    
+    SharedModule,
     HomeRoutingModule
   ]
 })

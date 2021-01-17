@@ -13,7 +13,7 @@ describe('GraphComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ GraphComponent ],
-      imports:[
+      imports: [
         SharedModule,
         CoreModule,
         HttpClientTestingModule,

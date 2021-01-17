@@ -12,7 +12,7 @@ describe('LoginComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports:[
+      imports: [
         SharedModule,
         CoreModule,
         HttpClientTestingModule,

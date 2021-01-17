@@ -12,11 +12,11 @@ import { RouterModule } from '@angular/router';
     CommonModule
   ]
   ,
-  exports:[
+  exports: [
     CommonModule,
     MaterialModule,
     TranslateModule,
-    ReactiveFormsModule,   
+    ReactiveFormsModule,
     FormsModule,
     GoogleChartsModule,
     RouterModule

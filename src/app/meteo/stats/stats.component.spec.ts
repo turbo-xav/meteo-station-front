@@ -14,9 +14,9 @@ describe('StatsComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ StatsComponent, GraphComponent ],
-      imports:[
+      imports: [
         SharedModule,
-        CoreModule,        
+        CoreModule,
         HttpClientTestingModule,
         RouterTestingModule
       ]

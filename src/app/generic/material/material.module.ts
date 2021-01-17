@@ -23,7 +23,7 @@ import {MatDialogModule} from '@angular/material/dialog';
   imports: [
     CommonModule
   ],
-  exports:[
+  exports: [
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
@@ -39,8 +39,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSelectModule,
     MatTableModule,
     CdkTableModule,
-    MatDialogModule ,    
-    MatInputModule   
+    MatDialogModule ,
+    MatInputModule
   ]
 })
 export class MaterialModule { }

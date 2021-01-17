@@ -8,7 +8,7 @@ import { DeviceDetailComponent } from './device-detail/device-detail.component';
 
 @NgModule({
   declarations: [DevicesComponent, DeviceDetailComponent],
-  imports: [    
+  imports: [
     DevicesRoutingModule,
     SharedModule
   ]

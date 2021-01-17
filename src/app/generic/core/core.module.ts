@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 
 // AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader  {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
@@ -24,7 +24,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       defaultLanguage: 'fr'
   })
-  ],  
+  ],
    providers: [
       {
         provide: MatDialogRef,
@@ -32,9 +32,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       {
         provide: MAT_DIALOG_DATA,
-        useValue:{}
+        useValue: {}
 
-      } 
+      }
   ]
 })
 export class CoreModule { }

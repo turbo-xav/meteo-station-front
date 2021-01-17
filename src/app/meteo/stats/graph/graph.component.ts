@@ -24,11 +24,11 @@ export class GraphComponent implements OnInit {
     'temperature'
   ];
   options = {
-    chartArea:{
-      left:55,
-      right:55,
-      bottom:60,
-      top:60     
+    chartArea: {
+      left: 55,
+      right: 55,
+      bottom: 60,
+      top: 60
     },
     series: {
       0: { pointShape: 'circle' }
@@ -70,7 +70,7 @@ export class GraphComponent implements OnInit {
     private readonly translateService: TranslateService,
     private readonly breakpointObserver: BreakpointObserver
   ) {
-    
+
     this.breakpointObserver.observe([
       Breakpoints.HandsetPortrait,
       Breakpoints.WebPortrait,
@@ -91,10 +91,10 @@ export class GraphComponent implements OnInit {
       if (result.matches) {
         this.resizeLandscape();
       }
-    });   
+    });
   }
 
-  
+
   ngOnInit(): void {
     this.drawChart();
     interval(500).subscribe(
@@ -114,22 +114,22 @@ export class GraphComponent implements OnInit {
 
   public get windowHeight(): number {
     return window.innerHeight;
-  } 
-  
-  private resize(width?: number, height?: number) {
-    this.width = !!width ? width: this.windowWidth * 0.9;
+  }
+
+  private resize(width?: number, height?: number): void {
+    this.width = !!width ? width : this.windowWidth * 0.9;
     this.height = !!height ? height : this.windowHeight * 1.1 ;
   }
 
-  private resizePortrait() {
-    this.resize(this.windowWidth * 0.9, this.windowHeight * 0.65 );    
+  private resizePortrait(): void {
+    this.resize(this.windowWidth * 0.9, this.windowHeight * 0.65 );
   }
 
-  private resizeLandscape() {
-    this.resize(this.windowWidth * 0.9, this.windowHeight * 0.55 );     
+  private resizeLandscape(): void {
+    this.resize(this.windowWidth * 0.9, this.windowHeight * 0.55 );
   }
 
-  public drawChart() {
+  public drawChart(): void {
 
     const days = [];
     for (let i = 0; i <= 6; i++) {
@@ -138,7 +138,7 @@ export class GraphComponent implements OnInit {
           days[i] = translation;
         }
       );
-    }   
+    }
 
     this.translateService.get('stats.time').subscribe(
       (translation: string) => {
@@ -169,17 +169,17 @@ export class GraphComponent implements OnInit {
     if (this.meteoStats) {
       for (const meteoStat of this.meteoStats) {
 
-        let x = ''; 
-        
-        const date = new Date(meteoStat.ts);       
+        let x = '';
+
+        const date = new Date(meteoStat.ts);
         if (cpt === 0) {
           const day = date.getDate();
           const month = date.getMonth();
-          const year = date.getFullYear();        
+          const year = date.getFullYear();
           x = `${day} / ${month} / ${year}`;
         }
         else {
-          const dateNow = new Date();       
+          const dateNow = new Date();
           const hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
           const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
           x = 'j' + ((this.dayDiff(date, dateNow) > 0) ? '-' + (this.dayDiff(date, dateNow)) : '') + ` ${hours}:${minutes}`;

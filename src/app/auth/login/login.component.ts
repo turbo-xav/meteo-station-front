@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/generic/core/service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  
+
   form: FormGroup;
   public loginInvalid: boolean;
   private formSubmitAttempt: boolean;
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     private readonly route: ActivatedRoute,
     private readonly router: Router,
     private readonly authService: AuthService
-    
+
   ) {
   }
 

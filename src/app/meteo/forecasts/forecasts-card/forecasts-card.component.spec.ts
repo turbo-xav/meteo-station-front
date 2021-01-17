@@ -14,7 +14,7 @@ describe('ForecastsCardComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ForecastsCardComponent ],
-      imports:[
+      imports: [
         SharedModule,
         CoreModule,
         MeteoModule,

@@ -13,7 +13,7 @@ describe('StationComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports:[
+      imports: [
         SharedModule,
         CoreModule,
         MeteoModule,

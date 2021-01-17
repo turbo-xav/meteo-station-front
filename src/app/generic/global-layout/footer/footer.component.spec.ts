@@ -12,7 +12,7 @@ describe('FooterComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ FooterComponent ],
-      imports:[
+      imports: [
         AppModule
       ]
     })

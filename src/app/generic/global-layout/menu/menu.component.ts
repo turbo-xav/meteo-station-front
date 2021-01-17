@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit  {
 
   selectedLanguage = '';
 
-  
+
   constructor(private readonly packageJsonService: PackageJsonService,
               private readonly translateService: TranslateService,
               private readonly authService: AuthService) {
@@ -36,14 +36,14 @@ export class MenuComponent implements OnInit  {
   ngOnInit(): void {
   }
 
-  public get connected():boolean {
+  public get connected(): boolean {
     return this.authService.isAuthenticated();
   }
 
-  logOut(){
+  logOut(): void{
     this.authService.logOut();
   }
-  
+
 
   public get infos(): PackageJsonInfos {
     return this.packageJsonService.infos;

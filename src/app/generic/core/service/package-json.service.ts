@@ -29,6 +29,6 @@ export class PackageJsonService {
       date,
       title,
       description
-    }
+    };
   }
 }

@@ -13,7 +13,7 @@ describe('HomeComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ HomeComponent ],
-      imports:[
+      imports: [
         SharedModule,
         CoreModule,
         RouterTestingModule,

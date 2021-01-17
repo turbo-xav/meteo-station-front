@@ -15,7 +15,7 @@ export class AppComponent{
     this.main.nativeElement.style.marginBottom = (height + 5 ) + 'px';
   }
 
-  constructor( private readonly translateService: TranslateService) { 
+  constructor( private readonly translateService: TranslateService) {
     this.translateService.use('fr');
   }
 

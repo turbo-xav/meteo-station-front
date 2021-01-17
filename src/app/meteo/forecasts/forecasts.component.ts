@@ -13,21 +13,21 @@ export class ForecastsComponent implements OnInit {
 
   meteoToday?: Meteo;
   meteoForecasts: Meteo[] = [];
-  selectedTab: number = 0;
-  swipeCoord: [number, number]= [0,0];
+  selectedTab = 0;
+  swipeCoord: [number, number] = [0, 0];
   swipeTime?: number;
-  
+
   constructor() {
 
     let date = new Date();
 
-    this.meteoToday = new Meteo(new Forecast(3, 25, 12, 22, date.toDateString()), new Ephemeride('06:30', '19:55'))
+    this.meteoToday = new Meteo(new Forecast(3, 25, 12, 22, date.toDateString()), new Ephemeride('06:30', '19:55'));
     this.meteoForecasts.push(this.meteoToday);
     for (let i = 0; i <= 14; i++) {
       date = new Date(date.getTime() + 86400000);
 
       this.meteoForecasts.push(
-        new Meteo(new Forecast(1, 15, 15, 23, date.toDateString()), new Ephemeride('06:30', '19:55')))
+        new Meteo(new Forecast(1, 15, 15, 23, date.toDateString()), new Ephemeride('06:30', '19:55')));
     }
   }
 
@@ -35,10 +35,10 @@ export class ForecastsComponent implements OnInit {
   }
 
   swipe(e: Event, when: string): void {
-    if(e instanceof TouchEvent) {
+    if (e instanceof TouchEvent) {
       const coord: [number, number] = [e.changedTouches[0].clientX, e.changedTouches[0].clientY];
       this.moveTab(coord, when);
-    }else if(e instanceof MouseEvent) {
+    }else if (e instanceof MouseEvent) {
       const coord: [number, number] = [e.clientX, e.clientY];
       this.moveTab(coord, when);
     }

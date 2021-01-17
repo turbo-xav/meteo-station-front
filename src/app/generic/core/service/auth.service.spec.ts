@@ -8,7 +8,7 @@ describe('AuthService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[
+      imports: [
         RouterTestingModule
       ]
     });

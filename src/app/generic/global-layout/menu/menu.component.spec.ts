@@ -15,7 +15,7 @@ describe('MenuComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ MenuComponent ],
-      imports:[
+      imports: [
         RouterTestingModule,
         HttpClientTestingModule,
         AppModule

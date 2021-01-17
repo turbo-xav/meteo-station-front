@@ -12,7 +12,7 @@ describe('DevicesComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports:[
+      imports: [
         SharedModule,
         CoreModule,
         RouterTestingModule,

@@ -6,18 +6,18 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  _authenticated = false;
+  private _authenticated = false;
 
   constructor(
     private readonly router: Router,
   ) { }
 
-  login(username: string, password: string) {
+  login(username: string, password: string): void {
     this._authenticated = true;
     this.router.navigate(['/home']);
   }
 
-  logOut() {
+  logOut(): void {
     this._authenticated = false;
     this.router.navigate(['/auth']);
   }
