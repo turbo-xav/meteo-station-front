@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { interval } from 'rxjs';
 import { MeteoStats } from 'src/app/generic/interfaces/meteo-stats';

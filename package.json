@@ -2,7 +2,7 @@
     "name": "new-meteo-station-domotique",
     "description": "Station Météo connectée",
     "title": "Station Météo",
-    "date": "2020-12-31",
+    "date": "2021-01-17",
     "version": "1.0.0",
     "scripts": {
         "ng": "ng",

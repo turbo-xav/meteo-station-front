@@ -11,10 +11,13 @@ module.exports = {
         "<rootDir>/src/test.ts",
         "<rootDir>/e2e/*",
         "<rootDir>/target/*",
-        /*"<rootDir>/src/app/auth/*",
+        /*"<rootDir>/src/app/app.component.*",
+        "<rootDir>/src/app/auth/*",
         "<rootDir>/src/app/devices/*",
         "<rootDir>/src/app/home/*",
-        /*"<rootDir>/src/app/meteo/*",
+        "<rootDir>/src/app/meteo/forecast/*",
+        "<rootDir>/src/app/meteo/station/*",
+        "<rootDir>/src/app/meteo/stats/graph/*",
         "<rootDir>/src/app/generic/*"*/
 
     ],   
