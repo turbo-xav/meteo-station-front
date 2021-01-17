@@ -35,7 +35,7 @@
 
   <mat-form-field appearance="fill" class="mat-form-field-language">
     <mat-label>{{'language.choose' | translate}}</mat-label>
-    <mat-select  (selectionChange)="chooseLanguage($event)" [(value)]="selectedLanguage" >
+    <mat-select  (selectionChange)="chooseLanguage()" [(value)]="selectedLanguage" >
       <mat-option *ngFor="let language of languages" [value]="language" >{{'language.'+language | translate}}</mat-option>
     </mat-select>
   </mat-form-field>

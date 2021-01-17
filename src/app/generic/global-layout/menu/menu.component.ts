@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, AfterContentInit, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { TranslateService } from '@ngx-translate/core';
 import { PackageJsonService, PackageJsonInfos } from '../../core/service/package-json.service';
 import { ViewEncapsulation } from '@angular/core';
 import { MatSelect } from '@angular/material/select';
-import { AuthService } from '../../core/service/auth.service';
+import { AuthService } from 'src/app/generic/core/service/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -15,10 +15,10 @@ import { AuthService } from '../../core/service/auth.service';
 export class MenuComponent implements OnInit  {
 
   @ViewChild('menuTrigger')
-  matMenu: MatMenuTrigger;
+  matMenu?: MatMenuTrigger;
 
   @ViewChild('matSelectLanguage')
-  matSelect: MatSelect;
+  matSelect?: MatSelect;
 
   languages = ['fr', 'en'];
 
@@ -51,11 +51,13 @@ export class MenuComponent implements OnInit  {
 
   closeTimeOut(): void {
     setTimeout(() => {
-      this.matMenu.closeMenu();
+      if(this.matMenu) {
+        this.matMenu.closeMenu();
+      }
     }, 10000);
   }
 
-  chooseLanguage(evt): void {
+  chooseLanguage(): void {
     this.translateService.use(this.selectedLanguage);
   }
 

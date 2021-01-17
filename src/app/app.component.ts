@@ -9,10 +9,12 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent{
 
-  @ViewChild('main', { static: false }) main: ElementRef;
+  @ViewChild('main', { static: false }) main?: ElementRef;
 
   updateHeight(height: number): void{
-    this.main.nativeElement.style.marginBottom = (height + 5 ) + 'px';
+    if(this.main) {
+      this.main.nativeElement.style.marginBottom = (height + 5 ) + 'px';
+    }
   }
 
   constructor( private readonly translateService: TranslateService) {

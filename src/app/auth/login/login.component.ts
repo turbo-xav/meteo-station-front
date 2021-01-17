@@ -10,10 +10,8 @@ import { AuthService } from 'src/app/generic/core/service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-
-  form: FormGroup;
-  public loginInvalid: boolean;
-  private formSubmitAttempt: boolean;
+  public form: FormGroup;
+  public loginInvalid = false;
   private returnUrl: string;
 
   constructor(
@@ -21,18 +19,16 @@ export class LoginComponent implements OnInit {
     private readonly route: ActivatedRoute,
     private readonly router: Router,
     private readonly authService: AuthService
-
   ) {
-  }
-
-  ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/home';
 
     this.form = this.fb.group({
       username: ['', Validators.email],
       password: ['', Validators.required]
     });
+  }
 
+  ngOnInit(): void {
     if (this.authService.isAuthenticated()) {
       this.router.navigate([this.returnUrl]);
     }
@@ -40,17 +36,16 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.loginInvalid = false;
-    this.formSubmitAttempt = false;
     if (this.form.valid) {
       try {
-        const username = this.form.get('username').value;
-        const password = this.form.get('password').value;
-        this.authService.login(username, password);
+        if(this.form?.controls?.username && this.form?.controls?.password){
+          const username = this.form.controls.username.value;
+          const password = this.form.controls.password.value;
+          this.authService.login(username, password);
+        }
       } catch (err) {
         this.loginInvalid = true;
       }
-    } else {
-      this.formSubmitAttempt = true;
     }
   }
 

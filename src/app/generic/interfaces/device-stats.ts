@@ -1,7 +1,7 @@
 export class DeviceStats{
-    connected: boolean;
-    connected_ts: number;
-    ip_address: string;
-    rx_bytes: number;
-    tx_bytes: number;
+    connected = false;
+    connected_ts = 0;
+    ip_address = '';
+    rx_bytes = 0;
+    tx_bytes = 0;
 }

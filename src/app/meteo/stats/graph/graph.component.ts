@@ -5,7 +5,6 @@ import { MeteoStats } from 'src/app/generic/interfaces/meteo-stats';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
-
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
@@ -14,11 +13,11 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 export class GraphComponent implements OnInit {
 
 
-  @Input() meteoStats: MeteoStats[];
+  @Input() meteoStats?: MeteoStats[];
 
   type = 'LineChart';
   title = '';
-  datas = [];
+  datas: (string | number)[][] = [];
   columnNames = [
     'Time',
     'temperature'
@@ -63,8 +62,8 @@ export class GraphComponent implements OnInit {
     }
   };
 
-  width: number;
-  height: number;
+  width = 0;
+  height = 0;
 
   constructor(
     private readonly translateService: TranslateService,
@@ -118,19 +117,19 @@ export class GraphComponent implements OnInit {
 
   private resize(width?: number, height?: number): void {
     this.width = !!width ? width : this.windowWidth * 0.9;
-    this.height = !!height ? height : this.windowHeight * 1.1 ;
+    this.height = !!height ? height : this.windowHeight * 1.1;
   }
 
   private resizePortrait(): void {
-    this.resize(this.windowWidth * 0.9, this.windowHeight * 0.65 );
+    this.resize(this.windowWidth * 0.9, this.windowHeight * 0.7);
   }
 
   private resizeLandscape(): void {
-    this.resize(this.windowWidth * 0.9, this.windowHeight * 0.55 );
+    this.resize(this.windowWidth * 0.9, this.windowHeight * 0.6);
   }
 
   public drawChart(): void {
-
+    
     const days = [];
     for (let i = 0; i <= 6; i++) {
       this.translateService.get('stats.days.' + i).subscribe(
@@ -163,10 +162,9 @@ export class GraphComponent implements OnInit {
         this.title = translation;
       }
     );
-
-    const datas = [];
     let cpt = 0;
     if (this.meteoStats) {
+      this.datas = [];
       for (const meteoStat of this.meteoStats) {
 
         let x = '';
@@ -184,11 +182,9 @@ export class GraphComponent implements OnInit {
           const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
           x = 'j' + ((this.dayDiff(date, dateNow) > 0) ? '-' + (this.dayDiff(date, dateNow)) : '') + ` ${hours}:${minutes}`;
         }
-        datas.push([x, meteoStat.val.temperature]);
+        this.datas.push([x, meteoStat.val.temperature]);
         cpt++;
-
       }
-      this.datas = datas;
     }
   }
 

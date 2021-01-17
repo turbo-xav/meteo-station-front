@@ -22,9 +22,10 @@ export class StatsComponent implements OnInit {
   }
 
   reload(): void{
+
     this.meteoStats = [];
     for (let i = 0 ; i < 45 ; i++ ) {
-
+      console.log('change');
       const humidity = Math.floor(Math.random() * 50);
       const pressure = Math.floor(Math.random() * 1050);
       const temperature = Math.floor(Math.random() * 25);

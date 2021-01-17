@@ -116,7 +116,7 @@ export class Forecast {
         this.temp2m = temp2m;
         this.tmin = tmin;
         this.tmax = tmax;
-        this.datetime = datetime;
+        this.datetime = datetime ? datetime : '';
     }
 
     public get icon(): string {

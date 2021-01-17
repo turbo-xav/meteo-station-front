@@ -8,7 +8,7 @@ import { PackageJsonService, PackageJsonInfos } from '../../core/service/package
 })
 export class FooterComponent {
 
-  @ViewChild('pRef', { static: false }) pRef: ElementRef;
+  @ViewChild('pRef', { static: false }) pRef?: ElementRef;
   @Output() heightChanged = new EventEmitter<number>();
 
   constructor(private readonly cdref: ChangeDetectorRef,
