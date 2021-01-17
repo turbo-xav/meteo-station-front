@@ -1,122 +1,14 @@
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat-core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$meteo-station-domotique-primary: mat-palette($mat-indigo);
-$meteo-station-domotique-accent: mat-palette($mat-pink, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$meteo-station-domotique-warn: mat-palette($mat-red);
-
-// Create the theme object (a Sass map containing all of the palettes).
-$meteo-station-domotique-theme: mat-light-theme($meteo-station-domotique-primary, $meteo-station-domotique-accent, $meteo-station-domotique-warn);
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($meteo-station-domotique-theme);
-
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat-core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$meteo-station-domotique-primary: mat-palette($mat-indigo);
-$meteo-station-domotique-accent: mat-palette($mat-pink, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$meteo-station-domotique-warn: mat-palette($mat-red);
-
-// Create the theme object (a Sass map containing all of the palettes).
-$meteo-station-domotique-theme: mat-light-theme($meteo-station-domotique-primary, $meteo-station-domotique-accent, $meteo-station-domotique-warn);
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($meteo-station-domotique-theme);
-
 /* You can add global styles to this file, and also import other style files */
-.my-card{
-    width:80%;
-}
 
-#toast-container {
-    opacity:0.9;
-}
+$main-color:rgba(23, 162, 184, 1);
 
-#toast-container > div {
-    border-radius:50px;
-}
-
-table.table {
-    border-collapse: separate;
-    border-spacing: 0;
-    min-width: 350px;
-  }
-  table.table tr th,
-  table.table tr td {
-    border-right: 1px solid #bbb;
-    border-bottom: 1px solid #bbb;
-    padding: 5px;
-  }
-  table.table tr th:first-child,
-  table.table tr td:first-child {
-    border-left: 1px solid #bbb;
-  }
-  table.table tr th {
-    background: #eee;
-    border-top: 1px solid #bbb;
-    text-align: left;
-  }
-  
-  /* top-left border-radius */
-  table.table tr:first-child th:first-child {
-    border-top-left-radius: 6px;
-  }
-  
-  /* top-right border-radius */
-  table.table tr:first-child th:last-child {
-    border-top-right-radius: 6px;
-  }
-  
-  /* bottom-left border-radius */
-  table.table tr:last-child td:first-child {
-    border-bottom-left-radius: 6px;
-  }
-  
-  /* bottom-right border-radius */
-  table.table tr:last-child td:last-child {
-    border-bottom-right-radius: 6px;
-  }
-
-  span.btn{
-    display:inline-block;
-    margin-left:15px;
-    font-size:18px;
-    opacity:0.8;
-  }
-
-  h2 span.btn{
-    font-size:12px;
-  }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+h1,h2,h3 {
+    color:$main-color;
+    text-align: center;
+}
+
+.mat-dialog-container {
+    border:1px solid black; 
+}

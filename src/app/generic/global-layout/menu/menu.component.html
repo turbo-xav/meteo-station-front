@@ -1,0 +1,50 @@
+<mat-toolbar>
+  <button id="menuSelection" mat-button [matMenuTriggerFor]="main" aria-label="Menu" #menuTrigger="matMenuTrigger"
+    (menuOpened)="closeTimeOut()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #main>
+    <a mat-menu-item [routerLink]="['/home']">
+      <mat-icon>home</mat-icon>
+    </a>
+    <button mat-menu-item [matMenuTriggerFor]="devices">&nbsp;{{'navigation.devices' | translate}}</button>
+    <button mat-menu-item [matMenuTriggerFor]="meteo">&nbsp;{{'navigation.meteo' | translate}}</button>
+  </mat-menu>
+
+  <mat-menu #devices>
+    <a mat-menu-item [routerLink]="['/devices']"><img src="./assets/icons/icon-devices.png" alt="Icon Devices"
+        width="25" />&nbsp;{{'navigation.devices' | translate}}</a>
+    <a mat-menu-item [routerLink]="['/devices/play-with-led']"><img src="./assets/icons/icon-led.png" alt="Icon led"
+        width="25" />&nbsp;{{'navigation.play-led' | translate}}</a>
+  </mat-menu>
+
+  <mat-menu #meteo>
+    <a mat-menu-item [routerLink]="['/meteo']"><img src="./assets/icons/icon-meteo.png" alt="icon station météo"
+        width="25" />&nbsp;{{'navigation.meteo-station' | translate}}</a>
+    <a mat-menu-item [routerLink]="['/meteo/forecasts']"><img src="./assets/icons/icon-forecast-long.png"
+        alt="Icon appreil " />&nbsp;{{'navigation.meteo-forecast' | translate}}</a>
+    <a mat-menu-item [routerLink]="['/meteo/stats']"><img src="./assets/icons/icon-statistics.png" alt="icon météo"
+        width="25" />&nbsp;{{'navigation.meteo-stats' | translate}}</a>
+  </mat-menu>
+  
+  <h1>
+    <img src="./assets/img/logo-station-meteo.png" alt="logo" class="logo"> 
+    {{infos.title}}
+  </h1>
+  
+  
+  <span class="example-spacer"></span>
+
+  <mat-form-field appearance="fill" class="mat-form-field-language">
+    <mat-label>{{'language.choose' | translate}}</mat-label>
+    <mat-select  (selectionChange)="chooseLanguage($event)" [(value)]="selectedLanguage" >
+      <mat-option *ngFor="let language of languages" [value]="language" >{{'language.'+language | translate}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+ 
+  
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon *ngIf="!connected" [routerLink]="['/auth']">account_circle</mat-icon>
+    <mat-icon *ngIf="connected" (click)="logOut()">exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>

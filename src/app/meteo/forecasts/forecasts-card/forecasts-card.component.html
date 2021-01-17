@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="box">
+        <mat-card>
+            <mat-card-header>
+                <div mat-card-avatar class="header-image"></div>
+                <mat-card-title>
+                    {{'various.days.'+(meteo.forecast.datetime | date:'EEEE') | translate}}
+                    {{meteo.forecast.datetime | date:'dd'}} {{'various.months.'+(meteo.forecast.datetime |
+                    date:'LLLL') | translate}} {{meteo.forecast.datetime | date:'Y'}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <img class="icon" src="/assets/icons/meteo/short-cut/{{meteo.forecast.icon}}.png" />
+                    {{'meteo-station.forecast.weather.'+meteo.forecast.weather | translate }}
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p class="temperature">
+                    <img class="icon" src="/assets/icons/meteo/short-cut/temperature.png" />
+                    {{meteo.forecast.tmin}}&nbsp;°C - {{meteo.forecast.tmax}}&nbsp;°C
+                </p>
+                <p class="sunhour">
+                    <img class="icon" src="/assets/icons/meteo/short-cut/sunrise.png" />{{meteo.ephemeride.sunrise}}
+
+                    <img class="icon" src="/assets/icons/meteo/short-cut/sunset.png" />{{meteo.ephemeride.sunset}}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

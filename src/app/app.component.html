@@ -1,6 +1,9 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
-<ngx-spinner>
-    <p style="font-size: 20px; color: white;">{{'various.loading' | translate}}</p>
-</ngx-spinner>
+<header>
+   <app-header></app-header>
+</header>
+<main #main>  
+   <router-outlet></router-outlet>
+</main>
+<footer>
+   <app-footer (heightChanged)="updateHeight($event)"></app-footer>
+</footer>

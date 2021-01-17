@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, AfterContentChecked } from '@angular/core';
+import {ChangeDetectorRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -6,14 +7,17 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent{
 
-  title = 'meteo-station-domotique';
+  @ViewChild('main', { static: false }) main: ElementRef;
 
-  constructor(private readonly translate: TranslateService) {
-    this.translate.setDefaultLang('fr');
-    if (sessionStorage.getItem('lang')) {
-      this.translate.setDefaultLang(sessionStorage.getItem('lang'));
-    }
+  updateHeight(height: number): void{
+    this.main.nativeElement.style.marginBottom = (height + 5 ) + 'px';
   }
+
+  constructor( private readonly translateService: TranslateService) { 
+    this.translateService.use('fr');
+  }
+
+
 }

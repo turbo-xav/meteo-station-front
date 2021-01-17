@@ -2,7 +2,7 @@
     "various": {
         "loading": "Chargement .....",
         "welcome": "Bienvenue",
-        "welcome-intro": "Bonjour ceci est mon application IOT pour contrôler des objets arduino",
+        "welcome-intro": "Bienvenue sur l'application météo connectée",
         "play-with-led": "Jouer avec la led",
         "check-meteo": "Surveiller la météo",
         "check-meteo-stats": "Suivez l'évolution de la météo",
@@ -39,6 +39,7 @@
         "home": "Accueil",
         "devices": "Appreils",
         "play-led": "La led",
+        "meteo": "Météo",        
         "meteo-station": "Station météo",
         "meteo-stats": "Statistiques",
         "meteo-forecast":"Prévisions"
@@ -234,6 +235,6 @@
     "language": {
         "fr": "Français",
         "en": "Anglais",
-        "choose": "Choix langue"
+        "choose": "Langue"
     }
 }

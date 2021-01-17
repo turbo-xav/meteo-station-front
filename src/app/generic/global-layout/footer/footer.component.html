@@ -1,0 +1,14 @@
+<div #pRef class="footer">
+<mat-accordion>
+    <mat-expansion-panel (afterCollapse)="change()" (afterExpand)="change()" hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title><strong>Application : {{infos.title}} &copy;</strong></mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-panel-description>
+            {{infos.description}}<br />
+            V {{infos.version}} <br />
+            {{infos.date | date:'dd/MM/yyyy'}}  <br />         
+        </mat-panel-description>
+    </mat-expansion-panel>
+</mat-accordion>
+</div>

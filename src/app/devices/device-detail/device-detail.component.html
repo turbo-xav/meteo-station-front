@@ -1,0 +1,19 @@
+<div class="wrapped">
+  <h2 mat-dialog-title>{{data.device}}</h2>
+
+  <p>
+    <img src="{{deviceStats.connected ? '/assets/icons/icon-valid.png' : '/assets/icons/icon-invalid.png'}}" width="25"
+      height="25" />
+    {{deviceStats.connected ? 'device.detail.title' : 'device.detail.no-detail' | translate}}
+  </p>
+
+  <ul>
+    <li>{{'device.detail.connected_ts' | translate}}: {{deviceStats.connected_ts | date: 'dd/MM/yyyy HH:mm:ss'}}</li>
+    <li>{{'device.detail.ip_address' | translate}} : {{deviceStats.ip_address}}</li>
+    <li>{{'device.detail.rx_bytes' | translate}} : {{deviceStats.rx_bytes}}</li>
+    <li>{{'device.detail.tx_bytes' | translate}} : {{deviceStats.tx_bytes}}</li>
+  </ul>
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data.description" cdkFocusInitial>Close</button>
+  </div>
+</div>

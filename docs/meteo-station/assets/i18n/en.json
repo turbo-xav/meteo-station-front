@@ -2,7 +2,7 @@
     "various": {
         "loading": "Loading .....",
         "welcome": "Welcome",
-        "welcom-intro": "Hello this is an application of IOT to control Arduino Objects.",
+        "welcom-intro": "Welcome to the connected weather app",
         "play-with-led": "Play with the led",
         "check-meteo": "Check weather",
         "check-meteo-stats": "Check meteo evolution",
@@ -38,6 +38,7 @@
         "home": "Home",
         "devices": "Devices",
         "play-led": "Led",
+        "meteo": "Meteo",        
         "meteo-station": "Meteo station",
         "meteo-stats": "Statistics",
         "meteo-forecast":"Forecasts"
@@ -77,6 +78,16 @@
         "off": "off",
         "on": "on",
         "screen-not-available": "Screen is not available"
+    },
+    "heater": {
+        "heater": "Heater",
+        "switch-on": "on",
+        "switch-off": "off",
+        "is":"Heater is",
+        "on": "on",
+        "off": "off",
+        "heater-not-available":"Le chauffe eau est non disponible"
+
     },
     "stats": {
         "h24": "Last 24 hours",
@@ -232,6 +243,6 @@
     "language": {
         "fr": "French",
         "en": "English",
-        "choose": "Choose language"
+        "choose": "Language"
     }
 }

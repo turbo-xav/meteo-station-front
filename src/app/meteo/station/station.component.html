@@ -1,0 +1,31 @@
+<h2>Station de commande Météo</h2>
+
+
+<mat-list>
+    
+    <div mat-subheader><h3>Chauffage</h3></div>
+    <mat-list-item>
+      <img src="/assets/img/water-heater.png" width="25" alt="{{'heater.on' | translate}}" /> 
+      <mat-slide-toggle [checked]="heaterIsOn" (change)="toggleHeater()" [color]="'warn'">{{'heater.' + (heaterIsOn ? 'on' : 'off') | translate}}</mat-slide-toggle>
+    </mat-list-item>
+
+
+
+    <mat-divider ></mat-divider>
+    
+    <div mat-subheader><h3>Led</h3></div>
+    <mat-list-item>
+        <img src="/assets/img/red-led-switched-on.png" width="25" alt="{{('led.on' | lowercase) | translate}}" /> 
+        <mat-slide-toggle [color]="'warn'" [checked]="ledIsOn" (change)="toggleLed()">{{'led.' + (ledIsOn ? 'on' : 'off') | translate}}</mat-slide-toggle>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <div mat-subheader><h3>Ecran</h3></div>
+    <mat-list-item>
+        <img src="/assets/img/oled.png" width="25" alt="{{'screen.screen' | translate}}" /> 
+        <mat-slide-toggle [color]="'warn'" [checked]="screenIsOn" (change)="toggleScreen()">{{'screen.' + (screenIsOn ? 'on' : 'off') | translate}}</mat-slide-toggle>
+    </mat-list-item>
+    
+    
+  </mat-list>

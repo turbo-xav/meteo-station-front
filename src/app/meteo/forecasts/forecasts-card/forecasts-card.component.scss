@@ -1,0 +1,62 @@
+$color:rgba(245, 253, 207, 0.08);
+$colorOp : rgba($color, 0.5);
+
+div.card {
+  display:flex;
+  align-items: center;
+  justify-content: center;  
+
+}
+
+div.box {
+  width: 90%;
+}
+
+.header-image {
+  background-image: url('/assets/icons/icon-forecast-long.png');
+  background-size: cover;
+}
+
+img.icon{
+  border: 2px solid $colorOp;
+  border-radius:5px;
+  width:65px; 
+  margin:5px; 
+}
+
+mat-card {
+  margin: 0 auto;  
+  margin-top:5px;
+  padding-bottom:5px;
+  max-width: 100%;   
+  background-color:$color;  
+
+  p{
+    font-size:1.2em;
+  }
+ 
+  mat-card-title {
+    font-size:1.1em;
+  }
+
+  mat-card-subtitle{
+    display:flex;  
+    align-items: center;
+    justify-content: flex-end;
+    font-size:1.1em;
+  }
+
+  mat-card-content {
+    p{
+      display:flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      
+    }
+    
+    p.temperature{
+      align-items: center;  
+    }   
+  }  
+}
