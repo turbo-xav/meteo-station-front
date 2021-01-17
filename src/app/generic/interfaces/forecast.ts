@@ -1,6 +1,8 @@
+import { Icon } from './icon';
+
 export class Forecast {
 
-    private icons: any[] = [
+    private icons: Icon[] = [
         {
             min: 0,
             max: 1,
@@ -118,7 +120,7 @@ export class Forecast {
     }
 
     public get icon(): string {
-        const icons = this.icons.filter((myIcon: any) => {
+        const icons = this.icons.filter((myIcon: Icon) => {
             return myIcon.min <= this.weather && myIcon.max >= this.weather;
         });
         const icon = icons && icons.length >= 0 ? icons[0] : '';

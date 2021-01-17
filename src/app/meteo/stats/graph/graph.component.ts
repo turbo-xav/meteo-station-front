@@ -192,21 +192,6 @@ export class GraphComponent implements OnInit {
     }
   }
 
-  public get datasInPaquets(): any[] {
-    const packets = [];
-
-    const limit = 10;
-    let datasInPackets = [];
-    for (let i = 1; i <= this.datas.length; i++) {
-      datasInPackets.push(this.datas[i - 1]);
-      if (i % limit === 0 || i === this.datas.length) {
-        packets.push(datasInPackets);
-        datasInPackets = [];
-      }
-    }
-    return packets;
-  }
-
   dayDiff(dFuture: Date, dPaste: Date): number {
     const timeFuture = dFuture.getTime() / 86400000;
     const timePaste = dPaste.getTime() / 86400000;

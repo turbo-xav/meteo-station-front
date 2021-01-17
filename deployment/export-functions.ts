@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-exports.updateDate = () => {
+exports.updateDate = (): void => {
     let rawPackageJson = fs.readFileSync('./package.json');
     const pakagejson = JSON.parse(rawPackageJson);
     const currentDate = new Date();
@@ -12,17 +12,17 @@ exports.updateDate = () => {
     pakagejson.date = year + '-' + monthEc + '-' + dayEc;
     rawPackageJson = JSON.stringify(pakagejson, null, 4);
     fs.writeFileSync('./package.json', rawPackageJson);
-}
+};
 
-exports.executeCommand = (command: string) => {
+exports.executeCommand = (command: string): void=> {
     console.log('Execute command : ', command);
     const result = require('child_process').execSync(command).toString();
     if (result) {
       console.log('result for command ', command, result);
     }
-}
+};
 
-exports.getArgs = (name: string) => {
+exports.getArgs = (name: string): string  => {
     const args = process.argv.slice(2);
     for (const arg of args) {
       const exploded = arg.split('=');
@@ -30,4 +30,5 @@ exports.getArgs = (name: string) => {
         return exploded.length === 2 ? exploded[1] : exploded[0];
       }
     }
-  }
+    return null;
+};

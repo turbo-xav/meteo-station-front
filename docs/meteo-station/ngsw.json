@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1610906279790,
+  "timestamp": 1610911512186,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -14,13 +14,13 @@
         "./4.0dd4ab94fa4faf422b01.js",
         "./5.68b6a23ff1d057e82ad7.js",
         "./6.7a09e6bf6ab4f9ce889a.js",
-        "./7.4aafb64934729466fc37.js",
+        "./7.4534da88f743038684f8.js",
         "./favicon.ico",
         "./index.html",
-        "./main.75670cb59bebc4cf74bb.js",
+        "./main.819fa48531aac84b7f02.js",
         "./manifest.webmanifest",
         "./polyfills.245b4e7d06552a17db95.js",
-        "./runtime.781c32f0eec3a3f97d19.js",
+        "./runtime.1f165f6d77718457689b.js",
         "./styles.e17e6fe82d4c0a668960.css"
       ],
       "patterns": []
@@ -196,7 +196,7 @@
     "./4.0dd4ab94fa4faf422b01.js": "afff48f6124d17e1cd57fec7c1b695208fc41067",
     "./5.68b6a23ff1d057e82ad7.js": "509dfc3050e0fb3c0551e47d74e07249377c4976",
     "./6.7a09e6bf6ab4f9ce889a.js": "4169ebdf71172ccca4acf634089e0efc26355700",
-    "./7.4aafb64934729466fc37.js": "cba48812cda49a0de3a44859405a9993f42fcad8",
+    "./7.4534da88f743038684f8.js": "446361d4c0d9ed6f8e8fdb95f658177e16f1cd79",
     "./assets/i18n/en.json": "d46a4460396c445aab9a17998b4c7031c5666dc5",
     "./assets/i18n/fr.json": "5fea7a2521d9f78514975510a225c6f0c275a449",
     "./assets/icons/icon-128x128.png": "e7c21aaa82fe91d4147d0496e76afaf7a4d158ba",
@@ -352,11 +352,11 @@
     "./assets/img/thermometre.png": "92acb8c0d7e93ae3cb67f760c22cd4b909fc8b1a",
     "./assets/img/water-heater.png": "ace8d54759d25ca04b0e72fcc1b79639f1060b9a",
     "./favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "./index.html": "479df495086555b1b7dc9cd35fbed798396745e7",
-    "./main.75670cb59bebc4cf74bb.js": "9536b64471c600ce60286198cf117c8bee0df8ff",
+    "./index.html": "d5fe2611c00c3ab62b2ae2063f08a1107c4d1b28",
+    "./main.819fa48531aac84b7f02.js": "3c80a1be9c31c7747cbd7936d1d88970c42cafe0",
     "./manifest.webmanifest": "8ff677b26e94bd7c5aee92dea4d695fb5f9c7245",
     "./polyfills.245b4e7d06552a17db95.js": "f888b31e000d9b05c8c3fef19c325d813f2b7e1b",
-    "./runtime.781c32f0eec3a3f97d19.js": "e439b6cf5bcc27a9c6f0632083ab0087c34af1c2",
+    "./runtime.1f165f6d77718457689b.js": "d4947b59672e0ece9360907f44d9368ffdb383f6",
     "./styles.e17e6fe82d4c0a668960.css": "f0cde45b6a9181b54d3f45a3dff236a558c8afb9"
   },
   "navigationUrls": [
