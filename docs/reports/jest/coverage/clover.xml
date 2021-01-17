@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1610908998410" clover="3.2.0">
-  <project timestamp="1610908998411" name="All files">
-    <metrics statements="242" coveredstatements="171" conditionals="59" coveredconditionals="15" methods="67" coveredmethods="40" elements="368" coveredelements="226" complexity="0" loc="242" ncloc="242" packages="15" files="16" classes="16"/>
+<coverage generated="1610912559909" clover="3.2.0">
+  <project timestamp="1610912559910" name="All files">
+    <metrics statements="232" coveredstatements="170" conditionals="55" coveredconditionals="15" methods="66" coveredmethods="40" elements="353" coveredelements="225" complexity="0" loc="232" ncloc="232" packages="15" files="16" classes="16"/>
     <package name="app">
       <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="app.component.ts" path="C:\git\meteo-station-domotique\src\app\app.component.ts">
@@ -215,14 +215,13 @@
       </file>
     </package>
     <package name="app.meteo.forecasts.forecasts-card">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="forecasts-card.component.ts" path="C:\git\meteo-station-domotique\src\app\meteo\forecasts\forecasts-card\forecasts-card.component.ts">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
       </file>
     </package>
     <package name="app.meteo.station">
@@ -261,9 +260,9 @@
       </file>
     </package>
     <package name="app.meteo.stats.graph">
-      <metrics statements="71" coveredstatements="48" conditionals="24" coveredconditionals="12" methods="19" coveredmethods="7"/>
+      <metrics statements="62" coveredstatements="48" conditionals="20" coveredconditionals="12" methods="18" coveredmethods="7"/>
       <file name="graph.component.ts" path="C:\git\meteo-station-domotique\src\app\meteo\stats\graph\graph.component.ts">
-        <metrics statements="71" coveredstatements="48" conditionals="24" coveredconditionals="12" methods="19" coveredmethods="7"/>
+        <metrics statements="62" coveredstatements="48" conditionals="20" coveredconditionals="12" methods="18" coveredmethods="7"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
         <line num="3" count="5" type="stmt"/>
@@ -323,18 +322,9 @@
         <line num="187" count="45" type="stmt"/>
         <line num="188" count="45" type="stmt"/>
         <line num="191" count="1" type="stmt"/>
-        <line num="196" count="0" type="stmt"/>
-        <line num="198" count="0" type="stmt"/>
-        <line num="199" count="0" type="stmt"/>
-        <line num="200" count="0" type="stmt"/>
-        <line num="201" count="0" type="stmt"/>
-        <line num="202" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="203" count="0" type="stmt"/>
-        <line num="204" count="0" type="stmt"/>
-        <line num="207" count="0" type="stmt"/>
-        <line num="211" count="87" type="stmt"/>
-        <line num="212" count="87" type="stmt"/>
-        <line num="213" count="87" type="stmt"/>
+        <line num="196" count="87" type="stmt"/>
+        <line num="197" count="87" type="stmt"/>
+        <line num="198" count="87" type="stmt"/>
       </file>
     </package>
   </project>
