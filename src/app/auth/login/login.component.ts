@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     this.loginInvalid = false;
     if (this.form.valid) {
       try {
-        if(this.form?.controls?.username && this.form?.controls?.password){
+        if (this.form?.controls?.username && this.form?.controls?.password){
           const username = this.form.controls.username.value;
           const password = this.form.controls.password.value;
           this.authService.login(username, password);

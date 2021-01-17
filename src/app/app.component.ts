@@ -12,7 +12,7 @@ export class AppComponent{
   @ViewChild('main', { static: false }) main?: ElementRef;
 
   updateHeight(height: number): void{
-    if(this.main) {
+    if (this.main) {
       this.main.nativeElement.style.marginBottom = (height + 5 ) + 'px';
     }
   }

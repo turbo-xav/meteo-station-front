@@ -51,7 +51,7 @@ export class MenuComponent implements OnInit  {
 
   closeTimeOut(): void {
     setTimeout(() => {
-      if(this.matMenu) {
+      if (this.matMenu) {
         this.matMenu.closeMenu();
       }
     }, 10000);

@@ -129,7 +129,7 @@ export class GraphComponent implements OnInit {
   }
 
   public drawChart(): void {
-    
+
     const days = [];
     for (let i = 0; i <= 6; i++) {
       this.translateService.get('stats.days.' + i).subscribe(
