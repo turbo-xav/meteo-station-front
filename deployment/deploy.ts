@@ -6,9 +6,19 @@ const myFunctions = require('./export-functions');
 const gitFeature = require('./deploy-git');
 const ftpFeature = require('./deploy-ftp');
 
+interface FtpDeployConfig{
+  user: string;
+  host: string;
+  port: number;
+  localRoot: string;
+  remoteRoot: string;
+  include: string[];
+  deleteRemote: boolean;
+  forcePasv: boolean;
+}
 
-//Ftp config
-const ftpConfig = {
+// Ftp config
+const ftpConfig: FtpDeployConfig = {
   user: 'projetsw',
   host: 'ftp.cluster010.hosting.ovh.net',
   port: 21,
