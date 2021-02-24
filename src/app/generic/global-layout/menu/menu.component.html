@@ -1,14 +1,16 @@
 <mat-toolbar>
   <button id="menuSelection" mat-button [matMenuTriggerFor]="main" aria-label="Menu" #menuTrigger="matMenuTrigger"
-    (menuOpened)="closeTimeOut()">
+    (menuOpened)="closeTimeOut()">    
     <mat-icon>menu</mat-icon>
   </button>
+  
   <mat-menu #main>
     <a mat-menu-item [routerLink]="['/home']">
       <mat-icon>home</mat-icon>
     </a>
-    <button mat-menu-item [matMenuTriggerFor]="devices">&nbsp;{{'navigation.devices' | translate}}</button>
-    <button mat-menu-item [matMenuTriggerFor]="meteo">&nbsp;{{'navigation.meteo' | translate}}</button>
+    <button mat-menu-item routerLink="/auth/profile"><mat-icon>account_circle</mat-icon>Profile</button>
+    <button mat-menu-item [matMenuTriggerFor]="devices"><mat-icon>aod</mat-icon>&nbsp;{{'navigation.devices' | translate}}</button>
+    <button mat-menu-item [matMenuTriggerFor]="meteo"><mat-icon>wb_twilight</mat-icon>&nbsp;{{'navigation.meteo' | translate}}</button>
   </mat-menu>
 
   <mat-menu #devices>
@@ -42,7 +44,9 @@
  
   
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon *ngIf="!connected" [routerLink]="['/auth']">account_circle</mat-icon>
+    <a href="{{authUrl}}">
+      <mat-icon *ngIf="!connected" >account_circle</mat-icon>
+    </a>
     <mat-icon *ngIf="connected" (click)="logOut()">exit_to_app</mat-icon>
   </button>
 </mat-toolbar>

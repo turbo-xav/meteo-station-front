@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../generic/core/service/auth.service';
 import { PackageJsonInfos, PackageJsonService } from '../generic/core/service/package-json.service';
 
 @Component({
@@ -8,7 +9,10 @@ import { PackageJsonInfos, PackageJsonService } from '../generic/core/service/pa
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private readonly packageJsonService: PackageJsonService) { }
+  constructor(
+    private readonly packageJsonService: PackageJsonService
+    ) {
+    }
 
   ngOnInit(): void {
   }

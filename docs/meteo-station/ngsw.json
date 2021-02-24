@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1610916594451,
+  "timestamp": 1613731933707,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -17,7 +17,7 @@
         "./7.1a3bb5557839c8828ead.js",
         "./favicon.ico",
         "./index.html",
-        "./main.d19584ecbc3a230408a0.js",
+        "./main.2dde7d9ba934915a388b.js",
         "./manifest.webmanifest",
         "./polyfills.245b4e7d06552a17db95.js",
         "./runtime.cc72065e2e6c0ed454e6.js",
@@ -352,9 +352,9 @@
     "./assets/img/thermometre.png": "92acb8c0d7e93ae3cb67f760c22cd4b909fc8b1a",
     "./assets/img/water-heater.png": "ace8d54759d25ca04b0e72fcc1b79639f1060b9a",
     "./favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "./index.html": "6b0fdc20ed93d96ec509e2e3808d9fe641638e33",
-    "./main.d19584ecbc3a230408a0.js": "5eeff8201060e5d1440190b24deec1ff6b1e12c5",
-    "./manifest.webmanifest": "8ff677b26e94bd7c5aee92dea4d695fb5f9c7245",
+    "./index.html": "456e3df9f496df571875ab63515083a29a4c1dfc",
+    "./main.2dde7d9ba934915a388b.js": "bc14e0dc3bd1d993bbda53ff2aa98f0d9bd14e0f",
+    "./manifest.webmanifest": "f4f7c74226ca9f09c804349a715ac61427b373df",
     "./polyfills.245b4e7d06552a17db95.js": "f888b31e000d9b05c8c3fef19c325d813f2b7e1b",
     "./runtime.cc72065e2e6c0ed454e6.js": "0928e278851835bbd8a9f199744f83fc6856132b",
     "./styles.e17e6fe82d4c0a668960.css": "f0cde45b6a9181b54d3f45a3dff236a558c8afb9"

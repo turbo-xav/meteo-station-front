@@ -5,6 +5,7 @@ import { PackageJsonService, PackageJsonInfos } from '../../core/service/package
 import { ViewEncapsulation } from '@angular/core';
 import { MatSelect } from '@angular/material/select';
 import { AuthService } from 'src/app/generic/core/service/auth.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-menu',
@@ -22,8 +23,7 @@ export class MenuComponent implements OnInit  {
 
   languages = ['fr', 'en'];
 
-  selectedLanguage = '';
-
+  selectedLanguage = 'fr';
 
   constructor(private readonly packageJsonService: PackageJsonService,
               private readonly translateService: TranslateService,
@@ -34,6 +34,10 @@ export class MenuComponent implements OnInit  {
   }
 
   ngOnInit(): void {
+  }
+
+  get authUrl(): string{
+    return this.authService.apiAuthUrl;
   }
 
   public get connected(): boolean {

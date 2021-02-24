@@ -72,11 +72,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "new-meteo-station-domotique:build"
+            "browserTarget": "new-meteo-station-domotique:build"       
           },
           "configurations": {
             "production": {
-              "browserTarget": "new-meteo-station-domotique:build:production"
+              "browserTarget": "new-meteo-station-domotique:build:production"              
             }
           }
         },

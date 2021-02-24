@@ -1,5 +1,5 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, AfterContentChecked } from '@angular/core';
-import {ChangeDetectorRef } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -7,18 +7,21 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent{
+export class AppComponent implements OnInit {
 
   @ViewChild('main', { static: false }) main?: ElementRef;
 
-  updateHeight(height: number): void{
-    if (this.main) {
-      this.main.nativeElement.style.marginBottom = (height + 5 ) + 'px';
+  updateHeight(height: number): void {
+    if (this.main !== undefined) {
+      this.main.nativeElement.style.marginBottom = (height + 5) + 'px';
     }
   }
 
-  constructor( private readonly translateService: TranslateService) {
+  constructor(private readonly translateService: TranslateService) {
     this.translateService.use('fr');
+  }
+
+  ngOnInit(): void {
   }
 
 
