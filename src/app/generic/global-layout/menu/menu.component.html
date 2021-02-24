@@ -9,14 +9,10 @@
       <mat-icon>home</mat-icon>
     </a>
     <button mat-menu-item routerLink="/auth/profile"><mat-icon>account_circle</mat-icon>Profile</button>
-    <button mat-menu-item [matMenuTriggerFor]="devices"><mat-icon>aod</mat-icon>&nbsp;{{'navigation.devices' | translate}}</button>
+    <button mat-menu-item [routerLink]="['/devices']"><mat-icon>aod</mat-icon>&nbsp;{{'navigation.devices' | translate}}</button>
     <button mat-menu-item [matMenuTriggerFor]="meteo"><mat-icon>wb_twilight</mat-icon>&nbsp;{{'navigation.meteo' | translate}}</button>
   </mat-menu>
-
-  <mat-menu #devices>
-    <a mat-menu-item [routerLink]="['/devices']"><img src="./assets/icons/icon-devices.png" alt="Icon Devices"
-        width="25" />&nbsp;{{'navigation.devices' | translate}}</a>    
-  </mat-menu>
+ 
 
   <mat-menu #meteo>
     <a mat-menu-item [routerLink]="['/meteo']"><img src="./assets/icons/icon-meteo.png" alt="icon station météo"

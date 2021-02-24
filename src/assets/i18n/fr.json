@@ -227,7 +227,8 @@
         "password-required": "Password requis",
         "bad-credentials": "Login ou mot de passe invalides",
         "already-authenticated": "Vous êtes déjà authentifié !",
-        "redirected-message": "You allez être redirigé vers l'accueil"
+        "redirected-message": "You allez être redirigé vers l'accueil",
+        "your-profile":"Votre profil"
     },
     "error":{
         "http-error":"Requête HTTP invalide"

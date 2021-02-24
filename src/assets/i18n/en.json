@@ -235,7 +235,8 @@
         "password-required": "Password required",
         "bad-credentials": "Invalid login or password",
         "already-authenticated": "You are already authenticated",
-        "redirected-message": "You will be redirected in few secondes"
+        "redirected-message": "You will be redirected in few secondes",
+        "your-profile":"Your profile"
     },
     "error":{
         "http-error":"Http request invalid"

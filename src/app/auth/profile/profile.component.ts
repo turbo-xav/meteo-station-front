@@ -9,7 +9,7 @@ import { User } from 'src/app/generic/interfaces/user';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor( private readonly authService: AuthService ) { }
+  constructor( private readonly authService: AuthService ){}
 
   ngOnInit(): void {
   }
