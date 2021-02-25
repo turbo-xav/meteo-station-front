@@ -16,6 +16,11 @@
         <th mat-header-cell *matHeaderCellDef> {{'device.state' | translate}} </th>
         <td mat-cell *matCellDef="let device"><img src="{{device.connection.active ? '/assets/icons/icon-valid.png' : '/assets/icons/icon-invalid.png'}}" width="25" height="25" /> </td>
     </ng-container>
+
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef> {{'device.time' | translate}} </th>
+      <td mat-cell *matCellDef="let device">{{device.connection.ts | date: 'dd/MM/yyyy HH:mm'}}</td>
+  </ng-container>
   
     
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

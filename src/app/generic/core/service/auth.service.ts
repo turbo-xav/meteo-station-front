@@ -80,7 +80,7 @@ export class AuthService {
     sessionStorage.setItem('token', token);
   }
 
-  private getToken(): string | null {
+  public getToken(): string | null {
     return sessionStorage.getItem('token');
   }
 

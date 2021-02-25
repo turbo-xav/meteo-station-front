@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DevicesService } from '../generic/core/service/devices.service';
 import { Device } from '../generic/interfaces/device';
 import { DeviceDetailComponent } from './device-detail/device-detail.component';
 
@@ -11,36 +12,41 @@ import { DeviceDetailComponent } from './device-detail/device-detail.component';
 })
 export class DevicesComponent implements OnInit {
 
-  displayedColumns: string[] = ['device', 'description' , 'state'];
+  displayedColumns: string[] = ['device', 'description' , 'state', 'time'];
 
   devices: Device[] = [];
 
-  constructor(public dialog: MatDialog) {
-
+  constructor(
+    private readonly deviceService: DevicesService,
+    public dialog: MatDialog) {
   }
 
   openDialog(device: Device): void {
-    const dialogRef = this.dialog.open(DeviceDetailComponent, {
-      width: '250px',
-      data: device
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+
+    this.deviceService.getDevice().subscribe(
+      (deviceLoaded: Device) => {
+        const dialogRef = this.dialog.open(DeviceDetailComponent, {
+          width: '355px',
+          data: deviceLoaded
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+        });
+      }
+    );
+
+
+
+
   }
 
   ngOnInit(): void {
-    for (let i = 0; i < 5; i++) {
-      this.devices.push({
-        device: 'meteo',
-        description: 'description',
-        connection: {
-          active: true,
-          ts: 1000
-        }
-      });
-    }
+    this.deviceService.getDevices().subscribe(
+      (devices: Device[]) => {
+        this.devices = devices;
+      }
+    );
   }
 
 }

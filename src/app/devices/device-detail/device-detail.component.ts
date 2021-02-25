@@ -1,25 +1,29 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DevicesService } from 'src/app/generic/core/service/devices.service';
 import { Device } from 'src/app/generic/interfaces/device';
-import { DeviceStats } from 'src/app/generic/interfaces/device-stats';
+
+export interface Section {
+  name: string;
+  updated: Date;
+}
+
+
 @Component({
   selector: 'app-device-detail',
   templateUrl: './device-detail.component.html',
-  styleUrls: ['./device-detail.component.scss']
+  styleUrls: ['./device-detail.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DeviceDetailComponent implements OnInit {
 
-  deviceStats: DeviceStats = {
-    connected: false,
-    connected_ts: 1211411411455,
-    ip_address: '192.168.1.2',
-    rx_bytes: 188000,
-    tx_bytes: 50000
-  };
+  device?: Device;
 
-  constructor(public dialogRef: MatDialogRef<DeviceDetailComponent>, @Inject(MAT_DIALOG_DATA) public data: Device) { }
+  constructor(@Inject(MAT_DIALOG_DATA) private readonly data: Device) {
+
+  }
 
   ngOnInit(): void {
-
+    this.device = this.data;
   }
 }

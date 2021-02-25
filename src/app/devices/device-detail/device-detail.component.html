@@ -1,19 +1,84 @@
-<div class="wrapped">
-  <h2 mat-dialog-title>{{data.device}}</h2>
 
+<div class="wrapped" *ngIf="device !== undefined">
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="device.description" >Close</button>
+  </div>
+  
+  <h2 mat-dialog-title>{{device.device}}</h2>
+  
   <p>
-    <img src="{{deviceStats.connected ? '/assets/icons/icon-valid.png' : '/assets/icons/icon-invalid.png'}}" width="25"
-      height="25" />
-    {{deviceStats.connected ? 'device.detail.title' : 'device.detail.no-detail' | translate}}
+    <img src="{{device.connection.active ? '/assets/icons/icon-valid.png' : '/assets/icons/icon-invalid.png'}}"
+      width="25" height="25" />
+    {{(device.connection.active === true ? 'device.detail.title' : 'device.detail.no-detail') | translate}}
   </p>
 
-  <ul>
-    <li>{{'device.detail.connected_ts' | translate}}: {{deviceStats.connected_ts | date: 'dd/MM/yyyy HH:mm:ss'}}</li>
-    <li>{{'device.detail.ip_address' | translate}} : {{deviceStats.ip_address}}</li>
-    <li>{{'device.detail.rx_bytes' | translate}} : {{deviceStats.rx_bytes}}</li>
-    <li>{{'device.detail.tx_bytes' | translate}} : {{deviceStats.tx_bytes}}</li>
-  </ul>
+  <mat-list>
+    <div mat-subheader>
+      <div>{{'device.detail.location' | translate}} :</div>
+    </div>
+
+    <mat-list-item>
+      <mat-icon mat-list-icon>location_on</mat-icon>
+      <div mat-line>
+        <div>
+          <a href="{{device.connection.location.googleMapsLink}}" target="_blank">{{'device.detail.google' | translate}}</a>
+        </div>
+      </div>
+    </mat-list-item>
+
+    <mat-list-item>
+     
+      <mat-icon mat-list-icon>travel_explore</mat-icon>
+      <div mat-line>
+        <div>{{'device.detail.country' | translate}}</div>
+        <div>{{device.connection.location.country}}</div>
+      </div>
+    
+      
+      <div mat-line class="infos">
+        <div>{{'device.detail.lat' | translate}}</div>
+        <div>{{device.connection.location.lat}}</div>
+      </div>
+
+      <div mat-line>
+        <div>{{'device.detail.lon' | translate}}</div>
+        <div> {{device.connection.location.lon}}</div>
+      </div>
+    </mat-list-item>
+    
+    <mat-divider></mat-divider>
+
+    <div mat-subheader>
+      <div>{{'device.detail.stats' | translate}}</div>      
+    </div>
+
+    <mat-list-item>
+      <mat-icon mat-list-icon>network_wifi</mat-icon>
+      
+      <div mat-line>
+        <div>{{'device.detail.connected_ts' | translate}}</div>
+        <div>{{device.connection.ts | date: 'dd/MM/yyyy HH:mm'}}</div>
+      </div>
+      
+      <div mat-line>
+        <div>{{'device.detail.ip_address' | translate}}</div>
+        <div>{{device.connection.ip}}</div>
+      </div>
+    
+      <div mat-line>
+        <div>{{'device.detail.rx_bytes' | translate}}</div>
+        <div>{{device.connection.rx_bytes}} {{'device.detail.bytes' | translate}}</div>
+      </div>
+      <div mat-line>
+        <div>{{'device.detail.tx_bytes' | translate}}</div>
+        <div>{{device.connection.tx_bytes}} {{'device.detail.bytes' | translate}}</div>
+      </div>
+    </mat-list-item>
+
+  </mat-list>
+
   <div mat-dialog-actions>
-    <button mat-button [mat-dialog-close]="data.description" cdkFocusInitial>Close</button>
+    <button mat-button [mat-dialog-close]="device.description">Close</button>
   </div>
+
 </div>

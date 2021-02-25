@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { AuthInterceptor } from './interceptors/auth-interceptor';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader  {
@@ -34,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader  {
         provide: MAT_DIALOG_DATA,
         useValue: {}
 
-      }
+      },
+      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ]
 })
 export class CoreModule { }

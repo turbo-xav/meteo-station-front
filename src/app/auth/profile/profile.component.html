@@ -1,19 +1,21 @@
 <ng-container *ngIf="user !== null">
     <mat-card>
         <mat-card-header>
-            <mat-card-title>{{'auth.your-profile' | translate}}</mat-card-title>            
-        </mat-card-header>        
+            <mat-card-title>{{'auth.your-profile' | translate}}</mat-card-title>
+        </mat-card-header>
         <mat-card-content>
             <div class="box">
                 <img src="{{user.picture}}" width="80" />
                 <div>
                     <p>{{user.firstname}}&nbsp;{{user.lastname}}</p>
-                    <a mat-flat-button href="mailto:{{user.email}}"><mat-icon>mail</mat-icon> {{user.email}}</a>        
+                    <a mat-flat-button href="mailto:{{user.email}}">
+                        <mat-icon>mail</mat-icon>&nbsp;{{user.email}}
+                    </a>
                 </div>
             </div>
         </mat-card-content>
         <mat-card-footer>
-            
+
         </mat-card-footer>
-        </mat-card> 
+    </mat-card>
 </ng-container>

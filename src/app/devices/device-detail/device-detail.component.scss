@@ -1,1 +1,11 @@
-  
+.mat-list-base .mat-list-item div.mat-list-text .mat-line {
+  display: flex;  
+  font-size: x-small;
+  div {
+    width:50%;
+  }
+}
+
+div.wrapped .mat-list-base .mat-list-item .mat-list-icon {
+  width:15px;
+}
