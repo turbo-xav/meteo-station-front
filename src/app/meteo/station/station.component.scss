@@ -1,0 +1,17 @@
+mat-list {
+    padding:10px;
+}
+.box {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    
+    img{
+        border-radius:12px;
+        margin: 0px 50px 10px 20px;
+    }
+}
+
+.mat-list-base .mat-list-item {
+    height:60px;
+}

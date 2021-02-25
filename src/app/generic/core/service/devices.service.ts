@@ -11,21 +11,20 @@ import { DeviceStats } from '../../interfaces/device-stats';
 })
 export class DevicesService {
 
-  private urlApi = '';
+  private apiUrl = '';
 
   constructor(private readonly http: HttpClient) {
-    console.log(environment.api.url);
-    this.urlApi = environment.api.url !== undefined ? environment.api.url : this.urlApi;
+    this.apiUrl = environment.api.url !== undefined ? environment.api.url : this.apiUrl;
   }
 
   public getDevices(): Observable<Device[]> {
-    return this.http.get<Device[]>(`${this.urlApi}/station/devices`).pipe();
+    return this.http.get<Device[]>(`${this.apiUrl}/station/devices`).pipe();
   }
 
   public getDevice(): Observable<Device> {
-    return this.http.get<Device>(`${this.urlApi}/station/device`).pipe(
+    return this.http.get<Device>(`${this.apiUrl}/station/device`).pipe(
       flatMap((device: Device) => {
-        return this.http.get<DeviceStats>(`${this.urlApi}/station/device/stats`).pipe(
+        return this.http.get<DeviceStats>(`${this.apiUrl}/station/device/stats`).pipe(
           map((stats: DeviceStats) => {
             if (device.connection !== undefined) {
               device.connection.rx_bytes = stats.rx_bytes;

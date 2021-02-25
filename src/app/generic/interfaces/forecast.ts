@@ -111,12 +111,12 @@ export class Forecast {
     tmin: number;
     tmax: number;
 
-    public constructor(weather: number, temp2m: number, tmin: number, tmax: number, datetime?: string) {
-        this.weather = weather;
-        this.temp2m = temp2m;
-        this.tmin = tmin;
-        this.tmax = tmax;
-        this.datetime = datetime ? datetime : '';
+    public constructor(forecast: Forecast) {
+        this.weather = forecast.weather;
+        this.temp2m = forecast.temp2m;
+        this.tmin = forecast.tmin;
+        this.tmax = forecast.tmax;
+        this.datetime = forecast.datetime !== undefined ? forecast.datetime : '';
     }
 
     public get icon(): string {

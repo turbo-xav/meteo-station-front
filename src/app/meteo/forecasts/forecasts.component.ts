@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Meteo } from 'src/app/generic/interfaces/meteo';
 import { Forecast } from 'src/app/generic/interfaces/forecast';
 import { Ephemeride } from 'src/app/generic/interfaces/ephemeride';
+import { MeteoService } from 'src/app/generic/core/service/meteo.service';
 
 
 @Component({
@@ -17,9 +18,11 @@ export class ForecastsComponent implements OnInit {
   swipeCoord: [number, number] = [0, 0];
   swipeTime?: number;
 
-  constructor() {
+  constructor(
+    private readonly meteoService: MeteoService
+  ) {
 
-    let date = new Date();
+    /*let date = new Date();
 
     this.meteoToday = new Meteo(new Forecast(3, 25, 12, 22, date.toDateString()), new Ephemeride('06:30', '19:55'));
     this.meteoForecasts.push(this.meteoToday);
@@ -28,14 +31,19 @@ export class ForecastsComponent implements OnInit {
 
       this.meteoForecasts.push(
         new Meteo(new Forecast(1, 15, 15, 23, date.toDateString()), new Ephemeride('06:30', '19:55')));
-    }
+    }*/
   }
 
   ngOnInit(): void {
-  }
+
+    this.meteoService.getForecasts().subscribe(
+      (meteos: Meteo[]) => {
+        this.meteoForecasts = meteos;
+      });
+    }
 
   swipe(e: Event, when: string): void {
-    if (e instanceof TouchEvent) {
+      if(e instanceof TouchEvent) {
       const coord: [number, number] = [e.changedTouches[0].clientX, e.changedTouches[0].clientY];
       this.moveTab(coord, when);
     }else if (e instanceof MouseEvent) {
@@ -55,12 +63,12 @@ export class ForecastsComponent implements OnInit {
     } else if (when === 'end') {
       const direction = [coord[0] - this.swipeCoord[0], coord[1] - this.swipeCoord[1]];
       const duration = time - (this.swipeTime ? this.swipeTime : time);
-      if (duration < 1000 && Math.abs(direction[0]) > 30  && Math.abs(direction[0]) > Math.abs(direction[1] * 3)) {
+      if (duration < 1000 && Math.abs(direction[0]) > 30 && Math.abs(direction[0]) > Math.abs(direction[1] * 3)) {
         const swipe = direction[0] < 0 ? 'next' : 'previous';
         if (swipe === 'next') {
-            this.selectedTab = isLast ? this.meteoForecasts.length - 1 : ( isFirst ? 1 : this.selectedTab + 1 );
+          this.selectedTab = isLast ? this.meteoForecasts.length - 1 : (isFirst ? 1 : this.selectedTab + 1);
         } else if (swipe === 'previous') {
-          this.selectedTab = isLast ? this.meteoForecasts.length - 2 : ( isFirst ? 0 : this.selectedTab - 1 );
+          this.selectedTab = isLast ? this.meteoForecasts.length - 2 : (isFirst ? 0 : this.selectedTab - 1);
         }
       }
     }
