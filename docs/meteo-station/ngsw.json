@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1614274146236,
+  "timestamp": 1614330345355,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -11,16 +11,16 @@
         "ignoreVary": true
       },
       "urls": [
-        "./4.c21f00ed9b46150cd9e4.js",
-        "./5.4460ba416a341c429e7f.js",
-        "./6.98742f96481447b6d82c.js",
-        "./7.f3c830ea5c35b7a38391.js",
+        "./auth-auth-module.9af3eca80491f9725a63.js",
+        "./devices-devices-module.d82b4d0ca7956ec87343.js",
         "./favicon.ico",
+        "./home-home-module.4c77afd0e8a691b83569.js",
         "./index.html",
-        "./main.c01c040788d774057a3f.js",
+        "./main.bff5ae623ac10e21343c.js",
         "./manifest.webmanifest",
-        "./polyfills.245b4e7d06552a17db95.js",
-        "./runtime.df5d1644c350b06b782f.js",
+        "./meteo-meteo-module.4d867faf132fc27cf7c3.js",
+        "./polyfills.4233ecf8db12b8a2ff26.js",
+        "./runtime.eb8f2014c13683f2661b.js",
         "./styles.e17e6fe82d4c0a668960.css"
       ],
       "patterns": []
@@ -194,10 +194,6 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "./4.c21f00ed9b46150cd9e4.js": "7f23e7080df99cd2a08490fc084cfb49f10cb5cf",
-    "./5.4460ba416a341c429e7f.js": "9da301aa1bc08953246174b668c3bb9cf87bc382",
-    "./6.98742f96481447b6d82c.js": "b601ec68eafcdef4568b9461cd7401702da47d4b",
-    "./7.f3c830ea5c35b7a38391.js": "ff623d3670b6d10163c2ba095b3460b9e498051c",
     "./assets/i18n/en.json": "4598a80f68846f70394c5555bc2244ab3cdf1e7d",
     "./assets/i18n/fr.json": "253636b328580baf4efdcad829c0ef6a99a4146a",
     "./assets/icons/icon-128x128.png": "e7c21aaa82fe91d4147d0496e76afaf7a4d158ba",
@@ -353,12 +349,16 @@
     "./assets/img/statistics.png": "a5facf4a11aba3561d402b656dd8bd31e0b289e8",
     "./assets/img/thermometre.png": "92acb8c0d7e93ae3cb67f760c22cd4b909fc8b1a",
     "./assets/img/water-heater.png": "ace8d54759d25ca04b0e72fcc1b79639f1060b9a",
+    "./auth-auth-module.9af3eca80491f9725a63.js": "e48ca7f4fb95056434a1f5e2988ad30ad25fc1fb",
+    "./devices-devices-module.d82b4d0ca7956ec87343.js": "ba9f129ee09af44b79435a7f140297dac1ffbeb9",
     "./favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "./index.html": "617725a47d483460dffd8fd802a58a9ce0853f84",
-    "./main.c01c040788d774057a3f.js": "e3b012c24049248648dac3ed988597b47800b6bf",
+    "./home-home-module.4c77afd0e8a691b83569.js": "d64a10b7f0ab91e69eded7c62c236ec5ed1e7e25",
+    "./index.html": "44b0a07ddf31ddded6e1f281be7287e7798021bd",
+    "./main.bff5ae623ac10e21343c.js": "5c03d30b1d54337527caa13c08b9e6d053eb5302",
     "./manifest.webmanifest": "f4f7c74226ca9f09c804349a715ac61427b373df",
-    "./polyfills.245b4e7d06552a17db95.js": "f888b31e000d9b05c8c3fef19c325d813f2b7e1b",
-    "./runtime.df5d1644c350b06b782f.js": "1f74595f021371bbd8927fd86fcbea30324fbb5f",
+    "./meteo-meteo-module.4d867faf132fc27cf7c3.js": "695a17919b9d2eae5e7a269e2de9ce801be53eef",
+    "./polyfills.4233ecf8db12b8a2ff26.js": "e40792620a9b8abdea6eb6bc0026888321fa7bc3",
+    "./runtime.eb8f2014c13683f2661b.js": "f446588e1c4ec3c1f3fde865b80ef00cbb2ecebf",
     "./styles.e17e6fe82d4c0a668960.css": "f0cde45b6a9181b54d3f45a3dff236a558c8afb9"
   },
   "navigationUrls": [

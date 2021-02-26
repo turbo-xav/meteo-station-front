@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { interval } from 'rxjs';
+import { interval, Subscription } from 'rxjs';
 import { MeteoStats } from 'src/app/generic/interfaces/meteo-stats';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -66,37 +66,23 @@ export class GraphComponent implements OnInit {
   width = 0;
   height = 0;
 
+  private drawingSubscription?: Subscription;
+
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(): void {
+    this.height = 0.8 * window.innerHeight;
+    this.width = 0.8 * window.innerWidth;
+  }
+
   constructor(
-    private readonly translateService: TranslateService,
-    private readonly breakpointObserver: BreakpointObserver
+    private readonly translateService: TranslateService
   ) {
-
-    this.breakpointObserver.observe([
-      Breakpoints.HandsetPortrait,
-      Breakpoints.WebPortrait,
-      Breakpoints.TabletPortrait,
-
-    ]).subscribe(result => {
-      if (result.matches) {
-        this.resizePortrait();
-      }
-    });
-
-    this.breakpointObserver.observe([
-      Breakpoints.HandsetLandscape,
-      Breakpoints.WebLandscape,
-      Breakpoints.TabletLandscape,
-
-    ]).subscribe(result => {
-      if (result.matches) {
-        this.resizeLandscape();
-      }
-    });
+    this.getScreenSize();
   }
 
   ngOnInit(): void {
     this.drawChart();
-    interval(500).subscribe(
+    this.drawingSubscription =  interval(250).subscribe(
       () => {
         this.drawChart();
       });
@@ -113,19 +99,6 @@ export class GraphComponent implements OnInit {
 
   public get windowHeight(): number {
     return window.innerHeight;
-  }
-
-  private resize(width?: number, height?: number): void {
-    this.width = !!width ? width : this.windowWidth * 0.9;
-    this.height = !!height ? height : this.windowHeight * 1.1;
-  }
-
-  private resizePortrait(): void {
-    this.resize(this.windowWidth * 0.9, this.windowHeight * 0.7);
-  }
-
-  private resizeLandscape(): void {
-    this.resize(this.windowWidth * 0.9, this.windowHeight * 0.6);
   }
 
   public drawChart(): void {
@@ -194,5 +167,9 @@ export class GraphComponent implements OnInit {
     return Number((timePaste - timeFuture).toFixed(0));
   }
 
-
+  ngOnDestroy(): void {
+    if(this.drawingSubscription !== undefined) {
+      this.drawingSubscription.unsubscribe();
+    }
+  }
 }
