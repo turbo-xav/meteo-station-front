@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Ephemeride } from '../../interfaces/ephemeride';
 import { Forecast } from '../../interfaces/forecast';
@@ -20,13 +20,13 @@ export class MeteoService {
 
   public getForecasts(): Observable<Meteo[]> {
     return this.http.get<Forecast[]>(`${this.apiUrl}/meteo/forecasts/vitry-sur-seine`).pipe(
-      flatMap(
+      mergeMap(
         (forecasts: Forecast[]) => {
 
           const meteos: Meteo[] = []
 
           this.http.get<Ephemeride[]>(`${this.apiUrl}/meteo/ephemerides/vitry-sur-seine`).subscribe(
-            (ephemerides: Ephemeride[]) => {              
+            (ephemerides: Ephemeride[]) => {
               forecasts.forEach((forecast: Forecast, index: number) => {
                 meteos.push(new Meteo(new Forecast(forecast), new Ephemeride(ephemerides[index])));
               });

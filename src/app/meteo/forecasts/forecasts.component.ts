@@ -22,24 +22,38 @@ export class ForecastsComponent implements OnInit {
     private readonly meteoService: MeteoService
   ) {
 
-    /*let date = new Date();
+    let date = new Date();
 
-    this.meteoToday = new Meteo(new Forecast(3, 25, 12, 22, date.toDateString()), new Ephemeride('06:30', '19:55'));
+    this.meteoToday = new Meteo(new Forecast(
+      {
+        datetime:date.toDateString(),
+        weather:3,
+        temp2m:25,
+        tmin: 12,
+        tmax:22
+      } as Forecast), new Ephemeride({sunrise:'06:30', sunset:'19:55'}));
     this.meteoForecasts.push(this.meteoToday);
     for (let i = 0; i <= 14; i++) {
       date = new Date(date.getTime() + 86400000);
 
       this.meteoForecasts.push(
-        new Meteo(new Forecast(1, 15, 15, 23, date.toDateString()), new Ephemeride('06:30', '19:55')));
-    }*/
+        new Meteo(new Forecast(
+          {
+            datetime:date.toDateString(),
+            weather:3,
+            temp2m:25,
+            tmin: 12,
+            tmax:22
+          } as Forecast), new Ephemeride({sunrise:'06:30', sunset:'19:55'})));
+    }
   }
 
   ngOnInit(): void {
 
-    this.meteoService.getForecasts().subscribe(
+    /*this.meteoService.getForecasts().subscribe(
       (meteos: Meteo[]) => {
         this.meteoForecasts = meteos;
-      });
+      });*/
     }
 
   swipe(e: Event, when: string): void {

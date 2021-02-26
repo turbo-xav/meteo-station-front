@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Device } from '../../interfaces/device';
-import { flatMap, map } from 'rxjs/operators';
+import { mergeMap, map } from 'rxjs/operators';
 import { DeviceStats } from '../../interfaces/device-stats';
 
 @Injectable({
@@ -23,7 +23,7 @@ export class DevicesService {
 
   public getDevice(): Observable<Device> {
     return this.http.get<Device>(`${this.apiUrl}/station/device`).pipe(
-      flatMap((device: Device) => {
+      mergeMap((device: Device) => {
         return this.http.get<DeviceStats>(`${this.apiUrl}/station/device/stats`).pipe(
           map((stats: DeviceStats) => {
             if (device.connection !== undefined) {

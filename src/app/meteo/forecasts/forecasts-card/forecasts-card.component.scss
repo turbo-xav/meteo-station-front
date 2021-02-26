@@ -2,14 +2,15 @@ $color:rgba(245, 253, 207, 0.08);
 $colorOp : rgba($color, 0.5);
 
 div.card {
-  display:flex;
-  align-items: center;
-  justify-content: center;  
+  display:flex;  
+  flex-direction:column;
+  align-items: center; 
 
 }
 
 div.box {
   width: 90%;
+  margin:0 10% 0 10%;
 }
 
 .header-image {
@@ -30,33 +31,25 @@ mat-card {
   padding-bottom:5px;
   max-width: 100%;   
   background-color:$color;  
-
-  p{
-    font-size:1.2em;
-  }
- 
+  font-size:1.2em;
   mat-card-title {
     font-size:1.1em;
   }
 
-  mat-card-subtitle{
-    display:flex;  
-    align-items: center;
-    justify-content: flex-end;
-    font-size:1.1em;
+  .mat-card-header-text {
+    
+    width:100%;
+    
+    .mat-card-subtitle, .mat-card-title{
+      display:flex;  
+      flex-direction:column;
+      align-items: center;      
+    }    
   }
 
-  mat-card-content {
-    p{
-      display:flex;
-      justify-content: flex-start;
-      align-items: center;
-
-      
-    }
-    
-    p.temperature{
-      align-items: center;  
-    }   
-  }  
+  .mat-card-content{
+    display:flex;  
+    flex-direction:column;
+    align-items: center; 
+  }
 }
