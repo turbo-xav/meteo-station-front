@@ -23,7 +23,6 @@ export class StatsComponent implements OnInit {
   }
 
   reload(): void{
-    console.log(this.typeStats);
     const meteoStatsSubscription = this.typeStats === 'daily' ? this.statsService.getStatsDaily() : this.statsService.getStatsRealTime();
     meteoStatsSubscription.subscribe(
       (meteoStats: MeteoStats[]) => {
@@ -31,20 +30,5 @@ export class StatsComponent implements OnInit {
         this.meteoStats = meteoStats;
       }
     );
-    /*this.meteoStats = [];
-    for (let i = 0 ; i < 45 ; i++ ) {
-      console.log('change');
-      const humidity = Math.floor(Math.random() * 50);
-      const pressure = Math.floor(Math.random() * 1050);
-      const temperature = Math.floor(Math.random() * 25);
-
-      this.meteoStats.push(
-        new MeteoStats(
-          new Date().getTime() - 86400000 * i  ,
-          new MeteoData(humidity, pressure, temperature)
-          )
-      );
-    }*/
-   
   }
 }

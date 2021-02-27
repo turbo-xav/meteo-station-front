@@ -23,7 +23,7 @@ export class MeteoService {
       mergeMap(
         (forecasts: Forecast[]) => {
 
-          const meteos: Meteo[] = []
+          const meteos: Meteo[] = [];
 
           this.http.get<Ephemeride[]>(`${this.apiUrl}/meteo/ephemerides/vitry-sur-seine`).subscribe(
             (ephemerides: Ephemeride[]) => {

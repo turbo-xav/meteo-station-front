@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 import { StationService } from 'src/app/generic/core/service/station.service';
+import { Measurement } from 'src/app/generic/interfaces/mesurement';
 import { SwitchState } from 'src/app/generic/interfaces/switch-state';
 
 @Component({
@@ -13,70 +14,121 @@ export class StationComponent implements OnInit, OnDestroy {
   heaterIsOn = false;
   ledIsOn = false;
   screenIsOn = false;
+  measurement?: Measurement;
 
-  private subscription: Subscription;
+  private stationsubscription?: Subscription;
+  private measurementsSubscription?: Subscription;
 
   constructor(
     private readonly stationService: StationService
-  ) { 
-    this.subscription = interval(1000).subscribe(
-      () => {
-        console.log('1');
-        this.stationService.getState('led').subscribe(
-          (switchState: SwitchState) => {
-            this.ledIsOn = switchState.state === 'ON';
-          }
-        );
-        this.stationService.getState('screen').subscribe(
-          (switchState: SwitchState) => {
-            this.screenIsOn = switchState.state === 'ON';
-          }
-        );
-        this.stationService.getState('heater').subscribe(
-          (switchState: SwitchState) => {
-            this.heaterIsOn = switchState.state === 'ON';
-          }
-        );
-      }
-    );
+  ) {
+
   }
 
   ngOnInit(): void {
+    this.checkAll();
   }
 
-  toggleHeater(): void{
-    const switchState: SwitchState = { state : this.heaterIsOn ? 'OFF' : 'ON' };
+  checkAll(): void {
+    // Immediately state
+    this.checkAllMeasurements();
+    this.checkAllStates();
+
+    // Ineval checking
+    this.checkMeasurements();
+    this.checkStates();
+  }
+
+  checkMeasurements(): void {
+    this.destroyMesureSubscription();
+    this.measurementsSubscription = interval(1000).subscribe(
+      () => {
+       this.checkAllMeasurements();
+      }
+    );
+  }
+
+  checkAllMeasurements(): void {
+    this.stationService.getMeasurement().subscribe(
+      (measurement: Measurement) => {
+        this.measurement = measurement;
+      }
+    );
+  }
+
+  checkStates(): void {
+    this.detroyStationSubscriptions();
+    this.stationsubscription = interval(3000).subscribe(
+      (ae) => {
+        this.checkAllStates();
+      }
+    );
+  }
+
+  checkAllStates(): void {
+    this.stationService.getState('led').subscribe(
+      (switchState: SwitchState) => {
+        this.ledIsOn = switchState.state === 'ON';
+      }
+    );
+    this.stationService.getState('screen').subscribe(
+      (switchState: SwitchState) => {
+        this.screenIsOn = switchState.state === 'ON';
+      }
+    );
+    this.stationService.getState('heater').subscribe(
+      (switchState: SwitchState) => {
+        this.heaterIsOn = switchState.state === 'ON';
+      }
+    );
+  }
+
+  toggleHeater(): void {
+    const switchState: SwitchState = { state: this.heaterIsOn ? 'OFF' : 'ON' };
     this.stationService.switch('heater', switchState).subscribe(
       () => {
-        this.heaterIsOn = ! this.heaterIsOn;
+        this.checkStates();
+        this.heaterIsOn = !this.heaterIsOn;
       }
     );
-
   }
 
-  toggleLed(): void{
-    const switchState: SwitchState = { state : this.ledIsOn ? 'OFF' : 'ON' };
+  toggleLed(): void {
+    const switchState: SwitchState = { state: this.ledIsOn ? 'OFF' : 'ON' };
     this.stationService.switch('led', switchState).subscribe(
       () => {
-        this.ledIsOn = ! this.ledIsOn;
+        this.checkStates();
+        this.ledIsOn = !this.ledIsOn;
       }
     );
-
   }
 
-  toggleScreen(): void{
-    const switchState: SwitchState = { state : this.screenIsOn ? 'OFF' : 'ON' };
+  toggleScreen(): void {
+    const switchState: SwitchState = { state: this.screenIsOn ? 'OFF' : 'ON' };
     this.stationService.switch('screen', switchState).subscribe(
       () => {
-        this.screenIsOn = ! this.screenIsOn;
+        this.checkStates();
+        this.screenIsOn = !this.screenIsOn;
       }
     );
+  }
+
+  private detroyStationSubscriptions(): void {
+    if (this.stationsubscription) {
+      this.stationsubscription.unsubscribe();
+    }
+  }
+
+  private destroyMesureSubscription(): void {
+
+    if (this.measurementsSubscription) {
+      this.measurementsSubscription.unsubscribe();
+    }
   }
 
   ngOnDestroy(): void {
-    if(this.subscription){
-      this.subscription.unsubscribe();
-    }
+    this.destroyMesureSubscription();
+    this.detroyStationSubscriptions();
   }
 
 

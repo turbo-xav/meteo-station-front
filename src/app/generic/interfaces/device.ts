@@ -10,6 +10,6 @@ export class Device{
         this.description = device.description;
         this.type = device.type;
         this.connection = new Connection(device.connection);
-        
+
     }
 }

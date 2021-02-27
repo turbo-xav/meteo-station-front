@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { interval, Subscription } from 'rxjs';
 import { MeteoStats } from 'src/app/generic/interfaces/meteo-stats';
@@ -11,7 +11,7 @@ import { ChartType } from 'angular-google-charts';
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss']
 })
-export class GraphComponent implements OnInit {
+export class GraphComponent implements OnInit, OnDestroy {
 
 
   @Input() meteoStats?: MeteoStats[];
@@ -70,8 +70,8 @@ export class GraphComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   getScreenSize(): void {
-    this.height = 0.8 * window.innerHeight;
-    this.width = 0.8 * window.innerWidth;
+    this.height = 0.55 * window.innerHeight;
+    this.width = 0.95 * window.innerWidth;
   }
 
   constructor(
@@ -168,7 +168,7 @@ export class GraphComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    if(this.drawingSubscription !== undefined) {
+    if (this.drawingSubscription !== undefined) {
       this.drawingSubscription.unsubscribe();
     }
   }

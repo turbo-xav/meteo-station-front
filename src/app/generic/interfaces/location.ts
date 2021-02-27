@@ -6,7 +6,7 @@ export class Location {
     lon = 0;
 
     constructor(location?: Location){
-        if(location !== undefined) {
+        if (location !== undefined) {
             this.country = location.country;
             this.country_code = location.country_code;
             this.lat = location.lat;
@@ -15,7 +15,7 @@ export class Location {
     }
 
     get googleMapsLink(): string | undefined{
-        if(this.lon && this.lat) {
+        if (this.lon && this.lat) {
             return `http://www.google.com/maps/place/${this.lat},${this.lon}`;
         }
         return;

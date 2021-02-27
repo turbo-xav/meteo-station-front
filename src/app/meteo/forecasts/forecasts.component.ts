@@ -22,7 +22,7 @@ export class ForecastsComponent implements OnInit {
     private readonly meteoService: MeteoService
   ) {
 
-    let date = new Date();
+    /*let date = new Date();
 
     this.meteoToday = new Meteo(new Forecast(
       {
@@ -45,19 +45,19 @@ export class ForecastsComponent implements OnInit {
             tmin: 12,
             tmax:22
           } as Forecast), new Ephemeride({sunrise:'06:30', sunset:'19:55'})));
-    }
+    }*/
   }
 
   ngOnInit(): void {
 
-    /*this.meteoService.getForecasts().subscribe(
+    this.meteoService.getForecasts().subscribe(
       (meteos: Meteo[]) => {
         this.meteoForecasts = meteos;
-      });*/
+      });
     }
 
   swipe(e: Event, when: string): void {
-      if(e instanceof TouchEvent) {
+      if (e instanceof TouchEvent) {
       const coord: [number, number] = [e.changedTouches[0].clientX, e.changedTouches[0].clientY];
       this.moveTab(coord, when);
     }else if (e instanceof MouseEvent) {

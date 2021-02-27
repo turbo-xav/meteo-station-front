@@ -1,42 +1,94 @@
 <h2>Station de commande Météo</h2>
-
-
-<mat-list>
-    
-    <div mat-subheader><h3>Chauffage</h3></div>
-    <mat-list-item>
-      <div class="box">
-        <img src="/assets/img/water-heater.png" width="50" alt="{{'heater.on' | translate}}" />         <div>
-          <mat-slide-toggle [checked]="heaterIsOn" (change)="toggleHeater()" [color]="'warn'">{{'heater.' + (heaterIsOn ? 'on' : 'off') | translate}}</mat-slide-toggle>
-        </div>
+<div id="station">
+  <div id="command">
+    <h3>Commande</h3>
+    <mat-list>
+      <div mat-subheader>
+        <h4>{{'heater.heater' | translate}}</h4>
       </div>
-    </mat-list-item>
-
-    <mat-divider ></mat-divider>
-    
-    <div mat-subheader><h3>Led</h3></div>
-    <mat-list-item>
-      <div class="box">
-        <img src="/assets/img/red-led-switched-on.png" width="50" alt="{{('led.on' | lowercase) | translate}}" /> 
-        <div>
-          <mat-slide-toggle [color]="'warn'" [checked]="ledIsOn" (change)="toggleLed()">{{'led.' + (ledIsOn ? 'on' : 'off') | translate}}</mat-slide-toggle>
+      <mat-list-item>
+        <div class="box">
+          <img src="/assets/img/water-heater.png" alt="{{'heater.' + (heaterIsOn ? 'on' : 'off') | translate}}" />
+          <div>
+            <mat-slide-toggle [checked]="heaterIsOn" (change)="toggleHeater()" [color]="'warn'">{{'heater.' +
+              (heaterIsOn ? 'on' : 'off') | translate}}</mat-slide-toggle>
+          </div>
         </div>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+
+      <div mat-subheader>
+        <h4>{{'led.led' | translate}}</h4>
       </div>
-    </mat-list-item>
-
-    <mat-divider></mat-divider>
-
-    <div mat-subheader><h3>Ecran</h3></div>
-    <mat-list-item>
-      <div class="box">
-        <img src="/assets/img/oled.png" width="50" alt="{{'screen.screen' | translate}}" /> 
-        <div>
-          <mat-slide-toggle [color]="'warn'" [checked]="screenIsOn" (change)="toggleScreen()">{{'screen.' + (screenIsOn ? 'on' : 'off') | translate}}</mat-slide-toggle>
-        </div>  
+      <mat-list-item>
+        <div class="box">
+          <img src="/assets/img/red-led-switched-on.png" alt="{{'heater.' + (ledIsOn ? 'on' : 'off') | translate}}" />
+          <div>
+            <mat-slide-toggle [color]="'warn'" [checked]="ledIsOn" (change)="toggleLed()">{{'led.' + (ledIsOn ? 'on' :
+              'off') | translate}}</mat-slide-toggle>
+          </div>
         </div>
-      
-       
-    </mat-list-item>
-    
-    
-  </mat-list>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+
+      <div mat-subheader>
+        <h4>{{'screen.screen' | translate}}</h4>
+      </div>
+      <mat-list-item>
+        <div class="box">
+          <img src="/assets/img/oled.png" alt="{{'heater.' + (screenIsOn ? 'on' : 'off') | translate}}" />
+          <div>
+            <mat-slide-toggle [color]="'warn'" [checked]="screenIsOn" (change)="toggleScreen()">{{'screen.' +
+              (screenIsOn ? 'on' : 'off') | translate}}</mat-slide-toggle>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div id="measurments" *ngIf="measurement !== undefined">
+    <h3>Mesures</h3>
+    <mat-list>
+      <div mat-subheader>
+        <h4>{{'meteo-station.temperature' | translate}}</h4>
+      </div>
+      <mat-list-item>
+        <div class="box">
+          <img src="/assets/icons/thermometre.png" alt="{{'heater.on' | translate}}" />
+          <div>
+            {{measurement.temperature | number:'1.1-2':'fr'}} °C
+          </div>
+        </div>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+
+      <div mat-subheader>
+        <h4>{{'meteo-station.pressure' | translate}}</h4>
+      </div>
+      <mat-list-item>
+        <div class="box">
+          <img src="/assets/icons/pressure.png" alt="{{('led.on' | lowercase) | translate}}" />
+          <div>
+            {{measurement.pressure | number:'1.1-2':'fr'}} hPa
+          </div>
+        </div>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+
+      <div mat-subheader>
+        <h4><h4>{{'meteo-station.humidity' | translate}}</h4></h4>
+      </div>
+      <mat-list-item>
+        <div class="box">
+          <img src="/assets/icons/humidity.png" alt="{{'screen.screen' | translate}}" />
+          <div>
+            {{measurement.humidity | number:'1.1-2':'fr'}} %
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

@@ -66,10 +66,10 @@ export class AuthService {
   isAuthenticated(): boolean {
     let isAuthenticated = false;
     const token = this.getToken();
-    if(token !== null) {
+    if (token !== null) {
       const helper = new JwtHelperService();
       const isExpired = helper.isTokenExpired(token);
-      if(!isExpired){
+      if (!isExpired){
         isAuthenticated = true;
       }
     }
