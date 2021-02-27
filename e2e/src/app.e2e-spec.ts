@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('new-meteo-station-domotique app is running!');
+    expect(page.getTitleText()).toEqual('meteo-station-domotique app is running!');
   });
 
   afterEach(async () => {

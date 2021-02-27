@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "new-meteo-station-domotique": {
+    "meteo-station-domotique": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/new-meteo-station-domotique",
+            "outputPath": "docs/meteo-station",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,18 +73,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "new-meteo-station-domotique:build"       
+            "browserTarget": "meteo-station-domotique:build"       
           },
           "configurations": {
             "production": {
-              "browserTarget": "new-meteo-station-domotique:build:production"              
+              "browserTarget": "meteo-station-domotique:build:production"              
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "new-meteo-station-domotique:build"
+            "browserTarget": "meteo-station-domotique:build"
           }
         },
         "test": {
@@ -120,18 +120,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "new-meteo-station-domotique:serve"
+            "devServerTarget": "meteo-station-domotique:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "new-meteo-station-domotique:serve:production"
+              "devServerTarget": "meteo-station-domotique:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "new-meteo-station-domotique",
+  "defaultProject": "meteo-station-domotique",
   "cli": {
     "analytics": false
   }

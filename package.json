@@ -1,5 +1,5 @@
 {
-    "name": "new-meteo-station-domotique",
+    "name": "meteo-station-domotique",
     "description": "Station Météo connectée",
     "title": "Station Météo",
     "date": "2021-02-26",
@@ -10,7 +10,7 @@
         "start": "ng serve --hmr --open --port=8080",
         "test": "jest --clearCache && jest --ci",
         "prebuild": "ts-node ./deployment/deploy-date.ts",
-        "build": "ng build --prod --baseHref=./ --outputPath=docs/meteo-station",
+        "build": "ng build --prod --baseHref=./",
         "build:stats": "npm run build -- --stats-json && webpack-bundle-analyzer  ./docs/meteo-station/stats.json",
         "deploy": "ts-node ./deployment/deploy.ts",
         "build:open": "npm run build && http-server ./docs/meteo-station -p 8081 -c-1 -o ",
