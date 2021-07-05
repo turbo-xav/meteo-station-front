@@ -36,7 +36,7 @@
     "@auth0/angular-jwt": "^5.0.2",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
-    "angular-google-charts": "^2.0.0",
+    "angular-google-charts": "^2.2.2",
     "readline-sync": "^1.4.10",
     "rxjs": "^6.6.3",
     "tslib": "^2.1.0",
