@@ -5,7 +5,6 @@ import { PackageJsonService, PackageJsonInfos } from '../../core/service/package
 import { ViewEncapsulation } from '@angular/core';
 import { MatSelect } from '@angular/material/select';
 import { AuthService } from 'src/app/generic/core/service/auth.service';
-import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-menu',
@@ -13,7 +12,7 @@ import { User } from '../../interfaces/user';
   styleUrls: ['./menu.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class MenuComponent implements OnInit  {
+export class MenuComponent {
 
   @ViewChild('menuTrigger')
   matMenu?: MatMenuTrigger;
@@ -31,9 +30,6 @@ export class MenuComponent implements OnInit  {
 
     this.selectedLanguage = this.translateService.currentLang;
 
-  }
-
-  ngOnInit(): void {
   }
 
   get authUrl(): string{

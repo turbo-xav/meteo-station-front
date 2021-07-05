@@ -7,12 +7,9 @@ import { User } from 'src/app/generic/interfaces/user';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
 
   constructor( private readonly authService: AuthService ){}
-
-  ngOnInit(): void {
-  }
 
   get user(): User | null {
     return this.authService.infos;

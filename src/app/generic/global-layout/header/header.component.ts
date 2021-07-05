@@ -6,9 +6,8 @@ import { PackageJsonService } from '../../core/service/package-json.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent  {
 
-  ngOnInit(): void {
-  }
+  
 
 }

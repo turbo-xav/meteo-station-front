@@ -14,7 +14,4 @@ export class ForecastsCardComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-  }
-
 }
