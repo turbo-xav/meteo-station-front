@@ -1,5 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -12,7 +11,7 @@ export class AppComponent {
 
   updateHeight(height: number): void {
     if (this.main !== undefined) {
-      this.main.nativeElement.style.marginBottom = height + 5 + 'px';
+      this.main.nativeElement.style.marginBottom = String(height + 5) + 'px';
     }
   }
 

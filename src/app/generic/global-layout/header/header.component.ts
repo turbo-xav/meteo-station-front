@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { PackageJsonService } from '../../core/service/package-json.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',

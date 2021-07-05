@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Meteo } from 'src/app/generic/interfaces/meteo';
-import { Forecast } from 'src/app/generic/interfaces/forecast';
-import { Ephemeride } from 'src/app/generic/interfaces/ephemeride';
 import { MeteoService } from 'src/app/generic/core/service/meteo.service';
 
 @Component({
@@ -16,32 +14,7 @@ export class ForecastsComponent implements OnInit {
   swipeCoord: [number, number] = [0, 0];
   swipeTime?: number;
 
-  constructor(private readonly meteoService: MeteoService) {
-    /*let date = new Date();
-
-    this.meteoToday = new Meteo(new Forecast(
-      {
-        datetime:date.toDateString(),
-        weather:3,
-        temp2m:25,
-        tmin: 12,
-        tmax:22
-      } as Forecast), new Ephemeride({sunrise:'06:30', sunset:'19:55'}));
-    this.meteoForecasts.push(this.meteoToday);
-    for (let i = 0; i <= 14; i++) {
-      date = new Date(date.getTime() + 86400000);
-
-      this.meteoForecasts.push(
-        new Meteo(new Forecast(
-          {
-            datetime:date.toDateString(),
-            weather:3,
-            temp2m:25,
-            tmin: 12,
-            tmax:22
-          } as Forecast), new Ephemeride({sunrise:'06:30', sunset:'19:55'})));
-    }*/
-  }
+  constructor(private readonly meteoService: MeteoService) {}
 
   ngOnInit(): void {
     this.meteoService.getForecasts().subscribe((meteos: Meteo[]) => {

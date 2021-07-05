@@ -79,8 +79,8 @@ export class AuthService {
     sessionStorage.setItem('token', token);
   }
 
-  public getToken(): string | null {
-    return sessionStorage.getItem('token');
+  public getToken(): string {
+    return sessionStorage.getItem('token') ?? '';
   }
 
   private removeToken(): void {

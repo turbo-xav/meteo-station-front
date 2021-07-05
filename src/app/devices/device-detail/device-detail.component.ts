@@ -1,6 +1,5 @@
-import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DevicesService } from 'src/app/generic/core/service/devices.service';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Device } from 'src/app/generic/interfaces/device';
 
 export interface Section {

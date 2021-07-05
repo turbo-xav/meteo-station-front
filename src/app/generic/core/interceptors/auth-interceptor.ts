@@ -1,5 +1,4 @@
 import {
-  HttpErrorResponse,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
@@ -7,7 +6,7 @@ import {
   HttpResponse
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable} from 'rxjs';
 import { AuthService } from '../service/auth.service';
 
 @Injectable()
@@ -32,7 +31,7 @@ export class AuthInterceptor implements HttpInterceptor {
             subscriber.next(res);
           }
         },
-        (err: HttpErrorResponse) => {
+        () => {
           this.authService.logOut();
         }
       );

@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StatsService } from 'src/app/generic/core/service/stats.service';
-import { MeteoData } from 'src/app/generic/interfaces/meteo-data';
 import { MeteoStats } from 'src/app/generic/interfaces/meteo-stats';
 
 @Component({

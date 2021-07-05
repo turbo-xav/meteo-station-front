@@ -1,8 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
 import { FooterComponent } from './footer.component';
-import { SharedModule } from '../../shared/shared.module';
-import { CoreModule } from '../../core/core.module';
 import { AppModule } from 'src/app/app.module';
 
 describe('FooterComponent', () => {

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
 import { HeaderComponent } from './header.component';
 import { MenuComponent } from '../menu/menu.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';

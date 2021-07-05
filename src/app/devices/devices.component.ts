@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { DevicesService } from '../generic/core/service/devices.service';
 import { Device } from '../generic/interfaces/device';
 import { DeviceDetailComponent } from './device-detail/device-detail.component';
@@ -20,13 +19,13 @@ export class DevicesComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  openDialog(device: Device): void {
+  openDialog(): void {
     this.deviceService.getDevice().subscribe((deviceLoaded: Device) => {
       const dialogRef = this.dialog.open(DeviceDetailComponent, {
         width: '355px',
         data: deviceLoaded
       });
-      dialogRef.afterClosed().subscribe((result) => {
+      dialogRef.afterClosed().subscribe(() => {
         console.log('The dialog was closed');
       });
     });

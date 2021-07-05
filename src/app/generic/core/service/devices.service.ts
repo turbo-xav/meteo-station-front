@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Device } from '../../interfaces/device';
+import { Device } from 'src/app/generic/interfaces/device';
 import { mergeMap, map } from 'rxjs/operators';
-import { DeviceStats } from '../../interfaces/device-stats';
+import { DeviceStats } from 'src/app/generic/interfaces/device-stats';
 
 @Injectable({
   providedIn: 'root'
