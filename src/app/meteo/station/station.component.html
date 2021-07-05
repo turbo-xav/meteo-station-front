@@ -17,8 +17,7 @@
               [checked]="heaterIsOn"
               (change)="toggleHeater()"
               [color]="'warn'"
-              >{{
-                'heater.' + (heaterIsOn ? 'on' : 'off') | translate
+              >{{ 'heater.' + (heaterIsOn ? 'on' : 'off') | translate
               }}</mat-slide-toggle
             >
           </div>
@@ -41,8 +40,7 @@
               [color]="'warn'"
               [checked]="ledIsOn"
               (change)="toggleLed()"
-              >{{
-                'led.' + (ledIsOn ? 'on' : 'off') | translate
+              >{{ 'led.' + (ledIsOn ? 'on' : 'off') | translate
               }}</mat-slide-toggle
             >
           </div>
@@ -65,8 +63,7 @@
               [color]="'warn'"
               [checked]="screenIsOn"
               (change)="toggleScreen()"
-              >{{
-                'screen.' + (screenIsOn ? 'on' : 'off') | translate
+              >{{ 'screen.' + (screenIsOn ? 'on' : 'off') | translate
               }}</mat-slide-toggle
             >
           </div>

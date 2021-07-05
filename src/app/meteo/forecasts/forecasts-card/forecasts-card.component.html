@@ -5,16 +5,10 @@
         <div mat-card-avatar class="header-image"></div>
         <mat-card-title>
           <div>
-            {{
-              'various.days.' + (meteo.forecast.datetime | date: 'EEEE')
-                | translate
-            }}
-            {{ meteo.forecast.datetime | date: 'dd' }}
-            {{
-              'various.months.' + (meteo.forecast.datetime | date: 'LLLL')
-                | translate
-            }}
-            {{ meteo.forecast.datetime | date: 'Y' }}
+            {{ 'various.days.' + (meteo.forecast.datetime | date: 'EEEE') |
+            translate }} {{ meteo.forecast.datetime | date: 'dd' }} {{
+            'various.months.' + (meteo.forecast.datetime | date: 'LLLL') |
+            translate }} {{ meteo.forecast.datetime | date: 'Y' }}
           </div>
         </mat-card-title>
         <mat-card-subtitle>
@@ -23,10 +17,8 @@
               class="icon"
               src="/assets/icons/meteo/short-cut/{{ meteo.forecast.icon }}.png"
             />
-            {{
-              'meteo-station.forecast.weather.' + meteo.forecast.weather
-                | translate
-            }}
+            {{ 'meteo-station.forecast.weather.' + meteo.forecast.weather |
+            translate }}
           </div>
         </mat-card-subtitle>
       </mat-card-header>
@@ -40,11 +32,9 @@
         </div>
         <div class="sunhour">
           <img class="icon" src="/assets/icons/meteo/short-cut/sunrise.png" />{{
-            meteo.ephemeride.sunrise
-          }}
+          meteo.ephemeride.sunrise }}
           <img class="icon" src="/assets/icons/meteo/short-cut/sunset.png" />{{
-            meteo.ephemeride.sunset
-          }}
+          meteo.ephemeride.sunset }}
         </div>
       </mat-card-content>
     </mat-card>
