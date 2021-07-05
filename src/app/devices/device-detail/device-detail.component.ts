@@ -15,15 +15,15 @@ export interface Section {
   styleUrls: ['./device-detail.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class DeviceDetailComponent implements OnInit {
+export class DeviceDetailComponent {
 
-  device?: Device;
 
-  constructor(@Inject(MAT_DIALOG_DATA) private readonly data: Device) {
+
+  constructor(@Inject(MAT_DIALOG_DATA) public readonly device: Device) {
 
   }
 
-  ngOnInit(): void {
-    this.device = this.data;
+  get isActive(): boolean {
+    return this.device?.connection?.active === true
   }
 }
