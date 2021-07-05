@@ -8,8 +8,6 @@ import {
 import { TranslateService } from '@ngx-translate/core';
 import { interval, Subscription } from 'rxjs';
 import { MeteoStats } from 'src/app/generic/interfaces/meteo-stats';
-
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ChartType } from 'angular-google-charts';
 
 @Component({
@@ -101,7 +99,7 @@ export class GraphComponent implements OnInit, OnDestroy {
     const days = [];
     for (let i = 0; i <= 6; i++) {
       this.translateService
-        .get('stats.days.' + i)
+        .get(`stats.days.${i}`)
         .subscribe((translation: string) => {
           days[i] = translation;
         });
@@ -143,15 +141,15 @@ export class GraphComponent implements OnInit, OnDestroy {
         } else {
           const dateNow = new Date();
           const hours =
-            date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+            date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
           const minutes =
             date.getMinutes() < 10
-              ? '0' + date.getMinutes()
-              : date.getMinutes();
+              ? `0${date.getMinutes()}`
+              : `0${date.getMinutes()}`;
           x =
             'j' +
             (this.dayDiff(date, dateNow) > 0
-              ? '-' + this.dayDiff(date, dateNow)
+              ? `-${this.dayDiff(date, dateNow)}`
               : '') +
             ` ${hours}:${minutes}`;
         }

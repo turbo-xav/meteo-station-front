@@ -51,7 +51,7 @@ export class StationComponent implements OnInit, OnDestroy {
 
   checkStates(): void {
     this.detroyStationSubscriptions();
-    this.stationsubscription = interval(3000).subscribe((ae) => {
+    this.stationsubscription = interval(3000).subscribe(() => {
       this.checkAllStates();
     });
   }

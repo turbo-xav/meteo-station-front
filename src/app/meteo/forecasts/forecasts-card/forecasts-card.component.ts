@@ -1,4 +1,4 @@
-import { Component,  Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { Meteo } from 'src/app/generic/interfaces/meteo';
 @Component({
   selector: 'app-forecasts-card',

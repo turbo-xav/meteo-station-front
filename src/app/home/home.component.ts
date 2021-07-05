@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../generic/core/service/auth.service';
+import { Component } from '@angular/core';
 import {
   PackageJsonInfos,
   PackageJsonService
@@ -10,7 +9,7 @@ import {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   constructor(private readonly packageJsonService: PackageJsonService) {}
 
   public get infos(): PackageJsonInfos {

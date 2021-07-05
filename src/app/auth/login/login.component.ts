@@ -16,12 +16,13 @@ export class LoginComponent implements OnInit {
     private readonly router: Router,
     private readonly authService: AuthService
   ) {
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/home';
+    this.returnUrl =
+      (this.route.snapshot.queryParams.returnUrl as string) || '/home';
   }
 
   ngOnInit(): void {
     if (this.authService.isAuthenticated()) {
-      this.router.navigate([this.returnUrl]);
+      this.router.navigateByUrl([this.returnUrl]);
     }
 
     this.authService
