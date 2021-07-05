@@ -12,7 +12,7 @@ export class AppComponent {
   updateHeight(height: number): void {
     this.renderer.setStyle(
       this.main?.nativeElement,
-      'marginBottom',
+      'paddingBottom',
       String(height + 5) + 'px'
     );
   }
