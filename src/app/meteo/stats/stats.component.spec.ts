@@ -13,7 +13,7 @@ describe('StatsComponent', () => {
 
   beforeEach(
     waitForAsync(() => {
-      TestBed.configureTestingModule({
+      void TestBed.configureTestingModule({
         declarations: [StatsComponent, GraphComponent],
         imports: [
           SharedModule,

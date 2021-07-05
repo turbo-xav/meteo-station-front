@@ -29,7 +29,7 @@ export class FooterComponent {
   }
 
   change(): void {
-    if (this.pRef) {
+    if (this.pRef !== undefined) {
       this.cdref.detectChanges();
       this.heightChanged.emit(this.pRef.nativeElement.offsetHeight);
     }

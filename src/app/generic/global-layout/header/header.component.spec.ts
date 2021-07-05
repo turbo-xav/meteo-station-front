@@ -10,8 +10,8 @@ describe('HeaderComponent', () => {
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
+    waitForAsync(async () => {
+      await TestBed.configureTestingModule({
         declarations: [HeaderComponent, MenuComponent],
         imports: [RouterTestingModule, HttpClientTestingModule, AppModule]
       }).compileComponents();

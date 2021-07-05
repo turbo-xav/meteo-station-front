@@ -6,8 +6,8 @@ import { GlobalLayoutModule } from './generic/global-layout/global-layout.module
 import { AppModule } from './app.module';
 describe('AppComponent', () => {
   beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
+    waitForAsync(async () => {
+      await TestBed.configureTestingModule({
         imports: [
           RouterTestingModule,
           HttpClientTestingModule,

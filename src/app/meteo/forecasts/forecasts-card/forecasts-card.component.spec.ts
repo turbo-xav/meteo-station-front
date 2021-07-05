@@ -12,8 +12,8 @@ describe('ForecastsCardComponent', () => {
   let fixture: ComponentFixture<ForecastsCardComponent>;
 
   beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
+    waitForAsync(async () => {
+      await TestBed.configureTestingModule({
         declarations: [ForecastsCardComponent],
         imports: [
           SharedModule,

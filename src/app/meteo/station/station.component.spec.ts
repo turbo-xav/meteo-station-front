@@ -12,8 +12,8 @@ describe('StationComponent', () => {
   let fixture: ComponentFixture<StationComponent>;
 
   beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
+    waitForAsync(async () => {
+      await TestBed.configureTestingModule({
         imports: [
           SharedModule,
           CoreModule,

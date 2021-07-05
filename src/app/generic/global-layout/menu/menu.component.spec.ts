@@ -10,8 +10,8 @@ describe('MenuComponent', () => {
   let fixture: ComponentFixture<MenuComponent>;
 
   beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
+    waitForAsync(async () => {
+      await TestBed.configureTestingModule({
         declarations: [MenuComponent],
         imports: [RouterTestingModule, HttpClientTestingModule, AppModule]
       }).compileComponents();

@@ -15,10 +15,8 @@ export interface PackageJsonInfos {
 export class PackageJsonService {
   version: string = pkg.version;
   date: string = pkg.date;
-
   title: string = pkg.title;
   description: string = pkg.description;
-  constructor() {}
 
   public get infos(): PackageJsonInfos {
     return {

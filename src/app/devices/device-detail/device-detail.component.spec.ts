@@ -11,8 +11,8 @@ describe('DeviceDetailComponent', () => {
   let fixture: ComponentFixture<DeviceDetailComponent>;
 
   beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
+    waitForAsync(async () => {
+      await TestBed.configureTestingModule({
         imports: [
           SharedModule,
           CoreModule,

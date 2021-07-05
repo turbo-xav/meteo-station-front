@@ -20,17 +20,16 @@ export class LoginComponent implements OnInit {
       (this.route.snapshot.queryParams.returnUrl as string) || '/home';
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     if (this.authService.isAuthenticated()) {
-      this.router.navigateByUrl([this.returnUrl]);
+      await this.router.navigate([this.returnUrl]);
     }
 
     this.authService
       .getIsAuthenticatedBehaviorSubject()
       .subscribe((isAuthenticated: boolean) => {
-        console.log(isAuthenticated);
         if (isAuthenticated) {
-          this.router.navigate([this.returnUrl]);
+          void this.router.navigate([this.returnUrl]);
         }
       });
 

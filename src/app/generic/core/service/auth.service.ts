@@ -59,7 +59,7 @@ export class AuthService {
   logOut(): void {
     this.removeToken();
     this.isAuthenticatedBehaviorSubject.next(false);
-    this.router.navigate(['/auth']);
+    void this.router.navigate(['/auth']);
   }
 
   isAuthenticated(): boolean {

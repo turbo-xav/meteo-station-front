@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -10,12 +10,17 @@ export class AppComponent {
   @ViewChild('main', { static: false }) main?: ElementRef;
 
   updateHeight(height: number): void {
-    if (this.main !== undefined) {
-      this.main.nativeElement.style.marginBottom = String(height + 5) + 'px';
-    }
+    this.renderer.setStyle(
+      this.main?.nativeElement,
+      'marginBottom',
+      String(height + 5) + 'px'
+    );
   }
 
-  constructor(private readonly translateService: TranslateService) {
+  constructor(
+    private readonly translateService: TranslateService,
+    private readonly renderer: Renderer2
+  ) {
     this.translateService.use('fr');
   }
 }
