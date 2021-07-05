@@ -11,19 +11,20 @@ describe('ForecastsComponent', () => {
   let component: ForecastsComponent;
   let fixture: ComponentFixture<ForecastsComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ForecastsComponent ],
-      imports: [
-        SharedModule,
-        CoreModule,
-        MeteoModule,
-        RouterTestingModule,
-        HttpClientTestingModule,
-      ],
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [ForecastsComponent],
+        imports: [
+          SharedModule,
+          CoreModule,
+          MeteoModule,
+          RouterTestingModule,
+          HttpClientTestingModule
+        ]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ForecastsComponent);

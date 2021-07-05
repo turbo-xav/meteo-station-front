@@ -7,18 +7,16 @@ import { UserDetail } from '../../interfaces/user-detail';
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
   private isAuthenticatedBehaviorSubject = new BehaviorSubject<boolean>(false);
 
   constructor(
     private readonly router: Router,
     private readonly http: HttpClient
-  ) { }
+  ) {}
 
   get apiAuthUrl(): string {
     const apiUrl = environment.api?.url ?? 'http://localhost/api';
@@ -30,31 +28,32 @@ export class AuthService {
   }
 
   get infos(): User | null {
-
-    if (this.isAuthenticated()){
+    if (this.isAuthenticated()) {
       const helper = new JwtHelperService();
       const token = this.getToken();
-      return helper.decodeToken(!!token ?  token : '') as User;
+      return helper.decodeToken(token ? token : '');
     }
     return null;
   }
 
-  getIsAuthenticatedBehaviorSubject(): BehaviorSubject<boolean>{
+  getIsAuthenticatedBehaviorSubject(): BehaviorSubject<boolean> {
     return this.isAuthenticatedBehaviorSubject;
   }
 
-  login(code: string): void{
-    this.http.get<UserDetail>(`${this.apiAuthTokenTokenUrl}?code=${code}`).subscribe(
-      (userDetail: UserDetail) => {
-        if (userDetail.user && userDetail.user.token){
-          this.registerToken(userDetail.user.token);
-          this.isAuthenticatedBehaviorSubject.next(true);
+  login(code: string): void {
+    this.http
+      .get<UserDetail>(`${this.apiAuthTokenTokenUrl}?code=${code}`)
+      .subscribe(
+        (userDetail: UserDetail) => {
+          if (userDetail.user && userDetail.user.token) {
+            this.registerToken(userDetail.user.token);
+            this.isAuthenticatedBehaviorSubject.next(true);
+          }
+        },
+        () => {
+          this.logOut();
         }
-      },
-      () => {
-        this.logOut();
-      }
-    );
+      );
   }
 
   logOut(): void {
@@ -69,7 +68,7 @@ export class AuthService {
     if (token !== null) {
       const helper = new JwtHelperService();
       const isExpired = helper.isTokenExpired(token);
-      if (!isExpired){
+      if (!isExpired) {
         isAuthenticated = true;
       }
     }
@@ -84,8 +83,7 @@ export class AuthService {
     return sessionStorage.getItem('token');
   }
 
-  private removeToken(): void{
+  private removeToken(): void {
     sessionStorage.removeItem('token');
   }
-
 }

@@ -10,18 +10,19 @@ describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ HomeComponent ],
-      imports: [
-        SharedModule,
-        CoreModule,
-        RouterTestingModule,
-        HttpClientTestingModule
-      ]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [HomeComponent],
+        imports: [
+          SharedModule,
+          CoreModule,
+          RouterTestingModule,
+          HttpClientTestingModule
+        ]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HomeComponent);

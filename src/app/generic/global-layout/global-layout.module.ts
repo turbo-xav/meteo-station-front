@@ -6,13 +6,9 @@ import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { SharedModule } from '../shared/shared.module';
 
-
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, MenuComponent],
-  imports: [
-    CommonModule,
-    SharedModule
-  ],
+  imports: [CommonModule, SharedModule],
   exports: [HeaderComponent, FooterComponent, MenuComponent]
 })
-export class  GlobalLayoutModule { }
+export class GlobalLayoutModule {}

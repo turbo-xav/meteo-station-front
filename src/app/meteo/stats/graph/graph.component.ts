@@ -1,4 +1,10 @@
-import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Input,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { interval, Subscription } from 'rxjs';
 import { MeteoStats } from 'src/app/generic/interfaces/meteo-stats';
@@ -12,17 +18,12 @@ import { ChartType } from 'angular-google-charts';
   styleUrls: ['./graph.component.scss']
 })
 export class GraphComponent implements OnInit, OnDestroy {
-
-
   @Input() meteoStats?: MeteoStats[];
 
   type: ChartType = ChartType.LineChart;
   title = '';
   datas: (string | number)[][] = [];
-  columnNames = [
-    'Time',
-    'temperature'
-  ];
+  columnNames = ['Time', 'temperature'];
   options = {
     chartArea: {
       left: 55,
@@ -59,7 +60,6 @@ export class GraphComponent implements OnInit, OnDestroy {
       color: '#ade1fc',
       trigger: 'focus',
       opacity: 0.5
-
     }
   };
 
@@ -74,20 +74,16 @@ export class GraphComponent implements OnInit, OnDestroy {
     this.width = 0.95 * window.innerWidth;
   }
 
-  constructor(
-    private readonly translateService: TranslateService
-  ) {
+  constructor(private readonly translateService: TranslateService) {
     this.getScreenSize();
   }
 
   ngOnInit(): void {
     this.drawChart();
-    this.drawingSubscription =  interval(250).subscribe(
-      () => {
-        this.drawChart();
-      });
+    this.drawingSubscription = interval(250).subscribe(() => {
+      this.drawChart();
+    });
   }
-
 
   public get hasDatas(): boolean {
     return this.datas !== null && this.datas.length > 0;
@@ -102,44 +98,40 @@ export class GraphComponent implements OnInit, OnDestroy {
   }
 
   public drawChart(): void {
-
     const days = [];
     for (let i = 0; i <= 6; i++) {
-      this.translateService.get('stats.days.' + i).subscribe(
-        (translation: string) => {
+      this.translateService
+        .get('stats.days.' + i)
+        .subscribe((translation: string) => {
           days[i] = translation;
-        }
-      );
+        });
     }
 
-    this.translateService.get('stats.time').subscribe(
-      (translation: string) => {
-        this.options.hAxis.title = translation;
-      }
-    );
+    this.translateService.get('stats.time').subscribe((translation: string) => {
+      this.options.hAxis.title = translation;
+    });
 
-    this.translateService.get('stats.measurements').subscribe(
-      (translation: string) => {
+    this.translateService
+      .get('stats.measurements')
+      .subscribe((translation: string) => {
         this.options.vAxis.title = translation;
-      }
-    );
+      });
 
-    this.translateService.get('stats.temperature').subscribe(
-      (translation: string) => {
+    this.translateService
+      .get('stats.temperature')
+      .subscribe((translation: string) => {
         this.columnNames[1] = translation;
-      }
-    );
+      });
 
-    this.translateService.get('stats.temperature-evolution').subscribe(
-      (translation: string) => {
+    this.translateService
+      .get('stats.temperature-evolution')
+      .subscribe((translation: string) => {
         this.title = translation;
-      }
-    );
+      });
     let cpt = 0;
     if (this.meteoStats) {
       this.datas = [];
       for (const meteoStat of this.meteoStats) {
-
         let x = '';
 
         const date = new Date(meteoStat.ts);
@@ -148,12 +140,20 @@ export class GraphComponent implements OnInit, OnDestroy {
           const month = date.getMonth();
           const year = date.getFullYear();
           x = `${day} / ${month} / ${year}`;
-        }
-        else {
+        } else {
           const dateNow = new Date();
-          const hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
-          const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-          x = 'j' + ((this.dayDiff(date, dateNow) > 0) ? '-' + (this.dayDiff(date, dateNow)) : '') + ` ${hours}:${minutes}`;
+          const hours =
+            date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+          const minutes =
+            date.getMinutes() < 10
+              ? '0' + date.getMinutes()
+              : date.getMinutes();
+          x =
+            'j' +
+            (this.dayDiff(date, dateNow) > 0
+              ? '-' + this.dayDiff(date, dateNow)
+              : '') +
+            ` ${hours}:${minutes}`;
         }
         this.datas.push([x, meteoStat.val.temperature]);
         cpt++;

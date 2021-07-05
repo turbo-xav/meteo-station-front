@@ -1,22 +1,33 @@
-<h2>{{ 'meteo-station.meteo-in'| translate}} Vitry / Seine</h2>
+<h2>{{ 'meteo-station.meteo-in' | translate }} Vitry / Seine</h2>
 
-<h3>{{ 'meteo-station.forecast.forecast-2-weeks'| translate}}</h3>
-<div (mousedown)="swipe($event, 'start')" (mouseup)="swipe($event, 'end')" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
-    <mat-tab-group [(selectedIndex)]="selectedTab" [headerPosition]="'above'">
-        <mat-tab
-            
-            *ngFor="let meteo of meteoForecasts">
-            <ng-template mat-tab-label>
-                <span class="label">
-                    {{'various.days.'+(meteo.forecast.datetime | date:'EEEE')  | translate}}
-                    {{meteo.forecast.datetime | date:'dd'}} {{'various.months.'+(meteo.forecast.datetime | date:'LLLL') | translate}}  {{meteo.forecast.datetime | date:'Y'}}</span>
-            </ng-template>
-            <div class="tabs">
-                <app-forecasts-card [meteo]="meteo"></app-forecasts-card>
-            </div>
-        </mat-tab>
-    </mat-tab-group>
+<h3>{{ 'meteo-station.forecast.forecast-2-weeks' | translate }}</h3>
+<div
+  (mousedown)="swipe($event, 'start')"
+  (mouseup)="swipe($event, 'end')"
+  (touchstart)="swipe($event, 'start')"
+  (touchend)="swipe($event, 'end')"
+>
+  <mat-tab-group [(selectedIndex)]="selectedTab" [headerPosition]="'above'">
+    <mat-tab *ngFor="let meteo of meteoForecasts">
+      <ng-template mat-tab-label>
+        <span class="label">
+          {{
+            'various.days.' + (meteo.forecast.datetime | date: 'EEEE')
+              | translate
+          }}
+          {{ meteo.forecast.datetime | date: 'dd' }}
+          {{
+            'various.months.' + (meteo.forecast.datetime | date: 'LLLL')
+              | translate
+          }}
+          {{ meteo.forecast.datetime | date: 'Y' }}</span
+        >
+      </ng-template>
+      <div class="tabs">
+        <app-forecasts-card [meteo]="meteo"></app-forecasts-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>
-
 
 <ng-template mat-tab-label></ng-template>

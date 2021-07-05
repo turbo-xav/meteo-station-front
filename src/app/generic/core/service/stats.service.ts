@@ -8,11 +8,11 @@ import { MeteoStats } from '../../interfaces/meteo-stats';
   providedIn: 'root'
 })
 export class StatsService {
-
   private apiUrl = '';
 
   constructor(private readonly http: HttpClient) {
-    this.apiUrl = environment.api.url !== undefined ? environment.api.url : this.apiUrl;
+    this.apiUrl =
+      environment.api.url !== undefined ? environment.api.url : this.apiUrl;
   }
 
   public getStatsDaily(): Observable<MeteoStats[]> {

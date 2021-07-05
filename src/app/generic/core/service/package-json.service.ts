@@ -12,16 +12,13 @@ export interface PackageJsonInfos {
 @Injectable({
   providedIn: 'root'
 })
-
 export class PackageJsonService {
   version: string = pkg.version;
   date: string = pkg.date;
 
   title: string = pkg.title;
   description: string = pkg.description;
-  constructor() {
-
-  }
+  constructor() {}
 
   public get infos(): PackageJsonInfos {
     return {

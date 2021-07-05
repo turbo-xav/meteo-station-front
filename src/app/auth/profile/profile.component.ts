@@ -8,11 +8,9 @@ import { User } from 'src/app/generic/interfaces/user';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
-
-  constructor( private readonly authService: AuthService ){}
+  constructor(private readonly authService: AuthService) {}
 
   get user(): User | null {
     return this.authService.infos;
   }
-
 }

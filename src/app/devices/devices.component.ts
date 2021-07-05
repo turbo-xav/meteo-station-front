@@ -11,42 +11,30 @@ import { DeviceDetailComponent } from './device-detail/device-detail.component';
   styleUrls: ['./devices.component.scss']
 })
 export class DevicesComponent implements OnInit {
-
-  displayedColumns: string[] = ['device', 'description' , 'state', 'time'];
+  displayedColumns: string[] = ['device', 'description', 'state', 'time'];
 
   devices: Device[] = [];
 
   constructor(
     private readonly deviceService: DevicesService,
-    public dialog: MatDialog) {
-  }
+    public dialog: MatDialog
+  ) {}
 
   openDialog(device: Device): void {
-
-
-    this.deviceService.getDevice().subscribe(
-      (deviceLoaded: Device) => {
-        const dialogRef = this.dialog.open(DeviceDetailComponent, {
-          width: '355px',
-          data: deviceLoaded
-        });
-        dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
-        });
-      }
-    );
-
-
-
-
+    this.deviceService.getDevice().subscribe((deviceLoaded: Device) => {
+      const dialogRef = this.dialog.open(DeviceDetailComponent, {
+        width: '355px',
+        data: deviceLoaded
+      });
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log('The dialog was closed');
+      });
+    });
   }
 
   ngOnInit(): void {
-    this.deviceService.getDevices().subscribe(
-      (devices: Device[]) => {
-        this.devices = devices;
-      }
-    );
+    this.deviceService.getDevices().subscribe((devices: Device[]) => {
+      this.devices = devices;
+    });
   }
-
 }

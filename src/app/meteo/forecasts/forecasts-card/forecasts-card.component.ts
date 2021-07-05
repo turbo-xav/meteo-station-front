@@ -7,11 +7,7 @@ import { Meteo } from '../../../generic/interfaces/meteo';
   encapsulation: ViewEncapsulation.None
 })
 export class ForecastsCardComponent implements OnInit {
-
   @Input() meteo?: Meteo;
 
-  constructor() {
-
-  }
-
+  constructor() {}
 }

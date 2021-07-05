@@ -10,7 +10,6 @@ import { SwitchState } from 'src/app/generic/interfaces/switch-state';
   styleUrls: ['./station.component.scss']
 })
 export class StationComponent implements OnInit, OnDestroy {
-
   heaterIsOn = false;
   ledIsOn = false;
   screenIsOn = false;
@@ -19,11 +18,7 @@ export class StationComponent implements OnInit, OnDestroy {
   private stationsubscription?: Subscription;
   private measurementsSubscription?: Subscription;
 
-  constructor(
-    private readonly stationService: StationService
-  ) {
-
-  }
+  constructor(private readonly stationService: StationService) {}
 
   ngOnInit(): void {
     this.checkAll();
@@ -41,76 +36,66 @@ export class StationComponent implements OnInit, OnDestroy {
 
   checkMeasurements(): void {
     this.destroyMesureSubscription();
-    this.measurementsSubscription = interval(1000).subscribe(
-      () => {
-       this.checkAllMeasurements();
-      }
-    );
+    this.measurementsSubscription = interval(1000).subscribe(() => {
+      this.checkAllMeasurements();
+    });
   }
 
   checkAllMeasurements(): void {
-    this.stationService.getMeasurement().subscribe(
-      (measurement: Measurement) => {
+    this.stationService
+      .getMeasurement()
+      .subscribe((measurement: Measurement) => {
         this.measurement = measurement;
-      }
-    );
+      });
   }
 
   checkStates(): void {
     this.detroyStationSubscriptions();
-    this.stationsubscription = interval(3000).subscribe(
-      (ae) => {
-        this.checkAllStates();
-      }
-    );
+    this.stationsubscription = interval(3000).subscribe((ae) => {
+      this.checkAllStates();
+    });
   }
 
   checkAllStates(): void {
-    this.stationService.getState('led').subscribe(
-      (switchState: SwitchState) => {
+    this.stationService
+      .getState('led')
+      .subscribe((switchState: SwitchState) => {
         this.ledIsOn = switchState.state === 'ON';
-      }
-    );
-    this.stationService.getState('screen').subscribe(
-      (switchState: SwitchState) => {
+      });
+    this.stationService
+      .getState('screen')
+      .subscribe((switchState: SwitchState) => {
         this.screenIsOn = switchState.state === 'ON';
-      }
-    );
-    this.stationService.getState('heater').subscribe(
-      (switchState: SwitchState) => {
+      });
+    this.stationService
+      .getState('heater')
+      .subscribe((switchState: SwitchState) => {
         this.heaterIsOn = switchState.state === 'ON';
-      }
-    );
+      });
   }
 
   toggleHeater(): void {
     const switchState: SwitchState = { state: this.heaterIsOn ? 'OFF' : 'ON' };
-    this.stationService.switch('heater', switchState).subscribe(
-      () => {
-        this.checkStates();
-        this.heaterIsOn = !this.heaterIsOn;
-      }
-    );
+    this.stationService.switch('heater', switchState).subscribe(() => {
+      this.checkStates();
+      this.heaterIsOn = !this.heaterIsOn;
+    });
   }
 
   toggleLed(): void {
     const switchState: SwitchState = { state: this.ledIsOn ? 'OFF' : 'ON' };
-    this.stationService.switch('led', switchState).subscribe(
-      () => {
-        this.checkStates();
-        this.ledIsOn = !this.ledIsOn;
-      }
-    );
+    this.stationService.switch('led', switchState).subscribe(() => {
+      this.checkStates();
+      this.ledIsOn = !this.ledIsOn;
+    });
   }
 
   toggleScreen(): void {
     const switchState: SwitchState = { state: this.screenIsOn ? 'OFF' : 'ON' };
-    this.stationService.switch('screen', switchState).subscribe(
-      () => {
-        this.checkStates();
-        this.screenIsOn = !this.screenIsOn;
-      }
-    );
+    this.stationService.switch('screen', switchState).subscribe(() => {
+      this.checkStates();
+      this.screenIsOn = !this.screenIsOn;
+    });
   }
 
   private detroyStationSubscriptions(): void {
@@ -120,7 +105,6 @@ export class StationComponent implements OnInit, OnDestroy {
   }
 
   private destroyMesureSubscription(): void {
-
     if (this.measurementsSubscription) {
       this.measurementsSubscription.unsubscribe();
     }
@@ -130,6 +114,4 @@ export class StationComponent implements OnInit, OnDestroy {
     this.destroyMesureSubscription();
     this.detroyStationSubscriptions();
   }
-
-
 }

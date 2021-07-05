@@ -5,29 +5,38 @@ import { AuthGuard } from './generic/guard/auth.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule)
   },
   {
     path: 'devices',
-    loadChildren: () => import('./devices/devices.module').then(m => m.DevicesModule),
+    loadChildren: () =>
+      import('./devices/devices.module').then((m) => m.DevicesModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'meteo',
-    loadChildren: () => import('./meteo/meteo.module').then(m => m.MeteoModule),
+    loadChildren: () =>
+      import('./meteo/meteo.module').then((m) => m.MeteoModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule)
   },
   {
-    path: '**', redirectTo: '/home', pathMatch: 'full'
+    path: '**',
+    redirectTo: '/home',
+    pathMatch: 'full'
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      useHash: true,
+      relativeLinkResolution: 'legacy'
+    })
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

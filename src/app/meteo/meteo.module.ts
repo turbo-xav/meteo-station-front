@@ -10,12 +10,14 @@ import { CoreModule } from '../generic/core/core.module';
 import { ForecastsCardComponent } from './forecasts/forecasts-card/forecasts-card.component';
 import { GraphComponent } from './stats/graph/graph.component';
 
-
 @NgModule({
-  declarations: [StationComponent, ForecastsComponent, StatsComponent, ForecastsCardComponent, GraphComponent],
-  imports: [
-    MeteoRoutingModule,
-    SharedModule
-  ]
+  declarations: [
+    StationComponent,
+    ForecastsComponent,
+    StatsComponent,
+    ForecastsCardComponent,
+    GraphComponent
+  ],
+  imports: [MeteoRoutingModule, SharedModule]
 })
-export class MeteoModule { }
+export class MeteoModule {}

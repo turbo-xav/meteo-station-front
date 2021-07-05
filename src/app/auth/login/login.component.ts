@@ -9,7 +9,6 @@ import { AuthService } from 'src/app/generic/core/service/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
   public loginInvalid = false;
   private returnUrl: string;
 
@@ -26,31 +25,26 @@ export class LoginComponent implements OnInit {
       this.router.navigate([this.returnUrl]);
     }
 
-    this.authService.getIsAuthenticatedBehaviorSubject().subscribe(
-      (isAuthenticated: boolean) => {
-         console.log(isAuthenticated);
-         if (isAuthenticated) {
+    this.authService
+      .getIsAuthenticatedBehaviorSubject()
+      .subscribe((isAuthenticated: boolean) => {
+        console.log(isAuthenticated);
+        if (isAuthenticated) {
           this.router.navigate([this.returnUrl]);
         }
-      }
-    );
+      });
 
-
-
-    this.route.paramMap.subscribe(
-      (paramMap: ParamMap) => {
-        if (paramMap.has('code')) {
-          const code = paramMap.get('code');
-          if (code !== null) {
-            this.authService.login(code);
-          }
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (paramMap.has('code')) {
+        const code = paramMap.get('code');
+        if (code !== null) {
+          this.authService.login(code);
         }
       }
-    );
+    });
   }
 
-  get authUrl(): string{
+  get authUrl(): string {
     return this.authService.apiAuthUrl;
   }
-
 }

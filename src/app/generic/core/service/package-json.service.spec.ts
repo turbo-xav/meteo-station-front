@@ -9,9 +9,7 @@ describe('PackageJsonService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-      ]
+      imports: [HttpClientTestingModule]
     });
     service = TestBed.inject(PackageJsonService);
   });

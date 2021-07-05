@@ -8,17 +8,15 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
   @ViewChild('main', { static: false }) main?: ElementRef;
 
   updateHeight(height: number): void {
     if (this.main !== undefined) {
-      this.main.nativeElement.style.marginBottom = (height + 5) + 'px';
+      this.main.nativeElement.style.marginBottom = height + 5 + 'px';
     }
   }
 
   constructor(private readonly translateService: TranslateService) {
     this.translateService.use('fr');
   }
-
 }

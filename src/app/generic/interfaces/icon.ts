@@ -1,5 +1,5 @@
 export interface Icon {
-    min: number;
-    max: number;
-    icon: string;
+  min: number;
+  max: number;
+  icon: string;
 }

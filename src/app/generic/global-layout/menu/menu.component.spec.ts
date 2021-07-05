@@ -12,17 +12,14 @@ describe('MenuComponent', () => {
   let component: MenuComponent;
   let fixture: ComponentFixture<MenuComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MenuComponent ],
-      imports: [
-        RouterTestingModule,
-        HttpClientTestingModule,
-        AppModule
-      ]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [MenuComponent],
+        imports: [RouterTestingModule, HttpClientTestingModule, AppModule]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MenuComponent);

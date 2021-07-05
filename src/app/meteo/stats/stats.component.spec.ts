@@ -11,18 +11,19 @@ describe('StatsComponent', () => {
   let component: StatsComponent;
   let fixture: ComponentFixture<StatsComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ StatsComponent, GraphComponent ],
-      imports: [
-        SharedModule,
-        CoreModule,
-        HttpClientTestingModule,
-        RouterTestingModule
-      ]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [StatsComponent, GraphComponent],
+        imports: [
+          SharedModule,
+          CoreModule,
+          HttpClientTestingModule,
+          RouterTestingModule
+        ]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StatsComponent);

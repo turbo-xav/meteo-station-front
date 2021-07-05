@@ -8,7 +8,6 @@ export interface Section {
   updated: Date;
 }
 
-
 @Component({
   selector: 'app-device-detail',
   templateUrl: './device-detail.component.html',
@@ -16,14 +15,9 @@ export interface Section {
   encapsulation: ViewEncapsulation.None
 })
 export class DeviceDetailComponent {
-
-
-
-  constructor(@Inject(MAT_DIALOG_DATA) public readonly device: Device) {
-
-  }
+  constructor(@Inject(MAT_DIALOG_DATA) public readonly device: Device) {}
 
   get isActive(): boolean {
-    return this.device?.connection?.active === true
+    return this.device?.connection?.active === true;
   }
 }

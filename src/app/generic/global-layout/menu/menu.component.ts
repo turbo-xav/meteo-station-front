@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { TranslateService } from '@ngx-translate/core';
-import { PackageJsonService, PackageJsonInfos } from '../../core/service/package-json.service';
+import {
+  PackageJsonService,
+  PackageJsonInfos
+} from '../../core/service/package-json.service';
 import { ViewEncapsulation } from '@angular/core';
 import { MatSelect } from '@angular/material/select';
 import { AuthService } from 'src/app/generic/core/service/auth.service';
@@ -13,7 +16,6 @@ import { AuthService } from 'src/app/generic/core/service/auth.service';
   encapsulation: ViewEncapsulation.None
 })
 export class MenuComponent {
-
   @ViewChild('menuTrigger')
   matMenu?: MatMenuTrigger;
 
@@ -24,15 +26,15 @@ export class MenuComponent {
 
   selectedLanguage = 'fr';
 
-  constructor(private readonly packageJsonService: PackageJsonService,
-              private readonly translateService: TranslateService,
-              private readonly authService: AuthService) {
-
+  constructor(
+    private readonly packageJsonService: PackageJsonService,
+    private readonly translateService: TranslateService,
+    private readonly authService: AuthService
+  ) {
     this.selectedLanguage = this.translateService.currentLang;
-
   }
 
-  get authUrl(): string{
+  get authUrl(): string {
     return this.authService.apiAuthUrl;
   }
 
@@ -40,10 +42,9 @@ export class MenuComponent {
     return this.authService.isAuthenticated();
   }
 
-  logOut(): void{
+  logOut(): void {
     this.authService.logOut();
   }
-
 
   public get infos(): PackageJsonInfos {
     return this.packageJsonService.infos;
@@ -60,5 +61,4 @@ export class MenuComponent {
   chooseLanguage(): void {
     this.translateService.use(this.selectedLanguage);
   }
-
 }

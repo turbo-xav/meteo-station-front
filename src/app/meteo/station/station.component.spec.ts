@@ -11,20 +11,20 @@ describe('StationComponent', () => {
   let component: StationComponent;
   let fixture: ComponentFixture<StationComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        SharedModule,
-        CoreModule,
-        MeteoModule,
-        RouterTestingModule,
-        HttpClientTestingModule,
-
-      ],
-      declarations: [ StationComponent ]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          SharedModule,
+          CoreModule,
+          MeteoModule,
+          RouterTestingModule,
+          HttpClientTestingModule
+        ],
+        declarations: [StationComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StationComponent);

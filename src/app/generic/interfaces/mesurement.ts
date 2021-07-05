@@ -6,23 +6,23 @@
  */
 
 export class Measurement {
-    /*
-     * Temparature value un °C
-     * @example 20.05
-     */
-   temperature?: number;
+  /*
+   * Temparature value un °C
+   * @example 20.05
+   */
+  temperature?: number;
 
-    /*
-     * Pressure value in HPa
-     * @example 20
-     */
+  /*
+   * Pressure value in HPa
+   * @example 20
+   */
 
-   pressure?: number;
+  pressure?: number;
 
-   /*
-    * Percent humidity value in %
-    * @example 35.50
-    */
+  /*
+   * Percent humidity value in %
+   * @example 35.50
+   */
 
-   humidity?: number;
+  humidity?: number;
 }

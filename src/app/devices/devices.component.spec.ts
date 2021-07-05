@@ -10,18 +10,19 @@ describe('DevicesComponent', () => {
   let component: DevicesComponent;
   let fixture: ComponentFixture<DevicesComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        SharedModule,
-        CoreModule,
-        RouterTestingModule,
-        HttpClientTestingModule,
-      ],
-      declarations: [ DevicesComponent ]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          SharedModule,
+          CoreModule,
+          RouterTestingModule,
+          HttpClientTestingModule
+        ],
+        declarations: [DevicesComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DevicesComponent);

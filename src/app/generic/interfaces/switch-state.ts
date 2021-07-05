@@ -5,12 +5,11 @@
  */
 
 export interface SwitchState {
+  /**
+   * Only 2 possible values
+   * - ON
+   * - OFF
+   */
 
-    /**
-     * Only 2 possible values
-     * - ON
-     * - OFF
-     */
-
-    state: 'ON' | 'OFF';
+  state: 'ON' | 'OFF';
 }

@@ -9,26 +9,26 @@ import { MeteoStats } from 'src/app/generic/interfaces/meteo-stats';
   styleUrls: ['./stats.component.scss']
 })
 export class StatsComponent implements OnInit {
-
   typeStats: 'h24' | 'daily' = 'daily';
 
-  meteoStats: MeteoStats [] = [];
+  meteoStats: MeteoStats[] = [];
 
   constructor(private readonly statsService: StatsService) {
-   this.reload();
+    this.reload();
   }
 
   ngOnInit(): void {
     this.typeStats = 'h24';
   }
 
-  reload(): void{
-    const meteoStatsSubscription = this.typeStats === 'daily' ? this.statsService.getStatsDaily() : this.statsService.getStatsRealTime();
-    meteoStatsSubscription.subscribe(
-      (meteoStats: MeteoStats[]) => {
-        meteoStats.reverse();
-        this.meteoStats = meteoStats;
-      }
-    );
+  reload(): void {
+    const meteoStatsSubscription =
+      this.typeStats === 'daily'
+        ? this.statsService.getStatsDaily()
+        : this.statsService.getStatsRealTime();
+    meteoStatsSubscription.subscribe((meteoStats: MeteoStats[]) => {
+      meteoStats.reverse();
+      this.meteoStats = meteoStats;
+    });
   }
 }

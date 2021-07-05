@@ -10,18 +10,19 @@ describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        SharedModule,
-        CoreModule,
-        HttpClientTestingModule,
-        RouterTestingModule
-      ],
-      declarations: [ LoginComponent ]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          SharedModule,
+          CoreModule,
+          HttpClientTestingModule,
+          RouterTestingModule
+        ],
+        declarations: [LoginComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);

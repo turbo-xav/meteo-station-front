@@ -12,15 +12,14 @@ describe('GraphComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GraphComponent ],
+      declarations: [GraphComponent],
       imports: [
         SharedModule,
         CoreModule,
         HttpClientTestingModule,
         RouterTestingModule
       ]
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,32 +1,52 @@
 <div class="card" *ngIf="!!meteo && !!meteo.forecast">
-    <div class="box">
-        <mat-card>
-            <mat-card-header>
-                <div mat-card-avatar class="header-image"></div>
-                <mat-card-title>
-                    <div>
-                        {{'various.days.'+(meteo.forecast.datetime | date:'EEEE') | translate}}
-                        {{meteo.forecast.datetime | date:'dd'}} {{'various.months.'+(meteo.forecast.datetime
-                        |date:'LLLL') | translate}} {{meteo.forecast.datetime | date:'Y'}}
-                    </div>
-                </mat-card-title>
-                <mat-card-subtitle>
-                    <div>
-                        <img class="icon" src="/assets/icons/meteo/short-cut/{{meteo.forecast.icon}}.png" />
-                        {{'meteo-station.forecast.weather.'+meteo.forecast.weather | translate }}
-                    </div>
-                </mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="temperature">
-                    <img class="icon" src="/assets/icons/meteo/short-cut/temperature.png" />
-                    {{meteo.forecast.tmin}}&nbsp;°C - {{meteo.forecast.tmax}}&nbsp;°C
-                </div>
-                <div class="sunhour">
-                    <img class="icon" src="/assets/icons/meteo/short-cut/sunrise.png" />{{meteo.ephemeride.sunrise}}
-                    <img class="icon" src="/assets/icons/meteo/short-cut/sunset.png" />{{meteo.ephemeride.sunset}}
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
+  <div class="box">
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title>
+          <div>
+            {{
+              'various.days.' + (meteo.forecast.datetime | date: 'EEEE')
+                | translate
+            }}
+            {{ meteo.forecast.datetime | date: 'dd' }}
+            {{
+              'various.months.' + (meteo.forecast.datetime | date: 'LLLL')
+                | translate
+            }}
+            {{ meteo.forecast.datetime | date: 'Y' }}
+          </div>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <div>
+            <img
+              class="icon"
+              src="/assets/icons/meteo/short-cut/{{ meteo.forecast.icon }}.png"
+            />
+            {{
+              'meteo-station.forecast.weather.' + meteo.forecast.weather
+                | translate
+            }}
+          </div>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="temperature">
+          <img
+            class="icon"
+            src="/assets/icons/meteo/short-cut/temperature.png"
+          />
+          {{ meteo.forecast.tmin }}&nbsp;°C - {{ meteo.forecast.tmax }}&nbsp;°C
+        </div>
+        <div class="sunhour">
+          <img class="icon" src="/assets/icons/meteo/short-cut/sunrise.png" />{{
+            meteo.ephemeride.sunrise
+          }}
+          <img class="icon" src="/assets/icons/meteo/short-cut/sunset.png" />{{
+            meteo.ephemeride.sunset
+          }}
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

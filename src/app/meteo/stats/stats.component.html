@@ -1,9 +1,8 @@
-
 <mat-form-field appearance="fill">
   <mat-label>Type statistiques</mat-label>
   <mat-select [(value)]="typeStats" (selectionChange)="reload()">
-    <mat-option value="h24" selected>{{'stats.h24' | translate}}</mat-option>
-    <mat-option value="daily">{{'stats.daily' | translate}}</mat-option>
+    <mat-option value="h24" selected>{{ 'stats.h24' | translate }}</mat-option>
+    <mat-option value="daily">{{ 'stats.daily' | translate }}</mat-option>
   </mat-select>
 </mat-form-field>
 <app-graph *ngIf="!!meteoStats" [meteoStats]="meteoStats"></app-graph>
