@@ -14,15 +14,16 @@ describe('ForecastsComponent', () => {
   beforeEach(
     waitForAsync(async () => {
       await TestBed.configureTestingModule({
-        declarations: [ForecastsComponent],
-        imports: [
-          SharedModule,
-          CoreModule,
-          MeteoModule,
-          RouterTestingModule,
-          HttpClientTestingModule
-        ]
-      }).compileComponents();
+    declarations: [ForecastsComponent],
+    imports: [
+        SharedModule,
+        CoreModule,
+        MeteoModule,
+        RouterTestingModule,
+        HttpClientTestingModule
+    ],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
     })
   );
 

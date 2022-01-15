@@ -8,8 +8,9 @@ describe('DevicesService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
-    });
+    imports: [HttpClientTestingModule],
+    teardown: { destroyAfterEach: false }
+});
     service = TestBed.inject(DevicesService);
   });
 

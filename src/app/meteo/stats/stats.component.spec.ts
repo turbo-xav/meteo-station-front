@@ -14,14 +14,15 @@ describe('StatsComponent', () => {
   beforeEach(
     waitForAsync(() => {
       void TestBed.configureTestingModule({
-        declarations: [StatsComponent, GraphComponent],
-        imports: [
-          SharedModule,
-          CoreModule,
-          HttpClientTestingModule,
-          RouterTestingModule
-        ]
-      }).compileComponents();
+    declarations: [StatsComponent, GraphComponent],
+    imports: [
+        SharedModule,
+        CoreModule,
+        HttpClientTestingModule,
+        RouterTestingModule
+    ],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
     })
   );
 

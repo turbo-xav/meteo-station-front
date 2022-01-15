@@ -8,14 +8,15 @@ describe('AppComponent', () => {
   beforeEach(
     waitForAsync(async () => {
       await TestBed.configureTestingModule({
-        imports: [
-          RouterTestingModule,
-          HttpClientTestingModule,
-          AppModule,
-          GlobalLayoutModule
-        ],
-        declarations: [AppComponent]
-      }).compileComponents();
+    imports: [
+        RouterTestingModule,
+        HttpClientTestingModule,
+        AppModule,
+        GlobalLayoutModule
+    ],
+    declarations: [AppComponent],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
     })
   );
 

@@ -12,9 +12,10 @@ describe('MenuComponent', () => {
   beforeEach(
     waitForAsync(async () => {
       await TestBed.configureTestingModule({
-        declarations: [MenuComponent],
-        imports: [RouterTestingModule, HttpClientTestingModule, AppModule]
-      }).compileComponents();
+    declarations: [MenuComponent],
+    imports: [RouterTestingModule, HttpClientTestingModule, AppModule],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
     })
   );
 

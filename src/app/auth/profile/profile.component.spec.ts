@@ -10,9 +10,10 @@ describe('ProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule],
-      declarations: [ProfileComponent]
-    }).compileComponents();
+    imports: [HttpClientTestingModule, RouterTestingModule],
+    declarations: [ProfileComponent],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
   });
 
   beforeEach(() => {

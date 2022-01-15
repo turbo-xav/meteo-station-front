@@ -13,14 +13,15 @@ describe('DeviceDetailComponent', () => {
   beforeEach(
     waitForAsync(async () => {
       await TestBed.configureTestingModule({
-        imports: [
-          SharedModule,
-          CoreModule,
-          RouterTestingModule,
-          HttpClientTestingModule
-        ],
-        declarations: [DeviceDetailComponent]
-      }).compileComponents();
+    imports: [
+        SharedModule,
+        CoreModule,
+        RouterTestingModule,
+        HttpClientTestingModule
+    ],
+    declarations: [DeviceDetailComponent],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
     })
   );
 

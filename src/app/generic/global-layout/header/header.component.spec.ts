@@ -12,9 +12,10 @@ describe('HeaderComponent', () => {
   beforeEach(
     waitForAsync(async () => {
       await TestBed.configureTestingModule({
-        declarations: [HeaderComponent, MenuComponent],
-        imports: [RouterTestingModule, HttpClientTestingModule, AppModule]
-      }).compileComponents();
+    declarations: [HeaderComponent, MenuComponent],
+    imports: [RouterTestingModule, HttpClientTestingModule, AppModule],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
     })
   );
 

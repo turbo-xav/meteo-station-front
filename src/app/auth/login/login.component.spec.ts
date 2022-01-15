@@ -13,14 +13,15 @@ describe('LoginComponent', () => {
   beforeEach(
     waitForAsync(async () => {
       await TestBed.configureTestingModule({
-        imports: [
-          SharedModule,
-          CoreModule,
-          HttpClientTestingModule,
-          RouterTestingModule
-        ],
-        declarations: [LoginComponent]
-      }).compileComponents();
+    imports: [
+        SharedModule,
+        CoreModule,
+        HttpClientTestingModule,
+        RouterTestingModule
+    ],
+    declarations: [LoginComponent],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
     })
   );
 
