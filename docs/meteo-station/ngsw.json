@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1614330345355,
+  "timestamp": 1640266594312,
   "index": "./index.html",
   "assetGroups": [
     {
@@ -11,17 +11,17 @@
         "ignoreVary": true
       },
       "urls": [
-        "./auth-auth-module.9af3eca80491f9725a63.js",
-        "./devices-devices-module.d82b4d0ca7956ec87343.js",
         "./favicon.ico",
-        "./home-home-module.4c77afd0e8a691b83569.js",
         "./index.html",
-        "./main.bff5ae623ac10e21343c.js",
+        "./main.3724b69b3e5ec96f400f.js",
         "./manifest.webmanifest",
-        "./meteo-meteo-module.4d867faf132fc27cf7c3.js",
-        "./polyfills.4233ecf8db12b8a2ff26.js",
-        "./runtime.eb8f2014c13683f2661b.js",
-        "./styles.e17e6fe82d4c0a668960.css"
+        "./polyfills.e7d763f0383add6e7976.js",
+        "./runtime.403ab6593dcb1d68602a.js",
+        "./src_app_auth_auth_module_ts.d3a2895a809b24a2695e.js",
+        "./src_app_devices_devices_module_ts.06af2556f531bd719743.js",
+        "./src_app_home_home_module_ts.cea5850d8451b11872cf.js",
+        "./src_app_meteo_meteo_module_ts.aaa1ce3d7d7976a2e028.js",
+        "./styles.87e4a923138833737f9c.css"
       ],
       "patterns": []
     },
@@ -35,6 +35,7 @@
       "urls": [
         "./assets/i18n/en.json",
         "./assets/i18n/fr.json",
+        "./assets/icons/humidity.png",
         "./assets/icons/icon-128x128.png",
         "./assets/icons/icon-144x144.png",
         "./assets/icons/icon-152x152.png",
@@ -177,6 +178,8 @@
         "./assets/icons/meteo/short-cut/sunrise.png",
         "./assets/icons/meteo/short-cut/sunset.png",
         "./assets/icons/meteo/short-cut/temperature.png",
+        "./assets/icons/pressure.png",
+        "./assets/icons/thermometre.png",
         "./assets/icons/télécomande.png",
         "./assets/img/forecast-long.png",
         "./assets/img/login-button.png",
@@ -194,8 +197,9 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "./assets/i18n/en.json": "4598a80f68846f70394c5555bc2244ab3cdf1e7d",
+    "./assets/i18n/en.json": "cfea7a10ccc4e9bae2baef0012c665535824f369",
     "./assets/i18n/fr.json": "253636b328580baf4efdcad829c0ef6a99a4146a",
+    "./assets/icons/humidity.png": "e96d39b9954606cc3842e87a6fc71858a395cdfd",
     "./assets/icons/icon-128x128.png": "e7c21aaa82fe91d4147d0496e76afaf7a4d158ba",
     "./assets/icons/icon-144x144.png": "97e41db09b0f6ae1485382099e969dee6b12f8f0",
     "./assets/icons/icon-152x152.png": "084c7f636e7085cde6373b5891224dea16f2f135",
@@ -338,6 +342,8 @@
     "./assets/icons/meteo/short-cut/sunrise.png": "606ea1af54ab56a1ca22cb91eadbdb436cb854c5",
     "./assets/icons/meteo/short-cut/sunset.png": "a4f22cd9b456e0667af524e66101df0915b0882f",
     "./assets/icons/meteo/short-cut/temperature.png": "54bf9f20ea13f6a437b4bd7d1bbcbbd857203b4f",
+    "./assets/icons/pressure.png": "847939b6ed8d3a71a568860a9176c5e919b60b39",
+    "./assets/icons/thermometre.png": "92acb8c0d7e93ae3cb67f760c22cd4b909fc8b1a",
     "./assets/icons/télécomande.png": "2a08bb16ff77b64a3d60b19e409e245cf1f451fc",
     "./assets/img/forecast-long.png": "64939802faeb9d56275551c7ca80f5ee8a98afb1",
     "./assets/img/login-button.png": "ef75e1a14b779909b1d95e051fc345f5e275db5a",
@@ -349,17 +355,17 @@
     "./assets/img/statistics.png": "a5facf4a11aba3561d402b656dd8bd31e0b289e8",
     "./assets/img/thermometre.png": "92acb8c0d7e93ae3cb67f760c22cd4b909fc8b1a",
     "./assets/img/water-heater.png": "ace8d54759d25ca04b0e72fcc1b79639f1060b9a",
-    "./auth-auth-module.9af3eca80491f9725a63.js": "e48ca7f4fb95056434a1f5e2988ad30ad25fc1fb",
-    "./devices-devices-module.d82b4d0ca7956ec87343.js": "ba9f129ee09af44b79435a7f140297dac1ffbeb9",
     "./favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "./home-home-module.4c77afd0e8a691b83569.js": "d64a10b7f0ab91e69eded7c62c236ec5ed1e7e25",
-    "./index.html": "44b0a07ddf31ddded6e1f281be7287e7798021bd",
-    "./main.bff5ae623ac10e21343c.js": "5c03d30b1d54337527caa13c08b9e6d053eb5302",
-    "./manifest.webmanifest": "f4f7c74226ca9f09c804349a715ac61427b373df",
-    "./meteo-meteo-module.4d867faf132fc27cf7c3.js": "695a17919b9d2eae5e7a269e2de9ce801be53eef",
-    "./polyfills.4233ecf8db12b8a2ff26.js": "e40792620a9b8abdea6eb6bc0026888321fa7bc3",
-    "./runtime.eb8f2014c13683f2661b.js": "f446588e1c4ec3c1f3fde865b80ef00cbb2ecebf",
-    "./styles.e17e6fe82d4c0a668960.css": "f0cde45b6a9181b54d3f45a3dff236a558c8afb9"
+    "./index.html": "d38dabad10913ddd9c95d12611a7f9113556eb2b",
+    "./main.3724b69b3e5ec96f400f.js": "7437f252d3b994bdfc83f2936d1bc12e5166961b",
+    "./manifest.webmanifest": "8a8aa228a14d4160e8007367a6da88aa57114621",
+    "./polyfills.e7d763f0383add6e7976.js": "38f2f4ed019263c63d8d68d694f9bc6e1da2d69b",
+    "./runtime.403ab6593dcb1d68602a.js": "072f90efafe0da32363f129f5d8408afdfb5947f",
+    "./src_app_auth_auth_module_ts.d3a2895a809b24a2695e.js": "0061c9a079591f8c3b3035bca235b1619093ec9e",
+    "./src_app_devices_devices_module_ts.06af2556f531bd719743.js": "2f8009ce7ecc4c8d3ee365ad72b10869df72c780",
+    "./src_app_home_home_module_ts.cea5850d8451b11872cf.js": "947f9901ccf2aca77f2eb469abac3b4fa2a174c4",
+    "./src_app_meteo_meteo_module_ts.aaa1ce3d7d7976a2e028.js": "3ba19229e1a274146880b532b3a7c0fae4e8da37",
+    "./styles.87e4a923138833737f9c.css": "1ef2ff81256cdf3395e8808e5d68ed152e31d058"
   },
   "navigationUrls": [
     {

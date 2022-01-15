@@ -72,7 +72,7 @@
         }
     },
     "led": {
-        "magic-led": "Magic led",
+        "led": "led",
         "play-funny-led": "Play with my funny LED",
         "click-to-play-funny-led": "Click on the red LED to switch its state",
         "led-is": "Magic LED is",
