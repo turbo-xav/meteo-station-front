@@ -7,7 +7,11 @@
   (touchstart)="swipe($event, 'start')"
   (touchend)="swipe($event, 'end')"
 >
-  <mat-tab-group [(selectedIndex)]="selectedTab" [headerPosition]="'above'">
+  <mat-tab-group
+    class="forecasts"
+    [(selectedIndex)]="selectedTab"
+    [headerPosition]="'above'"
+  >
     <mat-tab *ngFor="let meteo of meteoForecasts">
       <ng-template mat-tab-label>
         <span class="label">

@@ -1,11 +1,4 @@
-import {
-  Component,
-  ViewChild,
-  ElementRef,
-  Output,
-  EventEmitter
-} from '@angular/core';
-import { ChangeDetectorRef } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import {
   PackageJsonService,
   PackageJsonInfos
@@ -17,21 +10,10 @@ import {
 })
 export class FooterComponent {
   @ViewChild('pRef', { static: false }) pRef?: ElementRef;
-  @Output() heightChanged = new EventEmitter<number>();
 
-  constructor(
-    private readonly cdref: ChangeDetectorRef,
-    private readonly packageJsonService: PackageJsonService
-  ) {}
+  constructor(private readonly packageJsonService: PackageJsonService) {}
 
   public get infos(): PackageJsonInfos {
     return this.packageJsonService.infos;
-  }
-
-  change(): void {
-    if (this.pRef !== undefined) {
-      this.cdref.detectChanges();
-      this.heightChanged.emit(this.pRef.nativeElement.offsetHeight);
-    }
   }
 }

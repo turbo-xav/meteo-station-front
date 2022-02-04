@@ -1,9 +1,11 @@
-<header>
-  <app-header></app-header>
-</header>
-<main #main>
-  <router-outlet></router-outlet>
-</main>
-<footer>
-  <app-footer (heightChanged)="updateHeight($event)"></app-footer>
-</footer>
+<div class="flex-container">
+  <header class="flex-item">
+    <app-header></app-header>
+  </header>
+  <main #main class="flex-item">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="flex-item">
+    <app-footer></app-footer>
+  </footer>
+</div>

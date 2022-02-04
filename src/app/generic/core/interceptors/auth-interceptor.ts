@@ -1,4 +1,5 @@
 import {
+  HttpErrorResponse,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
@@ -26,13 +27,15 @@ export class AuthInterceptor implements HttpInterceptor {
     // returning an observable to complete the request cycle
     return new Observable((subscriber) => {
       next.handle(req).subscribe(
-        (res: HttpEvent<unknown>) => {
+        (res: HttpEvent<unknown>): void => {
           if (res instanceof HttpResponse) {
             subscriber.next(res);
           }
         },
-        () => {
-          this.authService.logOut();
+        (err: HttpErrorResponse): void => {
+          if (err.status === 401) {
+            this.authService.logOut();
+          }
         }
       );
     });

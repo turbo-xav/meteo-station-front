@@ -1,20 +1,21 @@
 mat-card {
-    max-width: 70%;
-    margin: 2em auto;
-    text-align: center;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  height: 95%;
 }
 
 mat-card-header {
-    display:block;
+  display: block;
 }
 
 .box {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    
-    img{
-        border-radius:12px;
-        margin:5px;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    border-radius: 12px;
+    margin: 5px;
+  }
 }

@@ -1,14 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
-$main-color:rgba(23, 162, 184, 1);
+$main-color: rgba(23, 162, 184, 1);
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-h1,h2,h3 {
-    color:$main-color;
-    text-align: center;
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+h1,
+h2,
+h3 {
+  color: $main-color;
+  text-align: center;
 }
 
 .mat-dialog-container {
-    border:1px solid black; 
+  border: 1px solid black;
 }
