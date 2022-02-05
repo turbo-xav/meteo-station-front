@@ -7,19 +7,25 @@ import {
   HttpResponse
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { AuthService } from '../service/auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly cookieService: CookieService
+  ) {}
 
   intercept(
     req: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     req = req.clone({
+      withCredentials: true,
       setHeaders: {
+        'XSRF-TOKEN': this.cookieService.get('XSRF-TOKEN'),
         Authorization: `Bearer ${this.authService.getToken()}`
       }
     });

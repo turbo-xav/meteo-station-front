@@ -6,7 +6,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
-
+import { CookieService } from 'ngx-cookie-service';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -35,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       provide: MAT_DIALOG_DATA,
       useValue: {}
     },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    CookieService
   ]
 })
 export class CoreModule {}
