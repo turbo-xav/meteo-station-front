@@ -18,7 +18,12 @@ export class DevicesService {
   }
 
   public getDevices(): Observable<Device[]> {
-    return this.http.get<Device[]>(`${this.apiUrl}/station/devices`, {}).pipe();
+    const httpOptions = {
+      observe: 'response'
+    };
+    return this.http
+      .post<Device[]>(`${this.apiUrl}/station/devices`, { httpOptions })
+      .pipe();
   }
 
   public getDevice(): Observable<Device> {
