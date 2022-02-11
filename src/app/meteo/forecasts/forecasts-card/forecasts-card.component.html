@@ -15,7 +15,7 @@
           <div>
             <img
               class="icon"
-              src="/assets/icons/meteo/short-cut/{{ meteo.forecast.icon }}.png"
+              src="./assets/icons/meteo/short-cut/{{ meteo.forecast.icon }}.png"
             />
             {{ 'meteo-station.forecast.weather.' + meteo.forecast.weather |
             translate }}
@@ -26,14 +26,16 @@
         <div class="temperature">
           <img
             class="icon"
-            src="/assets/icons/meteo/short-cut/temperature.png"
+            src="./assets/icons/meteo/short-cut/temperature.png"
           />
           {{ meteo.forecast.tmin }}&nbsp;°C - {{ meteo.forecast.tmax }}&nbsp;°C
         </div>
         <div class="sunhour">
-          <img class="icon" src="/assets/icons/meteo/short-cut/sunrise.png" />{{
-          meteo.ephemeride.sunrise }}
-          <img class="icon" src="/assets/icons/meteo/short-cut/sunset.png" />{{
+          <img
+            class="icon"
+            src="./assets/icons/meteo/short-cut/sunrise.png"
+          />{{ meteo.ephemeride.sunrise }}
+          <img class="icon" src="./assets/icons/meteo/short-cut/sunset.png" />{{
           meteo.ephemeride.sunset }}
         </div>
       </mat-card-content>
