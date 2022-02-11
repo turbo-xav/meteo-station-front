@@ -41,7 +41,12 @@ export class AuthInterceptor implements HttpInterceptor {
       next.handle(req).subscribe(
         (res: HttpEvent<unknown>): void => {
           if (res instanceof HttpResponse) {
-            //console.warn(req.url, ' : ', res.headers.get('xsrf-token'));
+            console.warn(
+              req.url,
+              ' : ',
+              res.headers.keys(),
+              res.headers.get('xsrf-token')
+            );
             if (
               res.headers.has('xsrf-token') &&
               res.headers.get('xsrf-token') !== null

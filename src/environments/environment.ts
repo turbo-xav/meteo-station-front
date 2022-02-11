@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   api: {
-    url: 'http://localhost/api'
+    url: 'https://meteo-back.projets-web.fr:2000/api'
+    //url: 'https://localhost:2000/api'
   }
 };
 
