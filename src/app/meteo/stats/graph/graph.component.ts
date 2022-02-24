@@ -130,9 +130,14 @@ export class GraphComponent implements OnInit, OnDestroy {
 
         const date = new Date(meteoStat.ts);
         if (cpt === 0) {
-          const day = date.getDate();
-          const month = date.getMonth();
+          const day =
+            date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+          const month =
+            date.getMonth() + 1 < 10
+              ? `0${date.getMonth() + 1}`
+              : date.getMonth() + 1;
           const year = date.getFullYear();
+
           x = `${day} / ${month} / ${year}`;
         } else {
           const dateNow = new Date();
