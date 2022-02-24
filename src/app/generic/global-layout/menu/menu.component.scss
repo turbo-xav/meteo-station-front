@@ -1,7 +1,7 @@
 h1.main-title {
-  width: 80%;
   text-align: center;
-  font-size: 1em;
+  font-size: 0.7em;
+  width: 70%;
 }
 
 .mat-form-field-appearance-fill .mat-form-field-flex {
@@ -9,7 +9,7 @@ h1.main-title {
 }
 
 .mat-form-field-language {
-  width: 85px;
+  width: 80px;
   height: 28px;
   font-size: 11px;
   margin: 5px -6px 10px 5px;
@@ -29,13 +29,13 @@ h1.main-title {
     height: 40px;
   }
   div.language-choice {
-    margin: 0 10px 0 0px;
+    margin: 0 8px 0 0px;
   }
   align-items: center;
 }
 
 .sub-menu-title {
-  flex: 4;
+  flex: 1;
 }
 
 .sub-menu-menu {
