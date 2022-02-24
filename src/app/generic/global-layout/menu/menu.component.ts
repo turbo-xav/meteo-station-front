@@ -8,6 +8,7 @@ import {
 import { ViewEncapsulation } from '@angular/core';
 import { MatSelect } from '@angular/material/select';
 import { AuthService } from 'src/app/generic/core/service/auth.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-menu',
@@ -36,6 +37,10 @@ export class MenuComponent {
 
   get authUrl(): string {
     return this.authService.apiAuthUrl;
+  }
+
+  get user(): User | null {
+    return this.authService.infos;
   }
 
   public get connected(): boolean {
