@@ -22,7 +22,7 @@ export class GraphComponent implements OnInit, OnDestroy {
   type: ChartType = ChartType.LineChart;
   title = '';
   datas: (string | number)[][] = [];
-  columnNames = ['Time', 'temperature'];
+  columnNames = ['Time', 'Temperature'];
   options = {
     chartArea: {
       left: 55,
@@ -79,7 +79,7 @@ export class GraphComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.drawChart();
-    this.drawingSubscription = interval(250).subscribe(() => {
+    this.drawingSubscription = interval(1000).subscribe(() => {
       this.drawChart();
     });
   }
@@ -99,47 +99,29 @@ export class GraphComponent implements OnInit, OnDestroy {
   public drawChart(): void {
     const days = [];
     for (let i = 0; i <= 6; i++) {
-      this.translateService
-        .get(`stats.days.${i}`)
-        .subscribe((translation: string) => {
-          days[i] = translation;
-        });
+      days[i] = this.translateService.instant(`stats.days.${i}`);
     }
+    // Axis titles
+    this.options.hAxis.title = this.translateService.instant('stats.time');
+    this.options.vAxis.title =
+      this.translateService.instant('stats.measurements');
 
-    this.translateService.get('stats.time').subscribe((translation: string) => {
-      this.options.hAxis.title = translation;
-    });
+    // Legendary
+    this.columnNames[1] = this.translateService.instant('stats.temperature');
 
-    this.translateService
-      .get('stats.measurements')
-      .subscribe((translation: string) => {
-        this.options.vAxis.title = translation;
-      });
+    //Title
+    this.title = this.translateService.instant('stats.temperature-evolution');
+    const titleH24: string = this.translateService.instant(
+      'stats.temperature-evolution-h24'
+    );
+    const titleDaily: string = this.translateService.instant(
+      'stats.temperature-evolution-daily'
+    );
 
-    this.translateService
-      .get('stats.temperature')
-      .subscribe((translation: string) => {
-        this.columnNames[1] = translation;
-      });
+    this.title += this.typeStats === 'h24' ? ` - ${titleH24}` : '';
+    this.title += this.typeStats === 'daily' ? ` - ${titleDaily}` : '';
 
-    this.translateService
-      .get('stats.temperature-evolution')
-      .subscribe((translation: string) => {
-        this.title = translation;
-        if (this.typeStats === 'h24') {
-          this.translateService
-            .get('stats.temperature-evolution-h24')
-            .subscribe((addingTranslation: string) => {
-              this.title += ' - ' + addingTranslation;
-            });
-        } else if (this.typeStats === 'daily') {
-          this.translateService
-            .get('stats.temperature-evolution-daily')
-            .subscribe((addingTranslation: string) => {
-              this.title += ' - ' + addingTranslation;
-            });
-        }
-      });
+    // Day X Axis
     let cpt = 0;
     if (this.meteoStats) {
       this.datas = [];
@@ -159,7 +141,7 @@ export class GraphComponent implements OnInit, OnDestroy {
           const minutes =
             date.getMinutes() < 10
               ? `0${date.getMinutes()}`
-              : `0${date.getMinutes()}`;
+              : `${date.getMinutes()}`;
           x =
             'j' +
             (this.dayDiff(date, dateNow) > 0
@@ -167,6 +149,7 @@ export class GraphComponent implements OnInit, OnDestroy {
               : '') +
             ` ${hours}:${minutes}`;
         }
+
         this.datas.push([x, meteoStat.val.temperature]);
         cpt++;
       }
