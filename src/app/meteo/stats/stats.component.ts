@@ -12,12 +12,11 @@ export class StatsComponent implements OnInit {
 
   meteoStats: MeteoStats[] = [];
 
-  constructor(private readonly statsService: StatsService) {
-    this.reload();
-  }
+  constructor(private readonly statsService: StatsService) {}
 
   ngOnInit(): void {
     this.typeStats = 'h24';
+    this.reload();
   }
 
   reload(): void {

@@ -17,6 +17,7 @@ import { ChartType } from 'angular-google-charts';
 })
 export class GraphComponent implements OnInit, OnDestroy {
   @Input() meteoStats?: MeteoStats[];
+  @Input() typeStats?: 'h24' | 'daily';
 
   type: ChartType = ChartType.LineChart;
   title = '';
@@ -125,6 +126,19 @@ export class GraphComponent implements OnInit, OnDestroy {
       .get('stats.temperature-evolution')
       .subscribe((translation: string) => {
         this.title = translation;
+        if (this.typeStats === 'h24') {
+          this.translateService
+            .get('stats.temperature-evolution-h24')
+            .subscribe((addingTranslation: string) => {
+              this.title += ' - ' + addingTranslation;
+            });
+        } else if (this.typeStats === 'daily') {
+          this.translateService
+            .get('stats.temperature-evolution-daily')
+            .subscribe((addingTranslation: string) => {
+              this.title += ' - ' + addingTranslation;
+            });
+        }
       });
     let cpt = 0;
     if (this.meteoStats) {

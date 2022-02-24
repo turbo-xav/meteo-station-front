@@ -5,4 +5,8 @@
     <mat-option value="daily">{{ 'stats.daily' | translate }}</mat-option>
   </mat-select>
 </mat-form-field>
-<app-graph *ngIf="!!meteoStats" [meteoStats]="meteoStats"></app-graph>
+<app-graph
+  *ngIf="!!meteoStats"
+  [typeStats]="typeStats"
+  [meteoStats]="meteoStats"
+></app-graph>
