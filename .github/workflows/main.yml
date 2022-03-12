@@ -53,3 +53,4 @@ jobs:
           port: 22
           script: |
             cd ${{ secrets.REMOTE_TARGET }}
+            echo ${{secrets.ENV_PROD}} > .env.prod-test
