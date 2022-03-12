@@ -43,4 +43,8 @@ export class DevicesService {
       })
     );
   }
+
+  public reset(): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/station/restart`, {});
+  }
 }

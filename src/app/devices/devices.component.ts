@@ -10,7 +10,13 @@ import { DeviceDetailComponent } from './device-detail/device-detail.component';
   styleUrls: ['./devices.component.scss']
 })
 export class DevicesComponent implements OnInit {
-  displayedColumns: string[] = ['device', 'description', 'state', 'time'];
+  displayedColumns: string[] = [
+    'device',
+    'description',
+    'state',
+    'time',
+    'reset'
+  ];
 
   devices: Device[] = [];
 
@@ -28,6 +34,12 @@ export class DevicesComponent implements OnInit {
       dialogRef.afterClosed().subscribe(() => {
         console.log('The dialog was closed');
       });
+    });
+  }
+
+  reset(): void {
+    this.deviceService.reset().subscribe(() => {
+      console.log('restart');
     });
   }
 
