@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/generic/core/service/users.service';
 import { User } from 'src/app/generic/interfaces/user';
 
 @Component({
@@ -8,7 +9,7 @@ import { User } from 'src/app/generic/interfaces/user';
 })
 export class UsersComponent implements OnInit {
   users: User[] = [
-    {
+    /*{
       id: 1,
       email: 'xavier.tagliarino@gmail.com',
       role: 'ADMIN',
@@ -25,7 +26,7 @@ export class UsersComponent implements OnInit {
       lastname: 'he is USER by default',
       picture:
         'https://lh3.googleusercontent.com/a-/AOh14GimFdnllqH5tW8GrxT0gdvfJQRcCEsmzjyuskBKVY8=s96-c'
-    } as User
+    } as User*/
   ];
 
   displayedColumns: string[] = [
@@ -37,7 +38,12 @@ export class UsersComponent implements OnInit {
     'role'
   ];
 
-  constructor() {}
+  constructor(private readonly usersService: UsersService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.usersService.users().subscribe((users: User[]) => {
+      console.warn(users);
+      this.users = users;
+    });
+  }
 }
