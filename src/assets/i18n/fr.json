@@ -43,6 +43,17 @@
     "meteo-stats": "Statistiques",
     "meteo-forecast": "Prévisions"
   },
+  "user": {
+    "id": "id",
+    "firstname": "Prénom",
+    "lastname": "Nom",
+    "email": "Mail",
+    "picture": "Icon",
+    "role": "Role",
+    "users-list": {
+      "Users": "Utilisateurs"
+    }
+  },
   "device": {
     "device": "Appareil",
     "state": "Etat",

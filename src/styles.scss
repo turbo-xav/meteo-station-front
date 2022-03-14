@@ -20,3 +20,10 @@ h3 {
 .mat-dialog-container {
   border: 1px solid black;
 }
+
+/* Display List like devices, user, ....*/
+table.mat-table {
+  width: 100%;
+  border: 2px solid;
+  border-radius: 4px;
+}
