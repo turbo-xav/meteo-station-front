@@ -9,10 +9,14 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly router: Router
+  ) {}
 
   intercept(
     req: HttpRequest<unknown>,
@@ -60,6 +64,10 @@ export class AuthInterceptor implements HttpInterceptor {
         (err: HttpErrorResponse): void => {
           if (err.status === 401) {
             this.authService.logOut();
+          }
+
+          if (err.status === 403) {
+            void this.router.navigate(['/auth/unauthorized']);
           }
         }
       );

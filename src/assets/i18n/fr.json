@@ -41,8 +41,10 @@
     "meteo": "Météo",
     "meteo-station": "Station météo",
     "meteo-stats": "Statistiques",
-    "meteo-forecast": "Prévisions"
+    "meteo-forecast": "Prévisions",
+    "users": "Utilisateurs"
   },
+  "admin": {},
   "user": {
     "id": "id",
     "firstname": "Prénom",
@@ -250,7 +252,8 @@
     "your-profile": "Votre profil"
   },
   "error": {
-    "http-error": "Requête HTTP invalide"
+    "http-error": "Requête HTTP invalide",
+    "unauthorized": "Vous n'avez pas les droits d'accéder à cette fonctionnalité"
   },
   "language": {
     "fr": "Français",

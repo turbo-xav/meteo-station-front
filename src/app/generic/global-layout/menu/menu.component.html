@@ -26,6 +26,19 @@
           <mat-icon>wb_twilight</mat-icon>&nbsp;{{ 'navigation.meteo' |
           translate }}
         </button>
+        <button mat-menu-item [matMenuTriggerFor]="admin">
+          <mat-icon>settings </mat-icon>Admin
+        </button>
+      </mat-menu>
+
+      <mat-menu #admin>
+        <a mat-menu-item [routerLink]="['/admin','users']"
+          ><img
+            src="./assets/icons/icon-users.png"
+            alt="icon station météo"
+            width="25"
+          />&nbsp;{{ 'navigation.users' | translate }}</a
+        >
       </mat-menu>
 
       <mat-menu #meteo>

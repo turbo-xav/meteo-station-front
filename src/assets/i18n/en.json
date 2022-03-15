@@ -41,8 +41,10 @@
     "meteo": "Meteo",
     "meteo-station": "Meteo station",
     "meteo-stats": "Statistics",
-    "meteo-forecast": "Forecasts"
+    "meteo-forecast": "Forecasts",
+    "users": "Users"
   },
+  "admin": {},
   "user": {
     "id": "id",
     "firstname": "FirstName",
@@ -260,7 +262,8 @@
     "your-profile": "Your profile"
   },
   "error": {
-    "http-error": "Http request invalid"
+    "http-error": "Http request invalid",
+    "unauthorized": "You don't have rights to access to this zone"
   },
   "language": {
     "fr": "French",
