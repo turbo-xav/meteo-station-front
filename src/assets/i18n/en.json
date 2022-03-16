@@ -1,5 +1,7 @@
 {
   "various": {
+    "back": "Back",
+    "save": "Save",
     "loading": "Loading .....",
     "welcome": "Welcome",
     "welcom-intro": "Welcome to the connected weather app",
@@ -44,7 +46,10 @@
     "meteo-forecast": "Forecasts",
     "users": "Users"
   },
-  "admin": {},
+  "admin": {
+    "users": "Users",
+    "user-edit": "User Edit"
+  },
   "role": {
     "USER": "User",
     "ADMIN": "Admin"
@@ -56,10 +61,7 @@
     "email": "Mail",
     "picture": "Picture",
     "role": "Role",
-    "enter": "Enter",
-    "users-list": {
-      "Users": "Users"
-    }
+    "enter": "Enter"
   },
   "device": {
     "device": "Device",

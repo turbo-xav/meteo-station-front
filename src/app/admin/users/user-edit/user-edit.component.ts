@@ -52,4 +52,8 @@ export class UserEditComponent implements OnInit {
       );
     }
   }
+
+  save(): void {
+    console.warn(this.userEditForm.getRawValue());
+  }
 }

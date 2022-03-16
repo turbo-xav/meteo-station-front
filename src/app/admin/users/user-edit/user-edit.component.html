@@ -1,56 +1,72 @@
-<form [formGroup]="userEditForm" *ngIf="user !== undefined" class="form">
-  <mat-form-field class="field" appearance="fill">
-    <mat-label>{{'user.id' | translate}}</mat-label>
-    <input
-      matInput
-      placeholder="{{'user.enter' | translate}} {{'user.id' | translate}}"
-      formControlName="id"
-    />
-  </mat-form-field>
+<h2>{{'admin.user-edit' | translate }}</h2>
+<div class="box">
+  <form [formGroup]="userEditForm" *ngIf="user !== undefined" class="form">
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>{{'user.id' | translate}}</mat-label>
+      <input
+        matInput
+        placeholder="{{'user.enter' | translate}} {{'user.id' | translate}}"
+        formControlName="id"
+      />
+    </mat-form-field>
 
-  <mat-form-field class="field" appearance="fill">
-    <mat-label>{{'user.firstname' | translate}}</mat-label>
-    <input
-      matInput
-      placeholder="{{'user.enter' | translate}} {{'user.firstname' | translate}}"
-      formControlName="firstname"
-    />
-  </mat-form-field>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>{{'user.firstname' | translate}}</mat-label>
+      <input
+        matInput
+        placeholder="{{'user.enter' | translate}} {{'user.firstname' | translate}}"
+        formControlName="firstname"
+      />
+    </mat-form-field>
 
-  <mat-form-field class="field" appearance="fill">
-    <mat-label>{{'user.lastname' | translate}}</mat-label>
-    <input
-      matInput
-      placeholder="{{'user.enter' | translate}} {{'user.lastname' | translate}}"
-      formControlName="lastname"
-    />
-  </mat-form-field>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>{{'user.lastname' | translate}}</mat-label>
+      <input
+        matInput
+        placeholder="{{'user.enter' | translate}} {{'user.lastname' | translate}}"
+        formControlName="lastname"
+      />
+    </mat-form-field>
 
-  <mat-form-field class="field" appearance="fill">
-    <mat-label>{{'user.email' | translate}}</mat-label>
-    <input
-      matInput
-      placeholder="{{'user.enter' | translate}} {{'user.email' | translate}}"
-      formControlName="email"
-    />
-  </mat-form-field>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>{{'user.email' | translate}}</mat-label>
+      <input
+        matInput
+        placeholder="{{'user.enter' | translate}} {{'user.email' | translate}}"
+        formControlName="email"
+      />
+    </mat-form-field>
 
-  <mat-form-field class="field" appearance="fill">
-    <mat-label>{{'user.picture' | translate}}</mat-label>
-    <input
-      matInput
-      placeholder="{{'user.enter' | translate}} {{'user.picture' | translate}}"
-      formControlName="picture"
-    />
-    <br />
-    <img [src]="user.picture" alt="" />
-  </mat-form-field>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>{{'user.picture' | translate}}</mat-label>
+      <input
+        matInput
+        placeholder="{{'user.enter' | translate}} {{'user.picture' | translate}}"
+        formControlName="picture"
+      />
+      <br />
+      <img [src]="user.picture" alt="" />
+    </mat-form-field>
 
-  <mat-form-field class="field" appearance="fill">
-    <mat-label>{{'user.role' | translate}}</mat-label>
-    <mat-select formControlName="role">
-      <mat-option value="USER">{{'role.USER' | translate}}</mat-option>
-      <mat-option value="ADMIN">{{'role.ADMIN' | translate}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-</form>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>{{'user.role' | translate}}</mat-label>
+      <mat-select formControlName="role">
+        <mat-option value="USER">{{'role.USER' | translate}}</mat-option>
+        <mat-option value="ADMIN">{{'role.ADMIN' | translate}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="box">
+      <button
+        [routerLink]="['/admin','users']"
+        mat-stroked-button
+        color="primary"
+      >
+        {{'back' | translate}}
+      </button>
+      <button mat-raised-button color="primary" (click)="save()">
+        {{'save' | translate}}
+      </button>
+    </div>
+  </form>
+</div>

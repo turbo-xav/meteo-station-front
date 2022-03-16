@@ -1,5 +1,7 @@
 {
   "various": {
+    "back": "retour",
+    "save": "Enregister",
     "loading": "Chargement .....",
     "welcome": "Bienvenue",
     "welcome-intro": "Bienvenue sur l'application météo connectée",
@@ -44,7 +46,10 @@
     "meteo-forecast": "Prévisions",
     "users": "Utilisateurs"
   },
-  "admin": {},
+  "admin": {
+    "users": "Utilisateurs",
+    "user-edit": "Utilisateur edition"
+  },
   "role": {
     "USER": "Utilisateur",
     "ADMIN": "Administrateur"
