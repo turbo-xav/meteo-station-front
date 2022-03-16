@@ -7,7 +7,7 @@ import {
   HttpResponse
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 
@@ -22,10 +22,12 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
+    // Prepare headers with JWT Authorization Bearer Token
     const headerWithAuthorizationBearer = {
       Authorization: `Bearer ${this.authService.getToken()}`
     };
 
+    // Prepare headers with 'XSRF-TOKEN' if available
     const headerWithjXSRFToken = {
       'XSRF-TOKEN': sessionStorage.getItem('XSRF-TOKEN') as string
     };
@@ -35,22 +37,18 @@ export class AuthInterceptor implements HttpInterceptor {
         ? { ...headerWithjXSRFToken, ...headerWithAuthorizationBearer }
         : headerWithAuthorizationBearer;
 
+    // Allow Credential into request (cookies, ...)
     req = req.clone({
       withCredentials: true,
       setHeaders
     });
 
-    // returning an observable to complete the request cycle
+    // Returning an observable to complete the request cycle
     return new Observable((subscriber) => {
       next.handle(req).subscribe(
         (res: HttpEvent<unknown>): void => {
           if (res instanceof HttpResponse) {
-            console.warn(
-              req.url,
-              ' : ',
-              res.headers.keys(),
-              res.headers.get('xsrf-token')
-            );
+            // Detect xsrf-token return by Back-End & store XSRF-TOKEN into sessionStorage
             if (
               res.headers.has('xsrf-token') &&
               res.headers.get('xsrf-token') !== null
@@ -58,17 +56,23 @@ export class AuthInterceptor implements HttpInterceptor {
               const token = res.headers.get('xsrf-token') as string;
               sessionStorage.setItem('XSRF-TOKEN', token);
             }
+            // Send request
             subscriber.next(res);
           }
         },
         (err: HttpErrorResponse): void => {
+          // Log out & redirect to login page
           if (err.status === 401) {
             this.authService.logOut();
+            void this.router.navigate(['/auth']);
           }
 
+          // Redirect to unauthorized page information
           if (err.status === 403) {
             void this.router.navigate(['/auth/unauthorized']);
           }
+          // Send Error
+          subscriber.error(err);
         }
       );
     });

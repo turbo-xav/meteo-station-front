@@ -1,9 +1,10 @@
-<form class="form">
+<form [formGroup]="userEditForm" *ngIf="user !== undefined" class="form">
   <mat-form-field class="field" appearance="fill">
     <mat-label>{{'user.id' | translate}}</mat-label>
     <input
       matInput
       placeholder="{{'user.enter' | translate}} {{'user.id' | translate}}"
+      formControlName="id"
     />
   </mat-form-field>
 
@@ -12,6 +13,7 @@
     <input
       matInput
       placeholder="{{'user.enter' | translate}} {{'user.firstname' | translate}}"
+      formControlName="firstname"
     />
   </mat-form-field>
 
@@ -20,6 +22,7 @@
     <input
       matInput
       placeholder="{{'user.enter' | translate}} {{'user.lastname' | translate}}"
+      formControlName="lastname"
     />
   </mat-form-field>
 
@@ -28,6 +31,7 @@
     <input
       matInput
       placeholder="{{'user.enter' | translate}} {{'user.email' | translate}}"
+      formControlName="email"
     />
   </mat-form-field>
 
@@ -36,14 +40,17 @@
     <input
       matInput
       placeholder="{{'user.enter' | translate}} {{'user.picture' | translate}}"
+      formControlName="picture"
     />
+    <br />
+    <img [src]="user.picture" alt="" />
   </mat-form-field>
 
   <mat-form-field class="field" appearance="fill">
     <mat-label>{{'user.role' | translate}}</mat-label>
-    <input
-      matInput
-      placeholder="{{'user.enter' | translate}} {{'user.role' | translate}}"
-    />
+    <mat-select formControlName="role">
+      <mat-option value="USER">{{'role.USER' | translate}}</mat-option>
+      <mat-option value="ADMIN">{{'role.ADMIN' | translate}}</mat-option>
+    </mat-select>
   </mat-form-field>
 </form>

@@ -16,7 +16,8 @@ export class UsersComponent implements OnInit {
     'lastname',
     'email',
     'picture',
-    'role'
+    'role',
+    'action'
   ];
 
   constructor(private readonly usersService: UsersService) {}

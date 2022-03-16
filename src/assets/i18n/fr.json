@@ -45,6 +45,10 @@
     "users": "Utilisateurs"
   },
   "admin": {},
+  "role": {
+    "USER": "Utilisateur",
+    "ADMIN": "Administrateur"
+  },
   "user": {
     "id": "id",
     "firstname": "Prénom",

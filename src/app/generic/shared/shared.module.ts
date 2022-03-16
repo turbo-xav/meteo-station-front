@@ -13,8 +13,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     MaterialModule,
     TranslateModule,
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
     GoogleChartsModule,
     RouterModule
   ]

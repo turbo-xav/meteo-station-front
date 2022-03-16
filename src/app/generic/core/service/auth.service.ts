@@ -13,10 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   private isAuthenticatedBehaviorSubject = new BehaviorSubject<boolean>(false);
 
-  constructor(
-    private readonly router: Router,
-    private readonly http: HttpClient
-  ) {}
+  constructor(private readonly http: HttpClient) {}
 
   get apiAuthUrl(): string {
     const apiUrl = environment.api?.url ?? 'http://localhost/api';
@@ -59,7 +56,6 @@ export class AuthService {
   logOut(): void {
     this.removeToken();
     this.isAuthenticatedBehaviorSubject.next(false);
-    void this.router.navigate(['/auth']);
   }
 
   isAuthenticated(): boolean {
