@@ -22,4 +22,8 @@ export class UsersService {
   public user(id: number): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/admin/users/${id}`);
   }
+
+  public save(user: User): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/admin/users`, user);
+  }
 }
