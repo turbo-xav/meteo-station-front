@@ -52,6 +52,7 @@
     "email": "Mail",
     "picture": "Picture",
     "role": "Role",
+    "enter": "Enter",
     "users-list": {
       "Users": "Users"
     }

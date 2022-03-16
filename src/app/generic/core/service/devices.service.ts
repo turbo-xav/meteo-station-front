@@ -18,11 +18,11 @@ export class DevicesService {
   }
 
   public getDevices(): Observable<Device[]> {
-    const httpOptions = {
+    /*const httpOptions = {
       observe: 'response'
-    };
+    };*/
     return this.http
-      .post<Device[]>(`${this.apiUrl}/station/devices`, { httpOptions })
+      .get<Device[]>(`${this.apiUrl}/station/devices` /*{ httpOptions }*/)
       .pipe();
   }
 
