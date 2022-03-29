@@ -20,11 +20,10 @@
           <mat-icon>account_circle</mat-icon>Profile
         </button>
         <button mat-menu-item [routerLink]="['/devices']">
-          <mat-icon>aod</mat-icon>&nbsp;{{ 'navigation.devices' | translate }}
+          <mat-icon>aod</mat-icon>{{ 'navigation.devices' | translate }}
         </button>
         <button mat-menu-item [matMenuTriggerFor]="meteo">
-          <mat-icon>wb_twilight</mat-icon>&nbsp;{{ 'navigation.meteo' |
-          translate }}
+          <mat-icon>wb_twilight</mat-icon>{{ 'navigation.meteo' | translate }}
         </button>
         <button mat-menu-item [matMenuTriggerFor]="admin">
           <mat-icon>settings </mat-icon>Admin
