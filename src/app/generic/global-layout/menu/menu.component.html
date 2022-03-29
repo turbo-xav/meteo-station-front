@@ -75,7 +75,7 @@
       </h1>
     </div>
     <div class="sub-menu-choice">
-      <div class="sub-menu-choice-item language-choice">
+      <div class="sub-menu-choice-item language-choice" id="language-choice">
         <mat-form-field appearance="fill" class="mat-form-field-language">
           <mat-label>{{ 'language.choose' | translate }}</mat-label>
           <mat-select
@@ -88,7 +88,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div class="sub-menu-choice-item">
+      <div class="sub-menu-choice-item" id="quit-or-signin">
         <img
           [src]="user?.picture"
           *ngIf="connected"

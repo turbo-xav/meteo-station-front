@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/generic/core/service/auth.service';
 export class LoginComponent implements OnInit {
   public loginInvalid = false;
   private returnUrl: string;
+  public loaded = false;
 
   constructor(
     private readonly route: ActivatedRoute,
