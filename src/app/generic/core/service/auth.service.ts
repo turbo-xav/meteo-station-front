@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from '../../interfaces/user';
 import { UserDetail } from '../../interfaces/user-detail';
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject } from 'rxjs';
+import { RestApiService } from './rest-api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   private isAuthenticatedBehaviorSubject = new BehaviorSubject<boolean>(false);
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(private readonly restApiService: RestApiService) {}
 
   get apiAuthUrl(): string {
     const apiUrl = environment.api?.url ?? 'http://localhost/api';
@@ -37,19 +37,19 @@ export class AuthService {
   }
 
   login(code: string): void {
-    this.http
+    this.restApiService
       .get<UserDetail>(`${this.apiAuthTokenTokenUrl}?code=${code}`)
-      .subscribe(
-        (userDetail: UserDetail) => {
+      .subscribe({
+        next: (userDetail: UserDetail) => {
           if (userDetail.user && userDetail.user.token) {
             this.registerToken(userDetail.user.token);
             this.isAuthenticatedBehaviorSubject.next(true);
           }
         },
-        () => {
+        error: () => {
           this.logOut();
         }
-      );
+      });
   }
 
   logOut(): void {
