@@ -52,7 +52,6 @@ export class RestApiService {
       tap({
         next: () => {
           this.spinnerService.close();
-          console.error('ok');
         },
         error: (httpErrorResponse: HttpErrorResponse): void => {
           this.spinnerService.close();
