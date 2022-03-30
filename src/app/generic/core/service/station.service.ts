@@ -25,13 +25,15 @@ export class StationService {
 
   public getState(resource: string): Observable<SwitchState> {
     return this.restApiService.get<SwitchState>(
-      `${this.apiUrl}/station/device/${resource}/state`
+      `${this.apiUrl}/station/device/${resource}/state`,
+      { withSpinner: false }
     );
   }
 
   public getMeasurement(): Observable<Measurement> {
     return this.restApiService.get<Measurement>(
-      `${this.apiUrl}/station/device/measurement`
+      `${this.apiUrl}/station/device/measurement`,
+      { withSpinner: false }
     );
   }
 }

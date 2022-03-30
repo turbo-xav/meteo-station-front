@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { SpinnerService } from './spinner.service';
 
+interface HttpConfCall {
+  withSpinner: boolean;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,30 +17,42 @@ export class RestApiService {
     private readonly spinnerService: SpinnerService
   ) {}
 
-  public get<T>(url: string): Observable<T> {
-    return this.sendHttpRequest(this.http.get<T>(url));
+  public get<T>(url: string, httpConfCall?: HttpConfCall): Observable<T> {
+    return this.sendHttpRequest(this.http.get<T>(url), httpConfCall);
   }
 
-  public delete(url: string): Observable<void> {
-    return this.sendHttpRequest(this.http.delete<void>(url));
+  public delete(url: string, httpConfCall?: HttpConfCall): Observable<void> {
+    return this.sendHttpRequest(this.http.delete<void>(url), httpConfCall);
   }
 
-  public post<T>(url: string, obj: T): Observable<T> {
-    return this.sendHttpRequest(this.http.post<T>(url, obj));
+  public post<T>(
+    url: string,
+    obj: T,
+    httpConfCall?: HttpConfCall
+  ): Observable<T> {
+    return this.sendHttpRequest(this.http.post<T>(url, obj), httpConfCall);
   }
 
-  public put<T>(url: string, obj: T): Observable<T> {
-    return this.sendHttpRequest(this.http.put<T>(url, obj));
+  public put<T>(
+    url: string,
+    obj: T,
+    httpConfCall?: HttpConfCall
+  ): Observable<T> {
+    return this.sendHttpRequest(this.http.put<T>(url, obj), httpConfCall);
   }
 
   private sendHttpRequest<T>(
-    httpObservableRequest: Observable<T>
+    httpObservableRequest: Observable<T>,
+    httpConfCall: HttpConfCall = { withSpinner: true }
   ): Observable<T> {
-    this.spinnerService.open();
+    if (httpConfCall.withSpinner) {
+      this.spinnerService.open();
+    }
     return httpObservableRequest.pipe(
       tap({
         next: () => {
           this.spinnerService.close();
+          console.error('ok');
         },
         error: (httpErrorResponse: HttpErrorResponse): void => {
           this.spinnerService.close();
