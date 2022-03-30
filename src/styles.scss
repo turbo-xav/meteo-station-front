@@ -32,3 +32,11 @@ table.mat-table {
 .mat-simple-snackbar-action {
   color: $main-color;
 }
+
+.spinner-modal {
+  mat-dialog-container {
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+}

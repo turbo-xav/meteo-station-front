@@ -5,10 +5,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SpinnerLoaderComponent } from './spinner-loader/spinner-loader.component';
 
 @NgModule({
-  declarations: [],
-  imports: [CommonModule],
+  declarations: [SpinnerLoaderComponent],
+  imports: [CommonModule, MaterialModule],
   exports: [
     CommonModule,
     MaterialModule,
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     GoogleChartsModule,
-    RouterModule
+    RouterModule,
+    SpinnerLoaderComponent
   ]
 })
 export class SharedModule {}
