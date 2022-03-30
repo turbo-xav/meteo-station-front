@@ -39,7 +39,8 @@ export class RestApiService {
           this.spinnerService.close();
         },
         error: (httpErrorResponse: HttpErrorResponse): void => {
-          console.warn(httpErrorResponse);
+          this.spinnerService.close();
+          console.error(httpErrorResponse);
         }
       })
     );
